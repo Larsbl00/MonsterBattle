@@ -21,10 +21,14 @@ else
 endif
 
 
+####################################
 # Add additional linking flags
+####################################
 LD_FLAGS=\
 
+####################################
 # Add inclusion directories
+####################################
 INC_FLAGS=\
 	-I$(INC_DIR)
 
@@ -55,11 +59,17 @@ RELEASE_OBJ_DIR=$(OBJ_DIR)/$(RELEASE_NAME)
 LIBS=\
 	Test
 
+#########################################
+# Add your source files and headers here
+#########################################
 SRC=\
 	main.cpp
 
 HEADERS=\
 	$(INC_DIR)/$(wildcard *.h)
+
+
+
 
 # Objects
 OBJECTS=$(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
