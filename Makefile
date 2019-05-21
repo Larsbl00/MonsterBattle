@@ -21,10 +21,10 @@ else
 endif
 
 
-# You need to add all inclusions and libs in here
+# Add additional linking flags
 LD_FLAGS=\
-	-LTestClass
 
+# Add inclusion directories
 INC_FLAGS=\
 	-I$(INC_DIR)
 
@@ -45,6 +45,16 @@ RELEASE_OBJ_DIR=$(OBJ_DIR)/$(RELEASE_NAME)
 ########################################
 
 # You only need to change these files for the Libs, sources and headers respectively
+# Each lib placed here should be a directory containing the cpp and h file of the lib
+#
+#	lib
+#	|- Foo
+#	  |- Foo.cpp
+#	  |- Foo.h
+#
+LIBS=\
+	Test
+
 SRC=\
 	main.cpp
 
@@ -55,21 +65,25 @@ HEADERS=\
 OBJECTS=$(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 DEBUG_OBJECTS=$(addprefix $(DEBUG_OBJ_DIR)/, $(notdir $(OBJECTS)))
 RELEASE_OBJECTS=$(addprefix $(RELEASE_OBJ_DIR)/, $(notdir $(OBJECTS)))
-LD_FLAGS:=$(addprefix -L, $(LIBS))
-LIBS:=$(addprefix $(LIB_DIR)/, $(LIBS))
+LIBS:=$(addprefix $(LIB_DIR)/, $(LIBS)/$(LIBS)$(LIB_EXT))
+
+#generate linking flags
+LD_FLAGS:=$(LD_FLAGS) $(addprefix -L, $(dir $(LIBS))) $(addprefix -l, $(basename $(notdir $(LIBS))))
+INC_FLAGS:=$(INC_FLAGS) $(addprefix -I, $(dir $(LIBS)))
 
 #Vpaths
 vpath %.h $(INC_DIR)
 vpath %.cpp $(SRC_DIR)
+vpath $(LIB_EXT) $(LIB_DIR)
 
 #######################################
 #
 #                Targets
 #
 #######################################
-.PHONY: all dirs clean
+.PHONY: all dirs clean lib
 
-all: dirs $(NAME) $(DEBUG_NAME) $(RELEASE_NAME)
+all: dirs lib $(NAME) $(DEBUG_NAME) $(RELEASE_NAME)
 
 $(NAME): dirs $(OBJECTS)
 	$(CXX) $(CXX_FLAGS) $(INC_FLAGS) $(LD_FLAGS) $(OBJECTS) -o $(BLD_DIR)/$@$(EXTENSION)
@@ -79,6 +93,8 @@ $(DEBUG_NAME): dirs $(DEBUG_OBJECTS)
 
 $(RELEASE_NAME): dirs $(RELEASE_OBJECTS)
 	$(CXX) $(CXX_FLAGS) $(RELEASE_FLAGS) $(INC_FLAGS) $(LD_FLAGS) $(RELEASE_OBJECTS) -o $(BLD_DIR)/$@-$(subst .,-,$(VERSION))$(EXTENSION)
+
+lib: $(LIBS)
 
 dirs:
 	@mkdir -p $(LIB_DIR)
@@ -105,3 +121,6 @@ $(DEBUG_OBJ_DIR)/%.o: %.cpp Makefile
 
 $(RELEASE_OBJ_DIR)/%.o: %.cpp Makefile
 	$(CXX) $(CXX_FLAGS) $(RELEASE_FLAGS) $(LD_FLAGS) $(INC_FLAGS) -c $< -o $@
+
+%$(LIB_EXT): %.cpp | %.h
+	$(CXX) $(CXX_FLAGS) -fPIC -shared -c $^ -o $(addprefix $(dir $@)lib, $(notdir $@))
