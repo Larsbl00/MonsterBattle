@@ -56,8 +56,7 @@ RELEASE_OBJ_DIR=$(OBJ_DIR)/$(RELEASE_NAME)
 #	  |- Foo.cpp
 #	  |- Foo.h
 #
-LIBS=\
-	Test
+LIBS=
 
 #########################################
 # Add your source files and headers here
