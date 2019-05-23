@@ -95,13 +95,13 @@ vpath $(LIB_EXT) $(LIB_DIR)
 all: dirs lib $(NAME) $(DEBUG_NAME) $(RELEASE_NAME)
 
 $(NAME): dirs $(OBJECTS)
-	$(CXX) $(CXX_FLAGS) $(INC_FLAGS) $(LD_FLAGS) $(OBJECTS) -o $(BLD_DIR)/$@$(EXTENSION)
+	$(CXX) $(CXX_FLAGS) $(INC_FLAGS) $(OBJECTS) -o $(BLD_DIR)/$@$(EXTENSION) $(LD_FLAGS)
 
 $(DEBUG_NAME): dirs $(DEBUG_OBJECTS)
-	$(CXX) $(CXX_FLAGS) $(DEBUG_FLAGS) $(INC_FLAGS) $(LD_FLAGS) $(DEBUG_OBJECTS) -o $(BLD_DIR)/$@$(EXTENSION)
+	$(CXX) $(CXX_FLAGS) $(DEBUG_FLAGS) $(INC_FLAGS) $(DEBUG_OBJECTS) -o $(BLD_DIR)/$@$(EXTENSION) $(LD_FLAGS) 
 
 $(RELEASE_NAME): dirs $(RELEASE_OBJECTS)
-	$(CXX) $(CXX_FLAGS) $(RELEASE_FLAGS) $(INC_FLAGS) $(LD_FLAGS) $(RELEASE_OBJECTS) -o $(BLD_DIR)/$@-$(subst .,-,$(VERSION))$(EXTENSION)
+	$(CXX) $(CXX_FLAGS) $(RELEASE_FLAGS) $(INC_FLAGS) $(RELEASE_OBJECTS) -o $(BLD_DIR)/$@-$(subst .,-,$(VERSION))$(EXTENSION) $(LD_FLAGS) 
 
 lib: $(LIBS)
 
@@ -123,13 +123,13 @@ clean:
 #Compilers
 #Makefile is used for the header dependency
 $(OBJ_DIR)/%.o: %.cpp Makefile
-	$(CXX) $(CXX_FLAGS) $(LD_FLAGS) $(INC_FLAGS) -c $< -o $@
+	$(CXX) $(CXX_FLAGS) $(INC_FLAGS) -c $< -o $@ $(LD_FLAGS)
 
 $(DEBUG_OBJ_DIR)/%.o: %.cpp Makefile
-	$(CXX) $(CXX_FLAGS) $(DEBUG_FLAGS) $(LD_FLAGS) $(INC_FLAGS) -c $< -o $@
+	$(CXX) $(CXX_FLAGS) $(DEBUG_FLAGS) $(INC_FLAGS) -c $< -o $@ $(LD_FLAGS)
 
 $(RELEASE_OBJ_DIR)/%.o: %.cpp Makefile
-	$(CXX) $(CXX_FLAGS) $(RELEASE_FLAGS) $(LD_FLAGS) $(INC_FLAGS) -c $< -o $@
+	$(CXX) $(CXX_FLAGS) $(RELEASE_FLAGS) $(INC_FLAGS) -c $< -o $@ $(LD_FLAGS) 
 
 %$(LIB_EXT): %.cpp | %.h
 	$(CXX) $(CXX_FLAGS) -fPIC -shared -c $^ -o $(addprefix $(dir $@)lib, $(notdir $@))
