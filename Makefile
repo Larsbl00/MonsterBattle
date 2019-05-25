@@ -56,7 +56,7 @@ RELEASE_OBJ_DIR=$(OBJ_DIR)/$(RELEASE_NAME)
 #	  |- Foo.cpp
 #	  |- Foo.h
 #
-LIBS=
+LIBS=\
 
 #########################################
 # Add your source files and headers here
@@ -74,15 +74,17 @@ HEADERS=\
 OBJECTS=$(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
 DEBUG_OBJECTS=$(addprefix $(DEBUG_OBJ_DIR)/, $(notdir $(OBJECTS)))
 RELEASE_OBJECTS=$(addprefix $(RELEASE_OBJ_DIR)/, $(notdir $(OBJECTS)))
-LIBS:=$(addprefix $(LIB_DIR)/, $(LIBS)/$(LIBS)$(LIB_EXT))
+ifneq ($(LIBS), ) #If there are no libs, skip this
+	LIBS:=$(addprefix $(LIB_DIR)/, $(LIBS)/$(LIBS)$(LIB_EXT))
+endif
 
 #generate linking flags
 LD_FLAGS:=$(LD_FLAGS) $(addprefix -L, $(dir $(LIBS))) $(addprefix -l, $(basename $(notdir $(LIBS))))
 INC_FLAGS:=$(INC_FLAGS) $(addprefix -I, $(dir $(LIBS)))
 
 #Vpaths
-vpath %.h $(sort $(dir $(HEADERS)))
-vpath %.cpp $(sort $(dir $(SRC)))
+vpath %.h $(INC_DIR) $(sort $(dir $(HEADERS)))
+vpath %.cpp  $(SRC_DIR) $(sort $(dir $(SRC)))
 vpath $(LIB_EXT) $(LIB_DIR)
 
 #######################################
@@ -92,7 +94,7 @@ vpath $(LIB_EXT) $(LIB_DIR)
 #######################################
 .PHONY: all dirs clean lib
 
-all: dirs lib $(NAME) $(DEBUG_NAME) $(RELEASE_NAME)
+all: dirs $(NAME) $(DEBUG_NAME) $(RELEASE_NAME)
 
 $(NAME): dirs $(OBJECTS)
 	$(CXX) $(CXX_FLAGS) $(INC_FLAGS) $(OBJECTS) -o $(BLD_DIR)/$@$(EXTENSION) $(LD_FLAGS)
