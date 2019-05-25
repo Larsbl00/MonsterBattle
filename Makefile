@@ -81,8 +81,8 @@ LD_FLAGS:=$(LD_FLAGS) $(addprefix -L, $(dir $(LIBS))) $(addprefix -l, $(basename
 INC_FLAGS:=$(INC_FLAGS) $(addprefix -I, $(dir $(LIBS)))
 
 #Vpaths
-vpath %.h $(INC_DIR)
-vpath %.cpp $(SRC_DIR)
+vpath %.h $(sort $(dir $(HEADERS)))
+vpath %.cpp $(sort $(dir $(SRC)))
 vpath $(LIB_EXT) $(LIB_DIR)
 
 #######################################
