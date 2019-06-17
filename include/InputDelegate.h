@@ -16,7 +16,7 @@ struct InputDelegate
 {
     virtual ~InputDelegate(){}
 
-    virtual void onKeyPress(char* input) = 0;
+    virtual void onKeyPress(const char* input) = 0;
 };
 
 #endif

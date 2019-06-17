@@ -62,7 +62,8 @@ LIBS=\
 # Add your source files and headers here
 #########################################
 SRC=\
-	main.cpp
+	main.cpp \
+	InputReader.cpp
 
 HEADERS=\
 	$(INC_DIR)/$(wildcard *.h)
