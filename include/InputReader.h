@@ -16,11 +16,7 @@
 #include <cstring>
 
 //Check platform
-#ifdef _WIN32
-    #include <Windows.h>
-#else
-    #include <termios.h>
-#endif
+#include <termios.h>
 
 
 #include "InputDelegate.h"
@@ -42,12 +38,8 @@ class InputReader
     private:
     InputDelegate& delegate;
 
-    #ifdef _WIN32
-    
-    #else
     struct termios newAttributes;
     struct termios oldAttributes;
-    #endif
 };
 
 #endif

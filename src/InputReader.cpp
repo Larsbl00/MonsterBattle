@@ -14,44 +14,29 @@
 InputReader::InputReader(InputDelegate& delegate):
     delegate(delegate)
 {
-    #ifdef _WIN32
+    //Copy old attributes
+    tcgetattr(fileno(stdin), &this->oldAttributes);
 
-    #else
-        //Copy old attributes
-        tcgetattr(fileno(stdin), &this->oldAttributes);
+    //Edit the attributes
+    memcpy(&this->newAttributes, &this->oldAttributes, sizeof(this->newAttributes));
+    this->newAttributes &= ~(ECHO | ICANNON);
+    this->newAttributes.c_cc[VTIME] = 0;
+    this->newAttributes.c_cc[VMIN] = 0;
 
-        //Edit the attributes
-        memcpy(&this->newAttributes, &this->oldAttributes, sizeof(this->newAttributes));
-        this->newAttributes &= ~(ECHO | ICANNON);
-        this->newAttributes.c_cc[VTIME] = 0;
-        this->newAttributes.c_cc[VMIN] = 0;
-
-        //Set the new attributes
-        tcsetattr(fileno(stdin), TCSANOW, this->newAttributes);
-    #endif
+    //Set the new attributes
+    tcsetattr(fileno(stdin), TCSANOW, this->newAttributes);
 }
 
 InputReader::~InputReader()
 {
-    #ifdef _WIN32
-
-    #else
-        //Restore the attributes
-        tcsetattr(fileno(stdin), TCSANOW, this->oldAttributes);
-    #endif
+    //Restore the attributes
+    tcsetattr(fileno(stdin), TCSANOW, this->oldAttributes);
 }
 
 void InputReader::update()
 {
-    /** Input reader in Windows */
-    #ifdef _WIN32
-        
-
-    /** Input reader for Linux/MacOs */
-    #else
-        char input = fgetc(stdin);
-        if (input >= 0) this->delegate.onKeyPress(&input);
-    #endif
+    char input = fgetc(stdin);
+    if (input >= 0) this->delegate.onKeyPress(&input);
 }
 
 void InputReader::setDelegate(InputDelegate& delegate)
