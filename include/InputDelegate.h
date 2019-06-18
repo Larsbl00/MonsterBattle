@@ -17,7 +17,6 @@ struct InputDelegate
     virtual ~InputDelegate(){}
 
     virtual void onKeyPress(char pressedKey) = 0;
-    virtual void onKeyRelease(char releasedKey) = 0;
 };
 
 #endif
