@@ -38,7 +38,7 @@ LIB_DIR=./lib
 SRC_DIR=./src
 INC_DIR=./include
 BLD_DIR=./build
-OBJ_DIR=./obj
+OBJ_DIR=$(BLD_DIR)/obj
 DEBUG_OBJ_DIR=$(OBJ_DIR)/$(DEBUG_NAME)
 RELEASE_OBJ_DIR=$(OBJ_DIR)/$(RELEASE_NAME)
 
@@ -62,7 +62,8 @@ LIBS=\
 # Add your source files and headers here
 #########################################
 SRC=\
-	main.cpp
+	main.cpp \
+	InputReader.cpp
 
 HEADERS=\
 	$(INC_DIR)/$(wildcard *.h)
