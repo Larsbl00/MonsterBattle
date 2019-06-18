@@ -8,9 +8,14 @@ class Test: public InputDelegate
 {
     public:
 
-    void onKeyPress(const char* input)
+    void onKeyPress(char input)
     {
         std::cout << "Pressed: " << input << std::endl;
+    }
+
+    void onKeyRelease(char input)
+    {
+        std::cout << "Let go of: " << input << std::endl;
     }
 };
 

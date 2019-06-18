@@ -14,8 +14,6 @@
 
 #include <iostream>
 #include <cstring>
-
-//Check platform
 #include <termios.h>
 
 
@@ -25,7 +23,7 @@ class InputReader
 {
     public:
     InputReader(InputDelegate& delegate);
-    ~InputReader() noexcept;
+    ~InputReader();
 
     void update();
 

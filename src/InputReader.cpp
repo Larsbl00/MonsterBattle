@@ -19,24 +19,21 @@ InputReader::InputReader(InputDelegate& delegate):
 
     //Edit the attributes
     memcpy(&this->newAttributes, &this->oldAttributes, sizeof(this->newAttributes));
-    this->newAttributes &= ~(ECHO | ICANNON);
-    this->newAttributes.c_cc[VTIME] = 0;
-    this->newAttributes.c_cc[VMIN] = 0;
+    this->newAttributes.c_lflag &= ~(ECHO | ICANON);
 
     //Set the new attributes
-    tcsetattr(fileno(stdin), TCSANOW, this->newAttributes);
+    tcsetattr(fileno(stdin), TCSANOW, &this->newAttributes);
 }
 
 InputReader::~InputReader()
 {
     //Restore the attributes
-    tcsetattr(fileno(stdin), TCSANOW, this->oldAttributes);
+    tcsetattr(fileno(stdin), TCSANOW, &this->oldAttributes);
 }
 
 void InputReader::update()
-{
-    char input = fgetc(stdin);
-    if (input >= 0) this->delegate.onKeyPress(&input);
+{   
+    this->delegate.onKeyPress(fgetc(stdin));
 }
 
 void InputReader::setDelegate(InputDelegate& delegate)
