@@ -1,32 +1,17 @@
 #include <iostream>
+#include <thread>
 
+#include "Game.h"
 #include "InputReader.h"
-#include "InputDelegate.h"
 
 
-class Test: public monsterbattle::InputDelegate
-{
-    public:
 
-    void onKeyPress(char input)
-    {
-        std::cout << "Pressed: " << input << std::endl;
-    }
 
-    void onKeyRelease(char input)
-    {
-        std::cout << "Let go of: " << input << std::endl;
-    }
-};
 
 int main(void)
 {
-    Test t;
-    monsterbattle::InputReader reader(t);
+    monsterbattle::Game game;
 
-    while(1)
-    {
-        reader.update();
-    }
+
     return 0;
 }
