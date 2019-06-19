@@ -23,15 +23,10 @@ namespace monsterbattle
     struct IDisplay
     {
         virtual ~IDisplay(){}
-        /**
-         * @brief Adds an item to an internal queue
-         * 
-         * @param item 
-        */
-        virtual void addToDisplayQueue(const std::shared_ptr<IDisplayable*> item) = 0;
 
-        virtual const Vector2i32& getSize() const;
-        virtual void setPixel(const Vector2i32& pixel, char value);
+        virtual void clear() = 0;
+        virtual const Vector2i32& getSize() const = 0;
+        virtual void setPixel(const Vector2i32& pixel, char value) = 0;
     };
     
 }

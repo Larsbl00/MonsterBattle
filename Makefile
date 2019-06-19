@@ -65,7 +65,8 @@ LIBS=\
 SRC=\
 	main.cpp \
 	InputReader.cpp\
-	Game.cpp
+	Game.cpp \
+	TerminalDisplay.cpp \
 
 HEADERS=\
 	$(INC_DIR)/$(wildcard *.h)
