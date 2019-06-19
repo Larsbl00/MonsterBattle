@@ -9,8 +9,8 @@
  * 
 */
 
-#ifndef TERMINAL_DISPLAY
-#define TERMINAL_DISPLAY
+#ifndef TERMINAL_DISPLAY_H
+#define TERMINAL_DISPLAY_H
 
 #include <sys/ioctl.h>
 

@@ -67,6 +67,7 @@ SRC=\
 	InputReader.cpp\
 	Game.cpp \
 	TerminalDisplay.cpp \
+	DisplayManager.cpp \
 
 HEADERS=\
 	$(INC_DIR)/$(wildcard *.h)
