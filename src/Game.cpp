@@ -1,6 +1,6 @@
 /**
  * @file Game.cpp
- * @author your name (you@domain.com)
+ * @author Lars Bloemers
  * @brief 
  * @version 0.1
  * @date 2019-06-19

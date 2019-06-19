@@ -2,9 +2,7 @@
 #include <thread>
 
 #include "Game.h"
-#include "InputReader.h"
-
-
+#include "IDisplay.h"
 
 
 
