@@ -19,25 +19,28 @@
 
 #include "InputDelegate.h"
 
-class InputReader
+namespace monsterbattle
 {
-    public:
-    InputReader(InputDelegate& delegate);
-    ~InputReader();
+    class InputReader
+    {
+        public:
+        InputReader(InputDelegate& delegate);
+        ~InputReader();
 
-    void update();
+        void update();
 
-    /**
-     * @brief Sets the input delegation
-     * 
-     */
-    void setDelegate(InputDelegate& delegate);
+        /**
+         * @brief Sets the input delegation
+         * 
+         */
+        void setDelegate(InputDelegate& delegate);
 
-    private:
-    InputDelegate& delegate;
+        private:
+        InputDelegate& delegate;
 
-    struct termios newAttributes;
-    struct termios oldAttributes;
-};
+        struct termios newAttributes;
+        struct termios oldAttributes;
+    };
+}
 
 #endif

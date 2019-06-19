@@ -4,7 +4,7 @@
 #include "InputDelegate.h"
 
 
-class Test: public InputDelegate
+class Test: public monsterbattle::InputDelegate
 {
     public:
 
@@ -22,7 +22,7 @@ class Test: public InputDelegate
 int main(void)
 {
     Test t;
-    InputReader reader(t);
+    monsterbattle::InputReader reader(t);
 
     while(1)
     {

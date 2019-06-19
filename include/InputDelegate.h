@@ -12,11 +12,14 @@
 #ifndef INPUT_DELEGATE_H
 #define INPUT_DELEGATE_H
 
-struct InputDelegate
+namespace monsterbattle
 {
-    virtual ~InputDelegate(){}
+    struct InputDelegate
+    {
+        virtual ~InputDelegate(){}
 
-    virtual void onKeyPress(char pressedKey) = 0;
-};
+        virtual void onKeyPress(char pressedKey) = 0;
+    };
+}
 
 #endif

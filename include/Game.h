@@ -11,13 +11,16 @@
 #ifndef GAME_H
 #define GAME_H
 
-class Game
+namespace monsterbattle
 {
-    public:
+    class Game
+    {
+        public:
 
 
-    private:
+        private:
 
-};
+    };
+}
 
 #endif
