@@ -18,7 +18,7 @@
 
 namespace monsterbattle
 {
-    struct IDisplayable;
+    struct IDisplayable; //Forward deeclaration so we can use it
 
     struct IDisplay
     {

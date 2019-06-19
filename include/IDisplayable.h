@@ -17,7 +17,8 @@
 
 namespace monsterbattle
 {
-    struct IDisplay;
+    struct IDisplay; //Forward decleration, so we can use it 
+    
     struct IDisplayable
     {
         virtual ~IDisplayable(){}

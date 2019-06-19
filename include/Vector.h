@@ -14,35 +14,45 @@
  
 #include <iostream>
 #include <cstdint>
+#include <utility>
 
 namespace monsterbattle
 {
     template<typename T>
     struct Vector
     {
+        Vector():
+            x(0), y(0)
+        {}
+
         Vector(const T& x, const T& y):
             x(x), y(y)
         {}
 
-        Vector(const Vector& other) = default;
-        virtual ~Vector();
+        Vector(const Vector& other):
+            x(other.x), y(other.y)
+        {}
+
+        virtual ~Vector()
+        {}
 
         T x,y;  
 
-        Vector&& operator=(const Vector& other) = default;
-        void operator*=(const Vector& other){this->x *= other.x; this->y *= other.y;}
-        void operator+=(const Vector& other){this->x += other.x; this->y += other.y;}
-        void operator-=(const Vector& other){this->x -= other.x; this->y -= other.y;}
-        void operator/=(const Vector& other){this->x /= other.x; this->y /= other.y;}
+        void operator*=(const Vector& other) { this->x *= other.x; this->y *= other.y; }
+        void operator+=(const Vector& other) { this->x += other.x; this->y += other.y; }
+        void operator-=(const Vector& other) { this->x -= other.x; this->y -= other.y; }
+        void operator/=(const Vector& other) { this->x /= other.x; this->y /= other.y; }
         
-        Vector&& operator*(const Vector& other) {return Vector(this->x * other.x, this->y * other.y);}
-        Vector&& operator+(const Vector& other) {return Vector(this->x + other.x, this->y + other.y);}
-        Vector&& operator-(const Vector& other) {return Vector(this->x - other.x, this->y - other.y);}
-        Vector&& operator/(const Vector& other) {return Vector(this->x / other.x, this->y / other.y);}
+        Vector operator=(const Vector& other) { return std::move(Vector(other.x, other.y)); }
+        Vector operator*(const Vector& other) { return std::move(Vector(this->x * other.x, this->y * other.y)); }
+        Vector operator+(const Vector& other) { return std::move(Vector(this->x + other.x, this->y + other.y)); }
+        Vector operator-(const Vector& other) { return std::move(Vector(this->x - other.x, this->y - other.y)); }
+        Vector operator/(const Vector& other) { return std::move(Vector(this->x / other.x, this->y / other.y)); }
 
-        friend std::ostream& operator<<(std::ostream& stream, const Vector<T> vec)
-        {
-            return std::cout << '{' << vec.x << ',' << vec.y << '}';
+        template <typename U>
+        friend std::ostream& operator<<(std::ostream& stream, const Vector<U>& vec)
+        { 
+            return stream << '{' << vec.x << ',' << vec.y << '}'; 
         }
     };
 
