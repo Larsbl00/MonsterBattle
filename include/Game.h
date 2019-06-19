@@ -11,14 +11,33 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <thread>
+
+#include "InputReader.h"
+#include "InputDelegate.h"
+
 namespace monsterbattle
 {
-    class Game
+
+    class Game: public InputDelegate
     {
         public:
 
+        Game();
+        Game(const Game& other) = delete;
+        ~Game() noexcept;
+
+        friend inline void updateGameInput(Game* game, bool& isUpdating);
+
+        Game&& operator=(const Game& other) = delete;
 
         private:
+        bool isUpdatingReader;
+        InputReader inputReader;
+        std::thread inputThread;
+
+
+        void onKeyPress(char pressedKey);
 
     };
 }

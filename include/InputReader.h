@@ -15,6 +15,7 @@
 #include <iostream>
 #include <cstring>
 #include <termios.h>
+#include <unistd.h>
 
 
 #include "InputDelegate.h"
@@ -25,7 +26,8 @@ namespace monsterbattle
     {
         public:
         InputReader(InputDelegate& delegate);
-        ~InputReader();
+        InputReader(const InputReader& other) = delete;
+        virtual ~InputReader() noexcept;
 
         void update();
 

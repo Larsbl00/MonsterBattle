@@ -6,7 +6,7 @@ RELEASE_NAME=$(NAME)-release
 
 #Compiler and flags
 CXX=g++
-CXX_FLAGS=-Wall -Wextra -Werror
+CXX_FLAGS=-Wall -Wextra -Werror -std=c++11
 
 DEBUG_FLAGS=-O0 -g
 RELEASE_FLAGS=-O3
@@ -25,6 +25,7 @@ endif
 # Add additional linking flags
 ####################################
 LD_FLAGS=\
+	-lpthread
 
 ####################################
 # Add inclusion directories
@@ -63,7 +64,8 @@ LIBS=\
 #########################################
 SRC=\
 	main.cpp \
-	InputReader.cpp
+	InputReader.cpp\
+	Game.cpp
 
 HEADERS=\
 	$(INC_DIR)/$(wildcard *.h)

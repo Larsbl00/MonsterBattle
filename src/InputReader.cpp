@@ -35,7 +35,24 @@ namespace monsterbattle
 
     void InputReader::update()
     {   
-        this->delegate.onKeyPress(fgetc(stdin));
+        fd_set set;
+        struct timeval timeout = {.tv_sec=0, .tv_usec=100};
+
+        FD_ZERO(&set);
+        FD_SET(fileno(stdin), &set);
+
+        int selectResponse = select(fileno(stdin) + 1, &set, NULL, NULL, &timeout);
+
+        if (selectResponse <= EOF) 
+        {
+            throw std::runtime_error("Cannot set timeout for stdin");
+        }
+        else if(selectResponse > 0) 
+        {
+            char readChar;
+            read(fileno(stdin), &readChar, sizeof(readChar));
+            this->delegate.onKeyPress(fgetc(stdin));
+        }
     }
 
     void InputReader::setDelegate(InputDelegate& delegate)
