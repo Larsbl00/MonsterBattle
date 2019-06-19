@@ -26,9 +26,9 @@ namespace monsterbattle
         /**
          * @brief 
          * 
-         * @param display A display interface to display on
+         * @param display 
         */
-        virtual void display(std::shared_ptr<IDisplay> display) const = 0;
+        virtual void display(IDisplay& display) const = 0;
     };
 }
 

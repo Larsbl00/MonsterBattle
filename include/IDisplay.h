@@ -30,21 +30,8 @@ namespace monsterbattle
         */
         virtual void addToDisplayQueue(const std::shared_ptr<IDisplayable*> item) = 0;
 
-        /**
-         * @brief Displays all items in the internal queue
-         * 
-        */
-        virtual void displayQueue() = 0;
-
         virtual const Vector2i32& getSize() const;
         virtual void setPixel(const Vector2i32& pixel, char value);
-
-        /**
-         * @brief Removes an item from an internal queue
-         * 
-         * @param item 
-        */
-        virtual void removeFromDisplayQueue(const std::shared_ptr<IDisplayable*> item) = 0;
     };
     
 }
