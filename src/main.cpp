@@ -30,7 +30,7 @@ int main(void)
     auto& displayManager = monsterbattle::DisplayManager::getInstance();
     displayManager.setDisplay(std::shared_ptr<monsterbattle::IDisplay>(new monsterbattle::TerminalDisplay));
 
-    displayManager.addToRenderQueue(std::shared_ptr<monsterbattle::IDisplayable>(new TestItem));
+    displayManager.addToRenderQueue(std::shared_ptr<monsterbattle::IDisplayable>(new TestItem()));
 
     displayManager.displayAllItems();
 

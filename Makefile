@@ -110,6 +110,10 @@ $(DEBUG_NAME): dirs $(DEBUG_OBJECTS)
 $(RELEASE_NAME): dirs $(RELEASE_OBJECTS)
 	$(CXX) $(CXX_FLAGS) $(RELEASE_FLAGS) $(INC_FLAGS) $(RELEASE_OBJECTS) -o $(BLD_DIR)/$@-$(subst .,-,$(VERSION))$(EXTENSION) $(LD_FLAGS) 
 
+debug: $(DEBUG_NAME)
+
+release: $(RELEASE_NAME)
+
 lib: $(LIBS)
 
 dirs:
