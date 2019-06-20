@@ -130,13 +130,13 @@ clean:
 #Compilers
 #Makefile is used for the header dependency
 $(OBJ_DIR)/%.o: %.cpp Makefile
-	$(CXX) $(CXX_FLAGS) $(INC_FLAGS) -c $< -o $@ $(LD_FLAGS)
+	$(CXX) $(CXX_FLAGS) $(INC_FLAGS) -c $< -o $@ 
 
 $(DEBUG_OBJ_DIR)/%.o: %.cpp Makefile
-	$(CXX) $(CXX_FLAGS) $(DEBUG_FLAGS) $(INC_FLAGS) -c $< -o $@ $(LD_FLAGS)
+	$(CXX) $(CXX_FLAGS) $(DEBUG_FLAGS) $(INC_FLAGS) -c $< -o $@ 
 
 $(RELEASE_OBJ_DIR)/%.o: %.cpp Makefile
-	$(CXX) $(CXX_FLAGS) $(RELEASE_FLAGS) $(INC_FLAGS) -c $< -o $@ $(LD_FLAGS) 
+	$(CXX) $(CXX_FLAGS) $(RELEASE_FLAGS) $(INC_FLAGS) -c $< -o $@ 
 
 %$(LIB_EXT): %.cpp | %.h
 	$(CXX) $(CXX_FLAGS) -fPIC -shared -c $^ -o $(addprefix $(dir $@)lib, $(notdir $@))

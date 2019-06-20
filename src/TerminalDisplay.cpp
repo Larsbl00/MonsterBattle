@@ -26,7 +26,7 @@ namespace monsterbattle
 
     }
 
-    TerminalDisplay::~TerminalDisplay()
+    TerminalDisplay::~TerminalDisplay() noexcept
     {
 
     }

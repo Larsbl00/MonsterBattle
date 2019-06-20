@@ -27,7 +27,7 @@ namespace monsterbattle
     {
     }
 
-    Game::~Game()
+    Game::~Game() noexcept
     {
         //Stop updating the reader
         this->isUpdatingReader = false;
