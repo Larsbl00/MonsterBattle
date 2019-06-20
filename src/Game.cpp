@@ -1,6 +1,6 @@
 /**
  * @file Game.cpp
- * @author your name (you@domain.com)
+ * @author Lars Bloemers
  * @brief 
  * @version 0.1
  * @date 2019-06-19
@@ -27,7 +27,7 @@ namespace monsterbattle
     {
     }
 
-    Game::~Game()
+    Game::~Game() noexcept
     {
         //Stop updating the reader
         this->isUpdatingReader = false;

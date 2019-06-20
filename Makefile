@@ -65,7 +65,9 @@ LIBS=\
 SRC=\
 	main.cpp \
 	InputReader.cpp\
-	Game.cpp
+	Game.cpp \
+	TerminalDisplay.cpp \
+	DisplayManager.cpp \
 
 HEADERS=\
 	$(INC_DIR)/$(wildcard *.h)
@@ -108,6 +110,10 @@ $(DEBUG_NAME): dirs $(DEBUG_OBJECTS)
 $(RELEASE_NAME): dirs $(RELEASE_OBJECTS)
 	$(CXX) $(CXX_FLAGS) $(RELEASE_FLAGS) $(INC_FLAGS) $(RELEASE_OBJECTS) -o $(BLD_DIR)/$@-$(subst .,-,$(VERSION))$(EXTENSION) $(LD_FLAGS) 
 
+debug: $(DEBUG_NAME)
+
+release: $(RELEASE_NAME)
+
 lib: $(LIBS)
 
 dirs:
@@ -128,13 +134,13 @@ clean:
 #Compilers
 #Makefile is used for the header dependency
 $(OBJ_DIR)/%.o: %.cpp Makefile
-	$(CXX) $(CXX_FLAGS) $(INC_FLAGS) -c $< -o $@ $(LD_FLAGS)
+	$(CXX) $(CXX_FLAGS) $(INC_FLAGS) -c $< -o $@ 
 
 $(DEBUG_OBJ_DIR)/%.o: %.cpp Makefile
-	$(CXX) $(CXX_FLAGS) $(DEBUG_FLAGS) $(INC_FLAGS) -c $< -o $@ $(LD_FLAGS)
+	$(CXX) $(CXX_FLAGS) $(DEBUG_FLAGS) $(INC_FLAGS) -c $< -o $@ 
 
 $(RELEASE_OBJ_DIR)/%.o: %.cpp Makefile
-	$(CXX) $(CXX_FLAGS) $(RELEASE_FLAGS) $(INC_FLAGS) -c $< -o $@ $(LD_FLAGS) 
+	$(CXX) $(CXX_FLAGS) $(RELEASE_FLAGS) $(INC_FLAGS) -c $< -o $@ 
 
 %$(LIB_EXT): %.cpp | %.h
 	$(CXX) $(CXX_FLAGS) -fPIC -shared -c $^ -o $(addprefix $(dir $@)lib, $(notdir $@))

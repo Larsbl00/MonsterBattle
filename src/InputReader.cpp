@@ -27,7 +27,7 @@ namespace monsterbattle
         tcsetattr(fileno(stdin), TCSANOW, &this->newAttributes);
     }
 
-    InputReader::~InputReader()
+    InputReader::~InputReader() noexcept
     {
         //Restore the attributes
         tcsetattr(fileno(stdin), TCSANOW, &this->oldAttributes);
