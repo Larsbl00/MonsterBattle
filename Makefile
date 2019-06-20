@@ -68,6 +68,7 @@ SRC=\
 	Game.cpp \
 	TerminalDisplay.cpp \
 	DisplayManager.cpp \
+	TypeWeaknessManager.cpp \
 
 HEADERS=\
 	$(INC_DIR)/$(wildcard *.h)

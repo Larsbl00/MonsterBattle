@@ -12,15 +12,20 @@
 #ifndef TYPE_H
 #define TYPE_H
 
-enum class Type
+namespace monsterbattle
 {
-    NONE,
-    FIRE,
-    WATER,
-    GRASS,
-    ROCK,
-    FLYING,
-    ICE
-};
+    enum class Type
+    {
+        NONE,
+        FIRE,
+        WATER,
+        GRASS,
+        GROUND,
+        FLYING,
+        ICE,
+        ELECTRIC
+    };
+
+}
 
 #endif

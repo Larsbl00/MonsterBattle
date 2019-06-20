@@ -8,6 +8,7 @@
 #include "Vector.h"
 #include "DisplayManager.h"
 #include "TerminalDisplay.h"
+#include "TypeWeaknessManager.h"
 
 int main(void)
 {
