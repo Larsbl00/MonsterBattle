@@ -21,12 +21,6 @@ namespace monsterbattle
         uint32_t height = size.ws_col;
 
         this->size = Vector2i32(width, height);
-
-        std::cout << size.ws_col << 'x' << size.ws_row << std::endl;
-
-        std::cout << this->size << std::endl;
-
-        std::cout << this->size.x << 'x' << this->size.y << std::endl;
     }
 
     TerminalDisplay::TerminalDisplay(const Vector2i32& size):
