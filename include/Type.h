@@ -12,9 +12,11 @@
 #ifndef TYPE_H
 #define TYPE_H
 
+#include <cstdint>
+
 namespace monsterbattle
 {
-    enum class Type
+    enum class Type: uint8_t
     {
         NONE,
         FIRE,
