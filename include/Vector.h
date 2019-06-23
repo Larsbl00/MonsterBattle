@@ -46,10 +46,10 @@ namespace monsterbattle
         void operator/=(const Vector& other) { this->x /= other.x; this->y /= other.y; }
         void operator=(const Vector& other) { this->x = other.x; this->y = other.y; }  
 
-        Vector&& operator*(const Vector& other) { return std::move(Vector(this->x * other.x, this->y * other.y)); }
-        Vector&& operator+(const Vector& other) { return std::move(Vector(this->x + other.x, this->y + other.y)); }
-        Vector&& operator-(const Vector& other) { return std::move(Vector(this->x - other.x, this->y - other.y)); }
-        Vector&& operator/(const Vector& other) { return std::move(Vector(this->x / other.x, this->y / other.y)); }
+        Vector operator*(const Vector& other) { return std::move(Vector(this->x * other.x, this->y * other.y)); }
+        Vector operator+(const Vector& other) { return std::move(Vector(this->x + other.x, this->y + other.y)); }
+        Vector operator-(const Vector& other) { return std::move(Vector(this->x - other.x, this->y - other.y)); }
+        Vector operator/(const Vector& other) { return std::move(Vector(this->x / other.x, this->y / other.y)); }
 
         template <typename U>
         friend std::ostream& operator<<(std::ostream& stream, const Vector<U>& vec)
