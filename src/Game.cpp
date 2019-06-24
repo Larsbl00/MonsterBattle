@@ -11,6 +11,8 @@
 
 #include "Game.h"
 
+#include "DisplayManager.h"
+
 namespace monsterbattle 
 {
     inline void updateGameInput(Game* game, bool& isUpdating)
@@ -25,6 +27,7 @@ namespace monsterbattle
     Game::Game():
         isUpdatingReader(true), inputReader(*this), inputThread(updateGameInput, this, std::ref(this->isUpdatingReader))
     {
+
     }
 
     Game::~Game() noexcept
