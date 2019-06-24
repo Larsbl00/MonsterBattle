@@ -14,6 +14,7 @@
 
 #include <string>
 #include <cstdint>
+#include <stdexcept>
 
 #include "Stats.h"
 #include "Type.h"
