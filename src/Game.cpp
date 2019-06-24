@@ -13,7 +13,7 @@
 
 namespace monsterbattle 
 {
-    void updateGameInput(Game* game, bool& isUpdating)
+    inline void updateGameInput(Game* game, bool& isUpdating)
     {
         while (isUpdating)
         {

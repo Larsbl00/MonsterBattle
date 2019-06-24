@@ -29,7 +29,7 @@ namespace monsterbattle
 
         friend inline void updateGameInput(Game* game, bool& isUpdating);
 
-        Game&& operator=(const Game& other) = delete;
+        void operator=(const Game& other) = delete;
 
         private:
         bool isUpdatingReader;
