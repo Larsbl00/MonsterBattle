@@ -10,7 +10,7 @@
 #include "TerminalDisplay.h"
 #include "TypeWeaknessManager.h"
 #include "Monster.h"
-#include "Sprite.h"
+#include "Model.h"
 
 int main(void)
 {
@@ -22,11 +22,8 @@ int main(void)
 
     monsterbattle::Game game;
 
-    monsterbattle::Sprite spr({
-        {'x', '#', 'X'},
-        {'#', 'X', '#'},
-        {'x', '#', 'X'}
-    });
+    monsterbattle::Model spr("test.txt");
+    spr.load();
 
     displayManager.addToRenderQueue(&spr);
     displayManager.render();

@@ -54,6 +54,10 @@ namespace monsterbattle
         buffer(buffer), location(location), size(buffer[0].size(), buffer.size())
     {}
 
+    Sprite::Sprite(Sprite&& other) noexcept:
+        buffer(std::move(other.buffer)), location(std::move(other.location)), size(std::move(other.size))
+    {}
+
 
     /************************
      * 
@@ -75,6 +79,8 @@ namespace monsterbattle
         }
 
     }
+
+    const Sprite::Buffer_t& Sprite::getBuffer() const { return this->buffer; }
 
     void Sprite::move(const Vector2i32& direction) { this->location += direction; }
 

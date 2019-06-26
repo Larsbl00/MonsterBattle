@@ -71,6 +71,8 @@ SRC=\
 	TypeWeaknessManager.cpp \
 	Monster.cpp \
 	Sprite.cpp \
+	Model.cpp \
+	RaiiFileHandle.cpp \
 
 HEADERS=\
 	$(INC_DIR)/$(wildcard *.h)

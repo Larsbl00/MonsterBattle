@@ -30,22 +30,25 @@ namespace monsterbattle
         using Data_t = char;
         using Buffer_t = std::vector<std::vector<Sprite::Data_t>>;
 
+        Sprite() = default;
         Sprite(const Vector2i32& size);
         Sprite(const Vector2i32& location, const Vector2i32& size);
         Sprite(const Buffer_t& buffer);
         Sprite(Buffer_t&& buffer) noexcept;
         Sprite(const Vector2i32& location, const Buffer_t& buffer);
         Sprite(const Vector2i32& location, Buffer_t&& buffer) noexcept;
-        Sprite(const Sprite& other) = delete;
+        Sprite(Sprite&& other) noexcept;
+        Sprite(const Sprite& other) = default;
         virtual ~Sprite() noexcept = default;
 
         void display(IDisplay& display);
+        const Buffer_t& getBuffer() const;
         void move(const Vector2i32& direction);
         void setBuffer(const Buffer_t& newBuffer);
         void setBuffer(const Vector2i32& position, Sprite::Data_t value);
         void setBuffer(const Vector2i32& position, const Vector2i32& size, Sprite::Data_t value);
 
-        private:
+        protected:
         Buffer_t buffer;
         Vector2i32 location;
         Vector2i32 size;
