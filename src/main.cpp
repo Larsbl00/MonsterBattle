@@ -13,9 +13,11 @@
 
 int main(void)
 {
+    monsterbattle::TerminalDisplay display;
+
     auto& displayManager = monsterbattle::DisplayManager::getInstance();
 
-    displayManager.setDisplay(std::shared_ptr<monsterbattle::IDisplay>(new monsterbattle::TerminalDisplay));
+    displayManager.setDisplay(&display);
 
     monsterbattle::Game game;
 

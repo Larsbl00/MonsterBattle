@@ -30,14 +30,30 @@ namespace monsterbattle
 
         static DisplayManager& getInstance();
 
-        void addToRenderQueue(const std::shared_ptr<IDisplayable>& item);
+        /**
+         * @brief Adds an item to the render queue
+         * 
+         * @param item A pointer to an item that needs to be displayed, keep the item alive while it remains in the queue
+        */
+        void addToRenderQueue(IDisplayable* item);
         void displayAllItems();
-        void removeFromRenderQueue(const std::shared_ptr<IDisplayable>& item);
-        void setDisplay(const std::shared_ptr<IDisplay>& display);
+        /**
+         * @brief 
+         * 
+         * @param item 
+        */
+        void removeFromRenderQueue(IDisplayable* item);
+
+        /**
+         * @brief Set the Display object
+         * 
+         * @param display A pointer to the new display, keep the item alive as long as you're using it
+        */
+        void setDisplay(IDisplay* display);
 
         private:
-        std::shared_ptr<IDisplay> display;
-        std::vector<std::shared_ptr<IDisplayable>> items;
+        IDisplay* display;
+        std::vector<IDisplayable*> items;
 
         DisplayManager();
     };  

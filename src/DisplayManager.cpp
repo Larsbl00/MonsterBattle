@@ -30,7 +30,7 @@ namespace monsterbattle
         return manager;
     }
 
-    void DisplayManager::addToRenderQueue(const std::shared_ptr<IDisplayable>& item)
+    void DisplayManager::addToRenderQueue(IDisplayable* item)
     {
         if (item == nullptr) throw std::invalid_argument("Cannot add NULL to items");
 
@@ -47,12 +47,12 @@ namespace monsterbattle
         }
     }
 
-    void DisplayManager::removeFromRenderQueue(const std::shared_ptr<IDisplayable>& item)
+    void DisplayManager::removeFromRenderQueue(IDisplayable* item)
     {
         this->items.erase(std::remove(this->items.begin(), this->items.end(), item), this->items.end());
     }
 
-    void DisplayManager::setDisplay(const std::shared_ptr<IDisplay>& display)
+    void DisplayManager::setDisplay(IDisplay* display)
     {
         this->display = display;
     }
