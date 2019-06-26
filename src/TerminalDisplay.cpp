@@ -13,30 +13,71 @@
 
 namespace monsterbattle 
 {
-    TerminalDisplay::TerminalDisplay()
+    TerminalDisplay::TerminalDisplay():
+        buffer(nullptr)
     {
         struct winsize size;
         ioctl(fileno(stdout), TIOCGWINSZ, &size);
-        uint32_t width = size.ws_row;
-        uint32_t height = size.ws_col;
 
-        this->size = Vector2i32(width, height);
+        this->size = Vector2i32(size.ws_col, size.ws_row);
+
+        //alloc y
+        this->buffer = new char*[this->size.y];
+        //for each y alloc x
+        for (decltype(this->size.y) y = 0; y < this->size.y; y++)
+        {
+            this->buffer[y] = new char[this->size.x];
+        }
+        
+
+        this->clear();
     }
 
     TerminalDisplay::TerminalDisplay(const Vector2i32& size):
-        size(size)
+        size(size), buffer(new char*[size.y])
     {
+        for (decltype(this->size.y) y = 0; y < this->size.y; y++)
+        {
+            this->buffer[y] = new char[this->size.x];
+        }
 
+        this->clear();
     }
 
     TerminalDisplay::~TerminalDisplay() noexcept
     {
+        for (decltype(this->size.y) y = 0; y < this->size.y; y++)
+        {
+            delete[] this->buffer[y];
+            this->buffer[y] = nullptr;
+        }
 
+        delete[] this->buffer;
+        this->buffer = nullptr;
     }
 
     void TerminalDisplay::clear()
     {
+        for (decltype(this->size.y) y = 0; y < this->size.y; y++)
+        {
+            for (decltype(this->size.x) x = 0; x < this->size.x; x++)
+            {
+                this->buffer[y][x] = TERMINAL_DISPLAY_EMPTY_CHAR;
+            }
+        }
+    }
 
+    void TerminalDisplay::display()
+    {
+        for (decltype(this->size.y) y = 0; y < this->size.y; y++)
+        {
+            for (decltype(this->size.x) x = 0; x < this->size.x; x++)
+            {
+                putc(this->buffer[y][x], stdout);
+            }
+
+            putc('\n', stdout);
+        }
     }
 
     const Vector2i32& TerminalDisplay::getSize() const
@@ -46,6 +87,6 @@ namespace monsterbattle
 
     void TerminalDisplay::setPixel(const Vector2i32& location, char value)
     {
-        std::cout << "Setting " << location << " to: " << value << std::endl;
+        this->buffer[location.y][location.x] = value;
     }
 }

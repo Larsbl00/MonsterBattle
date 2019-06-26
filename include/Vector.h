@@ -60,10 +60,10 @@ namespace monsterbattle
 
     using Vector2f = Vector<float>;
     using Vector2i = Vector<int>;
-    using Vector2i8 = Vector<uint8_t>;
-    using Vector2i16 = Vector<uint16_t>;
-    using Vector2i32 = Vector<uint32_t>;
-    using Vector2i64 = Vector<uint64_t>;
+    using Vector2i8 = Vector<int8_t>;
+    using Vector2i16 = Vector<int16_t>;
+    using Vector2i32 = Vector<int32_t>;
+    using Vector2i64 = Vector<int64_t>;
 
 }
 

@@ -36,6 +36,12 @@ namespace monsterbattle
          * @param item A pointer to an item that needs to be displayed, keep the item alive while it remains in the queue
         */
         void addToRenderQueue(IDisplayable* item);
+
+        /**
+         * @brief Displays all items
+         * 
+        */
+
         void displayAllItems();
         /**
          * @brief 
@@ -43,6 +49,12 @@ namespace monsterbattle
          * @param item 
         */
         void removeFromRenderQueue(IDisplayable* item);
+
+        /**
+         * @brief Renders all items in the display's buffer
+         * 
+        */
+        void render();
 
         /**
          * @brief Set the Display object

@@ -70,6 +70,7 @@ SRC=\
 	DisplayManager.cpp \
 	TypeWeaknessManager.cpp \
 	Monster.cpp \
+	Sprite.cpp \
 
 HEADERS=\
 	$(INC_DIR)/$(wildcard *.h)

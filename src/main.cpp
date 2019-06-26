@@ -10,6 +10,7 @@
 #include "TerminalDisplay.h"
 #include "TypeWeaknessManager.h"
 #include "Monster.h"
+#include "Sprite.h"
 
 int main(void)
 {
@@ -20,6 +21,17 @@ int main(void)
     displayManager.setDisplay(&display);
 
     monsterbattle::Game game;
+
+    monsterbattle::Sprite spr({
+        {'x', '#', 'X'},
+        {'#', 'X', '#'},
+        {'x', '#', 'X'}
+    });
+
+    displayManager.addToRenderQueue(&spr);
+    displayManager.render();
+    displayManager.displayAllItems();
+
 
     monsterbattle::monster::Monster test("Charmander", {255, 12, 12, 0.9, 0.1, 123}, monsterbattle::Type::FIRE);
 

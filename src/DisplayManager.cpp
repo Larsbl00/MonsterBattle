@@ -40,6 +40,19 @@ namespace monsterbattle
     void DisplayManager::displayAllItems()
     {
         if (this->display == nullptr) throw std::runtime_error("Display was never set");
+        
+        this->display->display();
+    }
+
+    void DisplayManager::removeFromRenderQueue(IDisplayable* item)
+    {
+        this->items.erase(std::remove(this->items.begin(), this->items.end(), item), this->items.end());
+    }
+
+
+    void DisplayManager::render()
+    {
+        if (this->display == nullptr) throw std::runtime_error("Display was never set");
 
         for (const auto& item : this->items)
         {
@@ -47,10 +60,6 @@ namespace monsterbattle
         }
     }
 
-    void DisplayManager::removeFromRenderQueue(IDisplayable* item)
-    {
-        this->items.erase(std::remove(this->items.begin(), this->items.end(), item), this->items.end());
-    }
 
     void DisplayManager::setDisplay(IDisplay* display)
     {

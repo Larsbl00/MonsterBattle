@@ -39,19 +39,19 @@ namespace monsterbattle
     }
 
     Sprite::Sprite(const Buffer_t& buffer):
-        buffer(buffer), location(), size(buffer[0].capacity(), buffer.capacity())
+        buffer(buffer), location(), size(buffer[0].size(), buffer.size())
     {}
 
     Sprite::Sprite(Buffer_t&& buffer) noexcept:
-        buffer(buffer), location(), size(buffer[0].capacity(), buffer.capacity())
+        buffer(buffer), location(), size(buffer[0].size(), buffer.size())
     {}
 
     Sprite::Sprite(const Vector2i32& location, const Buffer_t& buffer):
-        buffer(buffer), location(location), size(buffer[0].capacity(), buffer.capacity())
+        buffer(buffer), location(location), size(buffer[0].size(), buffer.size())
     {}
 
     Sprite::Sprite(const Vector2i32& location, Buffer_t&& buffer) noexcept:
-        buffer(buffer), location(location), size(buffer[0].capacity(), buffer.capacity())
+        buffer(buffer), location(location), size(buffer[0].size(), buffer.size())
     {}
 
 
@@ -68,9 +68,12 @@ namespace monsterbattle
             size_t xIterator = 0;
             for (auto& x : y)
             {
-                display.setPixel(Vector2i32(this->location.x + xIterator++, this->location.y + yIterator), x);
+                display.setPixel(Vector2i32(this->location.x + xIterator, this->location.y + yIterator), x);
+                xIterator++;
             }
+            yIterator++;
         }
+
     }
 
     void Sprite::move(const Vector2i32& direction) { this->location += direction; }
@@ -78,7 +81,7 @@ namespace monsterbattle
     void Sprite::setBuffer(const Sprite::Buffer_t& newBuffer)
     {
         this->buffer = newBuffer;
-        this->size = Vector2i32(newBuffer[0].capacity(), newBuffer.capacity());
+        this->size = Vector2i32(newBuffer[0].size(), newBuffer.size());
     }
 
     void Sprite::setBuffer(const Vector2i32& position, Sprite::Data_t value)

@@ -13,9 +13,12 @@
 #define TERMINAL_DISPLAY_H
 
 #include <sys/ioctl.h>
+#include <cstdio>
 
 #include "IDisplay.h"
 #include "Vector.h"
+
+#define TERMINAL_DISPLAY_EMPTY_CHAR (' ')
 
 namespace monsterbattle
 {
@@ -40,11 +43,13 @@ namespace monsterbattle
         ~TerminalDisplay() noexcept;
 
         void clear();
+        void display();
         const Vector2i32& getSize() const;
         void setPixel(const Vector2i32& pixel, char value);
 
         private:
         Vector2i32 size;
+        char** buffer;
     };
 }
 
