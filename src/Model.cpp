@@ -32,12 +32,12 @@ namespace monsterbattle
     void Model::load()
     {
         Sprite::Buffer_t readBuffer;
+        //Open a RAII filehandler to the file
+        RaiiFileHandle fileHandler(this->getFileName());
 
-        this->fileHandler.open(this->getFileName());
-
-        if(this->fileHandler.stream.is_open())
+        if(fileHandler.stream.is_open())
         {
-            for (std::string readString; getline(this->fileHandler.stream, readString); )
+            for (std::string readString; getline(fileHandler.stream, readString); )
             {
                 std::vector<Sprite::Data_t> vec;
                 for (char c : readString)
@@ -53,7 +53,7 @@ namespace monsterbattle
             throw std::runtime_error("Cannot find file: " + this->fileName);
         }
 
-        this->fileHandler.close();
+        fileHandler.close();
 
         Sprite::setBuffer(std::move(readBuffer));
     }
