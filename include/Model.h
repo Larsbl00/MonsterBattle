@@ -36,7 +36,6 @@ namespace monsterbattle
 
         private:
         std::string fileName;
-        RaiiFileHandle fileHandler;
     };
 }
 
