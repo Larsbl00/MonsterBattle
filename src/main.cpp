@@ -34,7 +34,7 @@ int main(void)
     displayManager.displayAllItems();
 
 
-    monsterbattle::monster::Monster test("Charmander", {255, 12, 12, 0.9, 0.1, 123}, monsterbattle::Type::FIRE);
+    monsterbattle::monster::Monster test("Charmander", {255, 255, 12, 12, 0.9, 0.1, 123}, monsterbattle::Type::FIRE);
 
     return 0;
 }

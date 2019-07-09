@@ -20,12 +20,13 @@ namespace monsterbattle
     {
         struct Stats
         {
-            uint8_t health;    //Health stat
-            uint8_t defense;   //Defense stat
-            uint8_t attack;    //Attack stat
-            float precision;    //Precision, a normalized value showing the accuracy
-            float avoidance;    //Avoidancem a normalized value displaying the probability of avoiding an attack
-            uint8_t speed;     //Speed stat
+            const uint8_t maxHealth;    //Maximum health stat
+            uint8_t health;             //Health stat
+            uint8_t defense;            //Defense stat
+            uint8_t attack;             //Attack stat
+            float precision;            //Precision, a normalized value showing the accuracy
+            float avoidance;            //Avoidancem a normalized value displaying the probability of avoiding an attack
+            uint8_t speed;              //Speed stat
         };
     }  
 }
