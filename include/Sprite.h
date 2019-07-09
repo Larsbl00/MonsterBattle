@@ -41,7 +41,34 @@ namespace monsterbattle
         Sprite(const Sprite& other) = default;
         virtual ~Sprite() noexcept = default;
 
+        /**
+         * @brief Displays the sprite on a display
+         * 
+         * @param display 
+        */
         void display(IDisplay& display);
+
+        /**
+         * @brief Flips a sprite horizontal, i.e. turning
+         * 
+         * ^
+         * _
+         * 
+         * into 
+         * 
+         * _
+         * 
+         * v
+         * 
+        */
+        void flipHorizontal();
+
+        /**
+         * @brief Flips the sprite vertically, i.e. turning XE into 3X
+         * 
+        */
+        void flipVertical();
+
         const Buffer_t& getBuffer() const;
         void move(const Vector2i32& direction);
         void setBuffer(const Buffer_t& newBuffer);

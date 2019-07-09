@@ -22,10 +22,14 @@ int main(void)
 
     monsterbattle::Game game;
 
-    monsterbattle::Model spr("test.txt");
+    monsterbattle::Model spr("./assets/test.txt");
     spr.load();
+    monsterbattle::Sprite copy(spr.getBuffer());
+    copy.flipVertical();
+    copy.move(std::move(monsterbattle::Vector2i32(0, 5)));
 
     displayManager.addToRenderQueue(&spr);
+    displayManager.addToRenderQueue(&copy);
     displayManager.render();
     displayManager.displayAllItems();
 
