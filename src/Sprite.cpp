@@ -80,6 +80,21 @@ namespace monsterbattle
 
     }
 
+    void Sprite::flipHorizontal()
+    {
+        std::reverse(this->buffer.begin(), this->buffer.end());
+    }
+
+    void Sprite::flipVertical()
+    {
+        //For each line present in the buffer, flip it
+        for (auto& y : this->buffer)
+        {
+            //Reverse the array
+            std::reverse(y.begin(), y.end());
+        }
+    }
+
     const Sprite::Buffer_t& Sprite::getBuffer() const { return this->buffer; }
 
     void Sprite::move(const Vector2i32& direction) { this->location += direction; }
