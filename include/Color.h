@@ -22,40 +22,37 @@
 
 namespace monsterbattle
 {
-    namespace colors
+    struct Color
     {
-        struct Color
-        {
-            Color() = default;
-            Color(uint8_t red, uint8_t green, uint8_t blue);
-            Color(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha);
-            Color(const Color& other) = default;
-            Color(Color&& other) = default;
-            ~Color() noexcept = default;
-            uint8_t red;
-            uint8_t green;
-            uint8_t blue;
-            uint8_t alpha;
+        const static Color Red;
+        const static Color Green;
+        const static Color Blue;
 
-            uint8_t to8BitColor() const;
+        const static Color Orange;
+        const static Color Cyan;
+        const static Color Magenta;
 
-            void operator=(const Color& other);
-            void operator=(Color&& other);
+        const static Color Black;
+        const static Color White;
 
-            friend std::ostream& operator<<(std::ostream& stream, const Color& color);
-        };
+        Color() = default;
+        Color(uint8_t red, uint8_t green, uint8_t blue);
+        Color(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha);
+        Color(const Color& other) = default;
+        Color(Color&& other) = default;
+        ~Color() noexcept = default;
+        uint8_t red;
+        uint8_t green;
+        uint8_t blue;
+        uint8_t alpha;
 
-        const static Color Red = Color(255,0,0);
-        const static Color Green(0,255,0);
-        const static Color Blue(0,0,255);
+        uint8_t to8BitColor() const;
 
-        const static Color Orange(255,255,0);
-        const static Color Cyan(0, 255,255);
-        const static Color Magenta(255,0,255);
+        void operator=(const Color& other);
+        void operator=(Color&& other);
 
-        const static Color Black(0,0,0);
-        const static Color White(255,255,255,255);
-    }
+        friend std::ostream& operator<<(std::ostream& stream, const Color& color);
+    };
 }
 
 #endif

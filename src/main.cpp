@@ -20,9 +20,9 @@ int main(void)
     auto& displayManager = monsterbattle::DisplayManager::getInstance();
 
     displayManager.setDisplay(&display);
-    display.setPixel(monsterbattle::Vector2i32(10,10), '#', monsterbattle::colors::Blue);
+    display.setPixel(monsterbattle::Vector2i32(10,10), '#', monsterbattle::Color::Blue);
     display.setPixel(monsterbattle::Vector2i32(10,11), '!');
-    display.setPixel(monsterbattle::Vector2i32(10,11), monsterbattle::colors::Blue);
+    display.setPixel(monsterbattle::Vector2i32(10,11), monsterbattle::Color::Cyan);
 
     monsterbattle::Game game;
 

@@ -111,16 +111,16 @@ namespace monsterbattle
     void TerminalDisplay::setPixel(const Vector2i32& pixel, char value)
     {
         this->buffer[pixel.y][pixel.x].character = value;
-        this->buffer[pixel.y][pixel.x].color = monsterbattle::colors::Black;
+        this->buffer[pixel.y][pixel.x].color = TerminalDisplay::BackgroundColor;
     }
 
-    void TerminalDisplay::setPixel(const Vector2i32& pixel, const monsterbattle::colors::Color& color)
+    void TerminalDisplay::setPixel(const Vector2i32& pixel, const monsterbattle::Color& color)
     {
         this->buffer[pixel.y][pixel.x].color = color;
         this->buffer[pixel.y][pixel.x].character = TerminalDisplay::EmptyChar;
     }
 
-    void TerminalDisplay::setPixel(const Vector2i32& pixel, char value, const monsterbattle::colors::Color& color)
+    void TerminalDisplay::setPixel(const Vector2i32& pixel, char value, const monsterbattle::Color& color)
     {
         std::cout << "Setting " << pixel << " to: " << color << std::endl;
         this->buffer[pixel.y][pixel.x].character = value;
@@ -146,13 +146,13 @@ namespace monsterbattle
         std::cout << 'm';
     }
 
-    void TerminalDisplay::setBackgroundColor(const monsterbattle::colors::Color& color) const
+    void TerminalDisplay::setBackgroundColor(const monsterbattle::Color& color) const
     {
         this->addTerminalEffect(monsterbattle::text::AnsiTextEffect::EFFECT_SET_BACKGROUND);
         std::cout << "2;" << (int)color.red << ';' << (int)color.green << ';' << (int)color.blue;
     }
 
-    void TerminalDisplay::setForegroundColor(const monsterbattle::colors::Color& color) const
+    void TerminalDisplay::setForegroundColor(const monsterbattle::Color& color) const
     {
         this->setBackgroundColor(TerminalDisplay::BackgroundColor);
         this->addTerminalEffect(monsterbattle::text::AnsiTextEffect::EFFECT_SWAP_BACKGROUND_FOREGROUND);

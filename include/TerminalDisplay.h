@@ -31,7 +31,7 @@ namespace monsterbattle
     struct CharColorPair
     {
         char character;
-        monsterbattle::colors::Color color;
+        monsterbattle::Color color;
     };
 
     class TerminalDisplay: public IDisplay
@@ -39,7 +39,7 @@ namespace monsterbattle
         public:
         using Pixel_t = CharColorPair;
         const static std::string DefaultTerminalSettings;
-        const static constexpr auto& BackgroundColor = monsterbattle::colors::Black;
+        const static constexpr auto& BackgroundColor = monsterbattle::Color::Black;
         const static constexpr char EmptyChar = TERMINAL_DISPLAY_EMPTY_CHAR;
 
         /**
@@ -63,8 +63,8 @@ namespace monsterbattle
         void display();
         const Vector2i32& getSize() const;
         void setPixel(const Vector2i32& pixel, char value);
-        void setPixel(const Vector2i32& pixel, const monsterbattle::colors::Color& color);
-        void setPixel(const Vector2i32& pixel, char value, const monsterbattle::colors::Color& color);
+        void setPixel(const Vector2i32& pixel, const monsterbattle::Color& color);
+        void setPixel(const Vector2i32& pixel, char value, const monsterbattle::Color& color);
 
         private:
         Vector2i32 size;
@@ -73,8 +73,8 @@ namespace monsterbattle
         void addTerminalEffect(monsterbattle::text::AnsiTextEffect effect) const;
         void ansiStart() const;
         void ansiEnd() const;
-        void setBackgroundColor(const monsterbattle::colors::Color& color) const;
-        void setForegroundColor(const monsterbattle::colors::Color& color) const;
+        void setBackgroundColor(const monsterbattle::Color& color) const;
+        void setForegroundColor(const monsterbattle::Color& color) const;
         void resetTerminal() const;
 
     };

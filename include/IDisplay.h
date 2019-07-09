@@ -29,8 +29,8 @@ namespace monsterbattle
         virtual void display() = 0;
         virtual const Vector2i32& getSize() const = 0;
         virtual void setPixel(const Vector2i32& pixel, char value) = 0;
-        virtual void setPixel(const Vector2i32& pixel, const monsterbattle::colors::Color& color) = 0;
-        virtual void setPixel(const Vector2i32& pixel, char value, const monsterbattle::colors::Color& color) = 0;
+        virtual void setPixel(const Vector2i32& pixel, const monsterbattle::Color& color) = 0;
+        virtual void setPixel(const Vector2i32& pixel, char value, const monsterbattle::Color& color) = 0;
     };
     
 }
