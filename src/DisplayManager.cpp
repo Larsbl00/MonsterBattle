@@ -33,7 +33,7 @@ namespace monsterbattle
     void DisplayManager::addToRenderQueue(IDisplayable* item)
     {
         if (item == nullptr) throw std::invalid_argument("Cannot add NULL to items");
-
+    
         this->items.push_back(item);
     }  
 

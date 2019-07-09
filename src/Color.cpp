@@ -25,10 +25,25 @@ namespace monsterbattle
 
         uint8_t Color::to8BitColor() const
         {
-            return 
-            (this->red * COLOR_8_BIT_CHANNEL_MAX / COLOR_RGB_CHANNEL_MAX) << 5
-            | (this->green * COLOR_8_BIT_CHANNEL_MAX / COLOR_RGB_CHANNEL_MAX) << 2
-            | (this->blue * COLOR_8_BIT_CHANNEL_MAX / COLOR_RGB_CHANNEL_MAX);
+            return 0
+            | (((this->red * 7 / COLOR_RGB_CHANNEL_MAX) << 5))
+            | (((this->green * 7 / COLOR_RGB_CHANNEL_MAX) << 2))
+            | (((this->blue * 7 / COLOR_RGB_CHANNEL_MAX)));
         }
+
+        void Color::operator=(const Color& other)
+        {
+            memcpy(this, &other, sizeof(other));
+        }
+
+        void Color::operator=(Color&& other)
+        {
+            *this = other;
+        }
+
+        std::ostream& operator<<(std::ostream& stream, const Color& color)
+        {
+            return stream << '{' << (int)color.red << ',' << (int)color.green << ',' << (int)color.blue << ',' << (int)color.alpha << '}';
+        }   
     }
 }

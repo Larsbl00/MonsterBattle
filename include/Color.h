@@ -12,7 +12,9 @@
 #ifndef COLOR_H
 #define COLOR_H
 
+#include <iostream>
 #include <cstdint>
+#include <cstring>
 
 #define COLOR_8_BIT_CHANNEL_MAX (7)
 #define COLOR_16_BIT_CHANNEL_MAX (15)
@@ -24,6 +26,7 @@ namespace monsterbattle
     {
         struct Color
         {
+            Color() = default;
             Color(uint8_t red, uint8_t green, uint8_t blue);
             Color(uint8_t red, uint8_t green, uint8_t blue, uint8_t alpha);
             Color(const Color& other) = default;
@@ -35,9 +38,14 @@ namespace monsterbattle
             uint8_t alpha;
 
             uint8_t to8BitColor() const;
+
+            void operator=(const Color& other);
+            void operator=(Color&& other);
+
+            friend std::ostream& operator<<(std::ostream& stream, const Color& color);
         };
 
-        const static Color Red(255,0,0);
+        const static Color Red = Color(255,0,0);
         const static Color Green(0,255,0);
         const static Color Blue(0,0,255);
 
