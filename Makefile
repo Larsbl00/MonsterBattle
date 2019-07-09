@@ -73,6 +73,8 @@ SRC=\
 	Sprite.cpp \
 	Model.cpp \
 	RaiiFileHandle.cpp \
+	Color.cpp \
+	AnsiEffects.cpp \
 
 HEADERS=\
 	$(INC_DIR)/$(wildcard *.h)

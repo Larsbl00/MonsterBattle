@@ -13,6 +13,8 @@
 
 namespace monsterbattle 
 {
+    const std::string TerminalDisplay::DefaultTerminalSettings = "\033[49m";
+
     TerminalDisplay::TerminalDisplay():
         buffer(nullptr)
     {
@@ -22,11 +24,11 @@ namespace monsterbattle
         this->size = Vector2i32(size.ws_col, size.ws_row);
 
         //alloc y
-        this->buffer = new char*[this->size.y];
+        this->buffer = new TerminalDisplay::Pixel_t*[this->size.y];
         //for each y alloc x
         for (decltype(this->size.y) y = 0; y < this->size.y; y++)
         {
-            this->buffer[y] = new char[this->size.x];
+            this->buffer[y] = new TerminalDisplay::Pixel_t[this->size.x];
         }
         
 
@@ -34,11 +36,11 @@ namespace monsterbattle
     }
 
     TerminalDisplay::TerminalDisplay(const Vector2i32& size):
-        size(size), buffer(new char*[size.y])
+        size(size), buffer(new TerminalDisplay::Pixel_t*[size.y])
     {
         for (decltype(this->size.y) y = 0; y < this->size.y; y++)
         {
-            this->buffer[y] = new char[this->size.x];
+            this->buffer[y] = new TerminalDisplay::Pixel_t[this->size.x];
         }
 
         this->clear();
@@ -54,6 +56,8 @@ namespace monsterbattle
 
         delete[] this->buffer;
         this->buffer = nullptr;
+
+        this->resetTerminal();
     }
 
     void TerminalDisplay::clear()
@@ -62,7 +66,9 @@ namespace monsterbattle
         {
             for (decltype(this->size.x) x = 0; x < this->size.x; x++)
             {
-                this->buffer[y][x] = TERMINAL_DISPLAY_EMPTY_CHAR;
+                auto& pixel = this->buffer[y][x];
+                pixel.character = TerminalDisplay::EmptyChar;
+                pixel.color = TerminalDisplay::BackgroundColor;
             }
         }
     }
@@ -73,10 +79,27 @@ namespace monsterbattle
         {
             for (decltype(this->size.x) x = 0; x < this->size.x; x++)
             {
-                putc(this->buffer[y][x], stdout);
+                //Get pixel
+                auto& pixel = this->buffer[y][x];
+                //Flag for effects
+                this->ansiStart();
+                this->addTerminalEffect(monsterbattle::text::AnsiTextEffect::EFFECT_NORMAL);
+
+                //If empty, render it as background
+                if (pixel.character == TerminalDisplay::EmptyChar) this->setBackgroundColor(pixel.color);
+                else this->setForegroundColor(pixel.color);
+
+                //End the sequence
+                this->ansiEnd();
+
+                //Add the item
+                std::cout << pixel.character;
+                
+                //Reset for next user
+                this->resetTerminal();
             }
 
-            putc('\n', stdout);
+            std::cout << std::endl;
         }
     }
 
@@ -85,8 +108,72 @@ namespace monsterbattle
         return this->size;
     }
 
-    void TerminalDisplay::setPixel(const Vector2i32& location, char value)
+    void TerminalDisplay::setPixel(const Vector2i32& pixel, char value)
     {
-        this->buffer[location.y][location.x] = value;
+        this->buffer[pixel.y][pixel.x].character = value;
+        this->buffer[pixel.y][pixel.x].color = TerminalDisplay::BackgroundColor;
     }
+
+    void TerminalDisplay::setPixel(const Vector2i32& pixel, const monsterbattle::Color& color)
+    {
+        this->buffer[pixel.y][pixel.x].color = color;
+        this->buffer[pixel.y][pixel.x].character = TerminalDisplay::EmptyChar;
+    }
+
+    void TerminalDisplay::setPixel(const Vector2i32& pixel, char value, const monsterbattle::Color& color)
+    {
+        this->buffer[pixel.y][pixel.x].character = value;
+        this->buffer[pixel.y][pixel.x].color = color;
+    }
+
+    /*******************************
+     * Private functions
+     */
+    
+    void TerminalDisplay::addTerminalEffect(monsterbattle::text::AnsiTextEffect effect) const 
+    {
+        std::cout << effect << ';';
+    }
+
+    void TerminalDisplay::ansiStart() const
+    {
+        std::cout << "\033[";
+    }
+
+    void TerminalDisplay::ansiEnd() const
+    {
+        std::cout << 'm';
+    }
+
+    void TerminalDisplay::setBackgroundColor(const monsterbattle::Color& color) const
+    {
+        this->addTerminalEffect(monsterbattle::text::AnsiTextEffect::EFFECT_SET_BACKGROUND);
+        std::cout 
+        << "2;" 
+        << (int)color.red * (color.alpha/255.0)
+        << ';' 
+        << (int)color.green * (color.alpha/255.0)
+        << ';' 
+        << (int)color.blue * (color.alpha/255.0);
+    }
+
+    void TerminalDisplay::setForegroundColor(const monsterbattle::Color& color) const
+    {
+        this->setBackgroundColor(TerminalDisplay::BackgroundColor);
+        this->addTerminalEffect(monsterbattle::text::AnsiTextEffect::EFFECT_SWAP_BACKGROUND_FOREGROUND);
+        this->addTerminalEffect(monsterbattle::text::AnsiTextEffect::EFFECT_SET_FOREGROUND);
+        std::cout 
+        << "2;" 
+        << (int)color.red * (color.alpha/255.0)
+        << ';' 
+        << (int)color.green * (color.alpha/255.0)
+        << ';' 
+        << (int)color.blue * (color.alpha/255.0);
+    }
+    
+    void TerminalDisplay::resetTerminal() const
+    {
+        std::cout << TerminalDisplay::DefaultTerminalSettings;
+    }
+
 }

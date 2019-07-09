@@ -1,5 +1,6 @@
 #include <iostream>
 #include <thread>
+#include <cstdio>
 
 
 #include "Game.h"
@@ -19,6 +20,9 @@ int main(void)
     auto& displayManager = monsterbattle::DisplayManager::getInstance();
 
     displayManager.setDisplay(&display);
+    display.setPixel(monsterbattle::Vector2i32(10,10), '#', monsterbattle::Color::Blue);
+    display.setPixel(monsterbattle::Vector2i32(11,10), '!', monsterbattle::Color::White);
+    display.setPixel(monsterbattle::Vector2i32(12,10), monsterbattle::Color::Cyan);
 
     monsterbattle::Game game;
 
