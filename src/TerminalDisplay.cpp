@@ -122,7 +122,6 @@ namespace monsterbattle
 
     void TerminalDisplay::setPixel(const Vector2i32& pixel, char value, const monsterbattle::Color& color)
     {
-        std::cout << "Setting " << pixel << " to: " << color << std::endl;
         this->buffer[pixel.y][pixel.x].character = value;
         this->buffer[pixel.y][pixel.x].color = color;
     }
@@ -149,7 +148,13 @@ namespace monsterbattle
     void TerminalDisplay::setBackgroundColor(const monsterbattle::Color& color) const
     {
         this->addTerminalEffect(monsterbattle::text::AnsiTextEffect::EFFECT_SET_BACKGROUND);
-        std::cout << "2;" << (int)color.red << ';' << (int)color.green << ';' << (int)color.blue;
+        std::cout 
+        << "2;" 
+        << (int)color.red * (color.alpha/255.0)
+        << ';' 
+        << (int)color.green * (color.alpha/255.0)
+        << ';' 
+        << (int)color.blue * (color.alpha/255.0);
     }
 
     void TerminalDisplay::setForegroundColor(const monsterbattle::Color& color) const
@@ -157,7 +162,13 @@ namespace monsterbattle
         this->setBackgroundColor(TerminalDisplay::BackgroundColor);
         this->addTerminalEffect(monsterbattle::text::AnsiTextEffect::EFFECT_SWAP_BACKGROUND_FOREGROUND);
         this->addTerminalEffect(monsterbattle::text::AnsiTextEffect::EFFECT_SET_FOREGROUND);
-        std::cout << "2;" << (int)color.red << ';' << (int)color.green << ';' << (int)color.blue;
+        std::cout 
+        << "2;" 
+        << (int)color.red * (color.alpha/255.0)
+        << ';' 
+        << (int)color.green * (color.alpha/255.0)
+        << ';' 
+        << (int)color.blue * (color.alpha/255.0);
     }
     
     void TerminalDisplay::resetTerminal() const

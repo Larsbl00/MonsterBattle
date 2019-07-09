@@ -28,7 +28,7 @@ namespace monsterbattle
         const static Color Green;
         const static Color Blue;
 
-        const static Color Orange;
+        const static Color Yellow;
         const static Color Cyan;
         const static Color Magenta;
 

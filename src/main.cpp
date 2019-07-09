@@ -21,8 +21,8 @@ int main(void)
 
     displayManager.setDisplay(&display);
     display.setPixel(monsterbattle::Vector2i32(10,10), '#', monsterbattle::Color::Blue);
-    display.setPixel(monsterbattle::Vector2i32(10,11), '!');
-    display.setPixel(monsterbattle::Vector2i32(10,11), monsterbattle::Color::Cyan);
+    display.setPixel(monsterbattle::Vector2i32(11,10), '!', monsterbattle::Color::White);
+    display.setPixel(monsterbattle::Vector2i32(12,10), monsterbattle::Color::Cyan);
 
     monsterbattle::Game game;
 
