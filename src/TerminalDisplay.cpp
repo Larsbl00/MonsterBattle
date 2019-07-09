@@ -68,7 +68,7 @@ namespace monsterbattle
             {
                 auto& pixel = this->buffer[y][x];
                 pixel.character = TerminalDisplay::EmptyChar;
-                pixel.color = monsterbattle::colors::Black;
+                pixel.color = TerminalDisplay::BackgroundColor;
             }
         }
     }
@@ -79,11 +79,23 @@ namespace monsterbattle
         {
             for (decltype(this->size.x) x = 0; x < this->size.x; x++)
             {
+                //Get pixel
                 auto& pixel = this->buffer[y][x];
+                //Flag for effects
                 this->ansiStart();
                 this->addTerminalEffect(monsterbattle::text::AnsiTextEffect::EFFECT_NORMAL);
-                this->setBackgroundColor(pixel.color);
+
+                //If empty, render it as background
+                if (pixel.character == TerminalDisplay::EmptyChar) this->setBackgroundColor(pixel.color);
+                else this->setForegroundColor(pixel.color);
+
+                //End the sequence
+                this->ansiEnd();
+
+                //Add the item
                 std::cout << pixel.character;
+                
+                //Reset for next user
                 this->resetTerminal();
             }
 
@@ -129,17 +141,23 @@ namespace monsterbattle
         std::cout << "\033[";
     }
 
+    void TerminalDisplay::ansiEnd() const
+    {
+        std::cout << 'm';
+    }
+
     void TerminalDisplay::setBackgroundColor(const monsterbattle::colors::Color& color) const
     {
         this->addTerminalEffect(monsterbattle::text::AnsiTextEffect::EFFECT_SET_BACKGROUND);
-        std::cout << "2;" << (int)color.red << ';' << (int)color.green << ';' << (int)color.blue << 'm';
+        std::cout << "2;" << (int)color.red << ';' << (int)color.green << ';' << (int)color.blue;
     }
 
     void TerminalDisplay::setForegroundColor(const monsterbattle::colors::Color& color) const
     {
-        auto i = color; i.red++;
+        this->setBackgroundColor(TerminalDisplay::BackgroundColor);
+        this->addTerminalEffect(monsterbattle::text::AnsiTextEffect::EFFECT_SWAP_BACKGROUND_FOREGROUND);
         this->addTerminalEffect(monsterbattle::text::AnsiTextEffect::EFFECT_SET_FOREGROUND);
-        std::cout << "2;" << (int)color.red << ';' << (int)color.green << ';' << (int)color.blue << 'm';
+        std::cout << "2;" << (int)color.red << ';' << (int)color.green << ';' << (int)color.blue;
     }
     
     void TerminalDisplay::resetTerminal() const

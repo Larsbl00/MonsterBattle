@@ -39,6 +39,7 @@ namespace monsterbattle
         public:
         using Pixel_t = CharColorPair;
         const static std::string DefaultTerminalSettings;
+        const static constexpr auto& BackgroundColor = monsterbattle::colors::Black;
         const static constexpr char EmptyChar = TERMINAL_DISPLAY_EMPTY_CHAR;
 
         /**
@@ -71,6 +72,7 @@ namespace monsterbattle
 
         void addTerminalEffect(monsterbattle::text::AnsiTextEffect effect) const;
         void ansiStart() const;
+        void ansiEnd() const;
         void setBackgroundColor(const monsterbattle::colors::Color& color) const;
         void setForegroundColor(const monsterbattle::colors::Color& color) const;
         void resetTerminal() const;
