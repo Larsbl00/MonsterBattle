@@ -75,12 +75,15 @@ SRC=\
 	RaiiFileHandle.cpp \
 	Color.cpp \
 	AnsiEffects.cpp \
+	Move.cpp \
 
 HEADERS=\
 	$(INC_DIR)/$(wildcard *.h)
 
 
-
+# Clean up and sort entered details
+SRC:=$(sort $(SRC))
+HEADERS:=$(sort $(HEADERS))
 
 # Objects
 OBJECTS=$(addprefix $(OBJ_DIR)/, $(SRC:.cpp=.o))
