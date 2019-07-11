@@ -26,13 +26,10 @@ int main(void)
 
     monsterbattle::Game game;
 
-    monsterbattle::Model spr("./assets/test.txt");
-    spr.setColor(monsterbattle::Color::Red);
+    monsterbattle::Model spr("./assets/test.txt", monsterbattle::Color::Yellow);
     spr.load();
-    monsterbattle::Sprite copy(spr.getBuffer());
-    copy.setColor(monsterbattle::Color::Cyan);
+    monsterbattle::Sprite copy(monsterbattle::Vector2i32(0,5), spr.getBuffer());
     copy.flipVertical();
-    copy.move(std::move(monsterbattle::Vector2i32(0, 5)));
 
     displayManager.addToRenderQueue(&spr);
     displayManager.addToRenderQueue(&copy);

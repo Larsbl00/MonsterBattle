@@ -15,17 +15,25 @@ namespace monsterbattle
 {
     Model::Model():
         Sprite()
-    {
-
-    }
+    {}
 
     Model::Model(const std::string& modelFile):
         Sprite(),
         fileName(modelFile)
-    {
+    {}
 
+    Model::Model(const Color& color):
+        Sprite()
+    {
+        this->setColor(color);
     }
 
+    Model::Model(const std::string& modelFile, const Color& color):
+        Sprite(),
+        fileName(modelFile)
+    {
+        this->setColor(color);
+    }
     
     const std::string& Model::getFileName() const { return this->fileName; }
 

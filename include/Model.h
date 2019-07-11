@@ -17,6 +17,7 @@
 #include <stdexcept>
 #include <fstream>
 
+#include "Color.h"
 #include "Sprite.h"
 #include "RaiiFileHandle.h"
 
@@ -27,6 +28,8 @@ namespace monsterbattle
         public:
         Model();
         Model(const std::string& modelFile);
+        Model(const Color& color);
+        Model(const std::string& modelFile, const Color& color);
         virtual ~Model() noexcept = default;
 
         const std::string& getFileName() const;

@@ -66,11 +66,11 @@ namespace monsterbattle
         buffer(buffer), location(), size(buffer[0].size(), buffer.size())
     {}
 
-    Sprite::Sprite(const Color& color, const Buffer_t& buffer):
+    Sprite::Sprite(const Buffer_t& buffer, const Color& color):
         buffer(buffer), color(color), location(), size(buffer[0].size(), buffer.size())
     {}
 
-    Sprite::Sprite(const Color& color, Buffer_t&& buffer) noexcept:
+    Sprite::Sprite(Buffer_t&& buffer, const Color& color) noexcept:
         buffer(buffer), color(color), location(), size(buffer[0].size(), buffer.size())
     {}
 
@@ -82,11 +82,11 @@ namespace monsterbattle
         buffer(buffer), location(location), size(buffer[0].size(), buffer.size())
     {}
 
-    Sprite::Sprite(const Vector2i32& location, const Color& color, const Buffer_t& buffer):
+    Sprite::Sprite(const Vector2i32& location, const Buffer_t& buffer, const Color& color):
         buffer(buffer), color(color), location(location), size(buffer[0].size(), buffer.size())
     {}
 
-    Sprite::Sprite(const Vector2i32& location, const Color& color, Buffer_t&& buffer) noexcept:
+    Sprite::Sprite(const Vector2i32& location, Buffer_t&& buffer, const Color& color) noexcept:
         buffer(buffer), color(color), location(location), size(buffer[0].size(), buffer.size())
     {}
 

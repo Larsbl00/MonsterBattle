@@ -40,12 +40,12 @@ namespace monsterbattle
         Sprite(const Vector2i32& location, const Vector2i32& size, const Color& color);
         Sprite(const Buffer_t& buffer);
         Sprite(Buffer_t&& buffer) noexcept;
-        Sprite(const Color& color, const Buffer_t& buffer);
-        Sprite(const Color& color, Buffer_t&& buffer) noexcept;
+        Sprite(const Buffer_t& buffer, const Color& color);
+        Sprite(Buffer_t&& buffer, const Color& color) noexcept;
         Sprite(const Vector2i32& location, const Buffer_t& buffer);
         Sprite(const Vector2i32& location, Buffer_t&& buffer) noexcept;
-        Sprite(const Vector2i32& location, const Color& color, const Buffer_t& buffer);
-        Sprite(const Vector2i32& location, const Color& color, Buffer_t&& buffer) noexcept;
+        Sprite(const Vector2i32& location, const Buffer_t& buffer, const Color& color);
+        Sprite(const Vector2i32& location, Buffer_t&& buffer, const Color& color) noexcept;
         Sprite(Sprite&& other) noexcept;
         Sprite(const Sprite& other) = default;
         virtual ~Sprite() noexcept = default;
