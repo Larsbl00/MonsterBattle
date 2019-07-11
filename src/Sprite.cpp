@@ -19,7 +19,7 @@ namespace monsterbattle
      * 
      */
     Sprite::Sprite(const Vector2i32& size):
-        location(), size(size)
+        color(Sprite::DefaultColor), location(), size(size)
     {
         this->buffer.resize(size.y);
         for (auto& y : this->buffer)
@@ -29,7 +29,7 @@ namespace monsterbattle
     }
 
     Sprite::Sprite(const Vector2i32& location, const Vector2i32& size):
-        location(location), size(size)
+        color(Sprite::DefaultColor), location(location), size(size)
     {
         this->buffer.resize(size.y);
         for (auto& y : this->buffer)
@@ -59,11 +59,11 @@ namespace monsterbattle
     }
 
     Sprite::Sprite(const Buffer_t& buffer):
-        buffer(buffer), location(), size(buffer[0].size(), buffer.size())
+        buffer(buffer), color(Sprite::DefaultColor), location(), size(buffer[0].size(), buffer.size())
     {}
 
     Sprite::Sprite(Buffer_t&& buffer) noexcept:
-        buffer(buffer), location(), size(buffer[0].size(), buffer.size())
+        buffer(buffer), color(Sprite::DefaultColor), location(), size(buffer[0].size(), buffer.size())
     {}
 
     Sprite::Sprite(const Buffer_t& buffer, const Color& color):
@@ -75,11 +75,11 @@ namespace monsterbattle
     {}
 
     Sprite::Sprite(const Vector2i32& location, const Buffer_t& buffer):
-        buffer(buffer), location(location), size(buffer[0].size(), buffer.size())
+        buffer(buffer), color(Sprite::DefaultColor), location(location), size(buffer[0].size(), buffer.size())
     {}
 
     Sprite::Sprite(const Vector2i32& location, Buffer_t&& buffer) noexcept:
-        buffer(buffer), location(location), size(buffer[0].size(), buffer.size())
+        buffer(buffer), color(Sprite::DefaultColor), location(location), size(buffer[0].size(), buffer.size())
     {}
 
     Sprite::Sprite(const Vector2i32& location, const Buffer_t& buffer, const Color& color):
