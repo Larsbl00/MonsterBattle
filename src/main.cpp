@@ -25,7 +25,7 @@ int main(void)
     display.setPixel(monsterbattle::Vector2i32(11,10), '!', monsterbattle::Color::White);
     display.setPixel(monsterbattle::Vector2i32(12,10), monsterbattle::Color::Cyan);
 
-    monsterbattle::Game game;
+    //monsterbattle::Game game;
 
     monsterbattle::Model spr("./assets/test.txt", monsterbattle::Color::Yellow);
     spr.load();
@@ -44,7 +44,15 @@ int main(void)
 
     if (move == nullptr) std::cerr << "Could not find move" << std::endl;
     else move->use(test, test);
-    std::cout << test.getStats() << std::endl;
+    std::cout << *move << std::endl;
+
+    monsterbattle::monster::Move mo;
+
+    monsterbattle::RaiiFileHandle f("./assets/moves.txt");
+    f.stream >> mo;
+    f.stream >> mo;
+
+    std::cout << mo << std::endl;
 
     return 0;
 }

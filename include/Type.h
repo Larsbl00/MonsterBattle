@@ -13,6 +13,7 @@
 #define TYPE_H
 
 #include <cstdint>
+#include <iostream>
 
 namespace monsterbattle
 {
@@ -28,6 +29,9 @@ namespace monsterbattle
         ELECTRIC
     };
 
+
+    std::ostream& operator<<(std::ostream& str, Type type);
+    std::istream& operator>>(std::istream& str, Type& type);
 }
 
 #endif

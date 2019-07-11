@@ -14,6 +14,10 @@
 
 #include <iostream>
 #include <cstdlib>
+#include <cstdio>
+#include <sstream>
+#include <vector>
+#include <stdexcept>
 
 #include "Monster.h"
 #include "Type.h"
@@ -34,6 +38,7 @@ namespace monsterbattle
              * @param damage The Default damage it will deal, without any attack or defense stats
              * @param precision A normalized value showing the probabillity of hitting the opponent 
             */
+            Move() = default;
             Move(const std::string& name, Type attackType, uint8_t damage, float precision);
             Move(const Move& other) = default;
             virtual ~Move() noexcept = default;
@@ -48,7 +53,12 @@ namespace monsterbattle
             */
             virtual bool use(Monster& caller, Monster& opponent) const;
 
+            void loadFromString(const std::string& str);
+
             const std::string& getName() const;
+
+            friend std::ostream& operator<<(std::ostream& str, const Move& move);
+            friend std::istream& operator>>(std::istream& str, Move& move);
 
             protected:
             Type attackType;
