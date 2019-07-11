@@ -60,6 +60,7 @@ namespace monsterbattle
             const std::string& getName() const;
             const std::string& getNickName() const; 
             const Stats& getStats() const;
+            Stats& getStats();
             const std::array<Type, Monster::TypeCount>& getTypes() const;
 
             void setNickName(const std::string& nickName);

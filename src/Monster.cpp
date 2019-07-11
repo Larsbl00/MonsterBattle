@@ -35,6 +35,7 @@ namespace monsterbattle
         const std::string& Monster::getName() const { return this->name; }
         const std::string& Monster::getNickName() const { return this->nickName; }
         const Stats& Monster::getStats() const { return this->stats; }
+        Stats& Monster::getStats() { return this->stats; }
         const std::array<Type, Monster::TypeCount>& Monster::getTypes() const { return this->types; }
 
         void Monster::setNickName(const std::string& nickName) { this->nickName = nickName; }

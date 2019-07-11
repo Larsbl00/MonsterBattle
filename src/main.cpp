@@ -38,10 +38,14 @@ int main(void)
     displayManager.displayAllItems();
 
 
-    monsterbattle::monster::Monster test("Charmander", monsterbattle::monster::Stats(255, 100, 100, 0.87, 0.01, 112), monsterbattle::Type::ICE);
+    monsterbattle::monster::Monster test("Charmander", monsterbattle::monster::Stats(255, 100, 100, 0.5, 0.5, 112), monsterbattle::Type::ICE);
 
-    monsterbattle::monster::Move yeet("Yeet", monsterbattle::Type::GROUND, 120, 0.6);
-    yeet.use(test, test);
+    monsterbattle::monster::Move yeet("Yeet", monsterbattle::Type::GROUND, 240, 0.9);
+    std::cout << "Pre: " << test.getStats() << ", Hit: " << yeet.use(test, test) << ", Post: " << test.getStats() << std::endl;
+    std::cout << "Pre: " << test.getStats() << ", Hit: " << yeet.use(test, test) << ", Post: " << test.getStats() << std::endl;
+    std::cout << "Pre: " << test.getStats() << ", Hit: " << yeet.use(test, test) << ", Post: " << test.getStats() << std::endl;
+    std::cout << "Pre: " << test.getStats() << ", Hit: " << yeet.use(test, test) << ", Post: " << test.getStats() << std::endl;
+    std::cout << "Pre: " << test.getStats() << ", Hit: " << yeet.use(test, test) << ", Post: " << test.getStats() << std::endl; 
 
     return 0;
 }

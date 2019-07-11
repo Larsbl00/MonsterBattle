@@ -17,12 +17,54 @@ namespace monsterbattle
     {
         static auto& manager = monsterbattle::TypeWeaknessManager::getInstance();
 
-
+        /***************************
+         * 
+         * Constructors
+         * 
+         */
         Move::Move(const std::string& name, Type attackType, uint8_t damage, float precision):
-            name(name), attackType(attackType), damage(damage), precision(precision)
+            attackType(attackType), damage(damage), precision(precision), name(name)
         {}
 
+        /****************************
+         * 
+         * Functions
+         * 
+         */
         bool Move::use(Monster& caller, Monster& opponent)
+        {
+            auto attackMultiplier = this->getAttackMultiplier(opponent);
+
+            float randomValue = static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
+
+            auto& cStats = caller.getStats();   //Caller stats
+            auto& oStats = opponent.getStats(); //Opponnent stats
+
+            if ((cStats.getPrecision() / (1 - oStats.getAvoidance()) * this->precision) > randomValue)
+            {
+                //Calculate initial damage
+                auto damage = this->damage * static_cast<float>(cStats.attack / static_cast<float>(oStats.defense));
+                damage *= attackMultiplier;
+                oStats.health -= damage;
+
+                if (oStats.health <= 0) oStats.health = 0;
+                return true;
+            }
+            else 
+            {
+                return false;
+            }
+        }
+
+        const std::string& Move::getName() const { return this->name; }
+
+        /*******************************
+         * 
+         * Private functions
+         * 
+         */
+
+        float Move::getAttackMultiplier(const Monster& opponent) const
         {
             float attackMultiplier = 1.0;
 
@@ -40,12 +82,7 @@ namespace monsterbattle
                 }
             }
 
-            std::cout << "Multiplier: " << attackMultiplier << std::endl;
-
-            std::cout << caller.getStats() << " | " << opponent.getStats() << std::endl;
-            return caller.getStats().precision > opponent.getStats().avoidance;
+            return attackMultiplier;
         }
-
-        const std::string& Move::getName() const { return this->name; }
     }
 }

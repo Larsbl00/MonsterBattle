@@ -76,6 +76,8 @@ SRC=\
 	Color.cpp \
 	AnsiEffects.cpp \
 	Move.cpp \
+	Stats.cpp \
+	
 
 HEADERS=\
 	$(INC_DIR)/$(wildcard *.h)

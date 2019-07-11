@@ -13,6 +13,7 @@
 #define MOVE_H
 
 #include <iostream>
+#include <cstdlib>
 
 #include "Monster.h"
 #include "Type.h"
@@ -45,15 +46,25 @@ namespace monsterbattle
              * @return true If the move hits the target
              * @return false If the move misses the target
             */
-            bool use(Monster& caller, Monster& opponent);
+            virtual bool use(Monster& caller, Monster& opponent);
 
             const std::string& getName() const;
 
-            private:
-            std::string name;
+            protected:
             Type attackType;
             uint8_t damage;
             float precision;
+
+            /**
+             * @brief Get the Attack Multiplier
+             * 
+             * @param opponent 
+             * @return const float 
+            */
+            float getAttackMultiplier(const Monster& opponent) const;
+
+            private:
+            std::string name;
         };
     }
 }
