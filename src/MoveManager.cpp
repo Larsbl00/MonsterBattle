@@ -21,10 +21,7 @@ namespace monsterbattle
          * 
          */
 
-        MoveManager::MoveManager():
-            moveMap({
-                {"TEST", Move("TEST", Type::FIRE, 10, 0.9)}
-            })
+        MoveManager::MoveManager()
         {}
 
         /**************************
@@ -47,7 +44,22 @@ namespace monsterbattle
             else return &move->second;
         }
 
+        void MoveManager::load(const std::string& file)
+        {
+            RaiiFileHandle handler(file);
 
+            for (std::string move; getline(handler.stream, move, '\n'); )
+            {
+                Move attackMove;
+                attackMove.loadFromString(move);
+                this->addMove(std::move(attackMove));
+            }
+        }
+
+        void MoveManager::unload()
+        {
+            this->moveMap.erase(this->moveMap.begin(), this->moveMap.end());
+        }
 
         /**************************
          * 
