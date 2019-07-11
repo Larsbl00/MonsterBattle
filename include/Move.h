@@ -30,6 +30,7 @@ namespace monsterbattle
         class Move
         {
             public:
+            Move() = default;
             /**
              * @brief Construct a new Move object
              * 
@@ -38,7 +39,6 @@ namespace monsterbattle
              * @param damage The Default damage it will deal, without any attack or defense stats
              * @param precision A normalized value showing the probabillity of hitting the opponent 
             */
-            Move() = default;
             Move(const std::string& name, Type attackType, uint8_t damage, float precision);
             Move(const Move& other) = default;
             virtual ~Move() noexcept = default;
