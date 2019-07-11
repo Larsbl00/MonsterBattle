@@ -23,10 +23,18 @@ namespace monsterbattle
     class TypeWeaknessManager
     {
         public:
+        const static constexpr float WeaknessMultiplier = 2.0;
+
         ~TypeWeaknessManager() noexcept;
 
         static TypeWeaknessManager& getInstance();
 
+        /**
+         * @brief Get the weaknesses of any given monsterbattle::Type
+         * 
+         * @param type 
+         * @return std::vector<Type>& 
+        */
         std::vector<Type>& getWeaknesses(Type type);
 
         private: 

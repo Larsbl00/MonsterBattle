@@ -12,6 +12,7 @@
 #ifndef STATS_H
 #define STATS_H
 
+#include <ostream>
 #include <cstdint>
 
 namespace monsterbattle
@@ -35,6 +36,26 @@ namespace monsterbattle
             float precision;            //Precision, a normalized value showing the accuracy
             float avoidance;            //Avoidance, a normalized value displaying the probability of avoiding an attack
             uint8_t speed;              //Speed stat
+
+            friend std::ostream& operator<<(std::ostream& str, const Stats& stats)
+            {
+                return str 
+                << "{(" 
+                << (int)stats.health 
+                << '/' 
+                << (int)stats.maxHealth 
+                << "),"
+                << (int)stats.defense
+                << ','
+                << (int)stats.attack 
+                << ','
+                << stats.precision 
+                << ','
+                << stats.avoidance
+                << ','
+                << (int)stats.speed
+                << '}';
+            }
         };
     }  
 }

@@ -12,8 +12,11 @@
 #ifndef MOVE_H
 #define MOVE_H
 
+#include <iostream>
+
 #include "Monster.h"
 #include "Type.h"
+#include "TypeWeaknessManager.h"
 
 namespace monsterbattle
 {
@@ -39,8 +42,10 @@ namespace monsterbattle
              * 
              * @param caller The monster calling the move
              * @param opponent The monstyer that is getting attacked
+             * @return true If the move hits the target
+             * @return false If the move misses the target
             */
-            void use(Monster& caller, Monster& opponent);
+            bool use(Monster& caller, Monster& opponent);
 
             const std::string& getName() const;
 

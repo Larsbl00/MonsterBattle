@@ -10,11 +10,12 @@
 */
  
 #ifndef MONSTER_H
-#define MNOSTER_H
+#define MONSTER_H
 
 #include <string>
 #include <cstdint>
 #include <stdexcept>
+#include <array>
 
 #include "Stats.h"
 #include "Type.h"
@@ -29,6 +30,8 @@ namespace monsterbattle
         class Monster
         {
             public:
+            const static constexpr uint8_t TypeCount = MONSTER_TYPE_COUNT;
+
             /**
              * @brief Construct a new Monster object with one type
              * 
@@ -57,6 +60,7 @@ namespace monsterbattle
             const std::string& getName() const;
             const std::string& getNickName() const; 
             const Stats& getStats() const;
+            const std::array<Type, Monster::TypeCount>& getTypes() const;
 
             void setNickName(const std::string& nickName);
         
@@ -65,7 +69,7 @@ namespace monsterbattle
             std::string name;
             std::string nickName;
             Stats stats;
-            Type types[MONSTER_TYPE_COUNT];
+            std::array<Type, Monster::TypeCount> types;
         };
     }
 }

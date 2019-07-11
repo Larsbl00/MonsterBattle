@@ -12,6 +12,7 @@
 #include "TypeWeaknessManager.h"
 #include "Monster.h"
 #include "Model.h"
+#include "Move.h"
 
 int main(void)
 {
@@ -28,7 +29,7 @@ int main(void)
 
     monsterbattle::Model spr("./assets/test.txt", monsterbattle::Color::Yellow);
     spr.load();
-    monsterbattle::Sprite copy(monsterbattle::Vector2i32(0,5), spr.getBuffer());
+    monsterbattle::Sprite copy(monsterbattle::Vector2i32(0,5), spr.getBuffer(), monsterbattle::Color::Red);
     copy.flipVertical();
 
     displayManager.addToRenderQueue(&spr);
@@ -37,7 +38,10 @@ int main(void)
     displayManager.displayAllItems();
 
 
-    monsterbattle::monster::Monster test("Charmander", monsterbattle::monster::Stats(255, 100, 100, 0.87, 0.01, 112), monsterbattle::Type::FIRE);
+    monsterbattle::monster::Monster test("Charmander", monsterbattle::monster::Stats(255, 100, 100, 0.87, 0.01, 112), monsterbattle::Type::ICE);
+
+    monsterbattle::monster::Move yeet("Yeet", monsterbattle::Type::GROUND, 120, 0.6);
+    yeet.use(test, test);
 
     return 0;
 }
