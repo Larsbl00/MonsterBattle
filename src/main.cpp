@@ -12,7 +12,7 @@
 #include "TypeWeaknessManager.h"
 #include "Monster.h"
 #include "Model.h"
-#include "Move.h"
+#include "MoveManager.h"
 
 int main(void)
 {
@@ -40,12 +40,11 @@ int main(void)
 
     monsterbattle::monster::Monster test("Charmander", monsterbattle::monster::Stats(255, 100, 100, 0.5, 0.5, 112), monsterbattle::Type::ICE);
 
-    monsterbattle::monster::Move yeet("Yeet", monsterbattle::Type::GROUND, 240, 0.9);
-    std::cout << "Pre: " << test.getStats() << ", Hit: " << yeet.use(test, test) << ", Post: " << test.getStats() << std::endl;
-    std::cout << "Pre: " << test.getStats() << ", Hit: " << yeet.use(test, test) << ", Post: " << test.getStats() << std::endl;
-    std::cout << "Pre: " << test.getStats() << ", Hit: " << yeet.use(test, test) << ", Post: " << test.getStats() << std::endl;
-    std::cout << "Pre: " << test.getStats() << ", Hit: " << yeet.use(test, test) << ", Post: " << test.getStats() << std::endl;
-    std::cout << "Pre: " << test.getStats() << ", Hit: " << yeet.use(test, test) << ", Post: " << test.getStats() << std::endl; 
+    auto move = monsterbattle::monster::MoveManager::getInstance().getMove("TEST");
+
+    if (move == nullptr) std::cerr << "Could not find move" << std::endl;
+    else move->use(test, test);
+    std::cout << test.getStats() << std::endl;
 
     return 0;
 }

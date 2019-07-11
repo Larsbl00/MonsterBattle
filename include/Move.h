@@ -46,7 +46,7 @@ namespace monsterbattle
              * @return true If the move hits the target
              * @return false If the move misses the target
             */
-            virtual bool use(Monster& caller, Monster& opponent);
+            virtual bool use(Monster& caller, Monster& opponent) const;
 
             const std::string& getName() const;
 

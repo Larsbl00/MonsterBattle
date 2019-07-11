@@ -77,7 +77,7 @@ SRC=\
 	AnsiEffects.cpp \
 	Move.cpp \
 	Stats.cpp \
-	
+	MoveManager.cpp \
 
 HEADERS=\
 	$(INC_DIR)/$(wildcard *.h)

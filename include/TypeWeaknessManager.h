@@ -13,7 +13,7 @@
 #define TYPE_WEAKNESS_MANAGER_H
 
 #include <vector>
-#include <map>
+#include <unordered_map>
 
 #include "Type.h"
 
@@ -40,7 +40,7 @@ namespace monsterbattle
         private: 
         TypeWeaknessManager();
 
-        std::map<Type, std::vector<Type>> weaknessMap;
+        std::unordered_map<Type, std::vector<Type>> weaknessMap;
     };
 }
 

@@ -31,7 +31,7 @@ namespace monsterbattle
          * Functions
          * 
          */
-        bool Move::use(Monster& caller, Monster& opponent)
+        bool Move::use(Monster& caller, Monster& opponent) const
         {
             auto attackMultiplier = this->getAttackMultiplier(opponent);
 
