@@ -27,8 +27,10 @@ int main(void)
     monsterbattle::Game game;
 
     monsterbattle::Model spr("./assets/test.txt");
+    spr.setColor(monsterbattle::Color::Red);
     spr.load();
     monsterbattle::Sprite copy(spr.getBuffer());
+    copy.setColor(monsterbattle::Color::Cyan);
     copy.flipVertical();
     copy.move(std::move(monsterbattle::Vector2i32(0, 5)));
 

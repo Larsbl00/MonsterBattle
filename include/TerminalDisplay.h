@@ -18,6 +18,7 @@
 #include <vector>
 
 #include "AnsiEffects.h"
+#include "CharColorPair.h"
 #include "IDisplay.h"
 #include "Color.h"
 #include "Vector.h"
@@ -28,12 +29,6 @@
 
 namespace monsterbattle
 {
-    struct CharColorPair
-    {
-        char character;
-        monsterbattle::Color color;
-    };
-
     class TerminalDisplay: public IDisplay
     {
         public:

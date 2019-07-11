@@ -18,6 +18,7 @@
 #include <stdexcept>
 #include <vector>
 
+#include "Color.h"
 #include "IDisplay.h"
 #include "IDisplayable.h"
 #include "Vector.h"
@@ -30,13 +31,21 @@ namespace monsterbattle
         using Data_t = char;
         using Buffer_t = std::vector<std::vector<Sprite::Data_t>>;
 
+        const static constexpr auto EmptyChar = ' ';
+
         Sprite() = default;
         Sprite(const Vector2i32& size);
         Sprite(const Vector2i32& location, const Vector2i32& size);
+        Sprite(const Vector2i32& size, const Color& color);
+        Sprite(const Vector2i32& location, const Vector2i32& size, const Color& color);
         Sprite(const Buffer_t& buffer);
         Sprite(Buffer_t&& buffer) noexcept;
+        Sprite(const Color& color, const Buffer_t& buffer);
+        Sprite(const Color& color, Buffer_t&& buffer) noexcept;
         Sprite(const Vector2i32& location, const Buffer_t& buffer);
         Sprite(const Vector2i32& location, Buffer_t&& buffer) noexcept;
+        Sprite(const Vector2i32& location, const Color& color, const Buffer_t& buffer);
+        Sprite(const Vector2i32& location, const Color& color, Buffer_t&& buffer) noexcept;
         Sprite(Sprite&& other) noexcept;
         Sprite(const Sprite& other) = default;
         virtual ~Sprite() noexcept = default;
@@ -70,13 +79,17 @@ namespace monsterbattle
         void flipVertical();
 
         const Buffer_t& getBuffer() const;
+        const Color& getColor() const;
+
         void move(const Vector2i32& direction);
         void setBuffer(const Buffer_t& newBuffer);
         void setBuffer(const Vector2i32& position, Sprite::Data_t value);
         void setBuffer(const Vector2i32& position, const Vector2i32& size, Sprite::Data_t value);
+        void setColor(const Color& color);
 
         protected:
         Buffer_t buffer;
+        Color color;
         Vector2i32 location;
         Vector2i32 size;
     };
