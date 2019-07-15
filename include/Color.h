@@ -52,6 +52,8 @@ namespace monsterbattle
         void operator=(Color&& other);
 
         friend std::ostream& operator<<(std::ostream& stream, const Color& color);
+        friend bool operator== (const Color& c0, const Color& c1);
+        friend bool operator!= (const Color& c0, const Color& c1);
     };
 }
 

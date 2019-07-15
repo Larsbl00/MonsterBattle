@@ -64,6 +64,7 @@ namespace monsterbattle
         private:
         Vector2i32 size;
         Pixel_t** buffer;
+        monsterbattle::Color previouslyUsedColor;
 
         void addTerminalEffect(monsterbattle::text::AnsiTextEffect effect) const;
         void ansiStart() const;

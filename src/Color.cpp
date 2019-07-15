@@ -52,8 +52,26 @@ namespace monsterbattle
         *this = other;
     }
 
+    /***********************************
+     * 
+     * Friends
+     * 
+     */
     std::ostream& operator<<(std::ostream& stream, const Color& color)
     {
         return stream << '{' << (int)color.red << ',' << (int)color.green << ',' << (int)color.blue << ',' << (int)color.alpha << '}';
     }   
+
+    bool operator== (const Color& c0, const Color& c1)
+    {
+        return 
+            c0.red == c1.red &&
+            c0.blue == c1.blue &&
+            c0.green == c1.green;
+    }
+
+    bool operator!= (const Color& c0, const Color& c1)
+    {
+        return !(c0 == c1);
+    }
 }

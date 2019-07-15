@@ -16,7 +16,7 @@ namespace monsterbattle
     const std::string TerminalDisplay::DefaultTerminalSettings = "\033[49m";
 
     TerminalDisplay::TerminalDisplay():
-        buffer(nullptr)
+        buffer(nullptr), previouslyUsedColor(monsterbattle::Color::White)
     {
         struct winsize size;
         ioctl(fileno(stdout), TIOCGWINSZ, &size);
@@ -36,7 +36,7 @@ namespace monsterbattle
     }
 
     TerminalDisplay::TerminalDisplay(const Vector2i32& size):
-        size(size), buffer(new TerminalDisplay::Pixel_t*[size.y])
+        size(size), buffer(new TerminalDisplay::Pixel_t*[size.y]), previouslyUsedColor(monsterbattle::Color::White)
     {
         for (decltype(this->size.y) y = 0; y < this->size.y; y++)
         {
@@ -48,6 +48,7 @@ namespace monsterbattle
 
     TerminalDisplay::~TerminalDisplay() noexcept
     {
+        this->resetTerminal();
         for (decltype(this->size.y) y = 0; y < this->size.y; y++)
         {
             delete[] this->buffer[y];
@@ -56,8 +57,6 @@ namespace monsterbattle
 
         delete[] this->buffer;
         this->buffer = nullptr;
-
-        this->resetTerminal();
     }
 
     void TerminalDisplay::clear()
@@ -81,22 +80,24 @@ namespace monsterbattle
             {
                 //Get pixel
                 auto& pixel = this->buffer[y][x];
-                //Flag for effects
-                this->ansiStart();
-                this->addTerminalEffect(monsterbattle::text::AnsiTextEffect::EFFECT_NORMAL);
 
-                //If empty, render it as background
-                if (pixel.character == TerminalDisplay::EmptyChar) this->setBackgroundColor(pixel.color);
-                else this->setForegroundColor(pixel.color);
+                //If the current color hasn't been used previously, flag for the color
+                if (pixel.color != this->previouslyUsedColor)
+                {
+                    this->ansiStart();
+                    this->addTerminalEffect(monsterbattle::text::AnsiTextEffect::EFFECT_NORMAL);
 
-                //End the sequence
-                this->ansiEnd();
+                    //If empty, render it as background
+                    if (pixel.character == TerminalDisplay::EmptyChar) this->setBackgroundColor(pixel.color);
+                    else this->setForegroundColor(pixel.color);
 
-                //Add the item
+                    //End the sequence
+                    this->ansiEnd();
+                }
+
                 std::cout << pixel.character;
                 
-                //Reset for next user
-                this->resetTerminal();
+                this->previouslyUsedColor = pixel.color;
             }
 
             std::cout << std::endl;
