@@ -43,17 +43,19 @@ int main(void)
         monsterbattle::Type::ICE
     );
 
-    test.addMoves({"Tackle", "Nothing", "Freeze", "Chill"});
+    test.addMoves({"Tackle", "", "Freeze", "Chill"});
+
+
+    monsterbattle::monster::Monster test2;
+    test2.loadFromFile("./assets/monsters/test.txt");
+    //std::cout << test2 << std::endl;
+     
 
     displayManager.addToRenderQueue(&test);
     displayManager.render();
     displayManager.displayAllItems();
 
-    for (auto& i : test.getMoves())
-    {   
-        if (i != nullptr) std::cout << *i << std::endl;
-    }
-
+    std::cout << test << std::endl;
 
     return 0;
 }

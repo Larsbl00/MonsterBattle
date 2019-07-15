@@ -43,9 +43,9 @@ namespace monsterbattle
         //Open a RAII filehandler to the file
         RaiiFileHandle fileHandler(this->getFileName());
 
-        if(fileHandler.stream.is_open())
+        if(fileHandler.is_open())
         {
-            for (std::string readString; getline(fileHandler.stream, readString); )
+            for (std::string readString; getline(fileHandler, readString); )
             {
                 std::vector<Sprite::Data_t> vec;
                 for (char c : readString)

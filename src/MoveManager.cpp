@@ -48,7 +48,7 @@ namespace monsterbattle
         {
             RaiiFileHandle handler(file);
 
-            for (std::string move; getline(handler.stream, move, '\n'); )
+            for (std::string move; getline(handler, move, '\n'); )
             {
                 if (move[0] != MoveManager::LineCommentChar)
                 {

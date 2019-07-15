@@ -16,9 +16,11 @@
 #include <cstdint>
 #include <string>
 #include <stdexcept>
+#include <ostream>
 #include <vector>
 
 #include "IDisplayable.h"
+#include "RaiiFileHandle.h"
 #include "MoveManager.h"
 #include "Model.h"
 #include "Stats.h"
@@ -57,10 +59,14 @@ namespace monsterbattle
             Stats& getStats();
             const std::array<Type, Monster::TypeCount>& getTypes() const;
 
+            void loadFromFile(const std::string& fileName);
             void move(const Vector2i32& direction);
 
             void setNickName(const std::string& nickName);
         
+
+            friend std::ostream& operator<<(std::ostream& str, const Monster& mon);
+            friend std::istream& operator>>(std::istream& str, Monster& mon);
 
             private:
             Model model;
@@ -69,6 +75,8 @@ namespace monsterbattle
             std::string nickName;
             Stats stats;
             std::array<Type, Monster::TypeCount> types;
+
+            void clearMoves();
         };
     }
 }

@@ -10,6 +10,7 @@
 */
 
 #include "Monster.h"
+#include "Move.h"
 
 namespace monsterbattle
 {
@@ -20,30 +21,21 @@ namespace monsterbattle
         Monster::Monster():
             stats(0, 0, 0, 0, 0, 0)
         {
-            for (auto& i : this->moves)
-            { 
-                i = nullptr; 
-            }
+            this->clearMoves();
         }
 
         Monster::Monster(const std::string& name, const Stats& stats, const std::string& modelFile, const Color& color, Type primaryType):
             model(modelFile, color), name(name), nickName(name), stats(stats), types{primaryType, Type::NONE}
         {
             this->model.load();
-            for (auto& i : this->moves)
-            { 
-                i = nullptr; 
-            }
+            this->clearMoves();
         }
 
         Monster::Monster(const std::string& name, const Stats& stats, const std::string& modelFile, const Color& color, Type primaryType, Type secondaryType):
             model(modelFile, color), name(name), nickName(name), stats(stats), types{primaryType, secondaryType}
         {    
             this->model.load();
-            for (auto& i : this->moves)
-            { 
-                i = nullptr; 
-            }
+            this->clearMoves();
         }
 
 
@@ -90,11 +82,60 @@ namespace monsterbattle
         Stats& Monster::getStats() { return this->stats; }
         const std::array<Type, Monster::TypeCount>& Monster::getTypes() const { return this->types; }
 
+        void Monster::loadFromFile(const std::string& fileName)
+        {
+            auto i = fileName; {i.c_str();}
+        }
+
         void Monster::move(const Vector2i32& direction)
         {
             this->model.move(direction);
         }
 
         void Monster::setNickName(const std::string& nickName) { this->nickName = nickName; }
+
+
+        /*****************
+         * 
+         * Friends
+         * 
+         */
+        std::ostream& operator<<(std::ostream& str, const Monster& mon)
+        {
+            return str 
+            << '('
+            << mon.getNickName()
+            << ','
+            << mon.getName()
+            << ",{"
+            << mon.getTypes()[0]
+            << ','
+            << mon.getTypes()[1]
+            << "},"
+            << mon.getStats()
+            << ",{"
+            << mon.getMoves()[0]->getName()
+            << ','
+            << mon.getMoves()[1]->getName()
+            << ','
+            << mon.getMoves()[2]->getName()
+            << ','
+            << mon.getMoves()[3]->getName()
+            << ")}";
+        }
+
+        /******************
+         * 
+         * Private funstions 
+         * 
+         */
+        
+        void Monster::clearMoves()
+        {
+            for (auto& i : this->moves)
+            { 
+                i = nullptr; 
+            }
+        }
     }
 }

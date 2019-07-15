@@ -55,11 +55,11 @@ namespace monsterbattle
         std::ostream& operator<< (std::ostream& str, const Stats& stats)
         {
             return str 
-            << "{(" 
+            << '{' 
             << (int)stats.health 
-            << '/' 
+            << ',' 
             << (int)stats.maxHealth 
-            << "),"
+            << ')'
             << (int)stats.defense
             << ','
             << (int)stats.attack 
