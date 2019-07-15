@@ -19,6 +19,8 @@
 #include "RaiiFileHandle.h"
 #include "Move.h"
 
+#define MOVE_MANAGER_LINE_COMMENT_CHAR ('#')
+
 namespace monsterbattle
 {
     namespace monster
@@ -26,6 +28,8 @@ namespace monsterbattle
         class MoveManager
         {
             public:
+            const static constexpr char LineCommentChar = MOVE_MANAGER_LINE_COMMENT_CHAR;
+
             ~MoveManager() noexcept = default;
 
             static MoveManager& getInstance();

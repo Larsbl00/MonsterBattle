@@ -60,6 +60,7 @@ namespace monsterbattle
         {
             if (str.empty()) return;
 
+            //Remove start and end brackets
             std::istringstream stream(str.substr(1, str.length() - 2));
             std::vector<std::string> data;
 

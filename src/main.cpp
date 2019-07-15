@@ -41,11 +41,18 @@ int main(void)
     monsterbattle::monster::Monster test("Charmander", monsterbattle::monster::Stats(255, 100, 100, 0.5, 0.5, 112), monsterbattle::Type::ICE);
 
     monsterbattle::monster::MoveManager::getInstance().load("./assets/moves.txt");
-    auto move = monsterbattle::monster::MoveManager::getInstance().getMove("TEST");
+    auto move = monsterbattle::monster::MoveManager::getInstance().getMove("Electrocute");
 
-    if (move == nullptr) std::cerr << "Could not find move" << std::endl;
-    else move->use(test, test);
-    std::cout << *move << std::endl;
+    if (move == nullptr) 
+    { 
+        std::cerr << "Could not find move" << std::endl; 
+    }
+    else
+    {
+        std::cout << *move << std::endl;
+        move->use(test, test);
+    } 
+
 
     return 0;
 }

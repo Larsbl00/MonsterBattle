@@ -50,9 +50,12 @@ namespace monsterbattle
 
             for (std::string move; getline(handler.stream, move, '\n'); )
             {
-                Move attackMove;
-                attackMove.loadFromString(move);
-                this->addMove(std::move(attackMove));
+                if (move[0] != MoveManager::LineCommentChar)
+                {
+                    Move attackMove;
+                    attackMove.loadFromString(move);
+                    this->addMove(std::move(attackMove));
+                }
             }
         }
 

@@ -53,6 +53,13 @@ namespace monsterbattle
             */
             virtual bool use(Monster& caller, Monster& opponent) const;
 
+            /**
+             * @brief Loads a Move from simple string format; i.e.
+             * 
+             * "(<NAME>,<TYPE_AS_INTEGER>,<DAMAGE>,<PRECISION>)"
+             * 
+             * @param str 
+            */
             void loadFromString(const std::string& str);
 
             const std::string& getName() const;

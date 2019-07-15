@@ -21,12 +21,12 @@ namespace monsterbattle
     TypeWeaknessManager::TypeWeaknessManager():
         weaknessMap(
             {
-                {Type::FIRE,        {Type::GROUND}},
+                {Type::FIRE,        {Type::WATER, Type::GROUND}},
                 {Type::WATER,       {Type::GRASS, Type::ELECTRIC}},
                 {Type::GRASS,       {Type::FIRE, Type::ICE}},
-                {Type::GROUND,      {Type::GRASS, Type::WATER, Type::ICE}},
+                {Type::GROUND,      {Type::GRASS, Type::WATER}},
                 {Type::FLYING,      {Type::ELECTRIC, Type::ICE}},
-                {Type::ICE,         {Type::FIRE}},
+                {Type::ICE,         {Type::FIRE, Type::GROUND}},
                 {Type::ELECTRIC,    {Type::GROUND}}
             }
         )
