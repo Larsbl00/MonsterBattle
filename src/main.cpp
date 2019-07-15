@@ -43,19 +43,16 @@ int main(void)
         monsterbattle::Type::ICE
     );
 
-    test.addMoves({"Tackle", "", "Freeze", "Chill"});
-
 
     monsterbattle::monster::Monster test2;
-    test2.loadFromFile("./assets/monsters/test.txt");
-    //std::cout << test2 << std::endl;
+    test2.loadFromString("(\nSmallBird\nSmallBird\n{5,0}\n{102,102,48,20,0.5,0.6,112}\n{Peck,Tackle,Yeet,Wing Attack}\n./assets/models/SmallBird.txt\n\n)");
+    test2.move(monsterbattle::Vector2i32(0, 13));
      
 
     displayManager.addToRenderQueue(&test);
+    displayManager.addToRenderQueue(&test2);
     displayManager.render();
     displayManager.displayAllItems();
-
-    std::cout << test << std::endl;
 
     return 0;
 }

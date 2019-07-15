@@ -19,7 +19,7 @@ namespace monsterbattle
         static auto& moveManager = MoveManager::getInstance();
 
         Monster::Monster():
-            stats(0, 0, 0, 0, 0, 0)
+            model(), stats(0, 0, 0, 0, 0, 0)
         {
             this->clearMoves();
         }
@@ -82,9 +82,33 @@ namespace monsterbattle
         Stats& Monster::getStats() { return this->stats; }
         const std::array<Type, Monster::TypeCount>& Monster::getTypes() const { return this->types; }
 
-        void Monster::loadFromFile(const std::string& fileName)
+        void Monster::loadFromString(const std::string& str)
         {
-            auto i = fileName; {i.c_str();}
+            if (str.empty()) return;
+
+            this->clearMoves();
+
+            //Remove start and end brackets
+            std::istringstream stream(str.substr(1, str.length() - 2));
+            std::vector<std::string> data;
+
+            for (std::string val; getline(stream, val, '\n'); )
+            {
+                if (!val.empty() && val[0] != Monster::LineCommentChar)
+                {
+                    data.push_back(std::move(val));
+                }
+            }
+
+            //Check if all fields are present
+            if (data.size() != 6) throw std::runtime_error("Deserialization error; Monster is corrupted");
+
+            this->name = data[0];
+            this->setNickName(data[1]);
+            this->loadTypeFromSubString(data[2]);
+            this->stats.loadFromString(data[3]);
+            this->loadMovesFromSubString(data[4]);
+            this->model.load(data[5]);
         }
 
         void Monster::move(const Vector2i32& direction)
@@ -102,7 +126,7 @@ namespace monsterbattle
          */
         std::ostream& operator<<(std::ostream& str, const Monster& mon)
         {
-            return str 
+            str 
             << '('
             << mon.getNickName()
             << ','
@@ -113,20 +137,26 @@ namespace monsterbattle
             << mon.getTypes()[1]
             << "},"
             << mon.getStats()
-            << ",{"
-            << mon.getMoves()[0]->getName()
-            << ','
-            << mon.getMoves()[1]->getName()
-            << ','
-            << mon.getMoves()[2]->getName()
-            << ','
-            << mon.getMoves()[3]->getName()
-            << ")}";
+            << ",{(";
+
+            for (auto pMove = mon.getMoves().begin(); pMove != mon.getMoves().end(); pMove++)
+            {
+                if (*pMove != nullptr)
+                {
+                    str << (*pMove)->getName();
+                    if (pMove != mon.getMoves().end()-1){ str << ','; }
+                }
+            }
+
+            str << ")}";
+
+
+            return str;
         }
 
         /******************
          * 
-         * Private funstions 
+         * Private functions 
          * 
          */
         
@@ -135,6 +165,34 @@ namespace monsterbattle
             for (auto& i : this->moves)
             { 
                 i = nullptr; 
+            }
+        }
+
+        void Monster::loadTypeFromSubString(const std::string& str)
+        {
+            auto splitIndex = str.find(',');
+            if (splitIndex == std::string::npos) throw std::runtime_error("Deserialization error; Types are corrupted");
+
+            this->types = {
+                static_cast<Type>(stoi(str.substr(1, str.length() - splitIndex))),
+                static_cast<Type>(stoi(str.substr(str.length() - splitIndex, str.length() - 1)))
+            };
+        }
+
+        void Monster::loadMovesFromSubString(const std::string& str)
+        {
+            if (str.empty()) throw std::runtime_error("Deserialization error; Moves are corrupted");
+
+            std::istringstream stream(str.substr(1, str.length() - 2));
+            std::vector<std::string> data;
+            uint8_t it = 0;
+
+            for (std::string val; getline(stream, val, ',') && it <= Monster::MoveCount; )
+            {
+                if (!val.empty())
+                {
+                    this->moves[it++] = moveManager.getMove(val);
+                }
             }
         }
     }

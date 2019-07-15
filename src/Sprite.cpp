@@ -18,6 +18,12 @@ namespace monsterbattle
      * Constructors
      * 
      */
+    Sprite::Sprite():
+        color(Sprite::DefaultColor), location(), size(0,0)
+    {
+
+    }
+
     Sprite::Sprite(const Vector2i32& size):
         color(Sprite::DefaultColor), location(), size(size)
     {

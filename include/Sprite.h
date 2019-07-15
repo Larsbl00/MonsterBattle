@@ -34,7 +34,7 @@ namespace monsterbattle
         const static constexpr auto EmptyChar = ' ';
         const static constexpr auto& DefaultColor = monsterbattle::Color::Black;
 
-        Sprite() = default;
+        Sprite();
         Sprite(const Vector2i32& size);
         Sprite(const Vector2i32& location, const Vector2i32& size);
         Sprite(const Vector2i32& size, const Color& color);

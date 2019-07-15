@@ -14,6 +14,7 @@
 
 #include <array>
 #include <cstdint>
+#include <istream>
 #include <string>
 #include <stdexcept>
 #include <ostream>
@@ -28,6 +29,7 @@
 
 #define MONSTER_TYPE_COUNT (2)
 #define MONSTER_MOVE_COUNT (4)
+#define MONSTER_LINE_COMMENT_CHAR ('#')
 
 namespace monsterbattle
 {
@@ -38,6 +40,7 @@ namespace monsterbattle
             public:
             const static constexpr uint8_t TypeCount = MONSTER_TYPE_COUNT;
             const static constexpr uint8_t MoveCount = MONSTER_MOVE_COUNT;
+            const static constexpr char LineCommentChar = MONSTER_LINE_COMMENT_CHAR;
 
             Monster();
             Monster(const std::string& name, const Stats& stats, const std::string& modelFile, const Color& color, Type primaryType);
@@ -59,7 +62,21 @@ namespace monsterbattle
             Stats& getStats();
             const std::array<Type, Monster::TypeCount>& getTypes() const;
 
-            void loadFromFile(const std::string& fileName);
+            /**
+             * @brief Loads a monster from a single string formatted as follows:
+             * 
+             * ( 
+             *      <NICK>
+             *      <NAME>
+             *      <Types>
+             *      <STATS>
+             *      <MOVES>
+             *      <MODEL_FILE>
+             * )
+             * 
+             * @param str 
+            */
+            void loadFromString(const std::string& str);
             void move(const Vector2i32& direction);
 
             void setNickName(const std::string& nickName);
@@ -77,6 +94,19 @@ namespace monsterbattle
             std::array<Type, Monster::TypeCount> types;
 
             void clearMoves();
+            /**
+             * @brief Sets the types when given a string formatted as such: {1,0}
+             * 
+             * @param str 
+            */
+            void loadTypeFromSubString(const std::string& str);
+            /**
+             * @brief Loads moves when given a string formatted string as such: {MV1,MV2,MV3,MV4}
+             * *MVx: The name of a move
+             * 
+             * @param str 
+            */
+            void loadMovesFromSubString(const std::string& str);
         };
     }
 }
