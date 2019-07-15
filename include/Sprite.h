@@ -56,7 +56,7 @@ namespace monsterbattle
          * 
          * @param display 
         */
-        void display(IDisplay& display);
+        virtual void display(IDisplay& display);
 
         /**
          * @brief Flips a sprite horizontal, i.e. turning

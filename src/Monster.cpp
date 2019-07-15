@@ -15,15 +15,37 @@ namespace monsterbattle
 {
     namespace monster
     {
-        Monster::Monster(const std::string& name, const Stats& stats, Type primaryType):
-            name(name), nickName(name), stats(stats), types{primaryType, Type::NONE}
+        static auto& moveManager = MoveManager::getInstance();
+
+        Monster::Monster():
+            stats(0, 0, 0, 0, 0, 0)
         {
+            for (auto& i : this->moves)
+            { 
+                i = nullptr; 
+            }
         }
 
-        Monster::Monster(const std::string& name, const Stats& stats, Type primaryType, Type secondaryType):
-            name(name), nickName(name), stats(stats), types{primaryType, secondaryType}
-        {    
+        Monster::Monster(const std::string& name, const Stats& stats, const std::string& modelFile, const Color& color, Type primaryType):
+            model(modelFile, color), name(name), nickName(name), stats(stats), types{primaryType, Type::NONE}
+        {
+            this->model.load();
+            for (auto& i : this->moves)
+            { 
+                i = nullptr; 
+            }
         }
+
+        Monster::Monster(const std::string& name, const Stats& stats, const std::string& modelFile, const Color& color, Type primaryType, Type secondaryType):
+            model(modelFile, color), name(name), nickName(name), stats(stats), types{primaryType, secondaryType}
+        {    
+            this->model.load();
+            for (auto& i : this->moves)
+            { 
+                i = nullptr; 
+            }
+        }
+
 
         bool Monster::attack(Monster& other)
         {
@@ -32,6 +54,34 @@ namespace monsterbattle
             return true;
         }
 
+        void Monster::addMove(const std::string& name)
+        {
+            //Check for free space
+            for (auto& move : this->moves)
+            {
+                if (move == nullptr)
+                {
+                    move = moveManager.getMove(name);
+                    return;
+                }
+            }
+
+            //No free space found
+            throw std::runtime_error("Cannot add move to Monster");
+        }
+
+        void Monster::addMoves(const std::vector<std::string>& names)
+        {
+            for (auto& name : names)
+            {
+                this->addMove(name);
+            }
+        }
+
+
+
+        Model& Monster::getModel() { return this->model; }
+        const std::array<const Move*, Monster::MoveCount>& Monster::getMoves() const { return this->moves; }
         const std::string& Monster::getName() const { return this->name; }
         const std::string& Monster::getNickName() const { return this->nickName; }
         const Stats& Monster::getStats() const { return this->stats; }

@@ -19,6 +19,7 @@ int main(void)
     monsterbattle::TerminalDisplay display;
 
     auto& displayManager = monsterbattle::DisplayManager::getInstance();
+    monsterbattle::monster::MoveManager::getInstance().load("./assets/moves.txt");
 
     displayManager.setDisplay(&display);
     display.setPixel(monsterbattle::Vector2i32(10,10), '#', monsterbattle::Color::Blue);
@@ -27,31 +28,32 @@ int main(void)
 
     //monsterbattle::Game game;
 
-    monsterbattle::Model spr("./assets/test.txt", monsterbattle::Color::Yellow);
+    monsterbattle::Model spr("./assets/models/test.txt", monsterbattle::Color::Yellow);
     spr.load();
     monsterbattle::Sprite copy(monsterbattle::Vector2i32(0,5), spr.getBuffer(), monsterbattle::Color::Red);
     copy.flipVertical();
 
     displayManager.addToRenderQueue(&spr);
     displayManager.addToRenderQueue(&copy);
+
+    monsterbattle::monster::Monster test(
+        "Charmander", 
+        monsterbattle::monster::Stats(255, 100, 100, 0.5, 0.5, 112), 
+        "./assets/models/test.txt",
+        monsterbattle::Color::Blue, 
+        monsterbattle::Type::ICE
+    );
+
+    test.addMoves({"Tackle", "Nothing", "Freeze", "Chill"});
+
+    displayManager.addToRenderQueue(&test.getModel());
     displayManager.render();
     displayManager.displayAllItems();
 
-
-    monsterbattle::monster::Monster test("Charmander", monsterbattle::monster::Stats(255, 100, 100, 0.5, 0.5, 112), monsterbattle::Type::ICE);
-
-    monsterbattle::monster::MoveManager::getInstance().load("./assets/moves.txt");
-    auto move = monsterbattle::monster::MoveManager::getInstance().getMove("Electrocute");
-
-    if (move == nullptr) 
-    { 
-        std::cerr << "Could not find move" << std::endl; 
+    for (auto& i : test.getMoves())
+    {   
+        if (i != nullptr) std::cout << *i << std::endl;
     }
-    else
-    {
-        std::cout << *move << std::endl;
-        move->use(test, test);
-    } 
 
 
     return 0;

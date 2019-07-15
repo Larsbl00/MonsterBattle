@@ -27,6 +27,8 @@ namespace monsterbattle
 {
     namespace monster
     {
+        class Monster; //Forward decleration
+
         class Move
         {
             public:
