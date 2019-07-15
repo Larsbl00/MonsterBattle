@@ -9,7 +9,6 @@
 #include "Vector.h"
 #include "DisplayManager.h"
 #include "TerminalDisplay.h"
-#include "TypeWeaknessManager.h"
 #include "Monster.h"
 #include "Model.h"
 #include "MoveManager.h"
@@ -46,7 +45,7 @@ int main(void)
 
     test.addMoves({"Tackle", "Nothing", "Freeze", "Chill"});
 
-    displayManager.addToRenderQueue(&test.getModel());
+    displayManager.addToRenderQueue(&test);
     displayManager.render();
     displayManager.displayAllItems();
 

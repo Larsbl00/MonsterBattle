@@ -41,8 +41,8 @@ namespace monsterbattle
          * @brief Displays all items
          * 
         */
-
         void displayAllItems();
+        
         /**
          * @brief 
          * 

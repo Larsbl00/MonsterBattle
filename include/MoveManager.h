@@ -15,16 +15,16 @@
 #include <unordered_map>
 #include <cstdio>
 
+#include "Move.h"
 #include "Type.h"
 #include "RaiiFileHandle.h"
-#include "Move.h"
 
 #define MOVE_MANAGER_LINE_COMMENT_CHAR ('#')
 
 namespace monsterbattle
 {
     namespace monster
-    {
+    {   
         class MoveManager
         {
             public:

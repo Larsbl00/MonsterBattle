@@ -78,15 +78,22 @@ namespace monsterbattle
             }
         }
 
+        void Monster::display(IDisplay& display)
+        {
+            this->model.display(display);
+        }
 
-
-        Model& Monster::getModel() { return this->model; }
         const std::array<const Move*, Monster::MoveCount>& Monster::getMoves() const { return this->moves; }
         const std::string& Monster::getName() const { return this->name; }
         const std::string& Monster::getNickName() const { return this->nickName; }
         const Stats& Monster::getStats() const { return this->stats; }
         Stats& Monster::getStats() { return this->stats; }
         const std::array<Type, Monster::TypeCount>& Monster::getTypes() const { return this->types; }
+
+        void Monster::move(const Vector2i32& direction)
+        {
+            this->model.move(direction);
+        }
 
         void Monster::setNickName(const std::string& nickName) { this->nickName = nickName; }
     }

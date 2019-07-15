@@ -10,6 +10,7 @@
 */
 
 #include "Move.h"
+#include "Monster.h" //Retreive functionality from the forward decleration
 
 namespace monsterbattle
 {

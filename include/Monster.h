@@ -18,9 +18,9 @@
 #include <stdexcept>
 #include <vector>
 
-#include "Model.h"
-#include "Move.h"
+#include "IDisplayable.h"
 #include "MoveManager.h"
+#include "Model.h"
 #include "Stats.h"
 #include "Type.h"
 
@@ -31,9 +31,7 @@ namespace monsterbattle
 {
     namespace monster
     {
-        class Move; //Forward Decleration
-
-        class Monster
+        class Monster: public IDisplayable
         {
             public:
             const static constexpr uint8_t TypeCount = MONSTER_TYPE_COUNT;
@@ -50,14 +48,16 @@ namespace monsterbattle
             bool attack(Monster& other);
             void addMove(const std::string& name);
             void addMoves(const std::vector<std::string>& names);
+            void display(IDisplay& display);
 
-            Model& getModel();
             const std::array<const Move*, Monster::MoveCount>& getMoves() const;
             const std::string& getName() const;
             const std::string& getNickName() const; 
             const Stats& getStats() const;
             Stats& getStats();
             const std::array<Type, Monster::TypeCount>& getTypes() const;
+
+            void move(const Vector2i32& direction);
 
             void setNickName(const std::string& nickName);
         
