@@ -26,35 +26,13 @@ int main(void)
     display.setPixel(monsterbattle::Vector2i32(11,10), '!', monsterbattle::Color::White);
     display.setPixel(monsterbattle::Vector2i32(12,10), monsterbattle::Color::Cyan);
 
-    //monsterbattle::Game game;
-
-    monsterbattle::Model spr("./assets/models/test.txt", monsterbattle::Color::Yellow);
-    spr.load();
-    monsterbattle::Sprite copy(monsterbattle::Vector2i32(0,5), spr.getBuffer(), monsterbattle::Color::Red);
-    copy.flipVertical();
-
-    displayManager.addToRenderQueue(&spr);
-    displayManager.addToRenderQueue(&copy);
-
-    monsterbattle::monster::Monster test(
-        "Charmander", 
-        monsterbattle::monster::Stats(255, 100, 100, 0.5, 0.5, 112), 
-        "./assets/models/test.txt",
-        monsterbattle::Color::Blue, 
-        monsterbattle::Type::ICE
-    );
-
 
     auto& monsterManager = monsterbattle::monster::MonsterManager::getInstance();
     monsterManager.load("./assets/monsters.txt");
 
-    auto temp = monsterManager.getMonsterCopy("SmallBird");
+    auto temp = monsterManager.getMonsterCopy("BiggerBird");
     temp.getName();
 
-    //std::cout << temp << std::endl;
-     
-
-    displayManager.addToRenderQueue(&test);
     displayManager.addToRenderQueue(&temp);
     displayManager.render();
     displayManager.displayAllItems();

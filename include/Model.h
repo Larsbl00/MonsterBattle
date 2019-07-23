@@ -16,6 +16,7 @@
 #include <ostream>
 #include <stdexcept>
 #include <fstream>
+#include <vector>
 
 #include "Color.h"
 #include "Sprite.h"
