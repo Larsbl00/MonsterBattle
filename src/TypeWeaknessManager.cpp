@@ -37,12 +37,6 @@ namespace monsterbattle
 
     }
 
-    TypeWeaknessManager& TypeWeaknessManager::getInstance()
-    {
-        static TypeWeaknessManager manager;
-        return manager;
-    }
-
     std::vector<Type>& TypeWeaknessManager::getWeaknesses(Type type)
     {
         return this->weaknessMap[type];

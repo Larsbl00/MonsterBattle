@@ -45,7 +45,7 @@ int main(void)
 
 
     monsterbattle::monster::Monster test2;
-    monsterbattle::RaiiFileHandle h("./assets/monsters/SmallBird.txt");
+    monsterbattle::RaiiFileHandle h("./assets/monsters.txt");
     
     for (std::string input; std::getline(h, input, '\n'); )
     {

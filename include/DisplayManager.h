@@ -19,16 +19,16 @@
 
 #include "IDisplay.h"
 #include "IDisplayable.h"
+#include "Singleton.h"
 
 namespace monsterbattle 
 {
-    class DisplayManager
+    class DisplayManager:
+        public Singleton<DisplayManager>
     {
         public: 
         ~DisplayManager() noexcept = default;
         DisplayManager(const DisplayManager&) = delete;
-
-        static DisplayManager& getInstance();
 
         /**
          * @brief Adds an item to the render queue
@@ -62,6 +62,9 @@ namespace monsterbattle
          * @param display A pointer to the new display, keep the item alive as long as you're using it
         */
         void setDisplay(IDisplay* display);
+
+        //Declare friend to access private constructor
+        friend Singleton;
 
         private:
         IDisplay* display;

@@ -29,13 +29,6 @@ namespace monsterbattle
          * Public Functions
          * 
          */
-
-        MoveManager& MoveManager::getInstance()
-        {
-            static MoveManager manager;
-            return manager;
-        }
-
         const Move* MoveManager::getMove(const std::string& name) const 
         {
             auto move = this->moveMap.find(name);

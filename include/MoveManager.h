@@ -18,6 +18,7 @@
 #include "Move.h"
 #include "Type.h"
 #include "RaiiFileHandle.h"
+#include "Singleton.h"
 
 #define MOVE_MANAGER_LINE_COMMENT_CHAR ('#')
 
@@ -25,14 +26,13 @@ namespace monsterbattle
 {
     namespace monster
     {   
-        class MoveManager
+        class MoveManager:
+            public Singleton<MoveManager>
         {
             public:
             const static constexpr char LineCommentChar = MOVE_MANAGER_LINE_COMMENT_CHAR;
 
             ~MoveManager() noexcept = default;
-
-            static MoveManager& getInstance();
 
             /**
              * @brief Gets move on based ona given name
@@ -50,6 +50,8 @@ namespace monsterbattle
             void load(const std::string& file);
 
             void unload();
+
+            friend Singleton;
 
             private:
             MoveManager();
