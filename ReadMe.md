@@ -13,7 +13,7 @@ To add a new move open `assets/moves.txt` and add a new line for your move; said
 
 *NAME:  The name of the move, e.g. 'Yeet'
 
-*TYPE_AS_INTEGER: The typing of the move, i.e. if I want it to be a fire move I'll open `include/Type.h` and check what number fire       is, in this case it is 1
+*TYPE_AS_INTEGER: The typing of the move, i.e. if I want it to be a fire move I'll open `include/Type.h` and check what number fire is, in this case it is 1
 
 *DAMAGE: The damage of the move, with ~50 being equal to normal damage
 
