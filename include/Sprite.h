@@ -21,11 +21,14 @@
 #include "Color.h"
 #include "IDisplay.h"
 #include "IDisplayable.h"
+#include "IMoveable.h"
 #include "Vector.h"
 
 namespace monsterbattle
 {
-    class Sprite: public IDisplayable 
+    class Sprite: 
+        public IDisplayable,
+        public IMoveable
     {
         public:
         using Data_t = char;

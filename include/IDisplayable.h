@@ -21,7 +21,7 @@ namespace monsterbattle
     
     struct IDisplayable
     {
-        virtual ~IDisplayable(){}
+        virtual ~IDisplayable() = default;
 
         /**
          * @brief 

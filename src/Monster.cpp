@@ -92,7 +92,7 @@ namespace monsterbattle
             std::istringstream stream(str.substr(1, str.length() - 2));
             std::vector<std::string> data;
 
-            for (std::string val; getline(stream, val, '\n'); )
+            for (std::string val; getline(stream, val, Monster::AttributeSplitChar); )
             {
                 if (!val.empty() && val[0] != Monster::LineCommentChar)
                 {
@@ -100,7 +100,14 @@ namespace monsterbattle
                 }
             }
 
-            //Check if all fields are present
+            std::cout << data.size() << std::endl;
+
+            for(const auto& i : data)
+            {
+                std::cout << i << std::endl;
+            }
+
+            if (data.size() <= 1) return;
             if (data.size() != 6) throw std::runtime_error("Deserialization error; Monster is corrupted");
 
             this->name = data[0];

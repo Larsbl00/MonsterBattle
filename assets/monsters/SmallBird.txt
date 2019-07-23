@@ -1,27 +1,13 @@
-## To add a new Monster to the File use the following format
+# To add a new Monster to the File use the following format
 #
-# (
-#   <NICK_NAME>
-#   <NAME>
-#   <TYPES>*
-#   <STATS>*
-#   <MOVES>*
-#   <MODEL_FILE>*
-# )
+# (<NICK_NAME>; <NAME>; <TYPES>*; <STATS>*; <MOVES>*; <MODEL_FILE>*;)
 #
-#   <TYPE>*: {<TYPE1, TYPE2} (as integer, i.e. 0,1,2,3,4,5,...)
-#   <STATS>*: {<MAX_HP>,<HP>,<DEF>,<ATTACK>,<PRECISION>,<AVOIDANCE>,<SPEED>}
-#   <MOVES>*: {<MOVE1>, ..., <MOVE4>} (Use the name of the move you want to use, use the 'moves' file to check their names)
-#   <MODEL_FILE>*: The file containing the model of the monster. Use './' to access everything from the root of the program
+#  *<TYPE>: {<TYPE1, TYPE2} (as integer, i.e. 0,1,2,3,4,5,...)
+#  *<STATS>: {<MAX_HP>,<HP>,<DEF>,<ATTACK>,<PRECISION>,<AVOIDANCE>,<SPEED>}
+#  *<MOVES>: {<MOVE1>, ..., <MOVE4>} (Use the name of the move you want to use, use the 'moves' file to check their names)
+#  *<MODEL_FILE>: The file containing the model of the monster. Use './' to access everything from the root of the program
 
 # SmallBird
-(
-    SmallBird
-    SmallBird
-    {5,0}
-    {102,102,48,20,0.5,0.6,112}
-    {Peck,Tackle,Yeet,Wing Attack}
-    ./assets/models/SmallBird.txt
-)
+(SmallBird; SmallBird; {5,0}; {102,102,48,20,0.5,0.6,112}; {Peck,Tackle,Yeet,Wing Attack}; ./assets/models/SmallBird.txt)
 
 

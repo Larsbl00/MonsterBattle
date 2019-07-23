@@ -45,7 +45,12 @@ int main(void)
 
 
     monsterbattle::monster::Monster test2;
-    test2.loadFromString("(\nSmallBird\nSmallBird\n{5,0}\n{102,102,48,20,0.5,0.6,112}\n{Peck,Tackle,Yeet,Wing Attack}\n./assets/models/SmallBird.txt\n\n)");
+    monsterbattle::RaiiFileHandle h("./assets/monsters/SmallBird.txt");
+    
+    for (std::string input; std::getline(h, input, '\n'); )
+    {
+        test2.loadFromString(input);
+    }
     test2.move(monsterbattle::Vector2i32(0, 13));
      
 

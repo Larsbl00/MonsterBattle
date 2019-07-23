@@ -23,7 +23,7 @@ namespace monsterbattle
 
     struct IDisplay
     {
-        virtual ~IDisplay(){}
+        virtual ~IDisplay() = default;
 
         virtual void clear() = 0;
         virtual void display() = 0;
