@@ -21,11 +21,14 @@
 #include "Color.h"
 #include "IDisplay.h"
 #include "IDisplayable.h"
+#include "IMoveable.h"
 #include "Vector.h"
 
 namespace monsterbattle
 {
-    class Sprite: public IDisplayable 
+    class Sprite: 
+        public IDisplayable,
+        public IMoveable
     {
         public:
         using Data_t = char;
@@ -34,7 +37,7 @@ namespace monsterbattle
         const static constexpr auto EmptyChar = ' ';
         const static constexpr auto& DefaultColor = monsterbattle::Color::Black;
 
-        Sprite() = default;
+        Sprite();
         Sprite(const Vector2i32& size);
         Sprite(const Vector2i32& location, const Vector2i32& size);
         Sprite(const Vector2i32& size, const Color& color);
@@ -56,7 +59,7 @@ namespace monsterbattle
          * 
          * @param display 
         */
-        void display(IDisplay& display);
+        virtual void display(IDisplay& display);
 
         /**
          * @brief Flips a sprite horizontal, i.e. turning

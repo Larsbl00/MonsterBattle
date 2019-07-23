@@ -15,14 +15,11 @@ namespace monsterbattle
 {
     RaiiFileHandle::RaiiFileHandle(const std::string& fileName)
     {
-        stream.open(fileName);
+        this->open(fileName);
     }
 
     RaiiFileHandle::~RaiiFileHandle() noexcept 
     {
         this->close();
     }
-
-    void RaiiFileHandle::close() { if (this->stream.is_open()) this->stream.close(); }
-    void RaiiFileHandle::open(const std::string& fileName) { this->close(); this->stream.open(fileName); }
 }

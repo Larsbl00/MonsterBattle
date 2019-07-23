@@ -24,12 +24,6 @@ namespace monsterbattle
 
     }
 
-    DisplayManager& DisplayManager::getInstance()
-    {
-        static DisplayManager manager;
-        return manager;
-    }
-
     void DisplayManager::addToRenderQueue(IDisplayable* item)
     {
         if (item == nullptr) throw std::invalid_argument("Cannot add NULL to items");

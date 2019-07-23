@@ -19,7 +19,6 @@
 #include <vector>
 #include <stdexcept>
 
-#include "Monster.h"
 #include "Type.h"
 #include "TypeWeaknessManager.h"
 
@@ -27,6 +26,8 @@ namespace monsterbattle
 {
     namespace monster
     {
+        class Monster; //Forward Decl
+        
         class Move
         {
             public:

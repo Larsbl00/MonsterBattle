@@ -15,24 +15,26 @@
 #include <unordered_map>
 #include <cstdio>
 
+#include "Move.h"
 #include "Type.h"
 #include "RaiiFileHandle.h"
-#include "Move.h"
+#include "Singleton.h"
 
 #define MOVE_MANAGER_LINE_COMMENT_CHAR ('#')
 
 namespace monsterbattle
 {
     namespace monster
-    {
-        class MoveManager
+    {   
+        class MoveManager:
+            public Singleton<MoveManager>
         {
             public:
+            friend Singleton;
+            
             const static constexpr char LineCommentChar = MOVE_MANAGER_LINE_COMMENT_CHAR;
 
             ~MoveManager() noexcept = default;
-
-            static MoveManager& getInstance();
 
             /**
              * @brief Gets move on based ona given name

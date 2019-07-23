@@ -12,8 +12,11 @@
 #ifndef STATS_H
 #define STATS_H
 
-#include <ostream>
 #include <cstdint>
+#include <cstdio>
+#include <sstream>
+#include <iostream>
+#include <vector>
 
 namespace monsterbattle
 {
@@ -36,12 +39,19 @@ namespace monsterbattle
             Stats(const Stats& other) = default;
             ~Stats() noexcept = default;
 
-            const int16_t maxHealth;    //Maximum health stat
-            int16_t health;             //Health stat
-            uint8_t defense;            //Defense stat
-            uint8_t attack;             //Attack stat
-            uint8_t speed;              //Speed stat
+            int16_t health;     //Health stat
+            uint8_t defense;    //Defense stat
+            uint8_t attack;     //Attack stat
+            uint8_t speed;      //Speed stat
 
+            /**
+             * @brief Sets all fields based on a serialized string, in the following form:
+             *  {<MAX_HP>,<HP>,<DEF>,<ATC>,<PREC>,<AVOI>,<SPD>}
+             * 
+             * @param str 
+            */
+            void loadFromString(const std::string& str);
+            int16_t getMaxHealth() const;
             float getAvoidance() const;
             float getPrecision() const;
             void setAvoidance(float avoidance);
@@ -50,8 +60,9 @@ namespace monsterbattle
             friend std::ostream& operator<<(std::ostream& str, const Stats& stats);
 
             private:
-            float precision;            //Precision, a normalized value showing the accuracy
-            float avoidance;            //Avoidance, a normalized value displaying the probability of avoiding an attack
+            float precision;    //Precision, a normalized value showing the accuracy
+            float avoidance;    //Avoidance, a normalized value displaying the probability of avoiding an attack
+            int16_t maxHealth;  //Maximum health stat
         };
     }  
 }

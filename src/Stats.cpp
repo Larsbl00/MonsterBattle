@@ -23,8 +23,8 @@ namespace monsterbattle
          * 
          */
         Stats::Stats(int16_t health, uint8_t defense, uint8_t attack, float precision, float avoidance, uint8_t speed):
-            maxHealth(health), health(health), defense(defense), attack(attack), 
-            speed(speed)
+            health(health), defense(defense), attack(attack), 
+            speed(speed), maxHealth(health)
         {
             this->setAvoidance(avoidance);
             this->setPresicion(precision);
@@ -35,7 +35,31 @@ namespace monsterbattle
          * Functions
          * 
          */
+        void Stats::loadFromString(const std::string& str)
+        {
+            if (str.empty()) return;
 
+            //Remove start and end brackets
+            std::istringstream stream(str.substr(1, str.length() - 2));
+            std::vector<std::string> data;
+
+            for (std::string val; getline(stream, val, ','); )
+            {
+                data.push_back(std::move(val));
+            }
+
+            if (data.size() != 7) throw std::runtime_error("Deserialization error; Stat is corrupted");
+
+            this->health = stoi(data[0]);
+            this->maxHealth = stoi(data[1]);
+            this->defense = stoi(data[2]);
+            this->attack = stoi(data[3]);
+            this->precision = stof(data[4]);
+            this->avoidance = stof(data[5]);
+            this->speed = stoi(data[6]);
+        }
+
+        int16_t Stats::getMaxHealth() const { return this->maxHealth; }
         float Stats::getAvoidance() const { return this->avoidance; }
         float Stats::getPrecision() const { return this->precision; }
 
@@ -55,11 +79,11 @@ namespace monsterbattle
         std::ostream& operator<< (std::ostream& str, const Stats& stats)
         {
             return str 
-            << "{(" 
+            << '{' 
             << (int)stats.health 
-            << '/' 
+            << ',' 
             << (int)stats.maxHealth 
-            << "),"
+            << ','
             << (int)stats.defense
             << ','
             << (int)stats.attack 

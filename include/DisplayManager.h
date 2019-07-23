@@ -19,16 +19,20 @@
 
 #include "IDisplay.h"
 #include "IDisplayable.h"
+#include "Singleton.h"
 
 namespace monsterbattle 
 {
-    class DisplayManager
+    class DisplayManager:
+        public Singleton<DisplayManager>
     {
         public: 
+
+        //Declare friend to access private constructor
+        friend Singleton;
+        
         ~DisplayManager() noexcept = default;
         DisplayManager(const DisplayManager&) = delete;
-
-        static DisplayManager& getInstance();
 
         /**
          * @brief Adds an item to the render queue
@@ -41,8 +45,8 @@ namespace monsterbattle
          * @brief Displays all items
          * 
         */
-
         void displayAllItems();
+        
         /**
          * @brief 
          * 

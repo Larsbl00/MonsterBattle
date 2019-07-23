@@ -78,7 +78,8 @@ SRC=\
 	Move.cpp \
 	Stats.cpp \
 	MoveManager.cpp \
-	Type.cpp
+	Type.cpp \
+	MonsterManager.cpp \
 
 HEADERS=\
 	$(INC_DIR)/$(wildcard *.h)
@@ -114,8 +115,7 @@ vpath $(LIB_EXT) $(LIB_DIR)
 
 all: dirs $(NAME) $(DEBUG_NAME) $(RELEASE_NAME)
 
-$(NAME): dirs $(OBJECTS)
-	$(CXX) $(CXX_FLAGS) $(INC_FLAGS) $(OBJECTS) -o $(BLD_DIR)/$@$(EXTENSION) $(LD_FLAGS)
+$(NAME): $(DEBUG_NAME) $(RELEASE_NAME)
 
 $(DEBUG_NAME): dirs $(DEBUG_OBJECTS)
 	$(CXX) $(CXX_FLAGS) $(DEBUG_FLAGS) $(INC_FLAGS) $(DEBUG_OBJECTS) -o $(BLD_DIR)/$@$(EXTENSION) $(LD_FLAGS) 

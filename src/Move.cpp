@@ -10,6 +10,7 @@
 */
 
 #include "Move.h"
+#include "Monster.h" //Retreive functionality from the forward decleration
 
 namespace monsterbattle
 {
@@ -66,15 +67,18 @@ namespace monsterbattle
 
             for (std::string val; getline(stream, val, ','); )
             {
-                data.push_back(std::move(val));
+                if (!val.empty())
+                {
+                    data.push_back(std::move(val));
+                }
             }
 
-            if (data.size() != 4) throw std::runtime_error("Deserialization error; Move is corrupted");
+            if (data.size() != 4) throw std::runtime_error("Deserialization error; Monster is corrupted");
 
             this->name = data[0];
-            this->attackType = static_cast<Type>(atoi(data[1].c_str())); 
-            this->damage = atoi(data[2].c_str());
-            this->precision = atof(data[3].c_str());
+            this->attackType = static_cast<Type>(stoi(data[1])); 
+            this->damage = stoi(data[2]);
+            this->precision = stof(data[3]);
         }
 
         const std::string& Move::getName() const { return this->name; }

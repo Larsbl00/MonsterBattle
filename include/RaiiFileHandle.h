@@ -17,16 +17,11 @@
 
 namespace monsterbattle
 {
-    class RaiiFileHandle
+    class RaiiFileHandle: public std::fstream
     {
         public:
-        RaiiFileHandle() = default;
         RaiiFileHandle(const std::string& fileName);
         ~RaiiFileHandle() noexcept;
-        void close();   
-        void open(const std::string& fileName);
-
-        std::fstream stream;
     };
 
 }

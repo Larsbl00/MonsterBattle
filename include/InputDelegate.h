@@ -16,7 +16,7 @@ namespace monsterbattle
 {
     struct InputDelegate
     {
-        virtual ~InputDelegate(){}
+        virtual ~InputDelegate() = default;
 
         virtual void onKeyPress(char pressedKey) = 0;
     };

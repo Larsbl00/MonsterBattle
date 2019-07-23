@@ -47,12 +47,18 @@ namespace monsterbattle
         auto result = select(fileno(stdin) + 1, &set, NULL, NULL, &timeout);
         if (result < 0) 
         {
-            throw std::runtime_error("Cannot set the timour on the input reader");
+            throw std::runtime_error("Cannot set the timout on the input reader");
         }
         else if (result > 0)
         {
             char data;
-            read(fileno(stdin), &data, sizeof(data));
+            auto readBytes = read(fileno(stdin), &data, sizeof(data));
+
+            if (readBytes != sizeof(data)) 
+            {
+                throw std::runtime_error("Error Reading user input");
+            }
+
             this->delegate.onKeyPress(data);
         }
     }
