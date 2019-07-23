@@ -8,6 +8,4 @@
 #  *<MODEL_FILE>: The file containing the model of the monster. Use './' to access everything from the root of the program
 
 # SmallBird
-(SmallBird; SmallBird; {5,0}; {102,102,48,20,0.5,0.6,112}; {Peck,Tackle,Yeet,Wing Attack}; ./assets/models/SmallBird.txt)
-
-
+(SmallBird; SmallBird; [5,0]; {102,102,48,20,0.5,0.6,112}; [Peck,Tackle,Yeet,Wing Attack]; ./assets/models/SmallBird.txt)

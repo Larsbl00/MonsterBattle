@@ -96,7 +96,8 @@ namespace monsterbattle
             {
                 if (!val.empty() && val[0] != Monster::LineCommentChar)
                 {
-                    data.push_back(std::move(val));
+                    auto start = val.find_first_not_of(' ');
+                    data.push_back(std::move(val.substr(start, val.length() - start)));
                 }
             }
     
@@ -108,6 +109,7 @@ namespace monsterbattle
 
             this->name = data[0];
             this->setNickName(data[1]);
+            std::cout << data[2] << std::endl;
             this->loadTypeFromSubString(data[2]);
             this->stats.loadFromString(data[3]);
             this->loadMovesFromSubString(data[4]);
@@ -186,7 +188,7 @@ namespace monsterbattle
         {
             if (str.empty()) throw std::runtime_error("Deserialization error; Moves are corrupted");
 
-            std::istringstream stream(str.substr(1, str.length() - 2));
+            std::istringstream stream(str.substr(1, str.length() - 2)); 
             std::vector<std::string> data;
             uint8_t it = 0;
 

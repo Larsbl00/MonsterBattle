@@ -49,7 +49,7 @@ int main(void)
     
     for (std::string input; std::getline(h, input, '\n'); )
     {
-        test2.loadFromString(input);
+        if (input[0] != monsterbattle::monster::Monster::LineCommentChar) test2.loadFromString(input);
     }
     test2.move(monsterbattle::Vector2i32(0, 13));
      
