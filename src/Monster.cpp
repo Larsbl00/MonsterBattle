@@ -99,15 +99,11 @@ namespace monsterbattle
                     data.push_back(std::move(val));
                 }
             }
-
-            std::cout << data.size() << std::endl;
-
-            for(const auto& i : data)
-            {
-                std::cout << i << std::endl;
-            }
-
+    
+            //Check if it has split the input into different pieces, if it is not the case, leave the function
             if (data.size() <= 1) return;
+
+            //Check to see if the amount of received data is correct
             if (data.size() != 6) throw std::runtime_error("Deserialization error; Monster is corrupted");
 
             this->name = data[0];
