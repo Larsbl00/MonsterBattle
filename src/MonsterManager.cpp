@@ -30,18 +30,18 @@ namespace monsterbattle
             else return &monster->second;
         }
 
-        Monster&& MonsterManager::getMonsterCopy(const std::string& name) const
+        Monster MonsterManager::getMonsterCopy(const std::string& name) const
         {
             auto monster = this->getMonster(name);
 
             if (monster == nullptr) 
             {
                 throw std::runtime_error("No monster named '" + name + "' is present");
-                return std::move(Monster());
+                return Monster();
             }
             else 
             {
-                return std::move(Monster(*monster));
+                return *monster;
             }
         }
 

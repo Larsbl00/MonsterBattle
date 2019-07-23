@@ -48,13 +48,14 @@ int main(void)
     auto& monsterManager = monsterbattle::monster::MonsterManager::getInstance();
     monsterManager.load("./assets/monsters.txt");
 
-    auto temp = monsterManager.getMonster("SmallBird");
-    temp->getName();
+    auto temp = monsterManager.getMonsterCopy("SmallBird");
+    temp.getName();
 
     //std::cout << temp << std::endl;
      
 
     displayManager.addToRenderQueue(&test);
+    displayManager.addToRenderQueue(&temp);
     displayManager.render();
     displayManager.displayAllItems();
 

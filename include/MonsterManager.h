@@ -46,9 +46,9 @@ namespace monsterbattle
              * @brief Get the Monster Copy object
              * 
              * @param name 
-             * @return Monster&& 
+             * @return Monster 
             */
-            Monster&& getMonsterCopy(const std::string& name) const;
+            Monster getMonsterCopy(const std::string& name) const;
 
             /**
              * @brief Loads all monsterMap from a given file
