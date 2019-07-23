@@ -79,6 +79,7 @@ SRC=\
 	Stats.cpp \
 	MoveManager.cpp \
 	Type.cpp \
+	MonsterManager.cpp \
 
 HEADERS=\
 	$(INC_DIR)/$(wildcard *.h)

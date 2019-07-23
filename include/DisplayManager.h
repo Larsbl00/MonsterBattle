@@ -27,6 +27,10 @@ namespace monsterbattle
         public Singleton<DisplayManager>
     {
         public: 
+
+        //Declare friend to access private constructor
+        friend Singleton;
+        
         ~DisplayManager() noexcept = default;
         DisplayManager(const DisplayManager&) = delete;
 
@@ -62,9 +66,6 @@ namespace monsterbattle
          * @param display A pointer to the new display, keep the item alive as long as you're using it
         */
         void setDisplay(IDisplay* display);
-
-        //Declare friend to access private constructor
-        friend Singleton;
 
         private:
         IDisplay* display;

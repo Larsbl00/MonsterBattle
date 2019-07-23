@@ -30,6 +30,8 @@ namespace monsterbattle
             public Singleton<MoveManager>
         {
             public:
+            friend Singleton;
+            
             const static constexpr char LineCommentChar = MOVE_MANAGER_LINE_COMMENT_CHAR;
 
             ~MoveManager() noexcept = default;
@@ -50,8 +52,6 @@ namespace monsterbattle
             void load(const std::string& file);
 
             void unload();
-
-            friend Singleton;
 
             private:
             MoveManager();

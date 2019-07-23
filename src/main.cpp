@@ -12,6 +12,7 @@
 #include "Monster.h"
 #include "Model.h"
 #include "MoveManager.h"
+#include "MonsterManager.h"
 
 int main(void)
 {
@@ -44,18 +45,16 @@ int main(void)
     );
 
 
-    monsterbattle::monster::Monster test2;
-    monsterbattle::RaiiFileHandle h("./assets/monsters.txt");
-    
-    for (std::string input; std::getline(h, input, '\n'); )
-    {
-        if (input[0] != monsterbattle::monster::Monster::LineCommentChar) test2.loadFromString(input);
-    }
-    test2.move(monsterbattle::Vector2i32(0, 13));
+    auto& monsterManager = monsterbattle::monster::MonsterManager::getInstance();
+    monsterManager.load("./assets/monsters.txt");
+
+    auto temp = monsterManager.getMonster("SmallBird");
+    temp->getName();
+
+    //std::cout << temp << std::endl;
      
 
     displayManager.addToRenderQueue(&test);
-    displayManager.addToRenderQueue(&test2);
     displayManager.render();
     displayManager.displayAllItems();
 

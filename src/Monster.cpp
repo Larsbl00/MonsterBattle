@@ -109,7 +109,6 @@ namespace monsterbattle
 
             this->name = data[0];
             this->setNickName(data[1]);
-            std::cout << data[2] << std::endl;
             this->loadTypeFromSubString(data[2]);
             this->stats.loadFromString(data[3]);
             this->loadMovesFromSubString(data[4]);

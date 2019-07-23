@@ -24,6 +24,10 @@ namespace monsterbattle
         public Singleton<TypeWeaknessManager>
     {
         public:
+        
+        // Make the singleton a friend so it can access the private destructor 
+        friend Singleton;
+        
         const static constexpr float WeaknessMultiplier = 2.0;
 
         ~TypeWeaknessManager() noexcept;
@@ -36,8 +40,6 @@ namespace monsterbattle
         */
         std::vector<Type>& getWeaknesses(Type type);
 
-        /* Make the singleton a friend so it can access the private destructor */
-        friend Singleton;
 
         private: 
         TypeWeaknessManager();
