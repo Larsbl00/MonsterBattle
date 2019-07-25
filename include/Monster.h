@@ -42,6 +42,7 @@ namespace monsterbattle
             public IMoveable
         {
             public:
+
             const static constexpr char AttributeSplitChar = MONSTER_ATTRIBUTE_SPLIT_CHAR;
             const static constexpr char LineCommentChar = MONSTER_LINE_COMMENT_CHAR;
             const static constexpr uint8_t MoveCount = MONSTER_MOVE_COUNT;
@@ -58,7 +59,8 @@ namespace monsterbattle
             bool attack(Monster& other);
             void addMove(const std::string& name);
             void addMoves(const std::vector<std::string>& names);
-            void display(IDisplay& display);
+
+            void display(IDisplay& display) override;
 
             const std::array<const Move*, Monster::MoveCount>& getMoves() const;
             const std::string& getName() const;
@@ -75,7 +77,8 @@ namespace monsterbattle
              *  (<NICK_NAME>; <NAME>; <TYPES>; <STATS>; <MOVES>; <MODEL_FILE>;)
             */
             void loadFromString(const std::string& str);
-            void move(const Vector2i32& direction);
+
+            void move(const Vector2i32& direction) override;
 
             void setNickName(const std::string& nickName);
         
@@ -84,6 +87,7 @@ namespace monsterbattle
             friend std::istream& operator>>(std::istream& str, Monster& mon);
 
             private:
+
             Model model;
             std::array<const Move*, Monster::MoveCount> moves;
             std::string name;

@@ -29,11 +29,13 @@ namespace monsterbattle
         class MoveManager:
             public Singleton<MoveManager>
         {
-            public:
             friend Singleton;
             
+            public:
+
             const static constexpr char LineCommentChar = MOVE_MANAGER_LINE_COMMENT_CHAR;
 
+            MoveManager(const MoveManager& other) = delete;
             ~MoveManager() noexcept = default;
 
             /**

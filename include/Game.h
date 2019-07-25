@@ -23,7 +23,7 @@ namespace monsterbattle
     {
         public:
 
-        Game();
+        Game(InputReader& inputReader);
         Game(const Game& other) = delete;
         ~Game() noexcept;
 
@@ -33,7 +33,7 @@ namespace monsterbattle
 
         private:
         bool isUpdatingReader;
-        InputReader inputReader;
+        InputReader& inputReader;
         std::thread inputThread;
 
 

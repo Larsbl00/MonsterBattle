@@ -23,13 +23,14 @@ namespace monsterbattle
     class TypeWeaknessManager:
         public Singleton<TypeWeaknessManager>
     {
-        public:
-        
         // Make the singleton a friend so it can access the private destructor 
         friend Singleton;
+
+        public:
         
         const static constexpr float WeaknessMultiplier = 2.0;
 
+        TypeWeaknessManager(const TypeWeaknessManager& other) = delete;
         ~TypeWeaknessManager() noexcept;
 
         /**

@@ -59,7 +59,7 @@ namespace monsterbattle
          * 
          * @param display 
         */
-        virtual void display(IDisplay& display);
+        virtual void display(IDisplay& display) override;
 
         /**
          * @brief Flips a sprite horizontal, i.e. turning
@@ -85,7 +85,8 @@ namespace monsterbattle
         const Buffer_t& getBuffer() const;
         const Color& getColor() const;
 
-        void move(const Vector2i32& direction);
+        void move(const Vector2i32& direction) override;
+        
         void setBuffer(const Buffer_t& newBuffer);
         void setBuffer(const Vector2i32& position, Sprite::Data_t value);
         void setBuffer(const Vector2i32& position, const Vector2i32& size, Sprite::Data_t value);

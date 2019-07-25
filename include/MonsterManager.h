@@ -24,14 +24,14 @@ namespace monsterbattle
         class MonsterManager:
             public Singleton<MonsterManager>
         {
-            public:
-
             //Make the singleton a friend, so it can access the private constructor
             friend Singleton;
 
+            public:
+
             const static constexpr auto LineCommentChar = Monster::LineCommentChar;
 
-
+            MonsterManager(const MonsterManager& other) = delete;
             ~MonsterManager() noexcept = default;
 
             /**

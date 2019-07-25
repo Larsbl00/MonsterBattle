@@ -9,6 +9,7 @@
 #include "Vector.h"
 #include "DisplayManager.h"
 #include "TerminalDisplay.h"
+#include "TerminalInputReader.h"
 #include "Monster.h"
 #include "Model.h"
 #include "MoveManager.h"

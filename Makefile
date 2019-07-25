@@ -31,7 +31,8 @@ LD_FLAGS=\
 # Add inclusion directories
 ####################################
 INC_FLAGS=\
-	-I$(INC_DIR)
+	-I$(INC_DIR) \
+	-I$(INC_DIR)/Interfaces
 
 
 #Directories
@@ -65,6 +66,7 @@ LIBS=\
 SRC=\
 	main.cpp \
 	InputReader.cpp\
+	TerminalInputReader.cpp \
 	Game.cpp \
 	TerminalDisplay.cpp \
 	DisplayManager.cpp \

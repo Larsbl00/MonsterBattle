@@ -31,6 +31,7 @@ namespace monsterbattle
         class Move
         {
             public:
+            
             Move() = default;
             /**
              * @brief Construct a new Move object

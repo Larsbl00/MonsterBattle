@@ -17,8 +17,8 @@ namespace monsterbattle
 {
     struct IMoveable
     {
-        virtual ~IMoveable() = default;
-        void move(const Vector2i32& direction);
+        virtual ~IMoveable() noexcept = default;
+        virtual void move(const Vector2i32& direction) = 0;
     };
 }
 

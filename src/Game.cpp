@@ -24,10 +24,10 @@ namespace monsterbattle
         
     }
 
-    Game::Game():
-        isUpdatingReader(true), inputReader(*this), inputThread(updateGameInput, this, std::ref(this->isUpdatingReader))
+    Game::Game(InputReader& inputReader):
+        isUpdatingReader(true), inputReader(inputReader), inputThread(updateGameInput, this, std::ref(this->isUpdatingReader))
     {
-
+        this->inputReader.setDelegate(this);
     }
 
     Game::~Game() noexcept
