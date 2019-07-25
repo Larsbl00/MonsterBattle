@@ -27,6 +27,7 @@
 #include "Model.h"
 #include "Stats.h"
 #include "Type.h"
+#include "TypeColorManager.h"
 
 #define MONSTER_TYPE_COUNT (2)
 #define MONSTER_MOVE_COUNT (4)

@@ -113,6 +113,9 @@ namespace monsterbattle
             this->stats.loadFromString(data[3]);
             this->loadMovesFromSubString(data[4]);
             this->model.load(data[5]);
+
+            //Set the color of the sprite
+            this->model.setColor(TypeColorManager::getInstance().getColorFromType(this->types[0]));
         }
 
         void Monster::move(const Vector2i32& direction)

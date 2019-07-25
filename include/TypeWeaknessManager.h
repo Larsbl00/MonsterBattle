@@ -31,7 +31,7 @@ namespace monsterbattle
         const static constexpr float WeaknessMultiplier = 2.0;
 
         TypeWeaknessManager(const TypeWeaknessManager& other) = delete;
-        ~TypeWeaknessManager() noexcept;
+        ~TypeWeaknessManager() noexcept = default;
 
         /**
          * @brief Get the weaknesses of any given monsterbattle::Type

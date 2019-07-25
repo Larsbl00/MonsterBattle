@@ -81,6 +81,7 @@ SRC=\
 	Stats.cpp \
 	MoveManager.cpp \
 	Type.cpp \
+	TypeColorManager.cpp \
 	MonsterManager.cpp \
 
 HEADERS=\

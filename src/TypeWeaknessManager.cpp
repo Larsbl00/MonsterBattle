@@ -32,11 +32,11 @@ namespace monsterbattle
         )
     {}
 
-    TypeWeaknessManager::~TypeWeaknessManager() noexcept
-    {
-
-    }
-
+    /*********************
+     * 
+     * Public Functions
+     * 
+     */
     std::vector<Type>& TypeWeaknessManager::getWeaknesses(Type type)
     {
         return this->weaknessMap[type];
