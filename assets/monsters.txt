@@ -7,15 +7,46 @@
 #  *<MOVES>: {<MOVE1>, ..., <MOVE4>} (Use the name of the move you want to use, use the 'moves' file to check their names)
 #  *<MODEL_FILE>: The file containing the model of the monster. Use './' to access everything from the root of the program
 
-#################
-##### FLYING ####
-#################
+##################
+##### FLYING #####
+##################
 
 # SmallBird
-(SmallBird; SmallBird; [5,0]; {102,102,20,48,0.5,0.6,112}; [Peck,Tackle,Yeet,Wing Attack]; ./assets/models/Birds/SmallBird.txt)
+(SmallBird; SmallBird; [5,0]; {102, 102, 20, 48, 0.5, 0.6, 112}; [Peck,Tackle,Yeet,Wing Attack]; ./assets/models/Birds/SmallBird.txt)
 
 # BiggerBird
-(BiggerBird; BiggerBird; [5,0]; {124,124,48,56,0.55,0.65,160}; [Peck,Tackle,Yeet,Wing Attack]; ./assets/models/Birds/BiggerBird.txt)
+(BiggerBird; BiggerBird; [5,0]; {124, 124, 48, 56, 0.55, 0.65, 160}; [Peck,Tackle,Yeet,Wing Attack]; ./assets/models/Birds/BiggerBird.txt)
 
 # BiggestBird
-(BiggestBird; BiggestBird; [5,0]; {150,150,96,100,0.55,0.65,200}; [Peck,Tackle,Yeet,Wing Attack]; ./assets/models/Birds/BiggestBird.txt)
+(BiggestBird; BiggestBird; [5,0]; {150, 150, 96, 100, 0.55, 0.65, 200}; [Peck,Tackle,Yeet,Wing Attack]; ./assets/models/Birds/BiggestBird.txt)
+
+##################
+##### Ground #####
+##################
+
+# Stronk
+(Stronk; Stronk; [4,0]; {120, 120, 50, 34, 0.5, 0.6, 40}; [Smash, Tackle, Mud Bath]; ./assets/models/Elephants/Stronk.txt)
+
+# Stronkest
+(Stronkest; Stronkest; [4,7]; {200, 200, 180, 46, 0.5, 0.3, 44}; [Earthquake, Shock, Crash, Smash]; ./assets/models/Elephants/Stronkest.txt)
+
+# Earthworm
+(Earthworm; Earthworm; [4,0]; {80, 80, 15, 50, 0.7, 0.8, 160}; [Tackle, Mud Bath, Nothing]; ./assets/models/Worms/Earthworm.txt)
+
+
+##################
+##### Grass  #####
+##################
+
+# Seed
+(Seed; Seed; [3,0]; {85, 85, 25, 25, 0.5, 0.6, 50}; [Seed Shot, Tackle]; ./assets/models/Plants/Seed.txt)
+
+# Nut   
+(Nut; Nut; [3,0]; {105, 105, 51, 35, 0.5, 0.55, 51}; [Seed Shot, Tackle, Nut]; ./assets/models/Plants/Nut.txt)
+
+# Plant
+(Plant; Plant; [3,0]; {110, 110, 53, 40, 0.5, 0.5, 56}; [Seed Shot, Tackle, Leaf Slash, Paper Cut]; ./assets/models/Plants/Plant.txt)
+
+# Cactus
+(Cactus; Cactus; [3,4]; {107, 107, 39, 100, 0.5, 0.3, 1}; [Paper Cut, Leaf Slash, Smash, Tackle]; ./assets/models/Plants/Cactus.txt)
+

@@ -28,7 +28,7 @@ int main(void)
 
     auto& monsterManager = monsterbattle::monster::MonsterManager::getInstance();
 
-    auto temp = monsterManager.getMonsterCopy("BiggerBird");
+    auto temp = monsterManager.getMonsterCopy("Seed");
     temp.getName();
 
     displayManager.addToRenderQueue(&temp);

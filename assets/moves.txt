@@ -21,10 +21,12 @@
 (Paper Cut, 3, 10, 1)
 (Leaf Slash, 3, 50, 1)
 (Seed Shot, 3, 70, 0.8)
+(Nut, 3, 100, 0.5)
 
 # Ground Moves
 (Earthquake, 4, 70, 0.9)
 (Mud Bath, 4, 30, 1)
+(Smash, 4, 40, 0.95)
 
 # Flying Moves
 (Wing Attack, 5, 60, 0.9)
