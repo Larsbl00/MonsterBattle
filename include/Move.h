@@ -42,7 +42,7 @@ namespace monsterbattle
              * @param precision A normalized value showing the probabillity of hitting the opponent 
             */
             Move(const std::string& name, Type attackType, uint8_t damage, float precision);
-            Move(const Move& other) = default;
+            Move(const Move& other);
             virtual ~Move() noexcept = default;
 
             /**

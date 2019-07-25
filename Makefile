@@ -6,10 +6,10 @@ RELEASE_NAME=$(NAME)-release
 
 #Compiler and flags
 CXX=g++
-CXX_FLAGS=-Wall -Wextra -Werror -std=c++11
+CXX_FLAGS=-Wall -Wextra -Werror -std=c++1z
 
-DEBUG_FLAGS=-O0 -g
-RELEASE_FLAGS=-O3
+DEBUG_FLAGS=-O0 -g -DVERSION=DEBUG
+RELEASE_FLAGS=-O3 -DVERSION=RELEASE
 
 #Setup platform specific variables 
 ifeq ($(OS),Windows_NT)
@@ -83,6 +83,7 @@ SRC=\
 	Type.cpp \
 	TypeColorManager.cpp \
 	MonsterManager.cpp \
+	Trainer.cpp \
 
 HEADERS=\
 	$(INC_DIR)/$(wildcard *.h)

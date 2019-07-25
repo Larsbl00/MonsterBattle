@@ -23,6 +23,8 @@ namespace monsterbattle
 
     class Game: public InputDelegate
     {
+        friend inline void updateGameInput(Game& game) noexcept;
+
         public:
 
         const static constexpr auto MonsterFileName = "monsters.txt";
@@ -31,8 +33,6 @@ namespace monsterbattle
         Game(const std::string& assetDir, InputReader& inputReader);
         Game(const Game& other) = delete;
         ~Game() noexcept;
-
-        friend inline void updateGameInput(Game* game, bool& isUpdating);
 
         void operator=(const Game& other) = delete;
 

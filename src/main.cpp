@@ -4,16 +4,13 @@
 
 
 #include "Game.h"
-#include "IDisplay.h"
-#include "IDisplayable.h"
 #include "Vector.h"
 #include "DisplayManager.h"
 #include "TerminalDisplay.h"
 #include "TerminalInputReader.h"
 #include "Monster.h"
 #include "Model.h"
-#include "MoveManager.h"
-#include "MonsterManager.h"
+#include "Trainer.h"
 
 int main(void)
 {
@@ -29,7 +26,13 @@ int main(void)
     auto& monsterManager = monsterbattle::monster::MonsterManager::getInstance();
 
     auto temp = monsterManager.getMonsterCopy("Thor");
-    temp.getName();
+
+    monsterbattle::Trainer test("John");
+
+    for (auto& i : test.getCurrentMonster().getMoves())
+    {
+        if (i != nullptr) std::cout << i->getName() << std::endl;
+    }
 
     displayManager.addToRenderQueue(&temp);
     displayManager.render();

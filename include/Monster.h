@@ -52,8 +52,7 @@ namespace monsterbattle
             Monster();
             Monster(const std::string& name, const Stats& stats, const std::string& modelFile, const Color& color, Type primaryType);
             Monster(const std::string& name, const Stats& stats, const std::string& modelFile, const Color& color, Type primaryType, Type secondaryType);
-
-            Monster(const Monster& other) = default;
+            Monster(const Monster& other);
 
             virtual ~Monster() noexcept = default;
 

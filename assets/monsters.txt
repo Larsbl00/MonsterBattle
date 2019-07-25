@@ -15,23 +15,23 @@
 ##################
 
 # Eel
-(Eel; Eel; [7,2]; {50, 50, 10, 120, 0.5, 0.25, 160}; [Shock, Electrocute, Squirt Gun]; ./assets/models//Fish/Eel.txt)
+(Eel; Eel; [7,2]; {50, 50, 10, 120, 0.5, 0.25, 160}; [Shock,Electrocute,Squirt Gun]; ./assets/models//Fish/Eel.txt)
 
 # Thor
-(Thor; Thor; [7,0]; {120, 120, 90, 125, 0.5, 0.5, 100}; [Shock, Electrocute, Thunder, Dab]; ./assets/models/Humans/Thor.txt)
+(Thor; Thor; [7,0]; {120, 120, 90, 125, 0.5, 0.5, 100}; [Shock,Electrocute,Thunder,Dab]; ./assets/models/Humans/Thor.txt)
 
 ##################
 #####  ICE   #####
 ##################
 
 # Icicle
-(Icicle; Icicle; [6,0]; {70, 70, 20, 80, 0.8, 0.5, 58}; [Crash, Chill, Cool]; ./assets/models/Objects/Icicle.txt)
+(Icicle; Icicle; [6,0]; {70, 70, 20, 80, 0.8, 0.5, 58}; [Crash,Chill,Cool]; ./assets/models/Objects/Icicle.txt)
 
 # Usicle
-(Usicle; Usicle; [6,0]; {110, 110, 40, 90, 0.8, 0.5, 55}; [Crash, Chill, Freeze, Cool]; ./assets/models/Objects/Usicle.txt)
+(Usicle; Usicle; [6,0]; {110, 110, 40, 90, 0.8, 0.5, 55}; [Crash,Chill,Freeze,Cool]; ./assets/models/Objects/Usicle.txt)
 
 # PolarBear
-(PolarBear; PolarBear; [6, 4]; {132, 132, 70, 75, 0.5, 0.45, 50}; [Chill, Cool, Smash, Crash]; ./assets/models/Bears/PolarBear.txt)
+(PolarBear; PolarBear; [6, 4]; {132, 132, 70, 75, 0.5, 0.45, 50}; [Chill,Cool,Smash,Crash]; ./assets/models/Bears/PolarBear.txt)
 
 ##################
 ##### FLYING #####
@@ -51,13 +51,13 @@
 ##################
 
 # Stronk
-(Stronk; Stronk; [4,0]; {120, 120, 50, 34, 0.5, 0.6, 40}; [Smash, Tackle, Mud Bath]; ./assets/models/Elephants/Stronk.txt)
+(Stronk; Stronk; [4,0]; {120, 120, 50, 34, 0.5, 0.6, 40}; [Smash,Tackle,Mud Bath]; ./assets/models/Elephants/Stronk.txt)
 
 # Stronkest
-(Stronkest; Stronkest; [4,7]; {200, 200, 180, 46, 0.5, 0.3, 44}; [Earthquake, Shock, Crash, Smash]; ./assets/models/Elephants/Stronkest.txt)
+(Stronkest; Stronkest; [4,7]; {200, 200, 180, 46, 0.5, 0.3, 44}; [Earthquake,Shock,Crash,Smash]; ./assets/models/Elephants/Stronkest.txt)
 
 # Earthworm
-(Earthworm; Earthworm; [4,0]; {80, 80, 15, 50, 0.7, 0.8, 160}; [Tackle, Mud Bath, Nothing]; ./assets/models/Worms/Earthworm.txt)
+(Earthworm; Earthworm; [4,0]; {80, 80, 15, 50, 0.7, 0.8, 160}; [Tackle,Mud Bath,Nothing]; ./assets/models/Worms/Earthworm.txt)
 
 
 ##################
@@ -65,16 +65,16 @@
 ##################
 
 # Seed
-(Seed; Seed; [3,0]; {85, 85, 25, 25, 0.5, 0.6, 50}; [Seed Shot, Tackle]; ./assets/models/Plants/Seed.txt)
+(Seed; Seed; [3,0]; {85, 85, 25, 25, 0.5, 0.6, 50}; [Seed Shot,Tackle]; ./assets/models/Plants/Seed.txt)
 
 # Nut   
-(Nut; Nut; [3,0]; {105, 105, 51, 35, 0.5, 0.55, 51}; [Seed Shot, Tackle, Nut]; ./assets/models/Plants/Nut.txt)
+(Nut; Nut; [3,0]; {105, 105, 51, 35, 0.5, 0.55, 51}; [Seed Shot,Tackle,Nut]; ./assets/models/Plants/Nut.txt)
 
 # Plant
-(Plant; Plant; [3,0]; {110, 110, 53, 40, 0.5, 0.5, 56}; [Seed Shot, Tackle, Leaf Slash, Paper Cut]; ./assets/models/Plants/Plant.txt)
+(Plant; Plant; [3,0]; {110, 110, 53, 40, 0.5, 0.5, 56}; [Seed Shot,Tackle,Leaf Slash,Paper Cut]; ./assets/models/Plants/Plant.txt)
 
 # Cactus
-(Cactus; Cactus; [3,4]; {107, 107, 39, 100, 0.5, 0.3, 1}; [Paper Cut, Leaf Slash, Smash, Tackle]; ./assets/models/Plants/Cactus.txt)
+(Cactus; Cactus; [3,4]; {107, 107, 39, 100, 0.5, 0.3, 1}; [Paper Cut,Leaf Slash,Smash,Tackle]; ./assets/models/Plants/Cactus.txt)
 
 
 ##################
@@ -82,13 +82,13 @@
 ##################
 
 # Puddle
-(Puddle; Puddle; [2,0]; {120, 120, 55, 20, 0.5, 0.4, 30}; [Water Hose, Squirt Gun]; ./assets/models/Water/Puddle.txt)
+(Puddle; Puddle; [2,0]; {120, 120, 55, 20, 0.5, 0.4, 30}; [Water Hose,Squirt Gun]; ./assets/models/Water/Puddle.txt)
 
 # Lake
-(Lake; Lake; [2,4]; {150, 150, 120, 30, 0.6, 0.3, 20}; [Water Hose, Squirt Gun, Mud Bath]; ./assets/models/Water/Lake.txt)
+(Lake; Lake; [2,4]; {150, 150, 120, 30, 0.6, 0.3, 20}; [Water Hose,Squirt Gun,Mud Bath]; ./assets/models/Water/Lake.txt)
 
 # Ocean
-(Ocean; Ocean; [2,4]; {190, 190, 160, 50, 0.7, 0.2, 10}; [Water Hose, Squirt Gun, Mud Bath, Tsunami]; ./assets/models/Water/Ocean.txt)
+(Ocean; Ocean; [2,4]; {190, 190, 160, 50, 0.7, 0.2, 10}; [Water Hose,Squirt Gun,Mud Bath, Tsunami]; ./assets/models/Water/Ocean.txt)
 
 
 ##################
@@ -96,13 +96,13 @@
 ##################
 
 # Mixtape (Get it? My mixtape is Fire)
-(Mixtape; Mixttape; [1,7]; {100, 100, 40, 53, 0.6, 0.5, 120}; [Flamethrower, Shock, Crash]; ./assets/models/Devices/Mixtape.txt)
+(Mixtape; Mixttape; [1,7]; {100, 100, 40, 53, 0.6, 0.5, 120}; [Flamethrower,Shock,Crash]; ./assets/models/Devices/Mixtape.txt)
 
 # Litzard
-(Litzard; Litzard; [1,0]; {90, 90, 36, 65, 0.5, 0.65, 110}; [Flamethrower, Lighter, Crash]; ./assets/models/Reptiles/Litzard.txt)
+(Litzard; Litzard; [1,0]; {90, 90, 36, 65, 0.5, 0.65, 110}; [Flamethrower,Lighter,Crash]; ./assets/models/Reptiles/Litzard.txt)
 
 # Vulcan
-(Vulcan; Vulcan; [1,5]; {104, 104, 52, 98, 0.45, 0.5, 123}; [Lighter, Yeet, Wing Attack, Lighter]; ./assets/models/Birds/Vulcan.txt)
+(Vulcan; Vulcan; [1,5]; {104, 104, 52, 98, 0.45, 0.5, 123}; [Lighter,Yeet,Wing Attack,Lighter]; ./assets/models/Birds/Vulcan.txt)
 
 
 ##################
@@ -110,4 +110,4 @@
 ##################
 
 # Kyle
-(Kyle; Kyle; [0,0]; {100, 100, 100, 100, 0.5, 0.5, 100};, [Dab, Tackle, Nothing, Crash]; ./assets/models/Humans/Kyle.txt)
+(Kyle; Kyle; [0,0]; {100, 100, 100, 100, 0.5, 0.5, 100};, [Dab,Tackle,Nothing,Crash]; ./assets/models/Humans/Kyle.txt)

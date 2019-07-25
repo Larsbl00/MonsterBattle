@@ -60,7 +60,7 @@ namespace monsterbattle
 
             std::unordered_map<std::string, Move> moveMap;
 
-            void addMove(Move&& move);
+            void addMove(const Move& move);
         };
     }
 }
