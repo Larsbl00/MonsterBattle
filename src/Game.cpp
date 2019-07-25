@@ -15,6 +15,10 @@
 
 namespace monsterbattle 
 {
+    static auto& monstermanager = monster::MonsterManager::getInstance();
+    static auto& moveManager = monster::MoveManager::getInstance();
+
+
     inline void updateGameInput(Game* game, bool& isUpdating)
     {
         while (isUpdating)
@@ -24,10 +28,20 @@ namespace monsterbattle
         
     }
 
-    Game::Game(InputReader& inputReader):
-        isUpdatingReader(true), inputReader(inputReader), inputThread(updateGameInput, this, std::ref(this->isUpdatingReader))
+    /**************************
+     * 
+     * Constructor
+     * 
+     */
+    Game::Game(const std::string& assetDir, InputReader& inputReader):
+        assetDirectory(assetDir), isUpdatingReader(true), inputReader(inputReader), 
+        inputThread(updateGameInput, this, std::ref(this->isUpdatingReader))
     {
+        //Set delegate
         this->inputReader.setDelegate(this);
+
+        //Load assets
+        this->loadAssets();
     }
 
     Game::~Game() noexcept
@@ -39,11 +53,27 @@ namespace monsterbattle
         if (this->inputThread.joinable()) this->inputThread.join();
     }
 
+    /************************
+     * 
+     * Public Functions
+     * 
+     */
+
+
     /**************************************************
      * 
      * Private functions
      * 
      */
+
+    void Game::loadAssets()
+    {
+        //Load Monsters
+        monstermanager.load(this->assetDirectory + '/' + Game::MonsterFileName);
+
+        //Load Moves
+        moveManager.load(this->assetDirectory + '/' + Game::MoveFileName);
+    }
 
     void Game::onKeyPress(char pressedChar)
     {

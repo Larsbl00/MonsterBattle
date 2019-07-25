@@ -15,6 +15,8 @@
 
 #include "InputReader.h"
 #include "InputDelegate.h"
+#include "MonsterManager.h"
+#include "MoveManager.h"
 
 namespace monsterbattle
 {
@@ -23,7 +25,10 @@ namespace monsterbattle
     {
         public:
 
-        Game(InputReader& inputReader);
+        const static constexpr auto MonsterFileName = "monsters.txt";
+        const static constexpr auto MoveFileName = "moves.txt";
+
+        Game(const std::string& assetDir, InputReader& inputReader);
         Game(const Game& other) = delete;
         ~Game() noexcept;
 
@@ -32,11 +37,14 @@ namespace monsterbattle
         void operator=(const Game& other) = delete;
 
         private:
+
+        std::string assetDirectory;
         bool isUpdatingReader;
         InputReader& inputReader;
         std::thread inputThread;
 
 
+        void loadAssets();
         void onKeyPress(char pressedKey);
 
     };

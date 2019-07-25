@@ -20,16 +20,13 @@ int main(void)
     monsterbattle::TerminalDisplay display;
 
     auto& displayManager = monsterbattle::DisplayManager::getInstance();
-    monsterbattle::monster::MoveManager::getInstance().load("./assets/moves.txt");
+    
+    monsterbattle::Game game("./assets", monsterbattle::TerminalInputReader::getInstance());
 
     displayManager.setDisplay(&display);
-    display.setPixel(monsterbattle::Vector2i32(10,10), '#', monsterbattle::Color::Blue);
-    display.setPixel(monsterbattle::Vector2i32(11,10), '!', monsterbattle::Color::White);
-    display.setPixel(monsterbattle::Vector2i32(12,10), monsterbattle::Color::Cyan);
 
 
     auto& monsterManager = monsterbattle::monster::MonsterManager::getInstance();
-    monsterManager.load("./assets/monsters.txt");
 
     auto temp = monsterManager.getMonsterCopy("BiggerBird");
     temp.getName();
