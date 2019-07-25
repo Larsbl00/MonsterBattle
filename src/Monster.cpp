@@ -111,8 +111,7 @@ namespace monsterbattle
             {
                 if (!val.empty() && val[0] != Monster::LineCommentChar)
                 {
-                    auto start = val.find_first_not_of(' ');
-                    data.push_back(std::move(val.substr(start, val.length() - start)));
+                    data.push_back(val.substr(val.find_first_not_of(' '), val.find_last_not_of(' ') + 1));
                 }
             }
     
@@ -153,13 +152,13 @@ namespace monsterbattle
             << mon.getNickName()
             << ','
             << mon.getName()
-            << ",{"
+            << ",["
             << mon.getTypes()[0]
             << ','
             << mon.getTypes()[1]
-            << "},"
+            << "],"
             << mon.getStats()
-            << ",{(";
+            << ",[";
 
             for (auto pMove = mon.getMoves().begin(); pMove != mon.getMoves().end(); pMove++)
             {
@@ -170,7 +169,7 @@ namespace monsterbattle
                 }
             }
 
-            str << ")}";
+            str << "])";
 
 
             return str;
@@ -205,7 +204,7 @@ namespace monsterbattle
         {
             if (str.empty()) throw std::runtime_error("Deserialization error; Moves are corrupted");
 
-            std::istringstream stream(str.substr(str.find_first_not_of('['), str.find_last_not_of(']'))); 
+            std::istringstream stream(str.substr(str.find_first_not_of('[') , str.find_last_not_of(']') + 1 - str.find_first_not_of('['))); 
             std::vector<std::string> data;
             uint8_t it = 0;
 
@@ -213,7 +212,7 @@ namespace monsterbattle
             {
                 if (!val.empty())
                 {
-                    this->moves[it++] = moveManager.getMove(val.substr(val.find_first_not_of(' '), val.find_last_not_of(' ')));
+                    this->moves[it++] = moveManager.getMove(val.substr(val.find_first_not_of(' '), val.find_last_not_of(' ') + 1 -val.find_first_not_of(' ')));
                 }
             }
         }

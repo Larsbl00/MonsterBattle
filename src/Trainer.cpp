@@ -35,7 +35,9 @@ namespace monsterbattle
             i = nullptr;
         }
 
-        this->party[0].reset(new monster::Monster(*monster::MonsterManager::getInstance().getMonster("Kyle")));
+        auto k = monster::MonsterManager::getInstance().getMonster("Kyle");
+
+        this->party[0].reset(new monster::Monster(*k));
     }
 
 

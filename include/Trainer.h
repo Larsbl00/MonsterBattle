@@ -16,9 +16,9 @@
 #include <memory>
 #include <type_traits>
 
+#include "Move.h"
 #include "Monster.h"
 #include "MonsterManager.h"
-#include "Move.h"
 #include "MoveManager.h"
 #include "RaiiFileHandle.h"
 

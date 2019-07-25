@@ -22,19 +22,8 @@ int main(void)
 
     displayManager.setDisplay(&display);
 
-
-    auto& monsterManager = monsterbattle::monster::MonsterManager::getInstance();
-
-    auto temp = monsterManager.getMonsterCopy("Thor");
-
     monsterbattle::Trainer test("John");
 
-    for (auto& i : test.getCurrentMonster().getMoves())
-    {
-        if (i != nullptr) std::cout << i->getName() << std::endl;
-    }
-
-    displayManager.addToRenderQueue(&temp);
     displayManager.render();
     displayManager.displayAllItems();
 

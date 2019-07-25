@@ -110,4 +110,4 @@
 ##################
 
 # Kyle
-(Kyle; Kyle; [0,0]; {100, 100, 100, 100, 0.5, 0.5, 100};, [Dab,Tackle,Nothing,Crash]; ./assets/models/Humans/Kyle.txt)
+(Kyle; Kyle; [0,0]; {100, 100, 100, 100, 0.5, 0.5, 100}; [Dab,Tackle,Nothing,Crash]; ./assets/models/Humans/Kyle.txt)
