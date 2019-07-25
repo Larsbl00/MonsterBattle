@@ -2,23 +2,49 @@
 #
 # (<NICK_NAME>; <NAME>; <TYPES>*; <STATS>*; <MOVES>*; <MODEL_FILE>*;)
 #
-#  *<TYPE>: {<TYPE1, TYPE2} (as integer, i.e. 0,1,2,3,4,5,...)
+#  *<TYPE>: [<TYPE1, TYPE2] (as integer, i.e. 0,1,2,3,4,5,...)
 #  *<STATS>: {<MAX_HP>,<HP>,<DEF>,<ATTACK>,<PRECISION>,<AVOIDANCE>,<SPEED>}
-#  *<MOVES>: {<MOVE1>, ..., <MOVE4>} (Use the name of the move you want to use, use the 'moves' file to check their names)
+#  *<MOVES>: [<MOVE1>, ..., <MOVE4>] (Use the name of the move you want to use, use the 'moves' file to check their names)
 #  *<MODEL_FILE>: The file containing the model of the monster. Use './' to access everything from the root of the program
+# 
+# NOTE: Do NOT leave trailing characters at the end of a line, the game will crash and I am too lazy to fix it
+
+
+##################
+#### Electric ####
+##################
+
+# Eel
+(Eel; Eel; [7,2]; {50, 50, 10, 120, 0.5, 0.25, 160}; [Shock, Electrocute, Squirt Gun]; ./assets/models//Fish/Eel.txt)
+
+# Thor
+(Thor; Thor; [7,0]; {120, 120, 90, 125, 0.5, 0.5, 100}; [Shock, Electrocute, Thunder, Dab]; ./assets/models/Humans/Thor.txt)
+
+##################
+#####  ICE   #####
+##################
+
+# Icicle
+(Icicle; Icicle; [6,0]; {70, 70, 20, 80, 0.8, 0.5, 58}; [Crash, Chill, Cool]; ./assets/models/Objects/Icicle.txt)
+
+# Usicle
+(Usicle; Usicle; [6,0]; {110, 110, 40, 90, 0.8, 0.5, 55}; [Crash, Chill, Freeze, Cool]; ./assets/models/Objects/Usicle.txt)
+
+# PolarBear
+(PolarBear; PolarBear; [6, 4]; {132, 132, 70, 75, 0.5, 0.45, 50}; [Chill, Cool, Smash, Crash]; ./assets/models/Bears/PolarBear.txt)
 
 ##################
 ##### FLYING #####
 ##################
 
 # SmallBird
-(SmallBird; SmallBird; [5,0]; {102, 102, 20, 48, 0.5, 0.6, 112}; [Peck,Tackle,Yeet,Wing Attack]; ./assets/models/Birds/SmallBird.txt)
+(SmallBird; SmallBird; [5,0]; {80, 80, 20, 48, 0.5, 0.6, 112}; [Peck,Tackle,Yeet,Wing Attack]; ./assets/models/Birds/SmallBird.txt)
 
 # BiggerBird
-(BiggerBird; BiggerBird; [5,0]; {124, 124, 48, 56, 0.55, 0.65, 160}; [Peck,Tackle,Yeet,Wing Attack]; ./assets/models/Birds/BiggerBird.txt)
+(BiggerBird; BiggerBird; [5,0]; {114, 114, 48, 56, 0.55, 0.65, 160}; [Peck,Tackle,Yeet,Wing Attack]; ./assets/models/Birds/BiggerBird.txt)
 
 # BiggestBird
-(BiggestBird; BiggestBird; [5,0]; {150, 150, 96, 100, 0.55, 0.65, 200}; [Peck,Tackle,Yeet,Wing Attack]; ./assets/models/Birds/BiggestBird.txt)
+(BiggestBird; BiggestBird; [5,0]; {140, 140, 96, 100, 0.55, 0.65, 200}; [Peck,Tackle,Yeet,Wing Attack]; ./assets/models/Birds/BiggestBird.txt)
 
 ##################
 ##### Ground #####
@@ -50,3 +76,38 @@
 # Cactus
 (Cactus; Cactus; [3,4]; {107, 107, 39, 100, 0.5, 0.3, 1}; [Paper Cut, Leaf Slash, Smash, Tackle]; ./assets/models/Plants/Cactus.txt)
 
+
+##################
+##### Water  #####
+##################
+
+# Puddle
+(Puddle; Puddle; [2,0]; {120, 120, 55, 20, 0.5, 0.4, 30}; [Water Hose, Squirt Gun]; ./assets/models/Water/Puddle.txt)
+
+# Lake
+(Lake; Lake; [2,4]; {150, 150, 120, 30, 0.6, 0.3, 20}; [Water Hose, Squirt Gun, Mud Bath]; ./assets/models/Water/Lake.txt)
+
+# Ocean
+(Ocean; Ocean; [2,4]; {190, 190, 160, 50, 0.7, 0.2, 10}; [Water Hose, Squirt Gun, Mud Bath, Tsunami]; ./assets/models/Water/Ocean.txt)
+
+
+##################
+#####  Fire  #####
+##################
+
+# Mixtape (Get it? My mixtape is Fire)
+(Mixtape; Mixttape; [1,7]; {100, 100, 40, 53, 0.6, 0.5, 120}; [Flamethrower, Shock, Crash]; ./assets/models/Devices/Mixtape.txt)
+
+# Litzard
+(Litzard; Litzard; [1,0]; {90, 90, 36, 65, 0.5, 0.65, 110}; [Flamethrower, Lighter, Crash]; ./assets/models/Reptiles/Litzard.txt)
+
+# Vulcan
+(Vulcan; Vulcan; [1,5]; {104, 104, 52, 98, 0.45, 0.5, 123}; [Lighter, Yeet, Wing Attack, Lighter]; ./assets/models/Birds/Vulcan.txt)
+
+
+##################
+##### Normal #####
+##################
+
+# Kyle
+(Kyle; Kyle; [0,0]; {100, 100, 100, 100, 0.5, 0.5, 100};, [Dab, Tackle, Nothing, Crash]; ./assets/models/Humans/Kyle.txt)

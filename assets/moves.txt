@@ -6,6 +6,7 @@
 (Nothing, 0, 0, 1)
 (Tackle, 0, 50, 1)
 (Crash, 0, 120, 0.7)
+(Dab, 0, 200, 0.3)
 
 # Fire Moves
 (Flamethrower, 1, 60, 0.9)
@@ -34,9 +35,11 @@
 (Yeet, 5, 100, 0.75)
 
 # Ice Moves
-(Freeze, 6, 70, 0.9)
+(Freeze, 6, 90, 0.9)
 (Chill, 6, 30, 1)
+(Cool, 6, 70, 0.9)
 
 # Electric Moves
 (Shock, 7, 40, 1)
 (Electrocute, 7, 70, 0.85)
+(Thunder, 7, 120, 0.6)
