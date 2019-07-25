@@ -69,9 +69,11 @@ namespace monsterbattle
     void Game::loadAssets()
     {
         //Load Monsters
+        monstermanager.unload();
         monstermanager.load(this->assetDirectory + '/' + Game::MonsterFileName);
 
         //Load Moves
+        moveManager.unload();
         moveManager.load(this->assetDirectory + '/' + Game::MoveFileName);
     }
 
