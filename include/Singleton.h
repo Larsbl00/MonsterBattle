@@ -17,6 +17,7 @@ namespace monsterbattle
     template<typename T>
     struct Singleton
     {
+        Singleton(const Singleton& other) = delete;
         virtual ~Singleton() noexcept = default;
 
         static T& getInstance()
@@ -24,6 +25,8 @@ namespace monsterbattle
             static T instance;
             return instance;
         }
+        
+        void operator=(const Singleton& other) = delete;
     };
     
 }
