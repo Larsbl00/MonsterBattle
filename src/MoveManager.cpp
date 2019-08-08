@@ -43,7 +43,7 @@ namespace monsterbattle
 
             for (std::string move; getline(handler, move, '\n'); )
             {
-                if (move[0] != MoveManager::LineCommentChar)
+                if (!move.empty() && move[0] != MoveManager::LineCommentChar)
                 {
                     Move attackMove;
                     attackMove.loadFromString(move);
@@ -65,7 +65,6 @@ namespace monsterbattle
         void MoveManager::addMove(const Move& move)
         {
             if (!move.getName().empty()) this->moveMap.insert({move.getName(), move});
-
         }
     }
 }

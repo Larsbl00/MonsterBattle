@@ -28,6 +28,7 @@ namespace monsterbattle
     {
         public:
 
+        static constexpr auto CommentChar = '#';
         static constexpr auto DefaultName = "NAME_NOT_SPECIFIED";
         static constexpr uint8_t PartyCount = 6;
 
@@ -49,7 +50,21 @@ namespace monsterbattle
         const std::array<std::unique_ptr<monster::Monster>, Trainer::PartyCount>& getMonsters() const;
         const std::string& getName() const;
         
-        void loadFromString(const std::string& str);
+        /**
+         * @brief Loads a trainer from a file
+         * 
+         * @param filename 
+        */
+        void loadFromFile(const std::string& filename);
+
+        /**
+         * @brief Loads a singular member to add to the party
+         * 
+         * @param str Monster should be formatted like this: {MONSTER_NAME, NICK_NAME}
+         * @return true When a monster can be added
+         * @return false When a monster can not be added
+        */
+        bool loadMemberFromString(const std::string& str);
 
         void selectMove(uint8_t moveIndex);
         void selectMove(const std::string& name);
@@ -59,7 +74,9 @@ namespace monsterbattle
 
         const std::string name;
         std::array<std::unique_ptr<monster::Monster>, Trainer::PartyCount> party;
-        uint8_t selectedMonster;
+        uint8_t selectedMonsterIndex;
+
+        bool addToParty(const std::string& name, const std::string& nickname);
 
     };
 }

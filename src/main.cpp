@@ -23,6 +23,12 @@ int main(void)
     displayManager.setDisplay(&display);
 
     monsterbattle::Trainer test("John");
+    test.loadFromFile("./assets/Trainer0.txt");
+    
+    for (auto& i : test.getMonsters())
+    {
+        std::cout << "MON: " << *i << std::endl;
+    }
 
     displayManager.render();
     displayManager.displayAllItems();
