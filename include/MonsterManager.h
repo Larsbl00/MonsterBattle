@@ -29,7 +29,7 @@ namespace monsterbattle
 
             public:
 
-            const static constexpr auto LineCommentChar = Monster::LineCommentChar;
+            static constexpr auto LineCommentChar = Monster::LineCommentChar;
 
             MonsterManager(const MonsterManager& other) = delete;
             ~MonsterManager() noexcept = default;

@@ -36,7 +36,7 @@ namespace monsterbattle
         friend Singleton;
 
         public:
-        const static constexpr struct timeval Timeout = {.tv_sec=INPUT_READER_TIMEOUT_SECONDS, .tv_usec=INPUT_READER_TIMEOUT_MICROS};
+        static constexpr struct timeval Timeout = {.tv_sec=INPUT_READER_TIMEOUT_SECONDS, .tv_usec=INPUT_READER_TIMEOUT_MICROS};
 
         TerminalInputReader(const TerminalInputReader& other) = delete;
         ~TerminalInputReader() noexcept;

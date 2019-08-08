@@ -44,10 +44,10 @@ namespace monsterbattle
         {
             public:
 
-            const static constexpr char AttributeSplitChar = MONSTER_ATTRIBUTE_SPLIT_CHAR;
-            const static constexpr char LineCommentChar = MONSTER_LINE_COMMENT_CHAR;
-            const static constexpr uint8_t MoveCount = MONSTER_MOVE_COUNT;
-            const static constexpr uint8_t TypeCount = MONSTER_TYPE_COUNT;
+            static constexpr char AttributeSplitChar = MONSTER_ATTRIBUTE_SPLIT_CHAR;
+            static constexpr char LineCommentChar = MONSTER_LINE_COMMENT_CHAR;
+            static constexpr uint8_t MoveCount = MONSTER_MOVE_COUNT;
+            static constexpr uint8_t TypeCount = MONSTER_TYPE_COUNT;
 
             Monster();
             Monster(const std::string& name, const Stats& stats, const std::string& modelFile, const Color& color, Type primaryType);

@@ -34,8 +34,8 @@ namespace monsterbattle
         using Data_t = char;
         using Buffer_t = std::vector<std::vector<Sprite::Data_t>>;
 
-        const static constexpr auto EmptyChar = ' ';
-        const static constexpr auto& DefaultColor = monsterbattle::Color::Black;
+        static constexpr auto EmptyChar = ' ';
+        static constexpr auto& DefaultColor = monsterbattle::Color::Black;
 
         Sprite();
         Sprite(const Vector2i32& size);

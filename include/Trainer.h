@@ -28,8 +28,8 @@ namespace monsterbattle
     {
         public:
 
-        const static constexpr auto DefaultName = "NAME_NOT_SPECIFIED";
-        const static constexpr uint8_t PartyCount = 6;
+        static constexpr auto DefaultName = "NAME_NOT_SPECIFIED";
+        static constexpr uint8_t PartyCount = 6;
 
         Trainer();
         Trainer(const std::string& name);

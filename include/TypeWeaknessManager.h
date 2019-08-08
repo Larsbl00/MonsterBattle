@@ -28,7 +28,7 @@ namespace monsterbattle
 
         public:
         
-        const static constexpr float WeaknessMultiplier = 2.0;
+        static constexpr float WeaknessMultiplier = 2.0;
 
         TypeWeaknessManager(const TypeWeaknessManager& other) = delete;
         ~TypeWeaknessManager() noexcept = default;

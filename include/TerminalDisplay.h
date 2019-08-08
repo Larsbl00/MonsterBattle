@@ -34,8 +34,8 @@ namespace monsterbattle
         public:
         using Pixel_t = CharColorPair;
         const static std::string DefaultTerminalSettings;
-        const static constexpr auto& BackgroundColor = monsterbattle::Color::Black;
-        const static constexpr char EmptyChar = TERMINAL_DISPLAY_EMPTY_CHAR;
+        static constexpr auto& BackgroundColor = monsterbattle::Color::Black;
+        static constexpr char EmptyChar = TERMINAL_DISPLAY_EMPTY_CHAR;
 
         /**
          * @brief Construct a new Terminal Display object

@@ -27,8 +27,8 @@ namespace monsterbattle
 
         public:
 
-        const static constexpr auto MonsterFileName = "monsters.txt";
-        const static constexpr auto MoveFileName = "moves.txt";
+        static constexpr auto MonsterFileName = "monsters.txt";
+        static constexpr auto MoveFileName = "moves.txt";
 
         Game(const std::string& assetDir, InputReader& inputReader);
         Game(const Game& other) = delete;
