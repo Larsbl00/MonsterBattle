@@ -19,7 +19,7 @@ namespace monsterbattle
      */
 
     Trainer::Trainer():
-        name(Trainer::DefaultName), selectedMonsterIndex(0), partyIterator(0)
+        name(Trainer::DefaultName), partyIterator(0), selectedMonsterIndex(0), selectedMoveIndex(0)
     {
         for(auto& i : this->party)
         {
@@ -28,7 +28,7 @@ namespace monsterbattle
     }
 
     Trainer::Trainer(const std::string& name):
-        name(name), selectedMonsterIndex(0), partyIterator(0)
+        name(name), partyIterator(0), selectedMonsterIndex(0), selectedMoveIndex(0)
     {
         for(auto& i : this->party)
         {
@@ -46,6 +46,7 @@ namespace monsterbattle
     //TODO: Make sure the attacking algorythm works 
     bool Trainer::attack(monster::Monster& opponent)
     {
+        auto monster = this->getCurrentMonster();
         opponent.getName();
         return false;
     }
@@ -115,7 +116,21 @@ namespace monsterbattle
         return this->addToParty(data[0], data[1]);
     }
 
+    void Trainer::selectMove(uint8_t index)
+    {
+        if (index >= monster::Monster::MoveCount) throw std::out_of_range("Move index > allowed moves of value: " + monster::Monster::MoveCount);
+        this->selectedMoveIndex = index;
+    }
 
+
+    void Trainer::selectMonster(uint8_t index)
+    {
+        if (index >= Trainer::PartyCount) throw std::out_of_range("Monster index greater than PartyCount of value: " + Trainer::PartyCount);
+
+        if (this->getMonsters()[index] == nullptr) throw std::out_of_range("Party has no monster at index = " + static_cast<int>(index));
+
+        this->selectedMonsterIndex = index;
+    }
 
     /*********************
      * 

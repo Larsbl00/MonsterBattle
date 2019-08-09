@@ -27,8 +27,13 @@ int main(void)
     
     for (auto& i : test.getMonsters())
     {
-        std::cout << "MON: " << *i << std::endl;
+        if (i != nullptr)
+            std::cout << "MON: " << *i << std::endl;
     }
+
+    test.selectMonster(0);
+
+    std::cout << "Selected MON: " << test.getCurrentMonster() << std::endl;
 
     displayManager.render();
     displayManager.removeFromRenderQueue(nullptr);

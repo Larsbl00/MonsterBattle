@@ -79,16 +79,32 @@ namespace monsterbattle
         */
         bool loadMemberFromString(const std::string& str);
 
+        /**
+         * @brief Changes the current monster to the monster in the new index
+         * 
+         * @param monsterIndex 
+         * 
+         * @throw out_of_range Index > Trainer::Partycount
+         * @throw out_of_range No monster is present at newIndex
+        */
+        void selectMonster(uint8_t monsterIndex);   
+
+        /**
+         * @brief Selects the move used during Trainer::attack()
+         * 
+         * @param moveIndex Move index to use
+         * 
+         * @throw out_of_range The index given is greater than the maximum of moves present in  a monster
+        */
         void selectMove(uint8_t moveIndex);
-        void selectMove(const std::string& name);
-        void selectMonster(uint8_t monsterIndex);
 
         private:
 
         const std::string name;
         std::array<std::unique_ptr<monster::Monster>, Trainer::PartyCount> party;
-        uint8_t selectedMonsterIndex;
-        uint8_t partyIterator;
+        uint8_t partyIterator;          //Used to iterate through the party, not usefull for accessing the monster you want
+        uint8_t selectedMonsterIndex;   //Used to access the currently selected monster by the trainer
+        uint8_t selectedMoveIndex;      //Used to access which move should be used to attack
 
         /**
          * @brief Adds a monster to the party

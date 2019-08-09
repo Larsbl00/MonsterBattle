@@ -9,6 +9,3 @@
 {Litzard, Is Lit}
 {Eel, Eew}
 {Cactus, Cactus}
-{Nut, Fat One}
-{Mixtape, Fire}
-{Lake, Lakey}
