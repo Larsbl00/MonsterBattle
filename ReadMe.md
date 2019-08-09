@@ -4,6 +4,21 @@
 The `assets` directory contains all files for the game, in all of these files you can use `#` to create lines of comments.
 All default files have an explanation on how you should format everything. This part of the ReadMe will also tell you how to alter the information.
 
+## Trainers
+A trainer has a collection of different monsters used to attack the opponent, which is also a trainer. 
+When launching the program you can use different parameters to create a new trainer, 
+one of the parameters is a 'Trainer-file' the file has a very simple construct.
+
+Per line in said file you need to use the following format:
+```
+{NAME, NICK_NAME}
+
+*NAME: The name of the monster
+*NICK_NAME: The name you want to display for your monster
+```
+
+You can select a total of `6` monsters, you can also decide to choose fewer.
+
 ### Moves
 You can easily add new moves to the game, we'll go over how to use those moves later.
 To add a new move open `assets/moves.txt` and add a new line for your move; said move should be formatted as follows:
