@@ -19,7 +19,7 @@ namespace monsterbattle
      */
 
     Trainer::Trainer():
-        name(Trainer::DefaultName), selectedMonsterIndex(0)
+        name(Trainer::DefaultName), selectedMonsterIndex(0), partyIterator(0)
     {
         for(auto& i : this->party)
         {
@@ -28,16 +28,12 @@ namespace monsterbattle
     }
 
     Trainer::Trainer(const std::string& name):
-        name(name), selectedMonsterIndex(0)
+        name(name), selectedMonsterIndex(0), partyIterator(0)
     {
         for(auto& i : this->party)
         {
             i = nullptr;
         }
-
-        auto k = monster::MonsterManager::getInstance().getMonster("Kyle");
-
-        this->party[0].reset(new monster::Monster(*k));
     }
 
 
@@ -129,12 +125,19 @@ namespace monsterbattle
 
     bool Trainer::addToParty(const std::string& name, const std::string& nickname)
     {
-        if (this->selectedMonsterIndex >= this->PartyCount) return false;
+        if (this->partyIterator >= this->PartyCount) return false;
 
         //Select monster increment afterwards
-        auto& pmonster = this->party[this->selectedMonsterIndex++];
+        auto& pmonster = this->party[this->partyIterator++];
 
-        pmonster.reset(new monster::Monster(*monster::MonsterManager::getInstance().getMonster(name)));
+        auto monsterTemplate =  monster::MonsterManager::getInstance().getMonster(name);
+        if (monsterTemplate == nullptr)
+        {
+            throw std::runtime_error("Could not find monster: " + name);
+            return false;
+        }
+
+        pmonster.reset(new monster::Monster(*monsterTemplate));
         (*pmonster).setNickName(nickname);
 
         return true;

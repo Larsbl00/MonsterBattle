@@ -46,7 +46,9 @@ namespace monsterbattle
              * @brief Get the Monster Copy object
              * 
              * @param name 
-             * @return Monster 
+             * @return Monster Returns a copy of the requested monster
+             * 
+             * @throw runtime_error No monster with the requested alias was found
             */
             Monster getMonsterCopy(const std::string& name) const;
 
@@ -54,6 +56,9 @@ namespace monsterbattle
              * @brief Loads all monsterMap from a given file
              * 
              * @param fileName 
+             * 
+             * @throw runtime_error Data file is corrupted, more args found thgan present
+             * @throw out_of_range The input format is incorrect
             */
             void load(const std::string& fileName);
 

@@ -16,8 +16,8 @@
 
 namespace monsterbattle 
 {
-     static auto& monstermanager = monster::MonsterManager::getInstance();
-     static auto& moveManager = monster::MoveManager::getInstance();
+    constexpr auto monsterManager = &monster::MonsterManager::getInstance;
+    constexpr auto moveManager = &monster::MoveManager::getInstance;
 
 
     inline void updateGameInput(Game& game) noexcept
@@ -73,12 +73,12 @@ namespace monsterbattle
     {
         //Load Moves
         //moveManager.unload();
-        monster::MoveManager::getInstance().load(this->assetDirectory + '/' + Game::MoveFileName);
+        moveManager().load(this->assetDirectory + '/' + Game::MoveFileName);
 
         
         //Load Monsters
         //monstermanager.unload();
-        monster::MonsterManager::getInstance().load(this->assetDirectory + '/' + Game::MonsterFileName);
+        monsterManager().load(this->assetDirectory + '/' + Game::MonsterFileName);
     }
 
     void Game::onKeyPress(char pressedChar)

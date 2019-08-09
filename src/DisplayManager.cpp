@@ -20,9 +20,7 @@ namespace monsterbattle
      */
     DisplayManager::DisplayManager():
         display(nullptr)
-    {
-
-    }
+    {}
 
     void DisplayManager::addToRenderQueue(IDisplayable* item)
     {

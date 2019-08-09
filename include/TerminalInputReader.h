@@ -41,14 +41,22 @@ namespace monsterbattle
         TerminalInputReader(const TerminalInputReader& other) = delete;
         ~TerminalInputReader() noexcept;
 
+        /**
+         * @brief Polls to check for pressed keys in the terminal
+         * 
+         * @throw runtime_error Cannot use timeout for Filedescriptor
+         * @throw runtime_error Error reading user input
+         * 
+        */
         void update() override;
 
         private:
 
+        TerminalInputReader();
+
         struct termios newAttributes;
         struct termios oldAttributes;
 
-        TerminalInputReader();
     };
 }
 

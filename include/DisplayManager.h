@@ -38,12 +38,15 @@ namespace monsterbattle
          * @brief Adds an item to the render queue
          * 
          * @param item A pointer to an item that needs to be displayed, keep the item alive while it remains in the queue
+         * 
+         * @throw invalid_argument Item to add is a null pointer
         */
         void addToRenderQueue(IDisplayable* item);
 
         /**
          * @brief Displays all items
          * 
+         * @throw runtime_error Display is not set
         */
         void displayAllItems();
         
@@ -57,6 +60,7 @@ namespace monsterbattle
         /**
          * @brief Renders all items in the display's buffer
          * 
+         * @throw runtime_error Display was never set
         */
         void render();
 

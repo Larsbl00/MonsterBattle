@@ -50,6 +50,9 @@ namespace monsterbattle
              * @brief Loads all moves from a given file
              * 
              * @param file 
+             * 
+             * @throw runtime_error Incorrect data, exact number of data fields do not match
+             * @throw out_of_range Format is not in correct form
             */
             void load(const std::string& file);
 

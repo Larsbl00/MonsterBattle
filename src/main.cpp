@@ -31,6 +31,7 @@ int main(void)
     }
 
     displayManager.render();
+    displayManager.removeFromRenderQueue(nullptr);
     displayManager.displayAllItems();
 
     return 0;

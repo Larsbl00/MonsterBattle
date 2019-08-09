@@ -28,6 +28,14 @@ namespace monsterbattle
         TypeColorManager(const TypeColorManager& other) = delete;
         ~TypeColorManager() noexcept = default;
 
+        /**
+         * @brief Get the Color From Type object
+         * 
+         * @param type 
+         * @return const Color& 
+         * 
+         * @throw invallid_argument Type is not present in local map
+        */
         const Color& getColorFromType(Type type);
 
         private:

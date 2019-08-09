@@ -32,8 +32,10 @@ namespace monsterbattle
     class TerminalDisplay: public IDisplay
     {
         public:
+        
         using Pixel_t = CharColorPair;
-        const static std::string DefaultTerminalSettings;
+
+        const static inline auto DefaultTerminalSettings = "\033[49m";
         static constexpr auto& BackgroundColor = monsterbattle::Color::Black;
         static constexpr char EmptyChar = TERMINAL_DISPLAY_EMPTY_CHAR;
 

@@ -46,6 +46,13 @@ namespace monsterbattle
         */
         bool attack(monster::Monster& opponent);
 
+        /**
+         * @brief Get the Current Monster object
+         * 
+         * @return monster::Monster&
+         * 
+         * @throw runtime_error No monster is currently selected
+        */
         monster::Monster& getCurrentMonster();
         const std::array<std::unique_ptr<monster::Monster>, Trainer::PartyCount>& getMonsters() const;
         const std::string& getName() const;
@@ -54,6 +61,9 @@ namespace monsterbattle
          * @brief Loads a trainer from a file
          * 
          * @param filename 
+         * 
+         * @throw runtime_error Cannot open file
+         * @throw out_of_range File content is not correct
         */
         void loadFromFile(const std::string& filename);
 
@@ -63,6 +73,9 @@ namespace monsterbattle
          * @param str Monster should be formatted like this: {MONSTER_NAME, NICK_NAME}
          * @return true When a monster can be added
          * @return false When a monster can not be added
+         * 
+         * @throw runtime_error More arguments were found when deserializing than needed
+         * @throw out_of_range Str does not have the correct data format
         */
         bool loadMemberFromString(const std::string& str);
 
@@ -75,7 +88,18 @@ namespace monsterbattle
         const std::string name;
         std::array<std::unique_ptr<monster::Monster>, Trainer::PartyCount> party;
         uint8_t selectedMonsterIndex;
+        uint8_t partyIterator;
 
+        /**
+         * @brief Adds a monster to the party
+         * 
+         * @param name 
+         * @param nickname 
+         * @return true When another monster can be added
+         * @return false When the party if full
+         * 
+         * @throw runtime_error Could not find monster
+        */
         bool addToParty(const std::string& name, const std::string& nickname);
 
     };

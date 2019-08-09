@@ -69,6 +69,7 @@ namespace monsterbattle
                 if (move == nullptr)
                 {
                     move = moveManager.getMove(name);
+                    if (move == nullptr) throw std::runtime_error("Cannot find move: " + name);
                     return;
                 }
             }

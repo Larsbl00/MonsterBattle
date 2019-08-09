@@ -44,6 +44,12 @@ namespace monsterbattle
         std::thread inputThread;
 
 
+        /**
+         * @brief Loads the assets present in the asset directory
+         * 
+         * 
+         * 
+        */
         void loadAssets();
         void onKeyPress(char pressedKey);
 

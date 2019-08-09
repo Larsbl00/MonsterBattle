@@ -38,8 +38,10 @@ namespace monsterbattle
          * 
          * @param type 
          * @return std::vector<Type>& 
+         * 
+         * @throw invallid_argument Type has no weaknesses yet
         */
-        std::vector<Type>& getWeaknesses(Type type);
+        const std::vector<Type>& getWeaknesses(Type type) const;
 
 
         private: 

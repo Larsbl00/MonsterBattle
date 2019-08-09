@@ -37,9 +37,16 @@ namespace monsterbattle
      * Public Functions
      * 
      */
-    std::vector<Type>& TypeWeaknessManager::getWeaknesses(Type type)
+    const std::vector<Type>& TypeWeaknessManager::getWeaknesses(Type type) const
     {
-        return this->weaknessMap[type];
+        auto weaknesses = this->weaknessMap.find(type);
+
+        if (weaknesses == this->weaknessMap.end())
+        {
+            throw std::invalid_argument("No weaknesses present for Type = " + static_cast<int>(type));
+        }
+
+        return weaknesses->second;
     }
 
 }

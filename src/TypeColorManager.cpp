@@ -40,6 +40,13 @@ namespace monsterbattle
 
     const Color& TypeColorManager::getColorFromType(Type type)
     {
-        return this->typeColorMap[type];
+        auto color = this->typeColorMap.find(type);
+
+        if (color == this->typeColorMap.end()) 
+        {
+            throw std::invalid_argument("No color present for Type = " + static_cast<int>(type));
+            return monsterbattle::Color::Black;
+        }
+        else return color->second;
     }
 }

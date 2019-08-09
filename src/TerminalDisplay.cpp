@@ -13,7 +13,6 @@
 
 namespace monsterbattle 
 {
-    const std::string TerminalDisplay::DefaultTerminalSettings = "\033[49m";
 
     TerminalDisplay::TerminalDisplay():
         buffer(nullptr), previouslyUsedColor(monsterbattle::Color::White)
