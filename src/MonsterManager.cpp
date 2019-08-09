@@ -75,7 +75,7 @@ namespace monsterbattle
         
         void MonsterManager::addMonster(Monster&& monster)
         {
-            this->monsterMap.insert({monster.getName(), monster});
+            if (!monster.getName().empty()) this->monsterMap.insert({monster.getName(), monster});
         }
 
         void MonsterManager::removeMonster(const std::string& name)

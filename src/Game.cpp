@@ -10,20 +10,21 @@
  */
 
 #include "Game.h"
+#include "Trainer.h"
 
 #include "DisplayManager.h"
 
 namespace monsterbattle 
 {
-    static auto& monstermanager = monster::MonsterManager::getInstance();
-    static auto& moveManager = monster::MoveManager::getInstance();
+    constexpr auto monsterManager = &monster::MonsterManager::getInstance;
+    constexpr auto moveManager = &monster::MoveManager::getInstance;
 
 
-    inline void updateGameInput(Game* game, bool& isUpdating)
+    inline void updateGameInput(Game& game) noexcept
     {
-        while (isUpdating)
+        while (game.isUpdatingReader)
         {
-            game->inputReader.update();
+            game.inputReader.update();
         }
         
     }
@@ -35,13 +36,15 @@ namespace monsterbattle
      */
     Game::Game(const std::string& assetDir, InputReader& inputReader):
         assetDirectory(assetDir), isUpdatingReader(true), inputReader(inputReader), 
-        inputThread(updateGameInput, this, std::ref(this->isUpdatingReader))
+        inputThread(updateGameInput, std::ref(*this))
     {
-        //Set delegate
-        this->inputReader.setDelegate(this);
 
         //Load assets
         this->loadAssets();
+
+        //Set delegate
+        this->inputReader.setDelegate(this);
+
     }
 
     Game::~Game() noexcept
@@ -68,13 +71,14 @@ namespace monsterbattle
 
     void Game::loadAssets()
     {
-        //Load Monsters
-        monstermanager.unload();
-        monstermanager.load(this->assetDirectory + '/' + Game::MonsterFileName);
-
         //Load Moves
-        moveManager.unload();
-        moveManager.load(this->assetDirectory + '/' + Game::MoveFileName);
+        //moveManager.unload();
+        moveManager().load(this->assetDirectory + '/' + Game::MoveFileName);
+
+        
+        //Load Monsters
+        //monstermanager.unload();
+        monsterManager().load(this->assetDirectory + '/' + Game::MonsterFileName);
     }
 
     void Game::onKeyPress(char pressedChar)

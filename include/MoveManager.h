@@ -33,7 +33,7 @@ namespace monsterbattle
             
             public:
 
-            const static constexpr char LineCommentChar = MOVE_MANAGER_LINE_COMMENT_CHAR;
+            static constexpr char LineCommentChar = MOVE_MANAGER_LINE_COMMENT_CHAR;
 
             MoveManager(const MoveManager& other) = delete;
             ~MoveManager() noexcept = default;
@@ -50,6 +50,9 @@ namespace monsterbattle
              * @brief Loads all moves from a given file
              * 
              * @param file 
+             * 
+             * @throw runtime_error Incorrect data, exact number of data fields do not match
+             * @throw out_of_range Format is not in correct form
             */
             void load(const std::string& file);
 
@@ -60,7 +63,7 @@ namespace monsterbattle
 
             std::unordered_map<std::string, Move> moveMap;
 
-            void addMove(Move&& move);
+            void addMove(const Move& move);
         };
     }
 }

@@ -49,12 +49,31 @@ namespace monsterbattle
              *  {<MAX_HP>,<HP>,<DEF>,<ATC>,<PREC>,<AVOI>,<SPD>}
              * 
              * @param str 
+             * 
+             * @throw runtime_error Amount of items in format do not match the requested
+             * @throw out_of_range Format does not match
             */
             void loadFromString(const std::string& str);
             int16_t getMaxHealth() const;
             float getAvoidance() const;
             float getPrecision() const;
+
+            /**
+             * @brief Set the Avoidance attribute
+             * 
+             * @param avoidance A Normalized value to use as the avoidance
+             * 
+             * @throw invalid_argument avoidance is not normalized, i.e. 0 <= avoidance <= 1
+            */
             void setAvoidance(float avoidance);
+
+            /**
+             * @brief Set the Presicion attribute
+             * 
+             * @param precision A normalized value to use as precision
+             * 
+             * @throw invalid_argument precision is not normalized, i.e. 0 <= precision <= 1
+            */
             void setPresicion(float precision);
 
             friend std::ostream& operator<<(std::ostream& str, const Stats& stats);

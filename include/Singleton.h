@@ -24,6 +24,14 @@ namespace monsterbattle
             static T instance;
             return instance;
         }
+        
+        Singleton& operator=(const Singleton& other) = delete;
+
+        protected:
+        Singleton() = default;
+
+        private:
+        Singleton(const Singleton& other) = delete; 
     };
     
 }

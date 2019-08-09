@@ -34,8 +34,8 @@ namespace monsterbattle
         using Data_t = char;
         using Buffer_t = std::vector<std::vector<Sprite::Data_t>>;
 
-        const static constexpr auto EmptyChar = ' ';
-        const static constexpr auto& DefaultColor = monsterbattle::Color::Black;
+        static constexpr auto EmptyChar = ' ';
+        static constexpr auto& DefaultColor = monsterbattle::Color::Black;
 
         Sprite();
         Sprite(const Vector2i32& size);
@@ -88,7 +88,25 @@ namespace monsterbattle
         void move(const Vector2i32& direction) override;
         
         void setBuffer(const Buffer_t& newBuffer);
+        /**
+         * @brief Set the Buffer object
+         * 
+         * @param position 
+         * @param value 
+         * 
+         * @throw out_of_range Either index of 'position' could be out of range 
+        */
         void setBuffer(const Vector2i32& position, Sprite::Data_t value);
+
+        /**
+         * @brief Set the Buffer object
+         * 
+         * @param position 
+         * @param size 
+         * @param value 
+         * 
+         * @throw out_of_range Either index of 'position' could be out of range 
+        */
         void setBuffer(const Vector2i32& position, const Vector2i32& size, Sprite::Data_t value);
         void setColor(const Color& color);
 

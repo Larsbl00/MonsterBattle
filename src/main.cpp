@@ -4,16 +4,13 @@
 
 
 #include "Game.h"
-#include "IDisplay.h"
-#include "IDisplayable.h"
 #include "Vector.h"
 #include "DisplayManager.h"
 #include "TerminalDisplay.h"
 #include "TerminalInputReader.h"
 #include "Monster.h"
 #include "Model.h"
-#include "MoveManager.h"
-#include "MonsterManager.h"
+#include "Trainer.h"
 
 int main(void)
 {
@@ -25,14 +22,25 @@ int main(void)
 
     displayManager.setDisplay(&display);
 
+    monsterbattle::Trainer test("John");
+    test.loadFromFile("./assets/Trainer0.txt");
+    
+    for (auto& i : test.getMonsters())
+    {
+        if (i != nullptr)
+            std::cout << "MON: " << *i << std::endl;
+    }
 
-    auto& monsterManager = monsterbattle::monster::MonsterManager::getInstance();
+    test.selectMonster(2);
+    test.selectMove(1);
 
-    auto temp = monsterManager.getMonsterCopy("Thor");
-    temp.getName();
+    std::cout << test.attack(test.getCurrentMonster()) << std::endl;
+    std::cout << test.attack(test.getCurrentMonster()) << std::endl;
 
-    displayManager.addToRenderQueue(&temp);
+    std::cout << "Selected MON: " << test.getCurrentMonster() << std::endl;
+
     displayManager.render();
+    displayManager.removeFromRenderQueue(nullptr);
     displayManager.displayAllItems();
 
     return 0;

@@ -27,6 +27,10 @@ namespace monsterbattle
             attackType(attackType), damage(damage), precision(precision), name(name)
         {}
 
+        Move::Move(const Move& other):
+            attackType(other.attackType), damage(other.damage), precision(other.precision), name(other.name)
+        {}
+
         /****************************
          * 
          * Functions

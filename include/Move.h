@@ -42,7 +42,7 @@ namespace monsterbattle
              * @param precision A normalized value showing the probabillity of hitting the opponent 
             */
             Move(const std::string& name, Type attackType, uint8_t damage, float precision);
-            Move(const Move& other) = default;
+            Move(const Move& other);
             virtual ~Move() noexcept = default;
 
             /**
@@ -56,11 +56,14 @@ namespace monsterbattle
             virtual bool use(Monster& caller, Monster& opponent) const;
 
             /**
-             * @brief Loads a Move from simple string format; i.e.
+             * @brief Loads a Move from simple string format;
              * 
-             * "(<NAME>,<TYPE_AS_INTEGER>,<DAMAGE>,<PRECISION>)"
+             * @param str Format is as folows:
+             *  (<NAME>,<TYPE_AS_INTEGER>,<DAMAGE>,<PRECISION>)
              * 
-             * @param str 
+             * @throw runtime_error Incorrect data, exact number of data fields do not match
+             * @throw out_of_range Format is not in correct form
+             * 
             */
             void loadFromString(const std::string& str);
 

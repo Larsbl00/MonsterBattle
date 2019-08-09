@@ -28,7 +28,7 @@ namespace monsterbattle
 
         public:
         
-        const static constexpr float WeaknessMultiplier = 2.0;
+        static constexpr float WeaknessMultiplier = 2.0;
 
         TypeWeaknessManager(const TypeWeaknessManager& other) = delete;
         ~TypeWeaknessManager() noexcept = default;
@@ -37,9 +37,9 @@ namespace monsterbattle
          * @brief Get the weaknesses of any given monsterbattle::Type
          * 
          * @param type 
-         * @return std::vector<Type>& 
+         * @return std::vector<Type>* Returns NULL when There is no weakness, else it will return the weaknessess 
         */
-        std::vector<Type>& getWeaknesses(Type type);
+        const std::vector<Type>& getWeaknesses(Type type) const;
 
 
         private: 

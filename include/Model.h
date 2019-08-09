@@ -35,7 +35,21 @@ namespace monsterbattle
 
         const std::string& getFileName() const;
 
+        /**
+         * @brief Loads the data from the file it is initialized with
+         * 
+         * @throw runtime_error Cannot find file
+         * 
+        */
         void load();
+
+        /**
+         * @brief Loads the data from a given file
+         * 
+         * @param modelFile 
+         * 
+         * @throw runtime_error Cannot find file
+        */
         void load(const std::string& modelFile);
 
         private:

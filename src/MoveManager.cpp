@@ -43,11 +43,11 @@ namespace monsterbattle
 
             for (std::string move; getline(handler, move, '\n'); )
             {
-                if (move[0] != MoveManager::LineCommentChar)
+                if (!move.empty() && move[0] != MoveManager::LineCommentChar)
                 {
                     Move attackMove;
                     attackMove.loadFromString(move);
-                    this->addMove(std::move(attackMove));
+                    this->addMove(attackMove);
                 }
             }
         }
@@ -62,9 +62,9 @@ namespace monsterbattle
          * Private Functions
          * 
          */
-        void MoveManager::addMove(Move&& move)
+        void MoveManager::addMove(const Move& move)
         {
-            this->moveMap.insert({move.getName(), move});
+            if (!move.getName().empty()) this->moveMap.insert({move.getName(), move});
         }
     }
 }
