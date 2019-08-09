@@ -43,12 +43,16 @@ namespace monsterbattle
      * 
      */
 
-    //TODO: Make sure the attacking algorythm works 
     bool Trainer::attack(monster::Monster& opponent)
     {
-        auto monster = this->getCurrentMonster();
-        opponent.getName();
-        return false;
+        auto& monster = this->getCurrentMonster();
+
+        auto& move = monster.getMoves()[this->selectedMoveIndex];
+
+        //No move selected, the attack will miss
+        if (move == nullptr) return false;
+
+        return move->use(monster, opponent);
     }
 
     monster::Monster& Trainer::getCurrentMonster() 
@@ -126,10 +130,12 @@ namespace monsterbattle
     void Trainer::selectMonster(uint8_t index)
     {
         if (index >= Trainer::PartyCount) throw std::out_of_range("Monster index greater than PartyCount of value: " + Trainer::PartyCount);
-
-        if (this->getMonsters()[index] == nullptr) throw std::out_of_range("Party has no monster at index = " + static_cast<int>(index));
+        else if (this->getMonsters()[index] == nullptr) throw std::out_of_range("Party has no monster at index = " + static_cast<int>(index));
 
         this->selectedMonsterIndex = index;
+
+        //Reset the move index, to make sure nothing weird happens
+        this->selectMove(0);
     }
 
     /*********************

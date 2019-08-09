@@ -31,7 +31,11 @@ int main(void)
             std::cout << "MON: " << *i << std::endl;
     }
 
-    test.selectMonster(0);
+    test.selectMonster(2);
+    test.selectMove(1);
+
+    std::cout << test.attack(test.getCurrentMonster()) << std::endl;
+    std::cout << test.attack(test.getCurrentMonster()) << std::endl;
 
     std::cout << "Selected MON: " << test.getCurrentMonster() << std::endl;
 

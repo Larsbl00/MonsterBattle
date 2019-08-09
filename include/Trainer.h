@@ -43,6 +43,9 @@ namespace monsterbattle
          * @param opponent Mopnstger to attack
          * @return true When attack hits
          * @return false When attack misses
+         * 
+         * @throw runtime_error No monster is currently selected
+         * 
         */
         bool attack(monster::Monster& opponent);
 
@@ -86,6 +89,7 @@ namespace monsterbattle
          * 
          * @throw out_of_range Index > Trainer::Partycount
          * @throw out_of_range No monster is present at newIndex
+         * @throw out_of_range The index given is greater than the maximum of moves present in a monster
         */
         void selectMonster(uint8_t monsterIndex);   
 

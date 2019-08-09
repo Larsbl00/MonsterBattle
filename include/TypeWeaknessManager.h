@@ -37,9 +37,7 @@ namespace monsterbattle
          * @brief Get the weaknesses of any given monsterbattle::Type
          * 
          * @param type 
-         * @return std::vector<Type>& 
-         * 
-         * @throw invallid_argument Type has no weaknesses yet
+         * @return std::vector<Type>* Returns NULL when There is no weakness, else it will return the weaknessess 
         */
         const std::vector<Type>& getWeaknesses(Type type) const;
 

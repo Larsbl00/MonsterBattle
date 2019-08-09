@@ -21,6 +21,7 @@ namespace monsterbattle
     TypeWeaknessManager::TypeWeaknessManager():
         weaknessMap(
             {
+                {Type::NONE,        {}},
                 {Type::FIRE,        {Type::WATER, Type::GROUND}},
                 {Type::WATER,       {Type::GRASS, Type::ELECTRIC}},
                 {Type::GRASS,       {Type::FIRE, Type::ICE}},
@@ -43,7 +44,7 @@ namespace monsterbattle
 
         if (weaknesses == this->weaknessMap.end())
         {
-            throw std::invalid_argument("No weaknesses present for Type = " + static_cast<int>(type));
+            throw std::invalid_argument("No weaknesses present for Type %i");
         }
 
         return weaknesses->second;
