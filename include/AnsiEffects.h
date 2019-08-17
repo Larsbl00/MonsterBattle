@@ -9,8 +9,8 @@
  * 
 */
 
-#ifndef ANSI_EFFECTS_H
-#define ANSI_EFFECTS_H
+#ifndef _ANSI_EFFECTS_H
+#define _ANSI_EFFECTS_H
 
 #include <ostream>
 
