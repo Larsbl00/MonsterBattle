@@ -9,8 +9,8 @@
  * 
 */
 
-#ifndef _CHAR_COLOR_PAIR
-#define _CHAR_COLOR_PAIR
+#ifndef CHAR_COLOR_PAIR
+#define CHAR_COLOR_PAIR
 
 #include "Color.h"
 
