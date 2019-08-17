@@ -44,7 +44,7 @@ namespace monsterbattle
 
         if (color == this->typeColorMap.end()) 
         {
-            throw std::invalid_argument("No color present for Type = " + static_cast<int>(type));
+            throw std::invalid_argument("No color present for given Type");
             return monsterbattle::Color::Black;
         }
         else return color->second;
