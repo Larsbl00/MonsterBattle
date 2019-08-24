@@ -1,10 +1,24 @@
 # Monster Battle
 
+## Launching
+When launching the program you can the `-h` or `--help` flags to see all launch parameters.
+When launching the game, make sure you add the `-t` flag to select a trainer file for the player,
+and use either `-c` or `-o` to select an opponnent.
+
+The following table will explain all parameters:
+
+| Short | Long | Description |
+| :--- | :-- | :--------- |
+| -h    | --help | Shows all flags and waht they do |
+| -t    | --trainer | Selects a trainerfile that the main player uses |
+| -o    | --opponent | Selects a trainer file for the oppononent to use, said opponent should be controlled by another person | 
+| -c    | --cpu-trainer | Selects a trainer file for the opponent which is controlled by the game itself |
+
 ## Assets
 The `assets` directory contains all files for the game, in all of these files you can use `#` to create lines of comments.
 All default files have an explanation on how you should format everything. This part of the ReadMe will also tell you how to alter the information.
 
-## Trainers
+### Trainers
 A trainer has a collection of different monsters used to attack the opponent, which is also a trainer. 
 When launching the program you can use different parameters to create a new trainer, 
 one of the parameters is a 'Trainer-file' the file has a very simple construct.
