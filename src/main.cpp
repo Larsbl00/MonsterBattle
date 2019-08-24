@@ -4,14 +4,7 @@
 #include <unistd.h>
 #include <getopt.h>
 
-#include "Game.h"
-#include "Vector.h"
-#include "DisplayManager.h"
-#include "TerminalDisplay.h"
-#include "TerminalInputReader.h"
-#include "Monster.h"
-#include "Model.h"
-#include "Trainer.h"
+#include "MonsterBattle.h"
 
 int main(int argc, char* argv[])
 {
@@ -53,41 +46,40 @@ int main(int argc, char* argv[])
                 <<"--cpu-trainer / -c: Selects the trainerfile for an automated opponent" << std::endl;
                 break;
         
+            case '?':
+                std::cerr << "Unknown flag, use -h or --help" << std::endl;
+                break;
+
             default:
                 std::cerr << "Unknown flag " << optLong << ", use -h or --help" << std::endl;
                 break;
         }
     }
-    
 
-    monsterbattle::TerminalDisplay display;
-
-    auto& displayManager = monsterbattle::DisplayManager::getInstance();
-    
-    monsterbattle::Game game("./assets", monsterbattle::TerminalInputReader::getInstance());
-
-    displayManager.setDisplay(&display);
-
-    monsterbattle::Trainer test("John");
-    test.loadFromFile(trainerFile);
-    
-    for (auto& i : test.getMonsters())
+    //Check if a trainer file is selected
+    if (trainerFile.empty())
     {
-        if (i != nullptr)
-            std::cout << "MON: " << *i << std::endl;
+        std::cerr << "No trainer selected, terminating program..." << std::endl;
+        exit(EXIT_FAILURE);
     }
 
-    test.selectMonster(2);
-    test.selectMove(1);
+    //Check is an opponent is selected
+    if (opponentTrainerFile.empty() && cpuTrainerFile.empty())
+    {
+        std::cerr << "No enemy trainer selected, terminating program..." << std::endl;
+        exit(EXIT_FAILURE);
+    }
 
-    std::cout << test.attack(test.getCurrentMonster()) << std::endl;
-    std::cout << test.attack(test.getCurrentMonster()) << std::endl;
+    //Check if enemy is bot or not
+    bool enemyIsBot = !cpuTrainerFile.empty() && opponentTrainerFile.empty();
 
-    std::cout << "Selected MON: " << test.getCurrentMonster() << std::endl;
+    monsterbattle::MonsterBattle battle(trainerFile, enemyIsBot ? cpuTrainerFile : opponentTrainerFile, enemyIsBot);
+    battle.setup();
 
-    displayManager.render();
-    displayManager.removeFromRenderQueue(nullptr);
-    displayManager.displayAllItems();
+    while (battle.getIsRunning())
+    {
+        battle.run();
+    }
 
     return 0;
 }

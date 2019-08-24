@@ -17,6 +17,7 @@
 #include "InputDelegate.h"
 #include "MonsterManager.h"
 #include "MoveManager.h"
+#include "Trainer.h"
 
 namespace monsterbattle
 {
@@ -30,24 +31,24 @@ namespace monsterbattle
         static constexpr auto MonsterFileName = "monsters.txt";
         static constexpr auto MoveFileName = "moves.txt";
 
-        Game(const std::string& assetDir, InputReader& inputReader);
+        Game(const std::string& assetDir, InputReader& inputReader,  Trainer& trainer, Trainer& enemy, bool enemyIsBot);
         Game(const Game& other) = delete;
         ~Game() noexcept;
 
         void operator=(const Game& other) = delete;
 
         private:
-
         std::string assetDirectory;
+        bool enemyIsBot;
         bool isUpdatingReader;
         InputReader& inputReader;
         std::thread inputThread;
+        Trainer& player;
+        Trainer& opponent;
 
 
         /**
          * @brief Loads the assets present in the asset directory
-         * 
-         * 
          * 
         */
         void loadAssets();

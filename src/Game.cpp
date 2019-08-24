@@ -34,9 +34,9 @@ namespace monsterbattle
      * Constructor
      * 
      */
-    Game::Game(const std::string& assetDir, InputReader& inputReader):
-        assetDirectory(assetDir), isUpdatingReader(true), inputReader(inputReader), 
-        inputThread(updateGameInput, std::ref(*this))
+    Game::Game(const std::string& assetDir, InputReader& inputReader, Trainer& trainer, Trainer& enemy, bool enemyIsBot):
+        assetDirectory(assetDir), enemyIsBot(enemyIsBot), isUpdatingReader(true), inputReader(inputReader),
+        inputThread(updateGameInput, std::ref(*this)), player(trainer), opponent(enemy)
     {
 
         //Load assets
@@ -71,13 +71,12 @@ namespace monsterbattle
 
     void Game::loadAssets()
     {
-        //Load Moves
-        //moveManager.unload();
+        moveManager().unload();
         moveManager().load(this->assetDirectory + '/' + Game::MoveFileName);
 
         
         //Load Monsters
-        //monstermanager.unload();
+        monsterManager().unload();
         monsterManager().load(this->assetDirectory + '/' + Game::MonsterFileName);
     }
 

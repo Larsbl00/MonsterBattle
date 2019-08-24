@@ -34,17 +34,16 @@ namespace monsterbattle
             x(other.x), y(other.y)
         {}
 
-        virtual ~Vector()
-        {}
+        virtual ~Vector() = default;
 
         T x;
         T y;  
 
-        void operator*=(const Vector& other) { this->x *= other.x; this->y *= other.y; }
-        void operator+=(const Vector& other) { this->x += other.x; this->y += other.y; }
-        void operator-=(const Vector& other) { this->x -= other.x; this->y -= other.y; }
-        void operator/=(const Vector& other) { this->x /= other.x; this->y /= other.y; }
-        void operator=(const Vector& other) { this->x = other.x; this->y = other.y; }  
+        Vector& operator*=(const Vector& other) { this->x *= other.x; this->y *= other.y;return *this; }
+        Vector&  operator+=(const Vector& other) { this->x += other.x; this->y += other.y; return *this;}
+        Vector&  operator-=(const Vector& other) { this->x -= other.x; this->y -= other.y; return *this;}
+        Vector&  operator/=(const Vector& other) { this->x /= other.x; this->y /= other.y; return *this;}
+        Vector&  operator=(const Vector& other) { this->x = other.x; this->y = other.y; return *this;}  
 
         Vector operator*(const Vector& other) { return std::move(Vector(this->x * other.x, this->y * other.y)); }
         Vector operator+(const Vector& other) { return std::move(Vector(this->x + other.x, this->y + other.y)); }
