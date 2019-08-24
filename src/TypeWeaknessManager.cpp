@@ -44,7 +44,7 @@ namespace monsterbattle
 
         if (weaknesses == this->weaknessMap.end())
         {
-            throw std::invalid_argument("No weaknesses present for Type %i");
+            throw std::invalid_argument("No weaknesses present for given Type");
         }
 
         return weaknesses->second;
