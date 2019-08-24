@@ -1,7 +1,8 @@
 #include <iostream>
 #include <thread>
 #include <cstdio>
-
+#include <unistd.h>
+#include <getopt.h>
 
 #include "Game.h"
 #include "Vector.h"
@@ -12,8 +13,53 @@
 #include "Model.h"
 #include "Trainer.h"
 
-int main(void)
+int main(int argc, char* argv[])
 {
+    std::string trainerFile;
+    std::string cpuTrainerFile;
+    std::string opponentTrainerFile;
+
+    //Get input flags
+    const static struct option longOptions[] = {
+        {"trainer", required_argument, nullptr, 't'},
+        {"opponent", required_argument, nullptr, 'o'},
+        {"cpu-trainer", required_argument, nullptr, 'c'},
+        {"help", no_argument, nullptr, 'h'},
+        {nullptr, no_argument, nullptr, 0}
+    };
+
+    int optLong;
+    int longIndex = 0;
+    while ((optLong = getopt_long(argc, argv, "t:o:c:h", longOptions, &longIndex)) != -1)
+    {
+        switch (optLong)
+        {
+            case 't':
+                trainerFile = optarg;
+                break;
+            
+            case 'o':
+                opponentTrainerFile = optarg;
+                break;
+
+            case 'c':
+                cpuTrainerFile = optarg;
+                break;
+
+            case 'h':
+                std::cout << "Trainer options:" << '\n' 
+                <<"--trianer / -t: Selects a file for the 1st user" << '\n'
+                <<"--opponent / -o: Selects a trainerfile for a seconds person, use it when you want to fight eachother" << '\n'
+                <<"--cpu-trainer / -c: Selects the trainerfile for an automated opponent" << std::endl;
+                break;
+        
+            default:
+                std::cerr << "Unknown flag " << optLong << ", use -h or --help" << std::endl;
+                break;
+        }
+    }
+    
+
     monsterbattle::TerminalDisplay display;
 
     auto& displayManager = monsterbattle::DisplayManager::getInstance();
@@ -23,7 +69,7 @@ int main(void)
     displayManager.setDisplay(&display);
 
     monsterbattle::Trainer test("John");
-    test.loadFromFile("./assets/Trainer0.txt");
+    test.loadFromFile(trainerFile);
     
     for (auto& i : test.getMonsters())
     {
