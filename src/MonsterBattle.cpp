@@ -61,6 +61,7 @@ namespace monsterbattle
 
     MonsterBattle::~MonsterBattle() noexcept
     {
+        this->game.stop();
         displayManager().setDisplay(nullptr);
     }
 
@@ -72,7 +73,7 @@ namespace monsterbattle
      */
     void MonsterBattle::setup()
     {
-        std::cout << "MonsterBattle | Build: " << DEFINE_TO_STRING(BUILD_TYPE) << " | Version: v" << DEFINE_TO_STRING(VERSION) << std::endl;
+        std::cout << "| MonsterBattle | Build: " << DEFINE_TO_STRING(BUILD_TYPE) << " | Version: v" << DEFINE_TO_STRING(VERSION) << " |" << std::endl;
 
         //Load trainers
         if (!loadTrainer(this->player, this->playerFile))

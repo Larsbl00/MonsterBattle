@@ -35,6 +35,8 @@ namespace monsterbattle
         Game(const Game& other) = delete;
         ~Game() noexcept;
 
+        void stop();
+
         void operator=(const Game& other) = delete;
 
         private:

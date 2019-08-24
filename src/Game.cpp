@@ -62,6 +62,11 @@ namespace monsterbattle
      * 
      */
 
+    void Game::stop()
+    {
+        this->isUpdatingReader = false;
+    }
+
 
     /**************************************************
      * 
