@@ -49,6 +49,14 @@ namespace monsterbattle
          * @throw runtime_error Display is not set
         */
         void displayAllItems();
+
+        /**
+         * @brief Gets whether the display is refering to NULL, does not check if the object is still alive
+         * 
+         * @return true Display != NULL
+         * @return false Display == NULL
+        */
+        bool getDisplayIsSet() const;
         
         /**
          * @brief 

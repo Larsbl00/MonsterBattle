@@ -12,6 +12,9 @@
 #ifndef MONSTER_BATTLE_H
 #define MONSTER_BATTLE_H
 
+#include <ctime>
+
+#include "IDisplay.h"
 #include "DisplayManager.h"
 #include "Singleton.h"
 #include "TerminalDisplay.h"
@@ -29,7 +32,7 @@ namespace monsterbattle
         static constexpr auto CpuDefaultName = "CPU";
         static constexpr auto EnemyDefaultName = "PLAYER 2";
 
-        MonsterBattle(const std::string& playerFile, const std::string& enemyFile, bool enemyIsBot);
+        MonsterBattle(IDisplay& display, const std::string& playerFile, const std::string& enemyFile, bool enemyIsBot, float updatesPerSecond);
         ~MonsterBattle() noexcept;
 
         void setup();
@@ -41,7 +44,9 @@ namespace monsterbattle
 
         bool isRunning;
         Game game;
-        TerminalDisplay terminalDisplay;
+        IDisplay& display;
+        int64_t millisSecondsPerUpdate;
+        std::clock_t previousUpdateTime; 
         Trainer enemy;
         std::string enemyFile;
         Trainer player;

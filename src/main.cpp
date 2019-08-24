@@ -4,7 +4,11 @@
 #include <unistd.h>
 #include <getopt.h>
 
+#include "TerminalDisplay.h"
 #include "MonsterBattle.h"
+
+
+#define FPS (24)
 
 int main(int argc, char* argv[])
 {
@@ -73,7 +77,8 @@ int main(int argc, char* argv[])
     //Check if enemy is bot or not
     bool enemyIsBot = !cpuTrainerFile.empty() && opponentTrainerFile.empty();
 
-    monsterbattle::MonsterBattle battle(trainerFile, enemyIsBot ? cpuTrainerFile : opponentTrainerFile, enemyIsBot);
+    monsterbattle::TerminalDisplay display;
+    monsterbattle::MonsterBattle battle(display, trainerFile, enemyIsBot ? cpuTrainerFile : opponentTrainerFile, enemyIsBot, FPS);
     battle.setup();
 
     while (battle.getIsRunning())

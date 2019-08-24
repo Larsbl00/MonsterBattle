@@ -51,12 +51,13 @@ namespace monsterbattle
      * 
      */
 
-    MonsterBattle::MonsterBattle(const std::string& playerFile, const std::string& enemyFile, bool enemyIsBot):
+    MonsterBattle::MonsterBattle(IDisplay& display, const std::string& playerFile, const std::string& enemyFile, bool enemyIsBot, float updatesPerSecond):
         isRunning(true), game(MonsterBattle::AssetDir, TerminalInputReader::getInstance(), this->player, this->enemy, enemyIsBot),
-        terminalDisplay(), enemy(enemyIsBot ? MonsterBattle::CpuDefaultName : MonsterBattle::EnemyDefaultName), enemyFile(enemyFile), 
+        display(display), millisSecondsPerUpdate(static_cast<uint64_t>((1/updatesPerSecond) * 1000)), previousUpdateTime(0),
+        enemy(enemyIsBot ? MonsterBattle::CpuDefaultName : MonsterBattle::EnemyDefaultName), enemyFile(enemyFile), 
         player(MonsterBattle::PlayerDefaultName), playerFile(playerFile)
     {
-        displayManager().setDisplay(&this->terminalDisplay);
+        displayManager().setDisplay(&this->display);
     }
 
     MonsterBattle::~MonsterBattle() noexcept
@@ -93,7 +94,23 @@ namespace monsterbattle
 
     void MonsterBattle::run()
     {
+        if (!displayManager().getDisplayIsSet())
+        {
+            this->isRunning = false;
+            return; 
+        }
 
+        auto now = clock();
+
+        auto elapsedTime = static_cast<float>(now - this->previousUpdateTime) / 1000;
+
+        if (elapsedTime >= this->millisSecondsPerUpdate)
+        {
+            this->previousUpdateTime = now;
+
+            displayManager().render();
+            displayManager().displayAllItems();
+        }
     }
 
     bool MonsterBattle::getIsRunning() const { return this->isRunning; }

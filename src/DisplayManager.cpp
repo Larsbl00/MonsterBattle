@@ -36,6 +36,11 @@ namespace monsterbattle
         this->display->display();
     }
 
+    bool DisplayManager::getDisplayIsSet() const 
+    {
+        return this->display != nullptr;
+    }
+
     void DisplayManager::removeFromRenderQueue(IDisplayable* item)
     {
         this->items.erase(std::remove(this->items.begin(), this->items.end(), item), this->items.end());
