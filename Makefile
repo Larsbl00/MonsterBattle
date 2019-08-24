@@ -6,10 +6,10 @@ RELEASE_NAME=$(NAME)-release
 
 #Compiler and flags
 CXX=g++
-CXX_FLAGS=-Wall -Wextra -Werror -std=c++1z
+CXX_FLAGS=-Wall -Wextra -Werror -std=c++1z -DVERSION=VERSION
 
-DEBUG_FLAGS=-O0 -g -DVERSION=DEBUG
-RELEASE_FLAGS=-O3 -DVERSION=RELEASE
+DEBUG_FLAGS=-O0 -g -DBUILD_TYPE=DEBUG
+RELEASE_FLAGS=-O3 -DBUILD_TYPE=RELEASE
 
 #Setup platform specific variables 
 ifeq ($(OS),Windows_NT)

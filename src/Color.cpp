@@ -11,8 +11,6 @@
 
 #include "Color.h"
 
-#define COLOR_DEFINE(COLOR_NAME, RED, GREEN, BLUE) (const Color Color:: COLOR_NAME (RED,GREEN,BLUE))
-
 namespace monsterbattle
 {
     const Color Color::Red(255,0,0);
