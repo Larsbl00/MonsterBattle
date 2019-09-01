@@ -56,12 +56,12 @@ namespace monsterbattle
 
         ~TerminalDisplay() noexcept;
 
-        void clear();
+        void clear() override;
         void display() override;
-        const Vector2i32& getSize() const;
-        void setPixel(const Vector2i32& pixel, char value);
-        void setPixel(const Vector2i32& pixel, const monsterbattle::Color& color);
-        void setPixel(const Vector2i32& pixel, char value, const monsterbattle::Color& color);
+        const Vector2i32& getSize() const override;
+        void setPixel(const Vector2i32& pixel, char value) override;
+        void setPixel(const Vector2i32& pixel, const monsterbattle::Color& color) override;
+        void setPixel(const Vector2i32& pixel, char value, const monsterbattle::Color& color) override;
 
         private:
         Vector2i32 size;
