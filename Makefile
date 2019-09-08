@@ -85,6 +85,7 @@ SRC=\
 	MonsterManager.cpp \
 	Trainer.cpp \
 	MonsterBattle.cpp \
+	DisplayableText.cpp \
 
 HEADERS=\
 	$(INC_DIR)/$(wildcard *.h)

@@ -79,6 +79,7 @@ int main(int argc, char* argv[])
 
 
     //Create a display
+    
     monsterbattle::TerminalDisplay display;
     monsterbattle::MonsterBattle battle(display, trainerFile, enemyIsBot ? cpuTrainerFile : opponentTrainerFile, enemyIsBot, FPS);
     battle.setup();

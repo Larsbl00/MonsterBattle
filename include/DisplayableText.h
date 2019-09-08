@@ -24,9 +24,16 @@ namespace monsterbattle
     {
         public:
 
+        /**
+         * @brief Construct a new Displayable Text object
+         * 
+         * @param text Text to display
+         * @param location Location to display the text
+         * @param color Color of the displayed text
+        */
         DisplayableText(const std::string& text, const Vector2i32& location, const Color& color);
         DisplayableText(const DisplayableText& other) = delete;
-        ~DisplayableText() noexcept;
+        ~DisplayableText() noexcept = default;
 
         void display(IDisplay& display) override;
         void move(const Vector2i32& direction) override;
