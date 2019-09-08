@@ -35,7 +35,7 @@ namespace monsterbattle
      * 
      */
     Game::Game(const std::string& assetDir, InputReader& inputReader, Trainer& trainer, Trainer& enemy, bool enemyIsBot):
-        assetDirectory(assetDir), enemyIsBot(enemyIsBot), isUpdatingReader(true), inputReader(inputReader),
+        assetDirectory(assetDir), enemyIsBot(enemyIsBot), gameState(GameState::GAME_STATE_IN_BATTLE), isUpdatingReader(true), inputReader(inputReader),
         inputThread(updateGameInput, std::ref(*this)), player(trainer), opponent(enemy)
     {
 
@@ -67,6 +67,7 @@ namespace monsterbattle
         this->isUpdatingReader = false;
     }
 
+    bool Game::getIsRunning() const { return this->isUpdatingReader; }
 
     /**************************************************
      * 
@@ -87,6 +88,62 @@ namespace monsterbattle
 
     void Game::onKeyPress(char pressedChar)
     {
-        std::cout << "Pressed: " << pressedChar << std::endl;
+        switch (this->gameState)
+        {
+            case GameState::GAME_STATE_IN_BATTLE:
+                this->stateInBattle(pressedChar);
+                break;
+
+            case GameState::GAME_STATE_SELECTING_MONSTER:
+                this->stateSelectingMonster(pressedChar);
+                break;
+
+            case GameState::GAME_STATE_SELECTING_MOVE:
+                this->stateSelectingMove(pressedChar);
+                break;
+        }
+    }
+
+    void Game::stateEnd()
+    {
+        this->stop();
+    }
+
+    void Game::stateInBattle(char pressedChar)
+    {
+        switch (pressedChar)
+        {
+            case Game::SelectKey:
+                this->gameState = this->selectedState;
+                std::cout << "Selected" << std::endl;
+                break;
+            
+            case Game::BackKey:
+                this->stateEnd();
+                break;
+        
+            case Game::LeftKey:
+                this->selectedState = GameState::GAME_STATE_SELECTING_MONSTER;
+                std::cout << "Selected Monster" << std::endl;
+                break;
+
+            case Game::RightKey:
+                this->selectedState = GameState::GAME_STATE_SELECTING_MOVE;
+                std::cout << "Selected Move" << std::endl;
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    void Game::stateSelectingMonster(char pressedChar)
+    {
+        std::cout << pressedChar << std::endl;
+    }
+
+    void Game::stateSelectingMove(char pressedChar)
+    {
+        std::cout << pressedChar << std::endl;
     }
 }

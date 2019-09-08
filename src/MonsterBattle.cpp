@@ -103,6 +103,8 @@ namespace monsterbattle
 
     void MonsterBattle::run()
     {
+        this->isRunning = this->game.getIsRunning();
+
         if (!displayManager().getDisplayIsSet())
         {
             this->isRunning = false;
@@ -121,7 +123,7 @@ namespace monsterbattle
         }
     }
 
-    bool MonsterBattle::getIsRunning() const { return this->isRunning; }
+    bool MonsterBattle::getIsRunning() const { return this->isRunning && this->game.getIsRunning(); }
 
     /********************************
      * 
