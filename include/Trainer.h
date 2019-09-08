@@ -40,7 +40,7 @@ namespace monsterbattle
         /**
          * @brief Uses the currently selected move to attack the opponent
          * 
-         * @param opponent Mopnstger to attack
+         * @param opponent Monster to attack
          * @return true When attack hits
          * @return false When attack misses
          * 
@@ -59,6 +59,7 @@ namespace monsterbattle
         monster::Monster& getCurrentMonster();
         const std::array<std::unique_ptr<monster::Monster>, Trainer::PartyCount>& getMonsters() const;
         const std::string& getName() const;
+        uint8_t getPartySize() const;
         
         /**
          * @brief Loads a trainer from a file

@@ -66,6 +66,8 @@ namespace monsterbattle
 
     const std::string& Trainer::getName() const { return this->name; }
 
+    uint8_t Trainer::getPartySize() const { return this->partyIterator; }
+
     void Trainer::loadFromFile(const std::string& filename)
     {
 
@@ -129,8 +131,9 @@ namespace monsterbattle
 
     void Trainer::selectMonster(uint8_t index)
     {
+        std::cout << "index: " << (int)index << std::endl;
         if (index >= Trainer::PartyCount) throw std::out_of_range("Monster index greater than PartyCount of value: " + Trainer::PartyCount);
-        else if (this->getMonsters()[index] == nullptr) throw std::out_of_range("Party has no monster at index = " + static_cast<int>(index));
+        else if (this->getMonsters()[index] == nullptr) throw std::out_of_range("Party has no monster at index");
 
         this->selectedMonsterIndex = index;
 

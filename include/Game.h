@@ -59,6 +59,9 @@ namespace monsterbattle
         std::thread inputThread;
         Trainer& player;
         Trainer& opponent;
+        uint8_t moveIndex = 0;
+        uint8_t monsterIndex = 0;
+
 
 
         /**

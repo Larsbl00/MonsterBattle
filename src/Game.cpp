@@ -45,6 +45,8 @@ namespace monsterbattle
         //Set delegate
         this->inputReader.setDelegate(this);
 
+        this->player.selectMonster(0);
+        this->opponent.selectMonster(0);
     }
 
     Game::~Game() noexcept
@@ -124,11 +126,13 @@ namespace monsterbattle
         
             case Game::LeftKey:
                 this->selectedState = GameState::GAME_STATE_SELECTING_MONSTER;
+                this->monsterIndex = 0;
                 std::cout << "Selected Monster" << std::endl;
                 break;
 
             case Game::RightKey:
                 this->selectedState = GameState::GAME_STATE_SELECTING_MOVE;
+                this->moveIndex = 0;
                 std::cout << "Selected Move" << std::endl;
                 break;
 
@@ -139,11 +143,48 @@ namespace monsterbattle
 
     void Game::stateSelectingMonster(char pressedChar)
     {
-        std::cout << pressedChar << std::endl;
+
+        switch (pressedChar)
+        {
+            
+            case Game::BackKey:
+                this->gameState = GameState::GAME_STATE_IN_BATTLE;
+                break;
+
+            case Game::SelectKey:
+                this->player.selectMonster(this->monsterIndex);
+                this->gameState = GameState::GAME_STATE_IN_BATTLE;
+                break;
+            
+            case Game::UpKey:
+                this->monsterIndex--;
+                if (this->monsterIndex >= this->player.getPartySize()) this->monsterIndex = 0; //Use greater than, because of unsigned values
+                
+                break;
+
+            case Game::DownKey:
+                this->monsterIndex++;
+                if (this->monsterIndex >= this->player.getPartySize()) this->monsterIndex = this->player.getPartySize() - 1;
+
+                break;
+
+            default:
+                break;
+        }
+
     }
 
     void Game::stateSelectingMove(char pressedChar)
     {
+        switch (pressedChar)
+        {
+            case Game::BackKey:
+                this->gameState = GameState::GAME_STATE_IN_BATTLE;
+                break;
+            
+            default:
+                break;
+        }
         std::cout << pressedChar << std::endl;
     }
 }
