@@ -106,7 +106,7 @@ namespace monsterbattle
      * Functions
      * 
      */
-    void Sprite::display(IDisplay& display)
+    void Sprite::display(IDisplay& display) const
     {
         size_t yIterator = 0;
         for (auto& y : this->buffer)

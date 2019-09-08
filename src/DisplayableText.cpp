@@ -30,7 +30,7 @@ namespace monsterbattle
      * Public functions
      * 
      */
-    void DisplayableText::display(IDisplay& display)
+    void DisplayableText::display(IDisplay& display) const
     {
         display.putString(this->location, this->text, this->color);
     }

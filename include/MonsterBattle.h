@@ -13,9 +13,11 @@
 #define MONSTER_BATTLE_H
 
 #include <ctime>
+#include <cassert>
 
 #include "IDisplay.h"
 #include "DisplayManager.h"
+#include "DisplayableText.h"
 #include "Singleton.h"
 #include "TerminalDisplay.h"
 #include "TerminalInputReader.h"
@@ -32,7 +34,7 @@ namespace monsterbattle
         static constexpr auto PlayerDefaultName = "PLAYER 1";
         static constexpr auto CpuDefaultName = "CPU";
         static constexpr auto EnemyDefaultName = "PLAYER 2";
-        const static inline auto MinimumSize = Vector2i32(100, 36);
+        const static inline auto MinimumSize = Vector2i32(0, 0);
 
         MonsterBattle(IDisplay& display, const std::string& playerFile, const std::string& enemyFile, bool enemyIsBot, float updatesPerSecond);
         ~MonsterBattle() noexcept;

@@ -12,7 +12,8 @@
 #include "MonsterBattle.h"
 
 #define _AS_STRING(DEF) (#DEF)
-#define DEFINE_TO_STRING(DEF) (_AS_STRING(DEF))
+#define TO_STRING(DEF) (_AS_STRING(DEF))
+#define SMART_PTR_TO_C_PTR(SMART_PTR) (SMART_PTR == nullptr ? assert(SMART_PTR != nullptr) : &(*(SMART_PTR)))
 
 namespace monsterbattle
 {
@@ -74,7 +75,7 @@ namespace monsterbattle
      */
     void MonsterBattle::setup()
     {
-        std::cout << "| MonsterBattle | Build: " << DEFINE_TO_STRING(BUILD_TYPE) << " | Version: v" << DEFINE_TO_STRING(VERSION) << " |" << std::endl;
+        std::cout << "| MonsterBattle | Build: " << TO_STRING(BUILD_TYPE) << " | Version: v" << TO_STRING(VERSION) << " |" << std::endl;
 
         //Load trainers
         if (!loadTrainer(this->player, this->playerFile))
@@ -114,10 +115,9 @@ namespace monsterbattle
 
         if (elapsedTime >= this->millisSecondsPerUpdate)
         {
-            this->previousUpdateTime = now;
-
             displayManager().render();
             displayManager().displayAllItems();
+            this->previousUpdateTime = now;
         }
     }
 

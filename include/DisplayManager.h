@@ -41,7 +41,7 @@ namespace monsterbattle
          * 
          * @throw invalid_argument Item to add is a null pointer
         */
-        void addToRenderQueue(IDisplayable* item);
+        void addToRenderQueue(const IDisplayable* item);
 
         /**
          * @brief Displays all items
@@ -63,7 +63,7 @@ namespace monsterbattle
          * 
          * @param item 
         */
-        void removeFromRenderQueue(IDisplayable* item);
+        void removeFromRenderQueue(const IDisplayable* item);
 
         /**
          * @brief Renders all items in the display's buffer
@@ -81,7 +81,7 @@ namespace monsterbattle
 
         private:
         IDisplay* display;
-        std::vector<IDisplayable*> items;
+        std::vector<const IDisplayable*> items;
         std::vector<std::string> textRender;
 
         DisplayManager();

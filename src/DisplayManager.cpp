@@ -22,7 +22,7 @@ namespace monsterbattle
         display(nullptr)
     {}
 
-    void DisplayManager::addToRenderQueue(IDisplayable* item)
+    void DisplayManager::addToRenderQueue(const IDisplayable* item)
     {
         if (item == nullptr) throw std::invalid_argument("Cannot add NULL to items");
     
@@ -41,7 +41,7 @@ namespace monsterbattle
         return this->display != nullptr;
     }
 
-    void DisplayManager::removeFromRenderQueue(IDisplayable* item)
+    void DisplayManager::removeFromRenderQueue(const IDisplayable* item)
     {
         this->items.erase(std::remove(this->items.begin(), this->items.end(), item), this->items.end());
     }

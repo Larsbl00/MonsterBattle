@@ -22,7 +22,8 @@
 namespace monsterbattle
 {
 
-    class Game: public InputDelegate
+    class Game: 
+        public InputDelegate
     {
         friend inline void updateGameInput(Game& game) noexcept;
 

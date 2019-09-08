@@ -86,7 +86,7 @@ namespace monsterbattle
             }
         }
 
-        void Monster::display(IDisplay& display)
+        void Monster::display(IDisplay& display) const
         {
             this->model.display(display);
         }

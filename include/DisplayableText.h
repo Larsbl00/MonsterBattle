@@ -35,7 +35,7 @@ namespace monsterbattle
         DisplayableText(const DisplayableText& other) = delete;
         ~DisplayableText() noexcept = default;
 
-        void display(IDisplay& display) override;
+        void display(IDisplay& display) const override;
         void move(const Vector2i32& direction) override;
         void setColor(const Color& color);
         void setText(const std::string& text);

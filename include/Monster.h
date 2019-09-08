@@ -78,7 +78,7 @@ namespace monsterbattle
             */
             void addMoves(const std::vector<std::string>& names);
 
-            void display(IDisplay& display) override;
+            void display(IDisplay& display) const override;
 
             const std::array<const Move*, Monster::MoveCount>& getMoves() const;
             const std::string& getName() const;

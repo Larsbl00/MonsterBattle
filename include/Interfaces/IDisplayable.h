@@ -28,7 +28,7 @@ namespace monsterbattle
          * 
          * @param display 
         */
-        virtual void display(IDisplay& display) = 0;
+        virtual void display(IDisplay& display) const = 0;
     };
 }
 
