@@ -90,6 +90,14 @@ namespace monsterbattle
             this->isRunning = false;
             return;
         }
+
+        //Check if the window is big enough to play
+        if (this->display.getSize().x < this->MinimumSize.x || this->display.getSize().y < this->MinimumSize.y)
+        {   
+            std::cerr << "Window is too small, must be atleast " << this->MinimumSize << " was " << this->display.getSize() << std::endl;
+            this->isRunning= false;
+            return;
+        }
     }
 
     void MonsterBattle::run()

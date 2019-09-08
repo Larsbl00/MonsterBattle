@@ -19,7 +19,7 @@
 
 namespace monsterbattle
 {
-    struct IDisplayable; //Forward deeclaration so we can use it
+    struct IDisplayable; //Forward declaration so we can use it
 
     struct IDisplay
     {
@@ -31,6 +31,8 @@ namespace monsterbattle
         virtual void setPixel(const Vector2i32& pixel, char value) = 0;
         virtual void setPixel(const Vector2i32& pixel, const monsterbattle::Color& color) = 0;
         virtual void setPixel(const Vector2i32& pixel, char value, const monsterbattle::Color& color) = 0;
+        virtual void putString(const Vector2i32& pixel, const std::string& string) = 0;
+        virtual void putString(const Vector2i32& pixel, const std::string& string, const monsterbattle::Color& color) = 0;
     };
     
 }

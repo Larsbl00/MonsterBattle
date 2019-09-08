@@ -126,6 +126,24 @@ namespace monsterbattle
         this->buffer[pixel.y][pixel.x].color = color;
     }
 
+    void TerminalDisplay::putString(const Vector2i32& pixel, const std::string& string)
+    {
+        size_t charsPlaced = 0;
+        for (char c : string)
+        {
+            this->setPixel(Vector2i32(pixel.x + charsPlaced++, pixel.y), c);
+        }
+    }
+
+    void TerminalDisplay::putString(const Vector2i32& pixel, const std::string& string, const monsterbattle::Color& color)
+    {
+        size_t charsPlaced = 0;
+        for (char c : string)
+        {
+            this->setPixel(Vector2i32(pixel.x + charsPlaced++, pixel.y), c, color);
+        }
+    }
+
     /*******************************
      * Private functions
      */

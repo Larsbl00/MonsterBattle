@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
 
             case 'h':
                 std::cout << "Trainer options:" << '\n' 
-                <<"--trianer / -t: Selects a file for the 1st user" << '\n'
+                <<"--trainer / -t: Selects a file for the 1st user" << '\n'
                 <<"--opponent / -o: Selects a trainerfile for a seconds person, use it when you want to fight eachother" << '\n'
                 <<"--cpu-trainer / -c: Selects the trainerfile for an automated opponent" << std::endl;
                 break;
@@ -77,6 +77,8 @@ int main(int argc, char* argv[])
     //Check if enemy is bot or not
     bool enemyIsBot = !cpuTrainerFile.empty() && opponentTrainerFile.empty();
 
+
+    //Create a display
     monsterbattle::TerminalDisplay display;
     monsterbattle::MonsterBattle battle(display, trainerFile, enemyIsBot ? cpuTrainerFile : opponentTrainerFile, enemyIsBot, FPS);
     battle.setup();
@@ -86,5 +88,5 @@ int main(int argc, char* argv[])
         battle.run();
     }
 
-    return 0;
+    return EXIT_SUCCESS;
 }
