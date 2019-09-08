@@ -46,7 +46,6 @@ namespace monsterbattle
         this->items.erase(std::remove(this->items.begin(), this->items.end(), item), this->items.end());
     }
 
-
     void DisplayManager::render()
     {
         if (this->display == nullptr) throw std::runtime_error("Display was never set");

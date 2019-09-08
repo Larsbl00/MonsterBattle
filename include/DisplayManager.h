@@ -59,7 +59,7 @@ namespace monsterbattle
         bool getDisplayIsSet() const;
         
         /**
-         * @brief 
+         * @brief Removes a displayable item from the queue
          * 
          * @param item 
         */
@@ -82,6 +82,7 @@ namespace monsterbattle
         private:
         IDisplay* display;
         std::vector<IDisplayable*> items;
+        std::vector<std::string> textRender;
 
         DisplayManager();
     };  

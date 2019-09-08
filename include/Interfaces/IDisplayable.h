@@ -24,7 +24,7 @@ namespace monsterbattle
         virtual ~IDisplayable() = default;
 
         /**
-         * @brief 
+         * @brief Displays an item on a given display
          * 
          * @param display 
         */
