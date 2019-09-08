@@ -62,6 +62,11 @@ namespace monsterbattle
         return *this->party[this->selectedMonsterIndex];
     }
 
+    bool Trainer::selectedMonster() const 
+    {
+        return this->party[this->selectedMonsterIndex] != nullptr;
+    }
+
     const std::array<std::unique_ptr<monster::Monster>, Trainer::PartyCount>& Trainer::getMonsters() const { return this->party; }
 
     const std::string& Trainer::getName() const { return this->name; }
@@ -124,7 +129,7 @@ namespace monsterbattle
 
     void Trainer::selectMove(uint8_t index)
     {
-        if (index >= monster::Monster::MoveCount) throw std::out_of_range("Move index > allowed moves of value: " + monster::Monster::MoveCount);
+        if (index >= monster::Monster::MoveCount) throw std::out_of_range("Move index > allowed moves");
         this->selectedMoveIndex = index;
     }
 

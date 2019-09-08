@@ -59,7 +59,7 @@ namespace monsterbattle
             bool attack(Monster& other);
 
             /**
-             * @brief Adds a singulkar move to its move list
+             * @brief Adds a singular move to its move list
              * 
              * @param name Name of the move you want to add
              * 

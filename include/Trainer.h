@@ -57,6 +57,13 @@ namespace monsterbattle
          * @throw runtime_error No monster is currently selected
         */
         monster::Monster& getCurrentMonster();
+        /**
+         * @brief Checks if a monster has been selected
+         * 
+         * @return true 
+         * @return false
+        */
+        bool selectedMonster() const;
         const std::array<std::unique_ptr<monster::Monster>, Trainer::PartyCount>& getMonsters() const;
         const std::string& getName() const;
         uint8_t getPartySize() const;

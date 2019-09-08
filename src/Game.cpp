@@ -117,7 +117,6 @@ namespace monsterbattle
         {
             case Game::SelectKey:
                 this->gameState = this->selectedState;
-                std::cout << "Selected" << std::endl;
                 break;
             
             case Game::BackKey:
@@ -126,13 +125,11 @@ namespace monsterbattle
         
             case Game::LeftKey:
                 this->selectedState = GameState::GAME_STATE_SELECTING_MONSTER;
-                this->monsterIndex = 0;
                 std::cout << "Selected Monster" << std::endl;
                 break;
 
             case Game::RightKey:
                 this->selectedState = GameState::GAME_STATE_SELECTING_MOVE;
-                this->moveIndex = 0;
                 std::cout << "Selected Move" << std::endl;
                 break;
 
@@ -152,14 +149,23 @@ namespace monsterbattle
                 break;
 
             case Game::SelectKey:
-                this->player.selectMonster(this->monsterIndex);
-                this->gameState = GameState::GAME_STATE_IN_BATTLE;
+                try
+                {
+                    this->player.selectMonster(this->monsterIndex);
+                    this->gameState = GameState::GAME_STATE_IN_BATTLE;
+                    this->moveIndex = 0;
+                }
+                catch(const std::out_of_range& e)
+                {
+                    std::cerr << "No monster present at selected index" << std::endl;
+                }
+            
                 break;
             
             case Game::UpKey:
                 this->monsterIndex--;
                 if (this->monsterIndex >= this->player.getPartySize()) this->monsterIndex = 0; //Use greater than, because of unsigned values
-                
+
                 break;
 
             case Game::DownKey:
@@ -176,15 +182,41 @@ namespace monsterbattle
 
     void Game::stateSelectingMove(char pressedChar)
     {
+        //Leave if there is no monster to select a move from
+        if (!this->player.selectedMonster()) this->gameState = GameState::GAME_STATE_IN_BATTLE;
+
         switch (pressedChar)
         {
             case Game::BackKey:
                 this->gameState = GameState::GAME_STATE_IN_BATTLE;
                 break;
+
+            case Game::SelectKey:
+                try
+                {
+                    this->player.selectMove(this->moveIndex);
+                    this->gameState = GameState::GAME_STATE_IN_BATTLE;
+                }
+                catch (const std::out_of_range& e)
+                {
+                    std::cerr << "No move found at given index" << std::endl;
+                }
+                break;
+
+            case Game::UpKey:
+                this->moveIndex--;
+                if (this->moveIndex >= monster::Monster::MoveCount) this->moveIndex = 0; //Check for underflow, because of unsigned value
+
+                break;
             
+            case Game::DownKey:
+                this->moveIndex++;
+                if (this->moveIndex >= monster::Monster::MoveCount) this->moveIndex = monster::Monster::MoveCount - 1;
+
+                break;
+
             default:
                 break;
         }
-        std::cout << pressedChar << std::endl;
     }
 }
