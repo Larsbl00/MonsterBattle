@@ -102,6 +102,12 @@ namespace monsterbattle
         */
         void setSubtitle(const std::string& str);
 
+        /**
+         * @brief Sets all text fields to the correct position
+         * 
+         * @throw runtime_error Display not yet set, the display of the displaymanager is not yet set 
+         * 
+        */
         void setup();
 
         private:
@@ -110,6 +116,7 @@ namespace monsterbattle
         std::array<DisplayableText, monster::Monster::MoveCount> moveText;
         DisplayableText subtitleText;
         std::array<DisplayableText, Trainer::PartyCount> trainerPartyText;
+        Vector2i32 displaySize;
 
 
         DisplayableTextManager();

@@ -36,6 +36,11 @@ namespace monsterbattle
         this->display->display();
     }
 
+    const IDisplay* DisplayManager::getDisplay() const 
+    {
+        return this->display;
+    }
+
     bool DisplayManager::getDisplayIsSet() const 
     {
         return this->display != nullptr;

@@ -57,8 +57,9 @@ namespace monsterbattle
         display(display), millisSecondsPerUpdate(static_cast<uint64_t>((1/updatesPerSecond) * 1000)), previousUpdateTime(0),
         enemy(enemyIsBot ? MonsterBattle::CpuDefaultName : MonsterBattle::EnemyDefaultName), enemyFile(enemyFile), 
         player(MonsterBattle::PlayerDefaultName), playerFile(playerFile)
-    {
+    {  
         displayManager().setDisplay(&this->display);
+        DisplayableTextManager::getInstance().setup(); 
     }
 
     MonsterBattle::~MonsterBattle() noexcept

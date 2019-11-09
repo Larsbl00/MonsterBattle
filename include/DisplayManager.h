@@ -50,6 +50,8 @@ namespace monsterbattle
         */
         void displayAllItems();
 
+        const IDisplay* getDisplay() const;
+
         /**
          * @brief Gets whether the display is refering to NULL, does not check if the object is still alive
          * 

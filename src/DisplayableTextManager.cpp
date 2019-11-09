@@ -11,7 +11,7 @@
 
 #include "DisplayableTextManager.h"
 
-#define DEFAULT_TEXT (DisplayableText("<temp>", DisplayableTextManager::DefaultTextLocation, DisplayableTextManager::DefaultColor))
+#define DEFAULT_TEXT (DisplayableText("<NotYetLoaded>", DisplayableTextManager::DefaultTextLocation, DisplayableTextManager::DefaultColor))
 
 namespace monsterbattle
 {
@@ -46,8 +46,6 @@ namespace monsterbattle
         {
             displayManager().addToRenderQueue(&monster);
         }
-
-        this->setup();
     }
 
     DisplayableTextManager::~DisplayableTextManager() noexcept
@@ -155,9 +153,14 @@ namespace monsterbattle
         this->subtitleText.setText(str);
     }
 
+    //TODO Place all items on the correct location
     void DisplayableTextManager::setup() 
     {
+        //Escape if 
+        if (displayManager().getDisplay() == nullptr) throw std::runtime_error("Display not yet set in displaymanager");
         // Subtitle
-        this->subtitleText.moveTo(Vector<int32_t>(DisplayableTextManager::RelativeStartPositionSubtitle.castTo<int32_t>()));
+        const auto& size = displayManager().getDisplay()->getSize();
+        auto strSize = size.castTo<float>() * DisplayableTextManager::RelativeStartPositionSubtitle;
+        this->subtitleText.moveTo(strSize.castTo<int32_t>());
     }
 };
