@@ -25,6 +25,7 @@
 #include "Singleton.h"
 #include "Vector.h"
 #include "Trainer.h"
+#include "TypeColorManager.h"
 
 
 namespace monsterbattle
@@ -64,7 +65,7 @@ namespace monsterbattle
          * 
          * @param moves 
         */
-        void setMoveText(const std::array<monster::Move, monster::Monster::MoveCount>& moves);
+        void setMoveText(const std::array<monster::Move*, monster::Monster::MoveCount>& moves);
 
         /**
          * @brief Sets the subtitle of the screen

@@ -67,6 +67,8 @@ namespace monsterbattle
             */
             void loadFromString(const std::string& str);
 
+            Type getType() const;
+
             const std::string& getName() const;
 
             friend std::ostream& operator<<(std::ostream& str, const Move& move);

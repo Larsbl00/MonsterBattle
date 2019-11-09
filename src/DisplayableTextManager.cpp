@@ -16,6 +16,7 @@
 namespace monsterbattle
 {
     constexpr auto displayManager = &DisplayManager::getInstance;
+    constexpr auto colorManager = &TypeColorManager::getInstance;
 
     /**************************
      * 
@@ -85,6 +86,18 @@ namespace monsterbattle
             if (party[index] != nullptr)
             {
                 this->trainerPartyText[index].setText(party[index]->getName());
+            }
+        }
+    }
+
+    void DisplayableTextManager::setMoveText(const std::array<monster::Move*, monster::Monster::MoveCount>& moves)
+    {
+        for (uint8_t index = 0; index < monster::Monster::MoveCount; index++)
+        {
+            if (moves[index] != nullptr)
+            {
+                this->moveText[index].setText(moves[index]->getName());
+                this->moveText[index].setColor(colorManager().getColorFromType(moves[index]->getType()));
             }
         }
     }
