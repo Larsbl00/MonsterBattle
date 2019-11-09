@@ -21,9 +21,7 @@
 #include "Trainer.h"
 
 namespace monsterbattle
-{
-    class DisplayTextManager; //Forward declare the manager
-    
+{   
     class Game: 
         public InputDelegate
     {

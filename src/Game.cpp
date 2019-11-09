@@ -84,6 +84,10 @@ namespace monsterbattle
         //Load Monsters
         monsterManager().unload();
         monsterManager().load(this->assetDirectory + '/' + Game::MonsterFileName);
+
+        //Set text
+        textManager().setBattleOptions({"Select Monster", "Select Move"});
+        textManager().setSubtitle("Select an option");
     }
 
     void Game::onKeyPress(char pressedChar)

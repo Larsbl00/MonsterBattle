@@ -31,9 +31,9 @@
 namespace monsterbattle
 {
     class DisplayableTextManager:
-        Singleton<DisplayableTextManager>
+        public Singleton<DisplayableTextManager>
     {
-        friend Singleton; 
+        friend Singleton;
 
         public:
 

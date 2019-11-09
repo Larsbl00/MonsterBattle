@@ -26,10 +26,10 @@ namespace monsterbattle
     class DisplayManager:
         public Singleton<DisplayManager>
     {
-        public: 
-
         //Declare friend to access private constructor
         friend Singleton;
+        
+        public: 
         
         ~DisplayManager() noexcept = default;
         DisplayManager(const DisplayManager&) = delete;
