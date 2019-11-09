@@ -19,7 +19,7 @@ namespace monsterbattle
 {
     constexpr auto monsterManager = &monster::MonsterManager::getInstance;
     constexpr auto moveManager = &monster::MoveManager::getInstance;
-
+    constexpr auto textManager = &DisplayableTextManager::getInstance;
 
     inline void updateGameInput(Game& game) noexcept
     {
