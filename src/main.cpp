@@ -45,9 +45,9 @@ int main(int argc, char* argv[])
 
             case 'h':
                 std::cout << "Trainer options:" << '\n' 
-                <<"--trainer / -t: Selects a file for the 1st user" << '\n'
-                <<"--opponent / -o: Selects a trainerfile for a seconds person, use it when you want to fight eachother" << '\n'
-                <<"--cpu-trainer / -c: Selects the trainerfile for an automated opponent" << std::endl;
+                <<"\t--trainer / -t: Selects a file for the 1st user" << '\n'
+                <<"\t--opponent / -o: Selects a trainerfile for a seconds person, use it when you want to fight eachother" << '\n'
+                <<"\t--cpu-trainer / -c: Selects the trainerfile for an automated opponent" << std::endl;
                 break;
         
             case '?':
