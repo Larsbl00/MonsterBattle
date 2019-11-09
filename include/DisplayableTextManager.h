@@ -13,9 +13,11 @@
 #define DISPLAYABLE_TEXT_MANAGER
 
 #include <array>
+#include <cstdint>
 #include <map>
 
 #include "Color.h"
+#include "DisplayManager.h"
 #include "DisplayableText.h"
 #include "DisplayableTextManager.h"
 #include "Monster.h"
@@ -41,8 +43,8 @@ namespace monsterbattle
         const static inline Vector2f RelativeStartPositionMoveSelect = Vector2f(0.05, 0.7);
         const static inline Vector2f RelativeStartPositionMonsterSelect = Vector2f(0.05, 0.1);
         const static inline Vector2f RelativeStartPositionSubtitle = Vector2f(0.05, 0.7);
-        
-        ~DisplayableTextManager() noexcept = default;
+
+        ~DisplayableTextManager() noexcept;
 
         std::array<DisplayableText, Game::BattleOptions>& getBattleOptionText();
         std::array<DisplayableText, monster::Monster::MoveCount>& getMoveText();
@@ -63,6 +65,20 @@ namespace monsterbattle
          * @param moves 
         */
         void setMoveText(const std::array<monster::Move, monster::Monster::MoveCount>& moves);
+
+        /**
+         * @brief Sets the subtitle of the screen
+         * 
+         * @param str 
+        */
+        void setSubtitle(const std::string& str);
+
+        /**
+         * @brief Sets the battle options
+         * 
+         * @param battleOps 
+        */
+        void setBattleOptions(const std::array<std::string, Game::BattleOptions>& battleOps);
 
         private:
 
