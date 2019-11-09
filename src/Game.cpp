@@ -13,6 +13,7 @@
 #include "Trainer.h"
 
 #include "DisplayManager.h"
+#include "DisplayableTextManager.h"
 
 namespace monsterbattle 
 {
