@@ -52,6 +52,12 @@ namespace monsterbattle
         DisplayableText& getSubtitleText();
         std::array<DisplayableText, Trainer::PartyCount>& getTrainerPartyText();
 
+        /**
+         * @brief Sets the battle options
+         * 
+         * @param battleOps 
+        */
+        void setBattleOptions(const std::array<std::string, Game::BattleOptions>& battleOps);
 
         /**
          * @brief Sets the text for the parties, based on the given party
@@ -73,13 +79,6 @@ namespace monsterbattle
          * @param str 
         */
         void setSubtitle(const std::string& str);
-
-        /**
-         * @brief Sets the battle options
-         * 
-         * @param battleOps 
-        */
-        void setBattleOptions(const std::array<std::string, Game::BattleOptions>& battleOps);
 
         private:
 

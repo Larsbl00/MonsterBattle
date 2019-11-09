@@ -79,6 +79,14 @@ namespace monsterbattle
     DisplayableText& DisplayableTextManager::getSubtitleText() { return this->subtitleText; }
     std::array<DisplayableText, Trainer::PartyCount>& DisplayableTextManager::getTrainerPartyText() { return this->trainerPartyText; }
 
+    void DisplayableTextManager::setBattleOptions(const std::array<std::string, Game::BattleOptions>& battleOps)
+    {
+        for (uint8_t index = 0; index < Game::BattleOptions; index++)
+        {
+            this->battleOptionText[index].setText(battleOps[index]);
+        }
+    }
+
     void DisplayableTextManager::setPartyText(const std::array<std::unique_ptr<monster::Monster>, Trainer::PartyCount>& party)
     {
         for (uint8_t index = 0; index < Trainer::PartyCount; index++)
@@ -101,4 +109,10 @@ namespace monsterbattle
             }
         }
     }
+
+    void DisplayableTextManager::setSubtitle(const std::string& str)
+    {
+        this->subtitleText.setText(str);
+    }
+
 };
