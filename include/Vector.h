@@ -21,12 +21,14 @@ namespace monsterbattle
     template<typename T>
     struct Vector
     {
+        static_assert(std::is_trivial<T>::value);
+
         Vector():
             x(0), y(0)
         {}
 
 
-        Vector(const T& x, const T& y):
+        Vector(T x, T y):
             x(x), y(y)
         {}
 

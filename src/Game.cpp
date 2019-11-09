@@ -140,7 +140,6 @@ namespace monsterbattle
 
     void Game::stateSelectingMonster(char pressedChar)
     {
-
         switch (pressedChar)
         {
             
