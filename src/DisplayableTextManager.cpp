@@ -79,6 +79,37 @@ namespace monsterbattle
     DisplayableText& DisplayableTextManager::getSubtitleText() { return this->subtitleText; }
     std::array<DisplayableText, Trainer::PartyCount>& DisplayableTextManager::getTrainerPartyText() { return this->trainerPartyText; }
 
+    void DisplayableTextManager::selectBattleOption(uint8_t index)
+    {
+        for (uint8_t i = 0; i < Game::BattleOptions; i++)
+        {
+            if (i == index)
+            {
+                this->battleOptionText[i].setColor(DisplayableTextManager::HighlightColor);
+            }
+            else 
+            {
+                this->battleOptionText[i].setColor(DisplayableTextManager::DefaultColor);
+            }
+        }
+        
+    }
+
+    void DisplayableTextManager::selectPartyMember(uint8_t index)
+    {
+        for (uint8_t i = 0; i < Trainer::PartyCount; i++)
+        {
+            if (i == index)
+            {
+                this->trainerPartyText[i].setColor(DisplayableTextManager::HighlightColor);
+            }
+            else 
+            {
+                this->trainerPartyText[i].setColor(DisplayableTextManager::DefaultColor);
+            }
+        }
+    }
+
     void DisplayableTextManager::setBattleOptions(const std::array<std::string, Game::BattleOptions>& battleOps)
     {
         for (uint8_t index = 0; index < Game::BattleOptions; index++)
@@ -95,10 +126,14 @@ namespace monsterbattle
             {
                 this->trainerPartyText[index].setText(party[index]->getName());
             }
+            else 
+            {
+                this->trainerPartyText[index].setText("None");
+            }
         }
     }
 
-    void DisplayableTextManager::setMoveText(const std::array<monster::Move*, monster::Monster::MoveCount>& moves)
+    void DisplayableTextManager::setMoveText(const std::array<const monster::Move*, monster::Monster::MoveCount>& moves)
     {
         for (uint8_t index = 0; index < monster::Monster::MoveCount; index++)
         {
@@ -106,6 +141,10 @@ namespace monsterbattle
             {
                 this->moveText[index].setText(moves[index]->getName());
                 this->moveText[index].setColor(colorManager().getColorFromType(moves[index]->getType()));
+            }
+            else 
+            {
+                this->moveText[index].setText("None");
             }
         }
     }

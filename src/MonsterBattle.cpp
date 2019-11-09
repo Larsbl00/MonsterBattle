@@ -99,6 +99,8 @@ namespace monsterbattle
             this->isRunning= false;
             return;
         }
+
+        DisplayableTextManager::getInstance().setPartyText(this->player.getMonsters());
     }
 
     void MonsterBattle::run()

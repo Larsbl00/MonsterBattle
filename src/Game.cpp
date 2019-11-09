@@ -127,11 +127,13 @@ namespace monsterbattle
         
             case Game::LeftKey:
                 this->selectedState = GameState::GAME_STATE_SELECTING_MONSTER;
+                textManager().selectBattleOption(0);
                 std::cout << "Selected Monster" << std::endl;
                 break;
 
             case Game::RightKey:
                 this->selectedState = GameState::GAME_STATE_SELECTING_MOVE;
+                textManager().selectBattleOption(1);
                 std::cout << "Selected Move" << std::endl;
                 break;
 
@@ -153,12 +155,14 @@ namespace monsterbattle
                 try
                 {
                     this->player.selectMonster(this->monsterIndex);
+                    textManager().setMoveText(this->player.getCurrentMonster().getMoves());
                     this->gameState = GameState::GAME_STATE_IN_BATTLE;
                     this->moveIndex = 0;
                 }
                 catch(const std::out_of_range& e)
                 {
                     std::cerr << "No monster present at selected index" << std::endl;
+                    textManager().setSubtitle("No monster present at selected index");
                 }
             
                 break;
@@ -166,12 +170,14 @@ namespace monsterbattle
             case Game::UpKey:
                 this->monsterIndex--;
                 if (this->monsterIndex >= this->player.getPartySize()) this->monsterIndex = 0; //Use greater than, because of unsigned values
+                textManager().selectPartyMember(this->monsterIndex);
 
                 break;
 
             case Game::DownKey:
                 this->monsterIndex++;
                 if (this->monsterIndex >= this->player.getPartySize()) this->monsterIndex = this->player.getPartySize() - 1;
+                textManager().selectPartyMember(this->monsterIndex);
 
                 break;
 
@@ -201,12 +207,14 @@ namespace monsterbattle
                 catch (const std::out_of_range& e)
                 {
                     std::cerr << "No move found at given index" << std::endl;
+                    textManager().setSubtitle("No move found at given index");
                 }
                 break;
 
             case Game::UpKey:
                 this->moveIndex--;
                 if (this->moveIndex >= monster::Monster::MoveCount) this->moveIndex = 0; //Check for underflow, because of unsigned value
+
 
                 break;
             

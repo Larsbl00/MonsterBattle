@@ -53,6 +53,27 @@ namespace monsterbattle
         std::array<DisplayableText, Trainer::PartyCount>& getTrainerPartyText();
 
         /**
+         * @brief Sets the index of the battle options active
+         * 
+         * @param index 
+        */
+        void selectBattleOption(uint8_t index);
+
+        /**
+         * @brief Highlights the currently selected member
+         * 
+         * @param index 
+        */
+        void selectPartyMember(uint8_t index);
+
+        /**
+         * @brief 
+         * 
+         * @param index Highlights the selected move
+        */
+        void selectMove(uint8_t index);
+
+        /**
          * @brief Sets the battle options
          * 
          * @param battleOps 
@@ -71,7 +92,7 @@ namespace monsterbattle
          * 
          * @param moves 
         */
-        void setMoveText(const std::array<monster::Move*, monster::Monster::MoveCount>& moves);
+        void setMoveText(const std::array<const monster::Move*, monster::Monster::MoveCount>& moves);
 
         /**
          * @brief Sets the subtitle of the screen

@@ -17,7 +17,7 @@
 
 #include "IDisplay.h"
 #include "DisplayManager.h"
-#include "DisplayableText.h"
+#include "DisplayableTextManager.h"
 #include "Singleton.h"
 #include "TerminalDisplay.h"
 #include "TerminalInputReader.h"
