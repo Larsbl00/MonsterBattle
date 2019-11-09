@@ -88,7 +88,7 @@ int main(int argc, char* argv[])
 
     while (battle.getIsRunning())
     {
-        //battle.run();
+        battle.run();
     }
 
     return EXIT_SUCCESS;

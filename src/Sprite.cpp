@@ -143,6 +143,7 @@ namespace monsterbattle
     const Color& Sprite::getColor() const { return this->color; }
 
     void Sprite::move(const Vector2i32& direction) { this->location += direction; }
+    void Sprite::moveTo(const Vector2i32& location) { this->location = location; }
 
     void Sprite::setBuffer(const Sprite::Buffer_t& newBuffer)
     {

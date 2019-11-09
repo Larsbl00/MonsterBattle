@@ -39,6 +39,7 @@ namespace monsterbattle
         bool getIsHidden() const;
         void hide();
         void move(const Vector2i32& direction) override;
+        void moveTo(const Vector2i32& location) override;
         void setColor(const Color& color);
         void setText(const std::string& text);
         void show();

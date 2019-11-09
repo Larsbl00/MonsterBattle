@@ -100,6 +100,7 @@ namespace monsterbattle
             void loadFromString(const std::string& str);
 
             void move(const Vector2i32& direction) override;
+            void moveTo(const Vector2i32& location) override;
 
             void setNickName(const std::string& nickName);
         

@@ -47,6 +47,7 @@ namespace monsterbattle
             displayManager().addToRenderQueue(&monster);
         }
 
+        this->setup();
     }
 
     DisplayableTextManager::~DisplayableTextManager() noexcept
@@ -154,4 +155,9 @@ namespace monsterbattle
         this->subtitleText.setText(str);
     }
 
+    void DisplayableTextManager::setup() 
+    {
+        // Subtitle
+        this->subtitleText.moveTo(Vector<int32_t>(DisplayableTextManager::RelativeStartPositionSubtitle.castTo<int32_t>()));
+    }
 };

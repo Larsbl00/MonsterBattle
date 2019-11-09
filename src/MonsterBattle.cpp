@@ -125,6 +125,8 @@ namespace monsterbattle
         }
     }
 
+    const IDisplay& MonsterBattle::getDisplay() const { return this->display; }
+
     bool MonsterBattle::getIsRunning() const { return this->isRunning && this->game.getIsRunning(); }
 
     /********************************

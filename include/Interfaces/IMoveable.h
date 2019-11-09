@@ -18,7 +18,19 @@ namespace monsterbattle
     struct IMoveable
     {
         virtual ~IMoveable() noexcept = default;
+        /**
+         * @brief Moves the object with a given delta
+         * 
+         * @param direction Direction to move from root
+        */
         virtual void move(const Vector2i32& direction) = 0;
+
+        /**
+         * @brief Moves the object to a given location
+         * 
+         * @param location 
+        */
+        virtual void moveTo(const Vector2i32& location) = 0;
     };
 }
 

@@ -52,7 +52,15 @@ namespace monsterbattle
 
         for (const auto& item : this->items)
         {
-            item->display(*(this->display));
+            //If item is null remove it
+            if (item == nullptr)
+            {
+                this->removeFromRenderQueue(item);
+            }
+            else 
+            {
+                item->display(*(this->display));
+            }
         }
     }
 

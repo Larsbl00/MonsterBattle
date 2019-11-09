@@ -41,11 +41,14 @@ namespace monsterbattle
         T x;
         T y;  
 
+        template <typename U>
+        Vector<U> castTo() const { return std::move(Vector<U>(U(this->x), U(this->y))); }
+
         Vector& operator*=(const Vector& other) { this->x *= other.x; this->y *= other.y;return *this; }
-        Vector&  operator+=(const Vector& other) { this->x += other.x; this->y += other.y; return *this;}
-        Vector&  operator-=(const Vector& other) { this->x -= other.x; this->y -= other.y; return *this;}
-        Vector&  operator/=(const Vector& other) { this->x /= other.x; this->y /= other.y; return *this;}
-        Vector&  operator=(const Vector& other) { this->x = other.x; this->y = other.y; return *this;}  
+        Vector&  operator+=(const Vector& other) { this->x += other.x; this->y += other.y; return *this; }
+        Vector&  operator-=(const Vector& other) { this->x -= other.x; this->y -= other.y; return *this; }
+        Vector&  operator/=(const Vector& other) { this->x /= other.x; this->y /= other.y; return *this; }
+        Vector&  operator=(const Vector& other) { this->x = other.x; this->y = other.y; return *this; }  
 
         Vector operator*(const Vector& other) { return std::move(Vector(this->x * other.x, this->y * other.y)); }
         Vector operator+(const Vector& other) { return std::move(Vector(this->x + other.x, this->y + other.y)); }

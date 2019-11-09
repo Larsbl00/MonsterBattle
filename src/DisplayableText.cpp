@@ -32,7 +32,8 @@ namespace monsterbattle
      */
     void DisplayableText::display(IDisplay& display) const
     {
-        if (!this->isHidden) display.putString(this->location, this->text, this->color);
+        //TODO The line below throws a segfault, fix it
+        if (!this->getIsHidden()) display.putString(this->location, this->text, this->color);
     }
 
     bool DisplayableText::getIsHidden() const { return this->isHidden; }
@@ -42,7 +43,9 @@ namespace monsterbattle
         this->isHidden = true;
     }
 
-    void DisplayableText::move(const Vector2i32& location) { this->location += location; }
+    void DisplayableText::move(const Vector2i32& direction) { this->location += direction; }
+    void DisplayableText::moveTo(const Vector2i32& location) { this->location = location; }
+
     
     void DisplayableText::setColor(const Color& color) { this->color = color; }
 

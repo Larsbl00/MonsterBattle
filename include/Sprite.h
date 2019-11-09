@@ -86,6 +86,7 @@ namespace monsterbattle
         const Color& getColor() const;
 
         void move(const Vector2i32& direction) override;
+        void moveTo(const Vector2i32& location) override;
         
         void setBuffer(const Buffer_t& newBuffer);
         /**

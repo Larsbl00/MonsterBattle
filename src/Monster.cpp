@@ -138,6 +138,11 @@ namespace monsterbattle
             this->model.move(direction);
         }
 
+        void Monster::moveTo(const Vector2i32& location)
+        {
+            this->model.moveTo(location);
+        }
+
         void Monster::setNickName(const std::string& nickName) { this->nickName = nickName; }
 
 

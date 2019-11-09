@@ -42,6 +42,7 @@ namespace monsterbattle
         void setup();
         void run();
 
+        const IDisplay& getDisplay() const;
         bool getIsRunning() const;
 
         private:

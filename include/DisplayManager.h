@@ -30,7 +30,7 @@ namespace monsterbattle
         friend Singleton;
         
         public: 
-        
+
         ~DisplayManager() noexcept = default;
         DisplayManager(const DisplayManager&) = delete;
 
