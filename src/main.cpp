@@ -48,6 +48,8 @@ int main(int argc, char* argv[])
                 <<"\t--trainer / -t: Selects a file for the 1st user" << '\n'
                 <<"\t--opponent / -o: Selects a trainerfile for a seconds person, use it when you want to fight eachother" << '\n'
                 <<"\t--cpu-trainer / -c: Selects the trainerfile for an automated opponent" << std::endl;
+                //Exit after printing help
+                exit(EXIT_SUCCESS);
                 break;
         
             case '?':

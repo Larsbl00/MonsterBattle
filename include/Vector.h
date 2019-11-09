@@ -53,11 +53,14 @@ namespace monsterbattle
         Vector operator/(const Vector& other) { return std::move(Vector(this->x / other.x, this->y / other.y)); }
 
         template <typename U>
-        friend std::ostream& operator<<(std::ostream& stream, const Vector<U>& vec)
-        { 
-            return stream << '{' << vec.x << ',' << vec.y << '}'; 
-        }
+        friend std::ostream& operator<<(std::ostream& stream, const Vector<U>& vec);
     };
+
+    template <typename U>
+    std::ostream& operator<<(std::ostream& stream, const Vector<U>& vec)
+    { 
+        return stream << '{' << vec.x << ',' << vec.y << '}'; 
+    }
 
     using Vector2f = Vector<float>;
     using Vector2i = Vector<int>;

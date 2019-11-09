@@ -37,7 +37,11 @@ namespace monsterbattle
         const static inline Vector2i32 DefaultTextLocation = Vector2i32(INT32_MAX, INT32_MAX);
         const static inline Color HighlightColor = Color(0, 23, 185);
         const static inline Color DefaultColor = Color(255, 255, 255);
-
+        const static inline Vector2f RelativeStartPositionBattleOption = Vector2f(0.05, 0.7);
+        const static inline Vector2f RelativeStartPositionMoveSelect = Vector2f(0.05, 0.7);
+        const static inline Vector2f RelativeStartPositionMonsterSelect = Vector2f(0.05, 0.1);
+        const static inline Vector2f RelativeStartPositionSubtitle = Vector2f(0.05, 0.7);
+        
         ~DisplayableTextManager() noexcept = default;
 
         std::array<DisplayableText, Game::BattleOptions>& getBattleOptionText();
