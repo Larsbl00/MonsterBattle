@@ -36,12 +36,16 @@ namespace monsterbattle
         ~DisplayableText() noexcept = default;
 
         void display(IDisplay& display) const override;
+        bool getIsHidden() const;
+        void hide();
         void move(const Vector2i32& direction) override;
         void setColor(const Color& color);
         void setText(const std::string& text);
+        void show();
 
         private:
         Color color;
+        bool isHidden;
         Vector2i32 location;
         std::string text;
     };

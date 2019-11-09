@@ -9,8 +9,8 @@
  * 
 */
 
-#ifndef DISPLAYABLE_TEXT_MANAGER
-#define DISPLAYABLE_TEXT_MANAGER
+#ifndef DISPLAYABLE_TEXT_MANAGER_H
+#define DISPLAYABLE_TEXT_MANAGER_H
 
 #include <array>
 #include <cstdint>

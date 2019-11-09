@@ -21,7 +21,7 @@ namespace monsterbattle
      */
 
     DisplayableText::DisplayableText(const std::string& text, const Vector2i32& location, const Color& color):
-        color(color), location(location), text(text)
+        color(color), isHidden(false), location(location), text(text)
     {}
 
 
@@ -32,7 +32,14 @@ namespace monsterbattle
      */
     void DisplayableText::display(IDisplay& display) const
     {
-        display.putString(this->location, this->text, this->color);
+        if (!this->isHidden) display.putString(this->location, this->text, this->color);
+    }
+
+    bool DisplayableText::getIsHidden() const { return this->isHidden; }
+
+    void DisplayableText::hide()
+    {   
+        this->isHidden = true;
     }
 
     void DisplayableText::move(const Vector2i32& location) { this->location += location; }
@@ -40,5 +47,9 @@ namespace monsterbattle
     void DisplayableText::setColor(const Color& color) { this->color = color; }
 
     void DisplayableText::setText(const std::string& text) { this->text = text; }
-    
+
+    void DisplayableText::show()
+    {
+        this->isHidden = false;
+    }   
 }
