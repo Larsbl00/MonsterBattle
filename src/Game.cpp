@@ -45,9 +45,6 @@ namespace monsterbattle
 
         //Set delegate
         this->inputReader.setDelegate(this);
-
-        this->player.selectMonster(0);
-        this->opponent.selectMonster(0);
     }
 
     Game::~Game() noexcept
