@@ -1,0 +1,202 @@
+\hypertarget{classmonsterbattle_1_1DisplayableTextManager}{}\section{monsterbattle\+:\+:Displayable\+Text\+Manager Class Reference}
+\label{classmonsterbattle_1_1DisplayableTextManager}\index{monsterbattle\+::\+Displayable\+Text\+Manager@{monsterbattle\+::\+Displayable\+Text\+Manager}}
+
+
+Inheritance diagram for monsterbattle\+:\+:Displayable\+Text\+Manager\+:
+% FIG 0
+
+
+Collaboration diagram for monsterbattle\+:\+:Displayable\+Text\+Manager\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_a0e27b8d55979c5150338d96530ce8487}\label{classmonsterbattle_1_1DisplayableTextManager_a0e27b8d55979c5150338d96530ce8487}} 
+std\+::array$<$ \hyperlink{classmonsterbattle_1_1DisplayableText}{Displayable\+Text}, Game\+::\+Battle\+Options $>$ \& {\bfseries get\+Battle\+Option\+Text} ()
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_aa309e11fb3982d648efbdc27f12d37ad}\label{classmonsterbattle_1_1DisplayableTextManager_aa309e11fb3982d648efbdc27f12d37ad}} 
+std\+::array$<$ \hyperlink{classmonsterbattle_1_1DisplayableText}{Displayable\+Text}, monster\+::\+Monster\+::\+Move\+Count $>$ \& {\bfseries get\+Move\+Text} ()
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_a16a4d1bdaa78de18a86c2aa1380e5eba}\label{classmonsterbattle_1_1DisplayableTextManager_a16a4d1bdaa78de18a86c2aa1380e5eba}} 
+\hyperlink{classmonsterbattle_1_1DisplayableText}{Displayable\+Text} \& {\bfseries get\+Subtitle\+Text} ()
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_a08fd78c087bdaddd6b9de6a9e95d2bdb}\label{classmonsterbattle_1_1DisplayableTextManager_a08fd78c087bdaddd6b9de6a9e95d2bdb}} 
+std\+::array$<$ \hyperlink{classmonsterbattle_1_1DisplayableText}{Displayable\+Text}, Trainer\+::\+Party\+Count $>$ \& {\bfseries get\+Trainer\+Party\+Text} ()
+\item 
+void \hyperlink{classmonsterbattle_1_1DisplayableTextManager_a513b27b56122e391f585effa42c7bb0e}{select\+Battle\+Option} (uint8\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Sets the index of the battle options active. \end{DoxyCompactList}\item 
+void \hyperlink{classmonsterbattle_1_1DisplayableTextManager_af5f9f51609ca074cab189375fed1dc73}{select\+Party\+Member} (uint8\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Highlights the currently selected member. \end{DoxyCompactList}\item 
+void \hyperlink{classmonsterbattle_1_1DisplayableTextManager_aa041cc5a6f68b4c04456802aff12c50d}{select\+Move} (uint8\+\_\+t index, const std\+::array$<$ const \hyperlink{classmonsterbattle_1_1monster_1_1Move}{monster\+::\+Move} $\ast$, monster\+::\+Monster\+::\+Move\+Count $>$ \&moves)
+\item 
+void \hyperlink{classmonsterbattle_1_1DisplayableTextManager_a1b4eb0b21ebf0b2f2123931cf04a63d9}{set\+Battle\+Options} (const std\+::array$<$ std\+::string, Game\+::\+Battle\+Options $>$ \&battle\+Ops)
+\begin{DoxyCompactList}\small\item\em Sets the battle options. \end{DoxyCompactList}\item 
+void \hyperlink{classmonsterbattle_1_1DisplayableTextManager_a610b7a3a16c6fa9d19f9c35fac4953e8}{set\+Party\+Text} (const std\+::array$<$ std\+::unique\+\_\+ptr$<$ \hyperlink{classmonsterbattle_1_1monster_1_1Monster}{monster\+::\+Monster} $>$, Trainer\+::\+Party\+Count $>$ \&party)
+\begin{DoxyCompactList}\small\item\em Sets the text for the parties, based on the given party. \end{DoxyCompactList}\item 
+void \hyperlink{classmonsterbattle_1_1DisplayableTextManager_a79f9720047da6253de18072c403997ec}{set\+Move\+Text} (const std\+::array$<$ const \hyperlink{classmonsterbattle_1_1monster_1_1Move}{monster\+::\+Move} $\ast$, monster\+::\+Monster\+::\+Move\+Count $>$ \&moves)
+\begin{DoxyCompactList}\small\item\em Set the text for the moves, based on the given moves. \end{DoxyCompactList}\item 
+void \hyperlink{classmonsterbattle_1_1DisplayableTextManager_aff93a6dbe74f367739c5c8abe56e5f18}{set\+Subtitle} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Sets the subtitle of the screen. \end{DoxyCompactList}\item 
+void \hyperlink{classmonsterbattle_1_1DisplayableTextManager_a0fc6ebabde8ca3c47728f73b76c0549f}{setup} ()
+\begin{DoxyCompactList}\small\item\em Sets all text fields to the correct position. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_a628800f106b83db4a0acb93ba29ad060}\label{classmonsterbattle_1_1DisplayableTextManager_a628800f106b83db4a0acb93ba29ad060}} 
+static const \hyperlink{structmonsterbattle_1_1Vector}{Vector2i32} {\bfseries Default\+Text\+Location} = \hyperlink{structmonsterbattle_1_1Vector}{Vector2i32}(0, 0)
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_ae7cebf530fe74249bb441e30e098687f}\label{classmonsterbattle_1_1DisplayableTextManager_ae7cebf530fe74249bb441e30e098687f}} 
+static const \hyperlink{structmonsterbattle_1_1Color}{Color} {\bfseries Highlight\+Color} = \hyperlink{structmonsterbattle_1_1Color}{Color}(0, 155, 185)
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_aa484f5de8baadf1e1ea73df495458b6e}\label{classmonsterbattle_1_1DisplayableTextManager_aa484f5de8baadf1e1ea73df495458b6e}} 
+static const \hyperlink{structmonsterbattle_1_1Color}{Color} {\bfseries Default\+Color} = \hyperlink{structmonsterbattle_1_1Color}{Color}(255, 255, 255)
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_ab30a177bd47770a75d4b46afce2d811f}\label{classmonsterbattle_1_1DisplayableTextManager_ab30a177bd47770a75d4b46afce2d811f}} 
+static const \hyperlink{structmonsterbattle_1_1Vector}{Vector2f} {\bfseries Relative\+Start\+Position\+Battle\+Monster\+Option} = \hyperlink{structmonsterbattle_1_1Vector}{Vector2f}(0.\+05, 0.\+85)
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_a7bf058c5efb5b0cdbb4baa8b8bd9a6a4}\label{classmonsterbattle_1_1DisplayableTextManager_a7bf058c5efb5b0cdbb4baa8b8bd9a6a4}} 
+static const \hyperlink{structmonsterbattle_1_1Vector}{Vector2f} {\bfseries Relative\+Start\+Position\+Battle\+Move\+Option} = \hyperlink{structmonsterbattle_1_1Vector}{Vector2f}(0.\+35, 0.\+85)
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_a483710fcf5c8dc7bb39911993f41c85e}\label{classmonsterbattle_1_1DisplayableTextManager_a483710fcf5c8dc7bb39911993f41c85e}} 
+static const \hyperlink{structmonsterbattle_1_1Vector}{Vector2f} {\bfseries Relative\+Start\+Position\+Move\+Select} = \hyperlink{structmonsterbattle_1_1Vector}{Vector2f}(0.\+35, 0.\+3)
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_a548521602a550171c4c0799764fa8a0b}\label{classmonsterbattle_1_1DisplayableTextManager_a548521602a550171c4c0799764fa8a0b}} 
+static const \hyperlink{structmonsterbattle_1_1Vector}{Vector2f} {\bfseries Relative\+Start\+Position\+Monster\+Select} = \hyperlink{structmonsterbattle_1_1Vector}{Vector2f}(0.\+05, 0.\+3)
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_a6d57c26b21aaeb8f3c19f507604654bc}\label{classmonsterbattle_1_1DisplayableTextManager_a6d57c26b21aaeb8f3c19f507604654bc}} 
+static const \hyperlink{structmonsterbattle_1_1Vector}{Vector2f} {\bfseries Relative\+Start\+Position\+Subtitle} = \hyperlink{structmonsterbattle_1_1Vector}{Vector2f}(0.\+05, 0.\+95)
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_a1da75570c36325bbecc4ecf0da8b1b03}\label{classmonsterbattle_1_1DisplayableTextManager_a1da75570c36325bbecc4ecf0da8b1b03}} 
+static const \hyperlink{structmonsterbattle_1_1Vector}{Vector2f} {\bfseries Realtive\+Spacing\+Monsters} = \hyperlink{structmonsterbattle_1_1Vector}{Vector2f}(0, 0.\+1)
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_a302edc0f4e06317b1683fd604477b1c5}\label{classmonsterbattle_1_1DisplayableTextManager_a302edc0f4e06317b1683fd604477b1c5}} 
+static const \hyperlink{structmonsterbattle_1_1Vector}{Vector2f} {\bfseries Realtive\+Spacing\+Moves} = \hyperlink{structmonsterbattle_1_1Vector}{Vector2f}(0, 0.\+1)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_a513b27b56122e391f585effa42c7bb0e}\label{classmonsterbattle_1_1DisplayableTextManager_a513b27b56122e391f585effa42c7bb0e}} 
+\index{monsterbattle\+::\+Displayable\+Text\+Manager@{monsterbattle\+::\+Displayable\+Text\+Manager}!select\+Battle\+Option@{select\+Battle\+Option}}
+\index{select\+Battle\+Option@{select\+Battle\+Option}!monsterbattle\+::\+Displayable\+Text\+Manager@{monsterbattle\+::\+Displayable\+Text\+Manager}}
+\subsubsection{\texorpdfstring{select\+Battle\+Option()}{selectBattleOption()}}
+{\footnotesize\ttfamily void monsterbattle\+::\+Displayable\+Text\+Manager\+::select\+Battle\+Option (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+
+
+Sets the index of the battle options active. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_aa041cc5a6f68b4c04456802aff12c50d}\label{classmonsterbattle_1_1DisplayableTextManager_aa041cc5a6f68b4c04456802aff12c50d}} 
+\index{monsterbattle\+::\+Displayable\+Text\+Manager@{monsterbattle\+::\+Displayable\+Text\+Manager}!select\+Move@{select\+Move}}
+\index{select\+Move@{select\+Move}!monsterbattle\+::\+Displayable\+Text\+Manager@{monsterbattle\+::\+Displayable\+Text\+Manager}}
+\subsubsection{\texorpdfstring{select\+Move()}{selectMove()}}
+{\footnotesize\ttfamily void monsterbattle\+::\+Displayable\+Text\+Manager\+::select\+Move (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{index,  }\item[{const std\+::array$<$ const \hyperlink{classmonsterbattle_1_1monster_1_1Move}{monster\+::\+Move} $\ast$, monster\+::\+Monster\+::\+Move\+Count $>$ \&}]{moves }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Highlights the selected move \\
+\hline
+{\em moves} & The list of moves present in the monster, used for getting the color of the move \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_af5f9f51609ca074cab189375fed1dc73}\label{classmonsterbattle_1_1DisplayableTextManager_af5f9f51609ca074cab189375fed1dc73}} 
+\index{monsterbattle\+::\+Displayable\+Text\+Manager@{monsterbattle\+::\+Displayable\+Text\+Manager}!select\+Party\+Member@{select\+Party\+Member}}
+\index{select\+Party\+Member@{select\+Party\+Member}!monsterbattle\+::\+Displayable\+Text\+Manager@{monsterbattle\+::\+Displayable\+Text\+Manager}}
+\subsubsection{\texorpdfstring{select\+Party\+Member()}{selectPartyMember()}}
+{\footnotesize\ttfamily void monsterbattle\+::\+Displayable\+Text\+Manager\+::select\+Party\+Member (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{index }\end{DoxyParamCaption})}
+
+
+
+Highlights the currently selected member. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_a1b4eb0b21ebf0b2f2123931cf04a63d9}\label{classmonsterbattle_1_1DisplayableTextManager_a1b4eb0b21ebf0b2f2123931cf04a63d9}} 
+\index{monsterbattle\+::\+Displayable\+Text\+Manager@{monsterbattle\+::\+Displayable\+Text\+Manager}!set\+Battle\+Options@{set\+Battle\+Options}}
+\index{set\+Battle\+Options@{set\+Battle\+Options}!monsterbattle\+::\+Displayable\+Text\+Manager@{monsterbattle\+::\+Displayable\+Text\+Manager}}
+\subsubsection{\texorpdfstring{set\+Battle\+Options()}{setBattleOptions()}}
+{\footnotesize\ttfamily void monsterbattle\+::\+Displayable\+Text\+Manager\+::set\+Battle\+Options (\begin{DoxyParamCaption}\item[{const std\+::array$<$ std\+::string, Game\+::\+Battle\+Options $>$ \&}]{battle\+Ops }\end{DoxyParamCaption})}
+
+
+
+Sets the battle options. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em battle\+Ops} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_a79f9720047da6253de18072c403997ec}\label{classmonsterbattle_1_1DisplayableTextManager_a79f9720047da6253de18072c403997ec}} 
+\index{monsterbattle\+::\+Displayable\+Text\+Manager@{monsterbattle\+::\+Displayable\+Text\+Manager}!set\+Move\+Text@{set\+Move\+Text}}
+\index{set\+Move\+Text@{set\+Move\+Text}!monsterbattle\+::\+Displayable\+Text\+Manager@{monsterbattle\+::\+Displayable\+Text\+Manager}}
+\subsubsection{\texorpdfstring{set\+Move\+Text()}{setMoveText()}}
+{\footnotesize\ttfamily void monsterbattle\+::\+Displayable\+Text\+Manager\+::set\+Move\+Text (\begin{DoxyParamCaption}\item[{const std\+::array$<$ const \hyperlink{classmonsterbattle_1_1monster_1_1Move}{monster\+::\+Move} $\ast$, monster\+::\+Monster\+::\+Move\+Count $>$ \&}]{moves }\end{DoxyParamCaption})}
+
+
+
+Set the text for the moves, based on the given moves. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em moves} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_a610b7a3a16c6fa9d19f9c35fac4953e8}\label{classmonsterbattle_1_1DisplayableTextManager_a610b7a3a16c6fa9d19f9c35fac4953e8}} 
+\index{monsterbattle\+::\+Displayable\+Text\+Manager@{monsterbattle\+::\+Displayable\+Text\+Manager}!set\+Party\+Text@{set\+Party\+Text}}
+\index{set\+Party\+Text@{set\+Party\+Text}!monsterbattle\+::\+Displayable\+Text\+Manager@{monsterbattle\+::\+Displayable\+Text\+Manager}}
+\subsubsection{\texorpdfstring{set\+Party\+Text()}{setPartyText()}}
+{\footnotesize\ttfamily void monsterbattle\+::\+Displayable\+Text\+Manager\+::set\+Party\+Text (\begin{DoxyParamCaption}\item[{const std\+::array$<$ std\+::unique\+\_\+ptr$<$ \hyperlink{classmonsterbattle_1_1monster_1_1Monster}{monster\+::\+Monster} $>$, Trainer\+::\+Party\+Count $>$ \&}]{party }\end{DoxyParamCaption})}
+
+
+
+Sets the text for the parties, based on the given party. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em party} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_aff93a6dbe74f367739c5c8abe56e5f18}\label{classmonsterbattle_1_1DisplayableTextManager_aff93a6dbe74f367739c5c8abe56e5f18}} 
+\index{monsterbattle\+::\+Displayable\+Text\+Manager@{monsterbattle\+::\+Displayable\+Text\+Manager}!set\+Subtitle@{set\+Subtitle}}
+\index{set\+Subtitle@{set\+Subtitle}!monsterbattle\+::\+Displayable\+Text\+Manager@{monsterbattle\+::\+Displayable\+Text\+Manager}}
+\subsubsection{\texorpdfstring{set\+Subtitle()}{setSubtitle()}}
+{\footnotesize\ttfamily void monsterbattle\+::\+Displayable\+Text\+Manager\+::set\+Subtitle (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Sets the subtitle of the screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayableTextManager_a0fc6ebabde8ca3c47728f73b76c0549f}\label{classmonsterbattle_1_1DisplayableTextManager_a0fc6ebabde8ca3c47728f73b76c0549f}} 
+\index{monsterbattle\+::\+Displayable\+Text\+Manager@{monsterbattle\+::\+Displayable\+Text\+Manager}!setup@{setup}}
+\index{setup@{setup}!monsterbattle\+::\+Displayable\+Text\+Manager@{monsterbattle\+::\+Displayable\+Text\+Manager}}
+\subsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void monsterbattle\+::\+Displayable\+Text\+Manager\+::setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Sets all text fields to the correct position. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & Display not yet set, the display of the displaymanager is not yet set \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{DisplayableTextManager_8h}{Displayable\+Text\+Manager.\+h}\item 
+src/\hyperlink{DisplayableTextManager_8cpp}{Displayable\+Text\+Manager.\+cpp}\end{DoxyCompactItemize}

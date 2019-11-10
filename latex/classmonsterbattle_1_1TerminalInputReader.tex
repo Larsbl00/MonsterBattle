@@ -1,0 +1,55 @@
+\hypertarget{classmonsterbattle_1_1TerminalInputReader}{}\section{monsterbattle\+:\+:Terminal\+Input\+Reader Class Reference}
+\label{classmonsterbattle_1_1TerminalInputReader}\index{monsterbattle\+::\+Terminal\+Input\+Reader@{monsterbattle\+::\+Terminal\+Input\+Reader}}
+
+
+Inheritance diagram for monsterbattle\+:\+:Terminal\+Input\+Reader\+:
+% FIG 0
+
+
+Collaboration diagram for monsterbattle\+:\+:Terminal\+Input\+Reader\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1TerminalInputReader_a045538591653769cd2c27083ca428d82}\label{classmonsterbattle_1_1TerminalInputReader_a045538591653769cd2c27083ca428d82}} 
+{\bfseries Terminal\+Input\+Reader} (const \hyperlink{classmonsterbattle_1_1TerminalInputReader}{Terminal\+Input\+Reader} \&other)=delete
+\item 
+void \hyperlink{classmonsterbattle_1_1TerminalInputReader_ab665f9a9907e3435acdbf10c14ebb307}{update} () override
+\begin{DoxyCompactList}\small\item\em Polls to check for pressed keys in the terminal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1TerminalInputReader_a3f2157bd6708578c878110e83ed3d3d6}\label{classmonsterbattle_1_1TerminalInputReader_a3f2157bd6708578c878110e83ed3d3d6}} 
+static constexpr struct timeval {\bfseries Timeout} = \{.tv\+\_\+sec=I\+N\+P\+U\+T\+\_\+\+R\+E\+A\+D\+E\+R\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+S\+E\+C\+O\+N\+DS, .tv\+\_\+usec=I\+N\+P\+U\+T\+\_\+\+R\+E\+A\+D\+E\+R\+\_\+\+T\+I\+M\+E\+O\+U\+T\+\_\+\+M\+I\+C\+R\+OS\}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmonsterbattle_1_1TerminalInputReader_ab665f9a9907e3435acdbf10c14ebb307}\label{classmonsterbattle_1_1TerminalInputReader_ab665f9a9907e3435acdbf10c14ebb307}} 
+\index{monsterbattle\+::\+Terminal\+Input\+Reader@{monsterbattle\+::\+Terminal\+Input\+Reader}!update@{update}}
+\index{update@{update}!monsterbattle\+::\+Terminal\+Input\+Reader@{monsterbattle\+::\+Terminal\+Input\+Reader}}
+\subsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void monsterbattle\+::\+Terminal\+Input\+Reader\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Polls to check for pressed keys in the terminal. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & Cannot use timeout for Filedescriptor \\
+\hline
+{\em runtime\+\_\+error} & Error reading user input \\
+\hline
+\end{DoxyExceptions}
+
+
+Implements \hyperlink{classmonsterbattle_1_1InputReader}{monsterbattle\+::\+Input\+Reader}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{TerminalInputReader_8h}{Terminal\+Input\+Reader.\+h}\item 
+src/\hyperlink{TerminalInputReader_8cpp}{Terminal\+Input\+Reader.\+cpp}\end{DoxyCompactItemize}

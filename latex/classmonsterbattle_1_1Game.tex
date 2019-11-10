@@ -1,0 +1,76 @@
+\hypertarget{classmonsterbattle_1_1Game}{}\section{monsterbattle\+:\+:Game Class Reference}
+\label{classmonsterbattle_1_1Game}\index{monsterbattle\+::\+Game@{monsterbattle\+::\+Game}}
+
+
+Inheritance diagram for monsterbattle\+:\+:Game\+:
+% FIG 0
+
+
+Collaboration diagram for monsterbattle\+:\+:Game\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Game_ae6d4e0c5fa9ca107480620c4c01439c3}\label{classmonsterbattle_1_1Game_ae6d4e0c5fa9ca107480620c4c01439c3}} 
+{\bfseries Game} (const std\+::string \&asset\+Dir, \hyperlink{classmonsterbattle_1_1InputReader}{Input\+Reader} \&input\+Reader, \hyperlink{classmonsterbattle_1_1Trainer}{Trainer} \&trainer, \hyperlink{classmonsterbattle_1_1Trainer}{Trainer} \&enemy, bool enemy\+Is\+Bot)
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Game_a2079037e0a5cf768d4a3b4de44ee278c}\label{classmonsterbattle_1_1Game_a2079037e0a5cf768d4a3b4de44ee278c}} 
+{\bfseries Game} (const \hyperlink{classmonsterbattle_1_1Game}{Game} \&other)=delete
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Game_aaa51d9606404f27baec8e6d10af27bef}\label{classmonsterbattle_1_1Game_aaa51d9606404f27baec8e6d10af27bef}} 
+void {\bfseries stop} ()
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Game_a500e6d3bbb6e8ff0d70cff8d70f6716e}\label{classmonsterbattle_1_1Game_a500e6d3bbb6e8ff0d70cff8d70f6716e}} 
+bool {\bfseries get\+Is\+Running} () const
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Game_ab28b6821c4e2bff118b7201938763a98}\label{classmonsterbattle_1_1Game_ab28b6821c4e2bff118b7201938763a98}} 
+void {\bfseries operator=} (const \hyperlink{classmonsterbattle_1_1Game}{Game} \&other)=delete
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Game_a33ed68f02725225009d1b60446c8f37b}\label{classmonsterbattle_1_1Game_a33ed68f02725225009d1b60446c8f37b}} 
+static const \hyperlink{structmonsterbattle_1_1Vector}{Vector2f} {\bfseries Relative\+Monster\+Location\+Trainer} = \hyperlink{structmonsterbattle_1_1Vector}{Vector2f}(0.\+15, 0.\+45)
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Game_a98d629791b00c30784c6758ee5731107}\label{classmonsterbattle_1_1Game_a98d629791b00c30784c6758ee5731107}} 
+static const \hyperlink{structmonsterbattle_1_1Vector}{Vector2f} {\bfseries Relative\+Monster\+Location\+Opponent} = \hyperlink{structmonsterbattle_1_1Vector}{Vector2f}(0.\+65, 0.\+25)
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Game_ac75cdf46cce2128496be11a9b20423db}\label{classmonsterbattle_1_1Game_ac75cdf46cce2128496be11a9b20423db}} 
+static constexpr auto {\bfseries Battle\+Options} = 2
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Game_aa03725db1378248045a366c0d51dfaa4}\label{classmonsterbattle_1_1Game_aa03725db1378248045a366c0d51dfaa4}} 
+static constexpr auto {\bfseries Monster\+File\+Name} = \char`\"{}monsters.\+txt\char`\"{}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Game_aed8f38be766c2d9cc4fb690836cb1976}\label{classmonsterbattle_1_1Game_aed8f38be766c2d9cc4fb690836cb1976}} 
+static constexpr auto {\bfseries Move\+File\+Name} = \char`\"{}moves.\+txt\char`\"{}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Game_ada428f88079d8a130596adb6df96cf0e}\label{classmonsterbattle_1_1Game_ada428f88079d8a130596adb6df96cf0e}} 
+static constexpr char {\bfseries Select\+Key} = \textquotesingle{}\textbackslash{}n\textquotesingle{}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Game_a1fabd07e670fa98759ba6ec4b1908c92}\label{classmonsterbattle_1_1Game_a1fabd07e670fa98759ba6ec4b1908c92}} 
+static constexpr char {\bfseries Back\+Key} = 127
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Game_a8c2e4578e0e6ec21299b16b65ae3f287}\label{classmonsterbattle_1_1Game_a8c2e4578e0e6ec21299b16b65ae3f287}} 
+static constexpr char {\bfseries Up\+Key} = \textquotesingle{}A\textquotesingle{}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Game_ae0a36646ad25ad0797943130f550a895}\label{classmonsterbattle_1_1Game_ae0a36646ad25ad0797943130f550a895}} 
+static constexpr char {\bfseries Down\+Key} = \textquotesingle{}B\textquotesingle{}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Game_abe2341c6c9f56bbcacc224df1447808f}\label{classmonsterbattle_1_1Game_abe2341c6c9f56bbcacc224df1447808f}} 
+static constexpr char {\bfseries Right\+Key} = \textquotesingle{}C\textquotesingle{}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Game_a82aafd84d1b06a48756efdff3d1bbd74}\label{classmonsterbattle_1_1Game_a82aafd84d1b06a48756efdff3d1bbd74}} 
+static constexpr char {\bfseries Left\+Key} = \textquotesingle{}D\textquotesingle{}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Game_aed1def7532780b165f3237335862547f}\label{classmonsterbattle_1_1Game_aed1def7532780b165f3237335862547f}} 
+void {\bfseries update\+Game\+Input} (\hyperlink{classmonsterbattle_1_1Game}{Game} \&game) noexcept
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{Game_8h}{Game.\+h}\item 
+src/\hyperlink{Game_8cpp}{Game.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,136 @@
+\hypertarget{classmonsterbattle_1_1DisplayManager}{}\section{monsterbattle\+:\+:Display\+Manager Class Reference}
+\label{classmonsterbattle_1_1DisplayManager}\index{monsterbattle\+::\+Display\+Manager@{monsterbattle\+::\+Display\+Manager}}
+
+
+Inheritance diagram for monsterbattle\+:\+:Display\+Manager\+:
+% FIG 0
+
+
+Collaboration diagram for monsterbattle\+:\+:Display\+Manager\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayManager_a523cceb27673adf68bdb4a47428fa026}\label{classmonsterbattle_1_1DisplayManager_a523cceb27673adf68bdb4a47428fa026}} 
+{\bfseries Display\+Manager} (const \hyperlink{classmonsterbattle_1_1DisplayManager}{Display\+Manager} \&)=delete
+\item 
+void \hyperlink{classmonsterbattle_1_1DisplayManager_a0456f978666a4e9de318d5a2213a3891}{add\+To\+Render\+Queue} (const \hyperlink{structmonsterbattle_1_1IDisplayable}{I\+Displayable} $\ast$item)
+\begin{DoxyCompactList}\small\item\em Adds an item to the render queue. \end{DoxyCompactList}\item 
+void \hyperlink{classmonsterbattle_1_1DisplayManager_a10b2f43ee54c2fd07fcccafb776dd0b3}{display\+All\+Items} ()
+\begin{DoxyCompactList}\small\item\em Displays all items. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayManager_a48d80b9a9a6c6109159d6a0af6ef43e6}\label{classmonsterbattle_1_1DisplayManager_a48d80b9a9a6c6109159d6a0af6ef43e6}} 
+const \hyperlink{structmonsterbattle_1_1IDisplay}{I\+Display} $\ast$ {\bfseries get\+Display} () const
+\item 
+bool \hyperlink{classmonsterbattle_1_1DisplayManager_a93348ee551bbaa13a9450d39bcf73dfc}{get\+Display\+Is\+Set} () const
+\begin{DoxyCompactList}\small\item\em Gets whether the display is refering to N\+U\+LL, does not check if the object is still alive. \end{DoxyCompactList}\item 
+void \hyperlink{classmonsterbattle_1_1DisplayManager_a2a616e9af9dfbd40a326b4348e62d807}{remove\+From\+Render\+Queue} (const \hyperlink{structmonsterbattle_1_1IDisplayable}{I\+Displayable} $\ast$item)
+\begin{DoxyCompactList}\small\item\em Removes a displayable item from the queue. \end{DoxyCompactList}\item 
+void \hyperlink{classmonsterbattle_1_1DisplayManager_af524ed6d4731be99258323f2b2735183}{render} ()
+\begin{DoxyCompactList}\small\item\em Renders all items in the display\textquotesingle{}s buffer. \end{DoxyCompactList}\item 
+void \hyperlink{classmonsterbattle_1_1DisplayManager_a3caf2bc163be4945bf4148e31717fc70}{set\+Display} (\hyperlink{structmonsterbattle_1_1IDisplay}{I\+Display} $\ast$display)
+\begin{DoxyCompactList}\small\item\em Set the Display object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayManager_a0456f978666a4e9de318d5a2213a3891}\label{classmonsterbattle_1_1DisplayManager_a0456f978666a4e9de318d5a2213a3891}} 
+\index{monsterbattle\+::\+Display\+Manager@{monsterbattle\+::\+Display\+Manager}!add\+To\+Render\+Queue@{add\+To\+Render\+Queue}}
+\index{add\+To\+Render\+Queue@{add\+To\+Render\+Queue}!monsterbattle\+::\+Display\+Manager@{monsterbattle\+::\+Display\+Manager}}
+\subsubsection{\texorpdfstring{add\+To\+Render\+Queue()}{addToRenderQueue()}}
+{\footnotesize\ttfamily void monsterbattle\+::\+Display\+Manager\+::add\+To\+Render\+Queue (\begin{DoxyParamCaption}\item[{const \hyperlink{structmonsterbattle_1_1IDisplayable}{I\+Displayable} $\ast$}]{item }\end{DoxyParamCaption})}
+
+
+
+Adds an item to the render queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & A pointer to an item that needs to be displayed, keep the item alive while it remains in the queue\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+argument} & Item to add is a null pointer \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayManager_a10b2f43ee54c2fd07fcccafb776dd0b3}\label{classmonsterbattle_1_1DisplayManager_a10b2f43ee54c2fd07fcccafb776dd0b3}} 
+\index{monsterbattle\+::\+Display\+Manager@{monsterbattle\+::\+Display\+Manager}!display\+All\+Items@{display\+All\+Items}}
+\index{display\+All\+Items@{display\+All\+Items}!monsterbattle\+::\+Display\+Manager@{monsterbattle\+::\+Display\+Manager}}
+\subsubsection{\texorpdfstring{display\+All\+Items()}{displayAllItems()}}
+{\footnotesize\ttfamily void monsterbattle\+::\+Display\+Manager\+::display\+All\+Items (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Displays all items. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & Display is not set \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayManager_a93348ee551bbaa13a9450d39bcf73dfc}\label{classmonsterbattle_1_1DisplayManager_a93348ee551bbaa13a9450d39bcf73dfc}} 
+\index{monsterbattle\+::\+Display\+Manager@{monsterbattle\+::\+Display\+Manager}!get\+Display\+Is\+Set@{get\+Display\+Is\+Set}}
+\index{get\+Display\+Is\+Set@{get\+Display\+Is\+Set}!monsterbattle\+::\+Display\+Manager@{monsterbattle\+::\+Display\+Manager}}
+\subsubsection{\texorpdfstring{get\+Display\+Is\+Set()}{getDisplayIsSet()}}
+{\footnotesize\ttfamily bool monsterbattle\+::\+Display\+Manager\+::get\+Display\+Is\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets whether the display is refering to N\+U\+LL, does not check if the object is still alive. 
+
+\begin{DoxyReturn}{Returns}
+true Display != N\+U\+LL 
+
+false Display == N\+U\+LL 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayManager_a2a616e9af9dfbd40a326b4348e62d807}\label{classmonsterbattle_1_1DisplayManager_a2a616e9af9dfbd40a326b4348e62d807}} 
+\index{monsterbattle\+::\+Display\+Manager@{monsterbattle\+::\+Display\+Manager}!remove\+From\+Render\+Queue@{remove\+From\+Render\+Queue}}
+\index{remove\+From\+Render\+Queue@{remove\+From\+Render\+Queue}!monsterbattle\+::\+Display\+Manager@{monsterbattle\+::\+Display\+Manager}}
+\subsubsection{\texorpdfstring{remove\+From\+Render\+Queue()}{removeFromRenderQueue()}}
+{\footnotesize\ttfamily void monsterbattle\+::\+Display\+Manager\+::remove\+From\+Render\+Queue (\begin{DoxyParamCaption}\item[{const \hyperlink{structmonsterbattle_1_1IDisplayable}{I\+Displayable} $\ast$}]{item }\end{DoxyParamCaption})}
+
+
+
+Removes a displayable item from the queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em item} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayManager_af524ed6d4731be99258323f2b2735183}\label{classmonsterbattle_1_1DisplayManager_af524ed6d4731be99258323f2b2735183}} 
+\index{monsterbattle\+::\+Display\+Manager@{monsterbattle\+::\+Display\+Manager}!render@{render}}
+\index{render@{render}!monsterbattle\+::\+Display\+Manager@{monsterbattle\+::\+Display\+Manager}}
+\subsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void monsterbattle\+::\+Display\+Manager\+::render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Renders all items in the display\textquotesingle{}s buffer. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & Display was never set \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classmonsterbattle_1_1DisplayManager_a3caf2bc163be4945bf4148e31717fc70}\label{classmonsterbattle_1_1DisplayManager_a3caf2bc163be4945bf4148e31717fc70}} 
+\index{monsterbattle\+::\+Display\+Manager@{monsterbattle\+::\+Display\+Manager}!set\+Display@{set\+Display}}
+\index{set\+Display@{set\+Display}!monsterbattle\+::\+Display\+Manager@{monsterbattle\+::\+Display\+Manager}}
+\subsubsection{\texorpdfstring{set\+Display()}{setDisplay()}}
+{\footnotesize\ttfamily void monsterbattle\+::\+Display\+Manager\+::set\+Display (\begin{DoxyParamCaption}\item[{\hyperlink{structmonsterbattle_1_1IDisplay}{I\+Display} $\ast$}]{display }\end{DoxyParamCaption})}
+
+
+
+Set the Display object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em display} & A pointer to the new display, keep the item alive as long as you\textquotesingle{}re using it \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{DisplayManager_8h}{Display\+Manager.\+h}\item 
+src/\hyperlink{DisplayManager_8cpp}{Display\+Manager.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,104 @@
+\hypertarget{classmonsterbattle_1_1monster_1_1MonsterManager}{}\section{monsterbattle\+:\+:monster\+:\+:Monster\+Manager Class Reference}
+\label{classmonsterbattle_1_1monster_1_1MonsterManager}\index{monsterbattle\+::monster\+::\+Monster\+Manager@{monsterbattle\+::monster\+::\+Monster\+Manager}}
+
+
+Inheritance diagram for monsterbattle\+:\+:monster\+:\+:Monster\+Manager\+:
+% FIG 0
+
+
+Collaboration diagram for monsterbattle\+:\+:monster\+:\+:Monster\+Manager\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1MonsterManager_a91db66c756c5b8247192a442763be2f0}\label{classmonsterbattle_1_1monster_1_1MonsterManager_a91db66c756c5b8247192a442763be2f0}} 
+{\bfseries Monster\+Manager} (const \hyperlink{classmonsterbattle_1_1monster_1_1MonsterManager}{Monster\+Manager} \&other)=delete
+\item 
+const \hyperlink{classmonsterbattle_1_1monster_1_1Monster}{Monster} $\ast$ \hyperlink{classmonsterbattle_1_1monster_1_1MonsterManager_a276863d722569f349641b5cd43cdc6ff}{get\+Monster} (const std\+::string \&name) const
+\begin{DoxyCompactList}\small\item\em Get the \hyperlink{classmonsterbattle_1_1monster_1_1Monster}{Monster} object. \end{DoxyCompactList}\item 
+\hyperlink{classmonsterbattle_1_1monster_1_1Monster}{Monster} \hyperlink{classmonsterbattle_1_1monster_1_1MonsterManager_aebeb74b8fc365a1e4ee2baff335d9a83}{get\+Monster\+Copy} (const std\+::string \&name) const
+\begin{DoxyCompactList}\small\item\em Get the \hyperlink{classmonsterbattle_1_1monster_1_1Monster}{Monster} Copy object. \end{DoxyCompactList}\item 
+void \hyperlink{classmonsterbattle_1_1monster_1_1MonsterManager_a48ee4cdd7559fd1d8686d9ba38f1008d}{load} (const std\+::string \&file\+Name)
+\begin{DoxyCompactList}\small\item\em Loads all monster\+Map from a given file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1MonsterManager_a8ff78757ac6cb19c30a1abee51c8e493}\label{classmonsterbattle_1_1monster_1_1MonsterManager_a8ff78757ac6cb19c30a1abee51c8e493}} 
+void \hyperlink{classmonsterbattle_1_1monster_1_1MonsterManager_a8ff78757ac6cb19c30a1abee51c8e493}{unload} ()
+\begin{DoxyCompactList}\small\item\em Unloads all stored data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1MonsterManager_a7736d0070815dd92687cd4efd20e6635}\label{classmonsterbattle_1_1monster_1_1MonsterManager_a7736d0070815dd92687cd4efd20e6635}} 
+static constexpr auto {\bfseries Line\+Comment\+Char} = Monster\+::\+Line\+Comment\+Char
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1MonsterManager_a276863d722569f349641b5cd43cdc6ff}\label{classmonsterbattle_1_1monster_1_1MonsterManager_a276863d722569f349641b5cd43cdc6ff}} 
+\index{monsterbattle\+::monster\+::\+Monster\+Manager@{monsterbattle\+::monster\+::\+Monster\+Manager}!get\+Monster@{get\+Monster}}
+\index{get\+Monster@{get\+Monster}!monsterbattle\+::monster\+::\+Monster\+Manager@{monsterbattle\+::monster\+::\+Monster\+Manager}}
+\subsubsection{\texorpdfstring{get\+Monster()}{getMonster()}}
+{\footnotesize\ttfamily const \hyperlink{classmonsterbattle_1_1monster_1_1Monster}{Monster} $\ast$ monsterbattle\+::monster\+::\+Monster\+Manager\+::get\+Monster (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const}
+
+
+
+Get the \hyperlink{classmonsterbattle_1_1monster_1_1Monster}{Monster} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the monster you want to get \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const Monster$\ast$ Returns a pointer to the monster, returns nullptr when the monster is not found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1MonsterManager_aebeb74b8fc365a1e4ee2baff335d9a83}\label{classmonsterbattle_1_1monster_1_1MonsterManager_aebeb74b8fc365a1e4ee2baff335d9a83}} 
+\index{monsterbattle\+::monster\+::\+Monster\+Manager@{monsterbattle\+::monster\+::\+Monster\+Manager}!get\+Monster\+Copy@{get\+Monster\+Copy}}
+\index{get\+Monster\+Copy@{get\+Monster\+Copy}!monsterbattle\+::monster\+::\+Monster\+Manager@{monsterbattle\+::monster\+::\+Monster\+Manager}}
+\subsubsection{\texorpdfstring{get\+Monster\+Copy()}{getMonsterCopy()}}
+{\footnotesize\ttfamily \hyperlink{classmonsterbattle_1_1monster_1_1Monster}{Monster} monsterbattle\+::monster\+::\+Monster\+Manager\+::get\+Monster\+Copy (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const}
+
+
+
+Get the \hyperlink{classmonsterbattle_1_1monster_1_1Monster}{Monster} Copy object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\hyperlink{classmonsterbattle_1_1monster_1_1Monster}{Monster} Returns a copy of the requested monster
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & No monster with the requested alias was found \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1MonsterManager_a48ee4cdd7559fd1d8686d9ba38f1008d}\label{classmonsterbattle_1_1monster_1_1MonsterManager_a48ee4cdd7559fd1d8686d9ba38f1008d}} 
+\index{monsterbattle\+::monster\+::\+Monster\+Manager@{monsterbattle\+::monster\+::\+Monster\+Manager}!load@{load}}
+\index{load@{load}!monsterbattle\+::monster\+::\+Monster\+Manager@{monsterbattle\+::monster\+::\+Monster\+Manager}}
+\subsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily void monsterbattle\+::monster\+::\+Monster\+Manager\+::load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Loads all monster\+Map from a given file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & Data file is corrupted, more args found thgan present \\
+\hline
+{\em out\+\_\+of\+\_\+range} & The input format is incorrect \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{MonsterManager_8h}{Monster\+Manager.\+h}\item 
+src/\hyperlink{MonsterManager_8cpp}{Monster\+Manager.\+cpp}\end{DoxyCompactItemize}

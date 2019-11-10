@@ -1,0 +1,47 @@
+\hypertarget{AnsiEffects_8h}{}\section{include/\+Ansi\+Effects.h File Reference}
+\label{AnsiEffects_8h}\index{include/\+Ansi\+Effects.\+h@{include/\+Ansi\+Effects.\+h}}
+{\ttfamily \#include $<$ostream$>$}\newline
+Include dependency graph for Ansi\+Effects.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{AnsiEffects_8h_af2ffc57649533306ede78be6d4308ff1}\label{AnsiEffects_8h_af2ffc57649533306ede78be6d4308ff1}} 
+enum {\bfseries Ansi\+Text\+Effect} \+: unsigned short \{ \newline
+{\bfseries E\+F\+F\+E\+C\+T\+\_\+\+N\+O\+R\+M\+AL} = 0, 
+{\bfseries E\+F\+F\+E\+C\+T\+\_\+\+B\+O\+LD} = 1, 
+{\bfseries E\+F\+F\+E\+C\+T\+\_\+\+I\+T\+A\+L\+IC} = 2, 
+{\bfseries E\+F\+F\+E\+C\+T\+\_\+\+U\+N\+D\+E\+R\+L\+I\+NE} = 3, 
+\newline
+{\bfseries E\+F\+F\+E\+C\+T\+\_\+\+B\+L\+I\+N\+K\+\_\+\+S\+L\+OW} = 4, 
+{\bfseries E\+F\+F\+E\+C\+T\+\_\+\+B\+L\+I\+N\+K\+\_\+\+F\+A\+ST} = 5, 
+{\bfseries E\+F\+F\+E\+C\+T\+\_\+\+S\+W\+A\+P\+\_\+\+B\+A\+C\+K\+G\+R\+O\+U\+N\+D\+\_\+\+F\+O\+R\+E\+G\+R\+O\+U\+ND} = 6, 
+{\bfseries E\+F\+F\+E\+C\+T\+\_\+\+S\+T\+R\+I\+K\+E\+\_\+\+T\+H\+R\+O\+U\+GH} = 7, 
+\newline
+{\bfseries E\+F\+F\+E\+C\+T\+\_\+\+S\+E\+T\+\_\+\+F\+O\+R\+E\+G\+R\+O\+U\+ND} = 38, 
+{\bfseries E\+F\+F\+E\+C\+T\+\_\+\+S\+E\+T\+\_\+\+B\+A\+C\+K\+G\+R\+O\+U\+ND} = 48
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{AnsiEffects_8h_a2ced453cafef23e4e60b20608bb84b4b}\label{AnsiEffects_8h_a2ced453cafef23e4e60b20608bb84b4b}} 
+std\+::ostream \& {\bfseries monsterbattle\+::text\+::operator$<$$<$} (std\+::ostream \&str, const Ansi\+Text\+Effect \&effect)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Lars Bloemers 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2019-\/07-\/09
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2019 
+\end{DoxyCopyright}
