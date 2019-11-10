@@ -157,7 +157,6 @@ namespace monsterbattle
 
     void DisplayableTextManager::setMoveText(const std::array<const monster::Move*, monster::Monster::MoveCount>& moves)
     {
-        std::cout << "Setting text" << std::endl;
         for (uint8_t index = 0; index < monster::Monster::MoveCount; index++)
         {
             if (moves[index] != nullptr)
