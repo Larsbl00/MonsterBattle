@@ -39,6 +39,15 @@ namespace monsterbattle
         MonsterBattle(IDisplay& display, const std::string& playerFile, const std::string& enemyFile, bool enemyIsBot, float updatesPerSecond);
         ~MonsterBattle() noexcept;
 
+        /**
+         * @brief Loads the data from the trainer files, and starts the visuals
+         * 
+         * @throw runtime_error Cannot load player file, file is corrupt
+         * @throw runtime_error Cannot load enemy file, file is corrupt
+         * @throw runtime_error Cannot load visuals, display not yet set when calling setup
+         * @throw runtime_error Window too small, window does not meet the size requirements
+         * 
+        */
         void setup();
         void run();
 

@@ -30,8 +30,8 @@ namespace monsterbattle
 
         public:
 
-        const static inline Vector2f RelativeMonsterLocationTrainer = Vector2f(0.05, 0.40);
-        const static inline Vector2f RelativeMonsterLocationOpponent = Vector2f(0.55, 0.2);
+        const static inline Vector2f RelativeMonsterLocationTrainer = Vector2f(0.15, 0.45);
+        const static inline Vector2f RelativeMonsterLocationOpponent = Vector2f(0.65, 0.25);
 
         static constexpr auto BattleOptions = 2;
         static constexpr auto MonsterFileName = "monsters.txt";

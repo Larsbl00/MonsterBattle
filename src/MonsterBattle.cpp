@@ -83,25 +83,43 @@ namespace monsterbattle
         {
             fprintf(stderr, "Error loading player '%s' from file: '%s'\n", this->player.getName().c_str(), this->playerFile.c_str());
             this->isRunning = false;
-            return;
+            throw std::runtime_error("Error loading given file for player");
         }
 
         if (!loadTrainer(this->enemy, this->enemyFile))
         {
             fprintf(stderr, "Error loading enemy '%s' from file: '%s'\n", this->enemy.getName().c_str(), this->enemyFile.c_str());
             this->isRunning = false;
-            return;
+            throw std::runtime_error("Error loading given file for enemy");
         }
+
+        if (!displayManager().getDisplayIsSet()) 
+        {
+            std::cerr << "Cannot set visuals, display not yet set" << std::endl;
+            this->isRunning = false;
+            throw std::runtime_error("Display not yet set, cannot setup visuals");
+        };
 
         //Check if the window is big enough to play
         if (this->display.getSize().x < this->MinimumSize.x || this->display.getSize().y < this->MinimumSize.y)
         {   
             std::cerr << "Window is too small, must be atleast " << this->MinimumSize << " was " << this->display.getSize() << std::endl;
             this->isRunning= false;
-            return;
+            throw std::runtime_error("Window is too small, use Check Monsterbattle::MinimumSize for more info");
         }
 
+        Vector<int32_t> winSize =  displayManager().getDisplay()->getSize();
+
+        //Set monsters for both trainers
+        this->player.selectMonster(0);
+        this->player.getCurrentMonster().moveTo(winSize * Game::RelativeMonsterLocationTrainer);
+
+        this->enemy.selectMonster(0);
+        this->enemy.getCurrentMonster().moveTo(winSize * Game::RelativeMonsterLocationOpponent);
+
         DisplayableTextManager::getInstance().setPartyText(this->player.getMonsters());
+        DisplayableTextManager::getInstance().setMoveText(this->player.getCurrentMonster().getMoves());
+
     }
 
     void MonsterBattle::run()
