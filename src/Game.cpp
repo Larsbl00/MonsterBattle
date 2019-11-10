@@ -97,7 +97,7 @@ namespace monsterbattle
         << '!';
         
         textManager().setSubtitle(attackString.str());
-        std::this_thread::sleep_for(std::chrono::seconds(1));
+        std::this_thread::sleep_for(std::chrono::seconds(2));
     }
 
     void Game::handleBattleScenario()
@@ -115,7 +115,7 @@ namespace monsterbattle
             {   
                 this->attack(this->player, this->opponent);
             }
-            else 
+            else if (order == &opponentMonster)
             {
                 this->opponent.selectMove(this->opponent.getRandomMove());
                 this->attack(this->opponent, this->player);
@@ -124,22 +124,27 @@ namespace monsterbattle
             // If a monster is down, stop battle, switch when needed
             if (playerMonster.getStats().health <= 0) 
             { 
+                textManager().setSubtitle("Your monster is out of health!");
+                std::this_thread::sleep_for(std::chrono::seconds(1));
                 this->gameState = GameState::GAME_STATE_SELECTING_MONSTER;  
+                break;
             }
             // If cpu is down, select a new random
-            if (opponentMonster.getStats().health <= 0) 
+            else if (opponentMonster.getStats().health <= 0) 
             {
                 try
                 {
+                    textManager().setSubtitle("The opponent's monster is out of health!");
+                    std::this_thread::sleep_for(std::chrono::seconds(1));
                     this->opponent.selectMonster(this->opponent.getRandomMonster());
                     Vector<int32_t> winSize =  displayManager().getDisplay()->getSize();
                     this->opponent.getCurrentMonster().moveTo(winSize * Game::RelativeMonsterLocationOpponent);
+                    break;
                 }   
                 catch (const std::logic_error& e)
                 {
                     this->stateEnd();
                 }
-
             }
         }
     }
@@ -227,7 +232,7 @@ namespace monsterbattle
         for (auto& mon : this->player.getMonsters())
         {
             //If every monster is down exit the game
-            if (mon != nullptr)
+            if (mon != nullptr && mon->getStats().health > 0)
             {
                 availableMonsters++;
             }

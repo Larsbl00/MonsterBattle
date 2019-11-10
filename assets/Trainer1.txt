@@ -9,3 +9,4 @@
 {Lake, Lakey}
 {Nut, Fat Nut}
 {Kyle, Kyle}
+{PolarBear, PolarBear}

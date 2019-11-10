@@ -99,7 +99,7 @@ namespace monsterbattle
         uint8_t index = 0;
         for (const auto& monster : this->getMonsters()) 
         { 
-            if (monster != nullptr) availableMonsterIndices.push_back(index);
+            if (monster != nullptr && monster->getStats().health > 0) availableMonsterIndices.push_back(index);
             index++;
         }
 

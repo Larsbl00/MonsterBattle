@@ -6,6 +6,8 @@
 # Use '#' to comment lines
 # Your trainer can carry a maximum of 6 monsters as of now
 
-{Litzard, Is Lit}
-{Eel, Eew}
-{Cactus, Cactus}
+{Mixtape, Is Lit}
+{PolarBear, PolarBear}
+{Thor, Thor}
+{Lake, Lakey}
+{SmallBird, SmallBird}
