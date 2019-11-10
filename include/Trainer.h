@@ -107,6 +107,7 @@ namespace monsterbattle
          * @param moveIndex Move index to use
          * 
          * @throw out_of_range The index given is greater than the maximum of moves present in  a monster
+         * @throw out_of_range The index given is a nullptr in the monster's move set
         */
         void selectMove(uint8_t moveIndex);
 
