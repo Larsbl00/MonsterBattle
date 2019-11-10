@@ -76,6 +76,15 @@ namespace monsterbattle
          * @throw out_of_range No moves present in monster's move set
         */
         uint8_t getRandomMove() const;
+
+        /**
+         * @brief Returns the index of a randomly selected monster that is not NULL
+         * 
+         * @return uint8_t 
+         * 
+         * @throw out_of_range No monsters present in the party
+        */
+        uint8_t getRandomMonster() const;
         
         /**
          * @brief Loads a trainer from a file

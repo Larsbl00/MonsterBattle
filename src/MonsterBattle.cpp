@@ -114,11 +114,13 @@ namespace monsterbattle
         this->player.selectMonster(0);
         this->player.getCurrentMonster().moveTo(winSize * Game::RelativeMonsterLocationTrainer);
 
+
         this->enemy.selectMonster(0);
         this->enemy.getCurrentMonster().moveTo(winSize * Game::RelativeMonsterLocationOpponent);
 
         DisplayableTextManager::getInstance().setPartyText(this->player.getMonsters());
         DisplayableTextManager::getInstance().setMoveText(this->player.getCurrentMonster().getMoves());
+        DisplayableTextManager::getInstance().selectMove(0, this->player.getCurrentMonster().getMoves());
 
     }
 

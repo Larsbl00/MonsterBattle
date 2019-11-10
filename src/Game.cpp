@@ -120,7 +120,7 @@ namespace monsterbattle
                 this->attack(this->opponent, this->player);
             }
 
-            // Else make cpu select a random attack
+            // If a monster is down, stop battle, switch when needed
 
         }
     }

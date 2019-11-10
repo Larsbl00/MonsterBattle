@@ -92,6 +92,22 @@ namespace monsterbattle
         return availableMoveIndices[rand() % availableMoveIndices.size()];
     }
 
+    uint8_t Trainer::getRandomMonster() const
+    {
+        std::vector<uint8_t> availableMonsterIndices;
+
+        uint8_t index = 0;
+        for (const auto& monster : this->getMonsters()) 
+        { 
+            if (monster != nullptr) availableMonsterIndices.push_back(index);
+            index++;
+        }
+
+        if (availableMonsterIndices.size() <= 0) throw std::out_of_range("Party has no valid monsters");
+
+        return availableMonsterIndices[rand() % availableMonsterIndices.size()];
+    }
+
     void Trainer::loadFromFile(const std::string& filename)
     {
 
