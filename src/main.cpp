@@ -46,7 +46,7 @@ int main(int argc, char* argv[])
             case 'h':
                 std::cout << "Trainer options:" << '\n' 
                 <<"\t--trainer / -t: Selects a file for the 1st user" << '\n'
-                <<"\t--opponent / -o: Selects a trainerfile for a seconds person, use it when you want to fight eachother" << '\n'
+                <<"\t--opponent / -o: Selects a trainerfile for a seconds person, use it when you want to fight eachother [Not yet implemented]" << '\n'
                 <<"\t--cpu-trainer / -c: Selects the trainerfile for an automated opponent" << std::endl;
                 //Exit after printing help
                 exit(EXIT_SUCCESS);

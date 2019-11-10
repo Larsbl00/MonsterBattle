@@ -73,7 +73,24 @@ namespace monsterbattle
 
     const std::string& Trainer::getName() const { return this->name; }
 
-    uint8_t Trainer::getPartySize() const { return this->partyIterator; }
+    uint8_t Trainer::getPartySize() const { return this->partyIterator; }\
+
+    uint8_t Trainer::getRandomMove() const 
+    {
+        std::vector<uint8_t> availableMoveIndices;
+
+        // Check if all moves are nullptrs
+        uint8_t index = 0;
+        for (const auto& move : this->getMonsters()[this->selectedMonsterIndex]->getMoves()) 
+        { 
+            if (move != nullptr) availableMoveIndices.push_back(index);
+            index++;
+        }
+
+        if (availableMoveIndices.size() <= 0) throw std::out_of_range("Monster has no valid moves in moveset");
+
+        return availableMoveIndices[rand() % availableMoveIndices.size()];
+    }
 
     void Trainer::loadFromFile(const std::string& filename)
     {
@@ -91,7 +108,7 @@ namespace monsterbattle
         //Read ech line of the file
         for (std::string line; getline(trainerFile, line, '\n') && canAddMonstersToParty; )
         {
-            //Remove unwated spaces before the line
+            //Remove unwanted spaces before the line
             auto lineStartIndex = line.find_first_not_of(' ');
 
             if (lineStartIndex >= line.length()) lineStartIndex = 0;

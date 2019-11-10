@@ -68,6 +68,14 @@ namespace monsterbattle
         const std::array<std::unique_ptr<monster::Monster>, Trainer::PartyCount>& getMonsters() const;
         const std::string& getName() const;
         uint8_t getPartySize() const;
+        /**
+         * @brief Returns the index of a randomly selected move that is not NULL
+         * 
+         * @return uint8_t 
+         * 
+         * @throw out_of_range No moves present in monster's move set
+        */
+        uint8_t getRandomMove() const;
         
         /**
          * @brief Loads a trainer from a file

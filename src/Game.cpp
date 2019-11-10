@@ -99,6 +99,32 @@ namespace monsterbattle
         std::this_thread::sleep_for(std::chrono::seconds(1));
     }
 
+    void Game::handleBattleScenario()
+    {
+        auto& playerMonster = this->player.getCurrentMonster();
+        auto& opponentMonster = this->opponent.getCurrentMonster();
+
+        auto attackOrder = (playerMonster.getStats().speed > opponentMonster.getStats().speed) ? 
+                            std::array{&playerMonster, &opponentMonster} : std::array{&opponentMonster, &playerMonster};
+    
+        for (auto& order : attackOrder)
+        {
+            // If player is faster, attack with player
+            if (order == &playerMonster)
+            {   
+                this->attack(this->player, this->opponent);
+            }
+            else 
+            {
+                this->opponent.selectMove(this->opponent.getRandomMove());
+                this->attack(this->opponent, this->player);
+            }
+
+            // Else make cpu select a random attack
+
+        }
+    }
+
     void Game::loadAssets()
     {
         moveManager().unload();
@@ -253,7 +279,7 @@ namespace monsterbattle
                 {
                     this->player.selectMove(this->moveIndex);
                     this->gameState = GameState::GAME_STATE_IN_BATTLE;
-                    this->attack(this->player, this->opponent);
+                    this->handleBattleScenario();
                     this->onExitSelectingMove();
                     this->onEnterInBattle();
                 }
