@@ -17,7 +17,6 @@
 
 namespace monsterbattle 
 {
-    constexpr auto displayManager = &DisplayManager::getInstance;
     constexpr auto monsterManager = &monster::MonsterManager::getInstance;
     constexpr auto moveManager = &monster::MoveManager::getInstance;
     constexpr auto textManager = &DisplayableTextManager::getInstance;
@@ -254,16 +253,6 @@ namespace monsterbattle
             default:
                 break;
         }
-    }
-
-    void Game::swapMonster(Trainer& trainer, uint8_t index)
-    {
-        //Remove old monster
-        if (player.selectedMonster()) displayManager().removeFromRenderQueue(&trainer.getCurrentMonster());
-        //Swap to new monster
-        trainer.selectMonster(index);
-        //Add new monster
-        displayManager().addToRenderQueue(&trainer.getCurrentMonster());
     }
 
     void Game::onEnterInBattle()

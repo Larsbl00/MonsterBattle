@@ -12,6 +12,8 @@
 
 namespace monsterbattle
 {
+    constexpr auto displayManager = &DisplayManager::getInstance;
+
     /******************
      * 
      * Constructors
@@ -143,10 +145,17 @@ namespace monsterbattle
 
         if (this->getMonsters()[index]->getStats().health <= 0) throw std::logic_error("Cannot select knocked-out monster");
 
+        //If player has selected a monster, remove it from queue
+        if (this->selectedMonster()) displayManager().removeFromRenderQueue(&this->getCurrentMonster());
+
+        //Select new monster
         this->selectedMonsterIndex = index;
 
         //Reset the move index, to make sure nothing weird happens
         this->selectMove(0);
+
+        //Add new one to queue
+        displayManager().addToRenderQueue(&this->getCurrentMonster())
     }
 
     /*********************

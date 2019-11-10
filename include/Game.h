@@ -79,8 +79,6 @@ namespace monsterbattle
         void stateSelectingMonster(char pressedChar);
         void stateSelectingMove(char pressedChar);
 
-        void swapMonster(Trainer& trainer, uint8_t index);
-
         void onEnterInBattle();
         void onEnterSelectingMonster();
         void onEnterSelectingMove();

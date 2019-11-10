@@ -16,6 +16,7 @@
 #include <memory>
 #include <type_traits>
 
+#include "DisplayManager.h"
 #include "Move.h"
 #include "Monster.h"
 #include "MonsterManager.h"
@@ -98,7 +99,7 @@ namespace monsterbattle
          * @throw out_of_range Index > Trainer::Partycount
          * @throw out_of_range No monster is present at newIndex
          * @throw out_of_range The index given is greater than the maximum of moves present in a monster
-         * @throw logic_error The moonster you're trying to select has no hp
+         * @throw logic_error The monster you're trying to select has no hp
         */
         void selectMonster(uint8_t monsterIndex);   
 
