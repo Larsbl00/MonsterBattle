@@ -67,7 +67,6 @@ namespace monsterbattle
         uint8_t monsterIndex = 0;
 
 
-
         /**
          * @brief Loads the assets present in the asset directory
          * 
@@ -79,6 +78,8 @@ namespace monsterbattle
         void stateInBattle(char pressedChar);
         void stateSelectingMonster(char pressedChar);
         void stateSelectingMove(char pressedChar);
+
+        void swapMonster(Trainer& trainer, uint8_t index);
 
         void onEnterInBattle();
         void onEnterSelectingMonster();

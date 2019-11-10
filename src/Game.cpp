@@ -17,6 +17,7 @@
 
 namespace monsterbattle 
 {
+    constexpr auto displayManager = &DisplayManager::getInstance;
     constexpr auto monsterManager = &monster::MonsterManager::getInstance;
     constexpr auto moveManager = &monster::MoveManager::getInstance;
     constexpr auto textManager = &DisplayableTextManager::getInstance;
@@ -174,10 +175,11 @@ namespace monsterbattle
                 try
                 {
                     this->player.selectMonster(this->monsterIndex);
+                    this->swapMonster(this->player, monsterIndex);
                     textManager().setMoveText(this->player.getCurrentMonster().getMoves());
                     textManager().selectMove(this->moveIndex, this->player.getCurrentMonster().getMoves());
-                    this->gameState = GameState::GAME_STATE_IN_BATTLE;
                     this->moveIndex = 0;
+                    this->gameState = GameState::GAME_STATE_IN_BATTLE;
                     this->onExitSelectingMonster();
                     this->onEnterInBattle();
                 }
@@ -231,7 +233,7 @@ namespace monsterbattle
                 }
                 catch (const std::out_of_range& e)
                 {
-                    textManager().setSubtitle("No move found at given index");
+                    textManager().setSubtitle(e.what());
                 }
                 break;
 
@@ -252,6 +254,16 @@ namespace monsterbattle
             default:
                 break;
         }
+    }
+
+    void Game::swapMonster(Trainer& trainer, uint8_t index)
+    {
+        //Remove old monster
+        if (player.selectedMonster()) displayManager().removeFromRenderQueue(&trainer.getCurrentMonster());
+        //Swap to new monster
+        trainer.selectMonster(index);
+        //Add new monster
+        displayManager().addToRenderQueue(&trainer.getCurrentMonster());
     }
 
     void Game::onEnterInBattle()
