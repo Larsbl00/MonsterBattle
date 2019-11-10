@@ -11,7 +11,7 @@
 
 #include "DisplayableTextManager.h"
 
-#define DEFAULT_TEXT (DisplayableText("<NotYetLoaded>", DisplayableTextManager::DefaultTextLocation, DisplayableTextManager::DefaultColor))
+#define DEFAULT_TEXT (DisplayableText("<None>", DisplayableTextManager::DefaultTextLocation, DisplayableTextManager::DefaultColor))
 
 namespace monsterbattle
 {
@@ -109,6 +109,22 @@ namespace monsterbattle
         }
     }
 
+    void DisplayableTextManager::selectMove(uint8_t index)
+    {
+        for (uint8_t i = 0; i < monster::Monster::MoveCount; i++)
+        {
+            if (i == index)
+            {
+                this->moveText[i].setColor(DisplayableTextManager::HighlightColor);
+            }
+            else 
+            {
+                this->moveText[i].setColor(DisplayableTextManager::DefaultColor);
+            }
+        }
+        
+    }
+
     void DisplayableTextManager::setBattleOptions(const std::array<std::string, Game::BattleOptions>& battleOps)
     {
         for (uint8_t index = 0; index < Game::BattleOptions; index++)
@@ -134,6 +150,7 @@ namespace monsterbattle
 
     void DisplayableTextManager::setMoveText(const std::array<const monster::Move*, monster::Monster::MoveCount>& moves)
     {
+        std::cout << "Setting text" << std::endl;
         for (uint8_t index = 0; index < monster::Monster::MoveCount; index++)
         {
             if (moves[index] != nullptr)
@@ -150,7 +167,7 @@ namespace monsterbattle
 
     void DisplayableTextManager::setSubtitle(const std::string& str)
     {
-        this->subtitleText.setText(str);
+        this->subtitleText.setText('"'+str+'"');
     }
 
     //TODO Place all items on the correct location
@@ -169,15 +186,26 @@ namespace monsterbattle
         this->selectBattleOption(0);
 
         // Monsters
-        //Copy start location
+        // Copy start location
         auto monsterStartLocation = winSize * DisplayableTextManager::RelativeStartPositionMonsterSelect;
         for (auto& element : this->getTrainerPartyText())
         {
             element.moveTo(monsterStartLocation);
 
-            //Move to next position
+            // Move to next position
             monsterStartLocation += winSize * DisplayableTextManager::RealtiveSpacingMonsters;
         }
-        //TODO Select monster
+        this->selectPartyMember(0);
+
+        auto moveStartLocation = winSize * DisplayableTextManager::RelativeStartPositionMoveSelect;
+        for (auto& element : this->getMoveText())
+        {
+            std::cout << element.getIsHidden() << std::endl;
+            std::cout << moveStartLocation << std::endl;
+            element.moveTo(moveStartLocation);
+
+            moveStartLocation += winSize * DisplayableTextManager::RealtiveSpacingMoves;
+        }
+        this->selectMove(0);
     }
 };

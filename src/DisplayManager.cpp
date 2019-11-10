@@ -54,6 +54,7 @@ namespace monsterbattle
     void DisplayManager::render()
     {
         if (this->display == nullptr) throw std::runtime_error("Display was never set");
+        display->clear();
 
         for (const auto& item : this->items)
         {

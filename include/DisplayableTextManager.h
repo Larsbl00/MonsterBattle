@@ -43,10 +43,11 @@ namespace monsterbattle
         const static inline Color DefaultColor = Color(255, 255, 255);
         const static inline Vector2f RelativeStartPositionBattleMonsterOption = Vector2f(0.05, 0.85);
         const static inline Vector2f RelativeStartPositionBattleMoveOption = Vector2f(0.55, 0.85);
-        const static inline Vector2f RelativeStartPositionMoveSelect = Vector2f(0.05, 0.3);
+        const static inline Vector2f RelativeStartPositionMoveSelect = Vector2f(0.55, 0.3);
         const static inline Vector2f RelativeStartPositionMonsterSelect = Vector2f(0.05, 0.3);
         const static inline Vector2f RelativeStartPositionSubtitle = Vector2f(0.05, 0.95);
         const static inline Vector2f RealtiveSpacingMonsters = Vector2f(0, 0.1);
+        const static inline Vector2f RealtiveSpacingMoves = Vector2f(0, 0.1);
 
         ~DisplayableTextManager() noexcept;
 

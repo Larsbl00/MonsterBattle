@@ -164,11 +164,11 @@ namespace monsterbattle
         this->addTerminalEffect(monsterbattle::text::AnsiTextEffect::EFFECT_SET_BACKGROUND);
         std::cout 
         << "2;" 
-        << (int)color.red * (color.alpha/255.0)
+        << static_cast<int>(color.red) * (color.alpha/255.0)
         << ';' 
-        << (int)color.green * (color.alpha/255.0)
+        << static_cast<int>(color.green) * (color.alpha/255.0)
         << ';' 
-        << (int)color.blue * (color.alpha/255.0);
+        << static_cast<int>(color.blue) * (color.alpha/255.0);
     }
 
     void TerminalDisplay::setForegroundColor(const monsterbattle::Color& color) const
@@ -178,11 +178,11 @@ namespace monsterbattle
         this->addTerminalEffect(monsterbattle::text::AnsiTextEffect::EFFECT_SET_FOREGROUND);
         std::cout 
         << "2;" 
-        << (int)color.red * (color.alpha/255.0)
+        << static_cast<int>(color.red) * (color.alpha/255.0)
         << ';' 
-        << (int)color.green * (color.alpha/255.0)
+        << static_cast<int>(color.green) * (color.alpha/255.0)
         << ';' 
-        << (int)color.blue * (color.alpha/255.0);
+        << static_cast<int>(color.blue) * (color.alpha/255.0);
     }
     
     void TerminalDisplay::resetTerminal() const
