@@ -11,7 +11,9 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include <chrono>
 #include <thread>
+#include <sstream>
 
 #include "GameStates.h"
 #include "InputReader.h"
@@ -66,6 +68,10 @@ namespace monsterbattle
         uint8_t moveIndex = 0;
         uint8_t monsterIndex = 0;
 
+
+        void attack(Trainer& attacker, Trainer& victim);
+
+        void handleBattleScenario();
 
         /**
          * @brief Loads the assets present in the asset directory

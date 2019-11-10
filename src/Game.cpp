@@ -79,6 +79,26 @@ namespace monsterbattle
      * 
      */
 
+    void Game::attack(Trainer& attacker, Trainer& victim)
+    {
+        auto& attackMonster = attacker.getCurrentMonster();
+        auto& opponentMonster = victim.getCurrentMonster();
+        auto preHealth = opponentMonster.getStats().health;
+        bool hitOpponent = attacker.attack(opponentMonster);
+        auto damage = preHealth - opponentMonster.getStats().health;
+
+        std::stringstream attackString;
+        attackString << attackMonster.getName() 
+        << '(' << attackMonster.getStats().health << ')'
+        << (hitOpponent ? " hit " : " missed ") << opponentMonster.getName() 
+        << '(' << opponentMonster.getStats().health << ')'
+        << (hitOpponent ? " for " + std::to_string(damage) : "")
+        << '!';
+        
+        textManager().setSubtitle(attackString.str());
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+    }
+
     void Game::loadAssets()
     {
         moveManager().unload();
@@ -233,6 +253,7 @@ namespace monsterbattle
                 {
                     this->player.selectMove(this->moveIndex);
                     this->gameState = GameState::GAME_STATE_IN_BATTLE;
+                    this->attack(this->player, this->opponent);
                     this->onExitSelectingMove();
                     this->onEnterInBattle();
                 }
