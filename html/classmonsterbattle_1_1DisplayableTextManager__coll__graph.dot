@@ -1,0 +1,18 @@
+digraph "monsterbattle::DisplayableTextManager"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node2 [label="monsterbattle::Displayable\lTextManager",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node3 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="monsterbattle::Singleton\l\< DisplayableTextManager \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structmonsterbattle_1_1Singleton.html"];
+  Node4 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" RelativeStartPositionMove\lSelect\nRealtiveSpacingMonsters\nRelativeStartPositionSubtitle\nRelativeStartPositionMonsterSelect\nRealtiveSpacingMoves\nRelativeStartPositionBattleMonster\lOption\nRelativeStartPositionBattleMove\lOption" ,fontname="Helvetica"];
+  Node4 [label="monsterbattle::Vector\< T \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structmonsterbattle_1_1Vector.html"];
+  Node5 -> Node4 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" x\ny" ,fontname="Helvetica"];
+  Node5 [label="T",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node6 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" DefaultTextLocation" ,fontname="Helvetica"];
+  Node6 [label="monsterbattle::Vector\l\< int32_t \>",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structmonsterbattle_1_1Vector.html"];
+  Node7 -> Node2 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" DefaultColor\nHighlightColor" ,fontname="Helvetica"];
+  Node7 [label="monsterbattle::Color",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$structmonsterbattle_1_1Color.html"];
+  Node7 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" Yellow\nWhite\nMagenta\nBlue\nBlack\nRed\nCyan\nGreen" ,fontname="Helvetica"];
+}

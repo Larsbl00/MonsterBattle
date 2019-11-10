@@ -1,0 +1,67 @@
+\hypertarget{classmonsterbattle_1_1MonsterBattle}{}\section{monsterbattle\+:\+:Monster\+Battle Class Reference}
+\label{classmonsterbattle_1_1MonsterBattle}\index{monsterbattle\+::\+Monster\+Battle@{monsterbattle\+::\+Monster\+Battle}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1MonsterBattle_a8e41dcbb9b76fbfc38f149b3111409ab}\label{classmonsterbattle_1_1MonsterBattle_a8e41dcbb9b76fbfc38f149b3111409ab}} 
+{\bfseries Monster\+Battle} (\hyperlink{structmonsterbattle_1_1IDisplay}{I\+Display} \&display, const std\+::string \&player\+File, const std\+::string \&enemy\+File, bool enemy\+Is\+Bot, float updates\+Per\+Second)
+\item 
+void \hyperlink{classmonsterbattle_1_1MonsterBattle_ac06a07fc5c81cab7c03758fdf87b03ea}{setup} ()
+\begin{DoxyCompactList}\small\item\em Loads the data from the trainer files, and starts the visuals. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1MonsterBattle_a6266a1c51290e930dd79899026184a2e}\label{classmonsterbattle_1_1MonsterBattle_a6266a1c51290e930dd79899026184a2e}} 
+void {\bfseries run} ()
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1MonsterBattle_a5fb5ce17cd4632ab42c77b4239b94c1c}\label{classmonsterbattle_1_1MonsterBattle_a5fb5ce17cd4632ab42c77b4239b94c1c}} 
+const \hyperlink{structmonsterbattle_1_1IDisplay}{I\+Display} \& {\bfseries get\+Display} () const
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1MonsterBattle_ae7de70de80eec17939c9b0185cae03a9}\label{classmonsterbattle_1_1MonsterBattle_ae7de70de80eec17939c9b0185cae03a9}} 
+bool {\bfseries get\+Is\+Running} () const
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1MonsterBattle_a945f251377e27e3ea6aaacf43655c3a1}\label{classmonsterbattle_1_1MonsterBattle_a945f251377e27e3ea6aaacf43655c3a1}} 
+static constexpr auto {\bfseries Asset\+Dir} = \char`\"{}./assets\char`\"{}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1MonsterBattle_a26c9007075c12d61dd863f09ce151eb9}\label{classmonsterbattle_1_1MonsterBattle_a26c9007075c12d61dd863f09ce151eb9}} 
+static constexpr auto {\bfseries Player\+Default\+Name} = \char`\"{}P\+L\+A\+Y\+ER 1\char`\"{}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1MonsterBattle_ae090da2f51f633491262d79ea092a930}\label{classmonsterbattle_1_1MonsterBattle_ae090da2f51f633491262d79ea092a930}} 
+static constexpr auto {\bfseries Cpu\+Default\+Name} = \char`\"{}C\+PU\char`\"{}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1MonsterBattle_aeeabad2a999656c75373a16a40ab9a86}\label{classmonsterbattle_1_1MonsterBattle_aeeabad2a999656c75373a16a40ab9a86}} 
+static constexpr auto {\bfseries Enemy\+Default\+Name} = \char`\"{}P\+L\+A\+Y\+ER 2\char`\"{}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1MonsterBattle_a3268782c3c75b6d2b65f87cce3bef4c8}\label{classmonsterbattle_1_1MonsterBattle_a3268782c3c75b6d2b65f87cce3bef4c8}} 
+static const auto {\bfseries Minimum\+Size} = \hyperlink{structmonsterbattle_1_1Vector}{Vector2i32}(0, 16)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmonsterbattle_1_1MonsterBattle_ac06a07fc5c81cab7c03758fdf87b03ea}\label{classmonsterbattle_1_1MonsterBattle_ac06a07fc5c81cab7c03758fdf87b03ea}} 
+\index{monsterbattle\+::\+Monster\+Battle@{monsterbattle\+::\+Monster\+Battle}!setup@{setup}}
+\index{setup@{setup}!monsterbattle\+::\+Monster\+Battle@{monsterbattle\+::\+Monster\+Battle}}
+\subsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void monsterbattle\+::\+Monster\+Battle\+::setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Loads the data from the trainer files, and starts the visuals. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & Cannot load player file, file is corrupt \\
+\hline
+{\em runtime\+\_\+error} & Cannot load enemy file, file is corrupt \\
+\hline
+{\em runtime\+\_\+error} & Cannot load visuals, display not yet set when calling setup \\
+\hline
+{\em runtime\+\_\+error} & Window too small, window does not meet the size requirements \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{MonsterBattle_8h}{Monster\+Battle.\+h}\item 
+src/\hyperlink{MonsterBattle_8cpp}{Monster\+Battle.\+cpp}\end{DoxyCompactItemize}

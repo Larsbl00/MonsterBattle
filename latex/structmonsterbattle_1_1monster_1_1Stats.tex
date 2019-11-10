@@ -1,0 +1,145 @@
+\hypertarget{structmonsterbattle_1_1monster_1_1Stats}{}\section{monsterbattle\+:\+:monster\+:\+:Stats Struct Reference}
+\label{structmonsterbattle_1_1monster_1_1Stats}\index{monsterbattle\+::monster\+::\+Stats@{monsterbattle\+::monster\+::\+Stats}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structmonsterbattle_1_1monster_1_1Stats_a997e44d5e65e8938448dbeec9a2647e4}{Stats} (int16\+\_\+t health, uint8\+\_\+t defense, uint8\+\_\+t attack, float precision, float avoidance, uint8\+\_\+t speed)
+\begin{DoxyCompactList}\small\item\em Construct a new \hyperlink{structmonsterbattle_1_1monster_1_1Stats}{Stats} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structmonsterbattle_1_1monster_1_1Stats_a6c161b357a4fbbe12036431c14715930}\label{structmonsterbattle_1_1monster_1_1Stats_a6c161b357a4fbbe12036431c14715930}} 
+{\bfseries Stats} (const \hyperlink{structmonsterbattle_1_1monster_1_1Stats}{Stats} \&other)=default
+\item 
+void \hyperlink{structmonsterbattle_1_1monster_1_1Stats_ae68b4ba1cb21c4aa376ed3d22ca16603}{load\+From\+String} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Sets all fields based on a serialized string, in the following form\+: \{$<$\+M\+A\+X\+\_\+\+H\+P$>$,$<$\+H\+P$>$,$<$\+D\+E\+F$>$,$<$\+A\+T\+C$>$,$<$\+P\+R\+E\+C$>$,$<$\+A\+V\+O\+I$>$,$<$\+S\+P\+D$>$\}. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{structmonsterbattle_1_1monster_1_1Stats_a291794552a99e36703c1c23aae95cff3}\label{structmonsterbattle_1_1monster_1_1Stats_a291794552a99e36703c1c23aae95cff3}} 
+int16\+\_\+t {\bfseries get\+Max\+Health} () const
+\item 
+\mbox{\Hypertarget{structmonsterbattle_1_1monster_1_1Stats_a0982da575bf8f1796bd71c41892ea759}\label{structmonsterbattle_1_1monster_1_1Stats_a0982da575bf8f1796bd71c41892ea759}} 
+float {\bfseries get\+Avoidance} () const
+\item 
+\mbox{\Hypertarget{structmonsterbattle_1_1monster_1_1Stats_abf712b03ec3c58827c15407e80c0c5b5}\label{structmonsterbattle_1_1monster_1_1Stats_abf712b03ec3c58827c15407e80c0c5b5}} 
+float {\bfseries get\+Precision} () const
+\item 
+void \hyperlink{structmonsterbattle_1_1monster_1_1Stats_a7e75ea5eca5546e4b50ffe3c7a93b104}{set\+Avoidance} (float avoidance)
+\begin{DoxyCompactList}\small\item\em Set the Avoidance attribute. \end{DoxyCompactList}\item 
+void \hyperlink{structmonsterbattle_1_1monster_1_1Stats_aaffb26069cf1f14c7a2b0dd0fbd5a44c}{set\+Presicion} (float precision)
+\begin{DoxyCompactList}\small\item\em Set the Presicion attribute. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structmonsterbattle_1_1monster_1_1Stats_afd3e8e17b4e35b0362522846c978dbe7}\label{structmonsterbattle_1_1monster_1_1Stats_afd3e8e17b4e35b0362522846c978dbe7}} 
+int16\+\_\+t {\bfseries health}
+\item 
+\mbox{\Hypertarget{structmonsterbattle_1_1monster_1_1Stats_ac252a321af0dc175cc4ea5b20adb16f0}\label{structmonsterbattle_1_1monster_1_1Stats_ac252a321af0dc175cc4ea5b20adb16f0}} 
+uint8\+\_\+t {\bfseries defense}
+\item 
+\mbox{\Hypertarget{structmonsterbattle_1_1monster_1_1Stats_a678541cb5afdabdd5e6c75fb0ce76fb7}\label{structmonsterbattle_1_1monster_1_1Stats_a678541cb5afdabdd5e6c75fb0ce76fb7}} 
+uint8\+\_\+t {\bfseries attack}
+\item 
+\mbox{\Hypertarget{structmonsterbattle_1_1monster_1_1Stats_a4ee407a99608f9e3856515502f01bed0}\label{structmonsterbattle_1_1monster_1_1Stats_a4ee407a99608f9e3856515502f01bed0}} 
+uint8\+\_\+t {\bfseries speed}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{structmonsterbattle_1_1monster_1_1Stats_a0b050a0156d2451804baa1455ea7c68d}\label{structmonsterbattle_1_1monster_1_1Stats_a0b050a0156d2451804baa1455ea7c68d}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&str, const \hyperlink{structmonsterbattle_1_1monster_1_1Stats}{Stats} \&stats)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structmonsterbattle_1_1monster_1_1Stats_a997e44d5e65e8938448dbeec9a2647e4}\label{structmonsterbattle_1_1monster_1_1Stats_a997e44d5e65e8938448dbeec9a2647e4}} 
+\index{monsterbattle\+::monster\+::\+Stats@{monsterbattle\+::monster\+::\+Stats}!Stats@{Stats}}
+\index{Stats@{Stats}!monsterbattle\+::monster\+::\+Stats@{monsterbattle\+::monster\+::\+Stats}}
+\subsubsection{\texorpdfstring{Stats()}{Stats()}}
+{\footnotesize\ttfamily monsterbattle\+::monster\+::\+Stats\+::\+Stats (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{health,  }\item[{uint8\+\_\+t}]{defense,  }\item[{uint8\+\_\+t}]{attack,  }\item[{float}]{precision,  }\item[{float}]{avoidance,  }\item[{uint8\+\_\+t}]{speed }\end{DoxyParamCaption})}
+
+
+
+Construct a new \hyperlink{structmonsterbattle_1_1monster_1_1Stats}{Stats} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em health} & \\
+\hline
+{\em defense} & \\
+\hline
+{\em attack} & \\
+\hline
+{\em precision} & A normalized value displaying the probability of hitting an attack (value is based on 0.\+5) \\
+\hline
+{\em avoidance} & A normalized value displaying the probability of avoiding an attack (value is based on 0.\+5) \\
+\hline
+{\em speed} & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{structmonsterbattle_1_1monster_1_1Stats_ae68b4ba1cb21c4aa376ed3d22ca16603}\label{structmonsterbattle_1_1monster_1_1Stats_ae68b4ba1cb21c4aa376ed3d22ca16603}} 
+\index{monsterbattle\+::monster\+::\+Stats@{monsterbattle\+::monster\+::\+Stats}!load\+From\+String@{load\+From\+String}}
+\index{load\+From\+String@{load\+From\+String}!monsterbattle\+::monster\+::\+Stats@{monsterbattle\+::monster\+::\+Stats}}
+\subsubsection{\texorpdfstring{load\+From\+String()}{loadFromString()}}
+{\footnotesize\ttfamily void monsterbattle\+::monster\+::\+Stats\+::load\+From\+String (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Sets all fields based on a serialized string, in the following form\+: \{$<$\+M\+A\+X\+\_\+\+H\+P$>$,$<$\+H\+P$>$,$<$\+D\+E\+F$>$,$<$\+A\+T\+C$>$,$<$\+P\+R\+E\+C$>$,$<$\+A\+V\+O\+I$>$,$<$\+S\+P\+D$>$\}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & Amount of items in format do not match the requested \\
+\hline
+{\em out\+\_\+of\+\_\+range} & Format does not match \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{structmonsterbattle_1_1monster_1_1Stats_a7e75ea5eca5546e4b50ffe3c7a93b104}\label{structmonsterbattle_1_1monster_1_1Stats_a7e75ea5eca5546e4b50ffe3c7a93b104}} 
+\index{monsterbattle\+::monster\+::\+Stats@{monsterbattle\+::monster\+::\+Stats}!set\+Avoidance@{set\+Avoidance}}
+\index{set\+Avoidance@{set\+Avoidance}!monsterbattle\+::monster\+::\+Stats@{monsterbattle\+::monster\+::\+Stats}}
+\subsubsection{\texorpdfstring{set\+Avoidance()}{setAvoidance()}}
+{\footnotesize\ttfamily void monsterbattle\+::monster\+::\+Stats\+::set\+Avoidance (\begin{DoxyParamCaption}\item[{float}]{avoidance }\end{DoxyParamCaption})}
+
+
+
+Set the Avoidance attribute. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em avoidance} & A Normalized value to use as the avoidance\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+argument} & avoidance is not normalized, i.\+e. 0 $<$= avoidance $<$= 1 \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{structmonsterbattle_1_1monster_1_1Stats_aaffb26069cf1f14c7a2b0dd0fbd5a44c}\label{structmonsterbattle_1_1monster_1_1Stats_aaffb26069cf1f14c7a2b0dd0fbd5a44c}} 
+\index{monsterbattle\+::monster\+::\+Stats@{monsterbattle\+::monster\+::\+Stats}!set\+Presicion@{set\+Presicion}}
+\index{set\+Presicion@{set\+Presicion}!monsterbattle\+::monster\+::\+Stats@{monsterbattle\+::monster\+::\+Stats}}
+\subsubsection{\texorpdfstring{set\+Presicion()}{setPresicion()}}
+{\footnotesize\ttfamily void monsterbattle\+::monster\+::\+Stats\+::set\+Presicion (\begin{DoxyParamCaption}\item[{float}]{precision }\end{DoxyParamCaption})}
+
+
+
+Set the Presicion attribute. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em precision} & A normalized value to use as precision\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em invalid\+\_\+argument} & precision is not normalized, i.\+e. 0 $<$= precision $<$= 1 \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{Stats_8h}{Stats.\+h}\item 
+src/\hyperlink{Stats_8cpp}{Stats.\+cpp}\end{DoxyCompactItemize}

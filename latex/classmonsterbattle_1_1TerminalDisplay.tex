@@ -1,0 +1,87 @@
+\hypertarget{classmonsterbattle_1_1TerminalDisplay}{}\section{monsterbattle\+:\+:Terminal\+Display Class Reference}
+\label{classmonsterbattle_1_1TerminalDisplay}\index{monsterbattle\+::\+Terminal\+Display@{monsterbattle\+::\+Terminal\+Display}}
+
+
+Inheritance diagram for monsterbattle\+:\+:Terminal\+Display\+:
+% FIG 0
+
+
+Collaboration diagram for monsterbattle\+:\+:Terminal\+Display\+:
+% FIG 1
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1TerminalDisplay_a8efdca3f4b43d832fc90ebbbfd916a46}\label{classmonsterbattle_1_1TerminalDisplay_a8efdca3f4b43d832fc90ebbbfd916a46}} 
+using {\bfseries Pixel\+\_\+t} = \hyperlink{structmonsterbattle_1_1CharColorPair}{Char\+Color\+Pair}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1TerminalDisplay_a8b79db0e7bfa6b4e9da01a82caa0de49}\label{classmonsterbattle_1_1TerminalDisplay_a8b79db0e7bfa6b4e9da01a82caa0de49}} 
+\hyperlink{classmonsterbattle_1_1TerminalDisplay_a8b79db0e7bfa6b4e9da01a82caa0de49}{Terminal\+Display} ()
+\begin{DoxyCompactList}\small\item\em Construct a new Terminal Display object. \end{DoxyCompactList}\item 
+\hyperlink{classmonsterbattle_1_1TerminalDisplay_aab55383157d04b355c3b6aca0abfb4a6}{Terminal\+Display} (const \hyperlink{structmonsterbattle_1_1Vector}{Vector2i32} \&size)
+\begin{DoxyCompactList}\small\item\em Construct a new Terminal Display object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1TerminalDisplay_af8ecfed2ed8ea68ae5d0606e3b4dbd54}\label{classmonsterbattle_1_1TerminalDisplay_af8ecfed2ed8ea68ae5d0606e3b4dbd54}} 
+{\bfseries Terminal\+Display} (const \hyperlink{classmonsterbattle_1_1TerminalDisplay}{Terminal\+Display} \&other)=delete
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1TerminalDisplay_ad037b157a531949c3c1b0d5e0f5ca77f}\label{classmonsterbattle_1_1TerminalDisplay_ad037b157a531949c3c1b0d5e0f5ca77f}} 
+void {\bfseries clear} () override
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1TerminalDisplay_a7128ee0ace1a187bccab875ec7a06b35}\label{classmonsterbattle_1_1TerminalDisplay_a7128ee0ace1a187bccab875ec7a06b35}} 
+void {\bfseries display} () override
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1TerminalDisplay_aae6efb2b3ebe37bf07dcd10eb0fe34fb}\label{classmonsterbattle_1_1TerminalDisplay_aae6efb2b3ebe37bf07dcd10eb0fe34fb}} 
+const \hyperlink{structmonsterbattle_1_1Vector}{Vector2i32} \& {\bfseries get\+Size} () const
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1TerminalDisplay_a1989fa35af5b922400f9937e0fcb7661}\label{classmonsterbattle_1_1TerminalDisplay_a1989fa35af5b922400f9937e0fcb7661}} 
+void {\bfseries set\+Pixel} (const \hyperlink{structmonsterbattle_1_1Vector}{Vector2i32} \&pixel, char value) override
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1TerminalDisplay_ab69dc42c1c4f5c7dc377880686c9762a}\label{classmonsterbattle_1_1TerminalDisplay_ab69dc42c1c4f5c7dc377880686c9762a}} 
+void {\bfseries set\+Pixel} (const \hyperlink{structmonsterbattle_1_1Vector}{Vector2i32} \&pixel, const \hyperlink{structmonsterbattle_1_1Color}{monsterbattle\+::\+Color} \&color) override
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1TerminalDisplay_ab4059bd42ac0e69db2d088b3b56fadc2}\label{classmonsterbattle_1_1TerminalDisplay_ab4059bd42ac0e69db2d088b3b56fadc2}} 
+void {\bfseries set\+Pixel} (const \hyperlink{structmonsterbattle_1_1Vector}{Vector2i32} \&pixel, char value, const \hyperlink{structmonsterbattle_1_1Color}{monsterbattle\+::\+Color} \&color) override
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1TerminalDisplay_a79eb42f7a3df1734f84e0c8e2c5abd8e}\label{classmonsterbattle_1_1TerminalDisplay_a79eb42f7a3df1734f84e0c8e2c5abd8e}} 
+void {\bfseries put\+String} (const \hyperlink{structmonsterbattle_1_1Vector}{Vector2i32} \&pixel, const std\+::string \&string) override
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1TerminalDisplay_a22ee37c05eb0d90d18ae9721931abb39}\label{classmonsterbattle_1_1TerminalDisplay_a22ee37c05eb0d90d18ae9721931abb39}} 
+void {\bfseries put\+String} (const \hyperlink{structmonsterbattle_1_1Vector}{Vector2i32} \&pixel, const std\+::string \&string, const \hyperlink{structmonsterbattle_1_1Color}{monsterbattle\+::\+Color} \&color) override
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1TerminalDisplay_a8c1cb84db91813c82d3d50f9acf967c8}\label{classmonsterbattle_1_1TerminalDisplay_a8c1cb84db91813c82d3d50f9acf967c8}} 
+static const auto {\bfseries Default\+Terminal\+Settings} = \char`\"{}\textbackslash{}033\mbox{[}49m\char`\"{}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1TerminalDisplay_a88971b0c2d95ac5d48df00bab48cae16}\label{classmonsterbattle_1_1TerminalDisplay_a88971b0c2d95ac5d48df00bab48cae16}} 
+static constexpr auto \& {\bfseries Background\+Color} = monsterbattle\+::\+Color\+::\+Black
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1TerminalDisplay_ae21803e29b28f28ed4f3a842d5e5747c}\label{classmonsterbattle_1_1TerminalDisplay_ae21803e29b28f28ed4f3a842d5e5747c}} 
+static constexpr char {\bfseries Empty\+Char} = T\+E\+R\+M\+I\+N\+A\+L\+\_\+\+D\+I\+S\+P\+L\+A\+Y\+\_\+\+E\+M\+P\+T\+Y\+\_\+\+C\+H\+AR
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmonsterbattle_1_1TerminalDisplay_aab55383157d04b355c3b6aca0abfb4a6}\label{classmonsterbattle_1_1TerminalDisplay_aab55383157d04b355c3b6aca0abfb4a6}} 
+\index{monsterbattle\+::\+Terminal\+Display@{monsterbattle\+::\+Terminal\+Display}!Terminal\+Display@{Terminal\+Display}}
+\index{Terminal\+Display@{Terminal\+Display}!monsterbattle\+::\+Terminal\+Display@{monsterbattle\+::\+Terminal\+Display}}
+\subsubsection{\texorpdfstring{Terminal\+Display()}{TerminalDisplay()}}
+{\footnotesize\ttfamily monsterbattle\+::\+Terminal\+Display\+::\+Terminal\+Display (\begin{DoxyParamCaption}\item[{const \hyperlink{structmonsterbattle_1_1Vector}{Vector2i32} \&}]{size }\end{DoxyParamCaption})}
+
+
+
+Construct a new Terminal Display object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em size} & \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{TerminalDisplay_8h}{Terminal\+Display.\+h}\item 
+src/\hyperlink{TerminalDisplay_8cpp}{Terminal\+Display.\+cpp}\end{DoxyCompactItemize}

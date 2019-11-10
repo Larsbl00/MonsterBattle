@@ -1,0 +1,79 @@
+\hypertarget{classmonsterbattle_1_1monster_1_1MoveManager}{}\section{monsterbattle\+:\+:monster\+:\+:Move\+Manager Class Reference}
+\label{classmonsterbattle_1_1monster_1_1MoveManager}\index{monsterbattle\+::monster\+::\+Move\+Manager@{monsterbattle\+::monster\+::\+Move\+Manager}}
+
+
+Inheritance diagram for monsterbattle\+:\+:monster\+:\+:Move\+Manager\+:
+% FIG 0
+
+
+Collaboration diagram for monsterbattle\+:\+:monster\+:\+:Move\+Manager\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1MoveManager_afbed4d9e1813a855ff88cc4fde6c9af7}\label{classmonsterbattle_1_1monster_1_1MoveManager_afbed4d9e1813a855ff88cc4fde6c9af7}} 
+{\bfseries Move\+Manager} (const \hyperlink{classmonsterbattle_1_1monster_1_1MoveManager}{Move\+Manager} \&other)=delete
+\item 
+const \hyperlink{classmonsterbattle_1_1monster_1_1Move}{Move} $\ast$ \hyperlink{classmonsterbattle_1_1monster_1_1MoveManager_a9f4afb738df41bba6c75af2234c4ec17}{get\+Move} (const std\+::string \&name) const
+\begin{DoxyCompactList}\small\item\em Gets move on based ona given name. \end{DoxyCompactList}\item 
+void \hyperlink{classmonsterbattle_1_1monster_1_1MoveManager_a977b4425970b87bb0350a7d862755b50}{load} (const std\+::string \&file)
+\begin{DoxyCompactList}\small\item\em Loads all moves from a given file. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1MoveManager_a815464077246cbd5c55f2f562fd7b44d}\label{classmonsterbattle_1_1monster_1_1MoveManager_a815464077246cbd5c55f2f562fd7b44d}} 
+void {\bfseries unload} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1MoveManager_a9b3bd5217db30e13659ce1391af8a082}\label{classmonsterbattle_1_1monster_1_1MoveManager_a9b3bd5217db30e13659ce1391af8a082}} 
+static constexpr char {\bfseries Line\+Comment\+Char} = M\+O\+V\+E\+\_\+\+M\+A\+N\+A\+G\+E\+R\+\_\+\+L\+I\+N\+E\+\_\+\+C\+O\+M\+M\+E\+N\+T\+\_\+\+C\+H\+AR
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1MoveManager_a9f4afb738df41bba6c75af2234c4ec17}\label{classmonsterbattle_1_1monster_1_1MoveManager_a9f4afb738df41bba6c75af2234c4ec17}} 
+\index{monsterbattle\+::monster\+::\+Move\+Manager@{monsterbattle\+::monster\+::\+Move\+Manager}!get\+Move@{get\+Move}}
+\index{get\+Move@{get\+Move}!monsterbattle\+::monster\+::\+Move\+Manager@{monsterbattle\+::monster\+::\+Move\+Manager}}
+\subsubsection{\texorpdfstring{get\+Move()}{getMove()}}
+{\footnotesize\ttfamily const \hyperlink{classmonsterbattle_1_1monster_1_1Move}{Move} $\ast$ monsterbattle\+::monster\+::\+Move\+Manager\+::get\+Move (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption}) const}
+
+
+
+Gets move on based ona given name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const Move$\ast$ A pointer to the move, return nullptr if it is not found 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1MoveManager_a977b4425970b87bb0350a7d862755b50}\label{classmonsterbattle_1_1monster_1_1MoveManager_a977b4425970b87bb0350a7d862755b50}} 
+\index{monsterbattle\+::monster\+::\+Move\+Manager@{monsterbattle\+::monster\+::\+Move\+Manager}!load@{load}}
+\index{load@{load}!monsterbattle\+::monster\+::\+Move\+Manager@{monsterbattle\+::monster\+::\+Move\+Manager}}
+\subsubsection{\texorpdfstring{load()}{load()}}
+{\footnotesize\ttfamily void monsterbattle\+::monster\+::\+Move\+Manager\+::load (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file }\end{DoxyParamCaption})}
+
+
+
+Loads all moves from a given file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & Incorrect data, exact number of data fields do not match \\
+\hline
+{\em out\+\_\+of\+\_\+range} & Format is not in correct form \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{MoveManager_8h}{Move\+Manager.\+h}\item 
+src/\hyperlink{MoveManager_8cpp}{Move\+Manager.\+cpp}\end{DoxyCompactItemize}

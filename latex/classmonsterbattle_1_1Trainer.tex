@@ -1,0 +1,250 @@
+\hypertarget{classmonsterbattle_1_1Trainer}{}\section{monsterbattle\+:\+:Trainer Class Reference}
+\label{classmonsterbattle_1_1Trainer}\index{monsterbattle\+::\+Trainer@{monsterbattle\+::\+Trainer}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Trainer_ab77deaf212f5c0013e1ac62d0ad67152}\label{classmonsterbattle_1_1Trainer_ab77deaf212f5c0013e1ac62d0ad67152}} 
+{\bfseries Trainer} (const std\+::string \&name)
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Trainer_a97e12aa5efa582e48f3b9fa12e249bfb}\label{classmonsterbattle_1_1Trainer_a97e12aa5efa582e48f3b9fa12e249bfb}} 
+{\bfseries Trainer} (const \hyperlink{classmonsterbattle_1_1Trainer}{Trainer} \&other)=delete
+\item 
+bool \hyperlink{classmonsterbattle_1_1Trainer_ac15af2a463e8241ac432f81b1b64e015}{attack} (\hyperlink{classmonsterbattle_1_1monster_1_1Monster}{monster\+::\+Monster} \&opponent)
+\begin{DoxyCompactList}\small\item\em Uses the currently selected move to attack the opponent. \end{DoxyCompactList}\item 
+\hyperlink{classmonsterbattle_1_1monster_1_1Monster}{monster\+::\+Monster} \& \hyperlink{classmonsterbattle_1_1Trainer_aac07b46ed5e8ddb91462b875e59fb2c9}{get\+Current\+Monster} ()
+\begin{DoxyCompactList}\small\item\em Get the Current Monster object. \end{DoxyCompactList}\item 
+bool \hyperlink{classmonsterbattle_1_1Trainer_addd687c73fd6128468483e285a601ab9}{selected\+Monster} () const
+\begin{DoxyCompactList}\small\item\em Checks if a monster has been selected. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Trainer_a7f480d1ecec5f1905c4234d699428eb8}\label{classmonsterbattle_1_1Trainer_a7f480d1ecec5f1905c4234d699428eb8}} 
+const std\+::array$<$ std\+::unique\+\_\+ptr$<$ \hyperlink{classmonsterbattle_1_1monster_1_1Monster}{monster\+::\+Monster} $>$, Trainer\+::\+Party\+Count $>$ \& {\bfseries get\+Monsters} () const
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Trainer_aff1259c6f8747ab352de343d5eecacd3}\label{classmonsterbattle_1_1Trainer_aff1259c6f8747ab352de343d5eecacd3}} 
+const std\+::string \& {\bfseries get\+Name} () const
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Trainer_ad6c7287f086d8e44ff39756ae931bfa3}\label{classmonsterbattle_1_1Trainer_ad6c7287f086d8e44ff39756ae931bfa3}} 
+uint8\+\_\+t {\bfseries get\+Party\+Size} () const
+\item 
+uint8\+\_\+t \hyperlink{classmonsterbattle_1_1Trainer_a02371052b251c3fb1eaa9fc2b1cc1e36}{get\+Random\+Move} () const
+\begin{DoxyCompactList}\small\item\em Returns the index of a randomly selected move that is not N\+U\+LL. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{classmonsterbattle_1_1Trainer_a6e369b2d164e3c1040add317848fed6b}{get\+Random\+Monster} () const
+\begin{DoxyCompactList}\small\item\em Returns the index of a randomly selected monster that is not N\+U\+LL. \end{DoxyCompactList}\item 
+void \hyperlink{classmonsterbattle_1_1Trainer_a6386eb812b206577976c32dc019ea264}{load\+From\+File} (const std\+::string \&filename)
+\begin{DoxyCompactList}\small\item\em Loads a trainer from a file. \end{DoxyCompactList}\item 
+bool \hyperlink{classmonsterbattle_1_1Trainer_af0631657f9cde8107028b9d631ca8d33}{load\+Member\+From\+String} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Loads a singular member to add to the party. \end{DoxyCompactList}\item 
+void \hyperlink{classmonsterbattle_1_1Trainer_ac2b909ae71d2ef663b8e4171dcaae0f1}{select\+Monster} (uint8\+\_\+t monster\+Index)
+\begin{DoxyCompactList}\small\item\em Changes the current monster to the monster in the new index. \end{DoxyCompactList}\item 
+void \hyperlink{classmonsterbattle_1_1Trainer_afecf5285dffbf9858492c337010f2e9b}{select\+Move} (uint8\+\_\+t move\+Index)
+\begin{DoxyCompactList}\small\item\em Selects the move used during \hyperlink{classmonsterbattle_1_1Trainer_ac15af2a463e8241ac432f81b1b64e015}{Trainer\+::attack()} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Trainer_a810c3f0628d704164be871a100bb3a50}\label{classmonsterbattle_1_1Trainer_a810c3f0628d704164be871a100bb3a50}} 
+static constexpr auto {\bfseries Comment\+Char} = \textquotesingle{}\#\textquotesingle{}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Trainer_a2a81578b483a40508d84bc9cc744a89e}\label{classmonsterbattle_1_1Trainer_a2a81578b483a40508d84bc9cc744a89e}} 
+static constexpr auto {\bfseries Default\+Name} = \char`\"{}N\+A\+M\+E\+\_\+\+N\+O\+T\+\_\+\+S\+P\+E\+C\+I\+F\+I\+ED\char`\"{}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1Trainer_a76f5fb4aa7023d28b5b8ec4ff1dd358a}\label{classmonsterbattle_1_1Trainer_a76f5fb4aa7023d28b5b8ec4ff1dd358a}} 
+static constexpr uint8\+\_\+t {\bfseries Party\+Count} = 6
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmonsterbattle_1_1Trainer_ac15af2a463e8241ac432f81b1b64e015}\label{classmonsterbattle_1_1Trainer_ac15af2a463e8241ac432f81b1b64e015}} 
+\index{monsterbattle\+::\+Trainer@{monsterbattle\+::\+Trainer}!attack@{attack}}
+\index{attack@{attack}!monsterbattle\+::\+Trainer@{monsterbattle\+::\+Trainer}}
+\subsubsection{\texorpdfstring{attack()}{attack()}}
+{\footnotesize\ttfamily bool monsterbattle\+::\+Trainer\+::attack (\begin{DoxyParamCaption}\item[{\hyperlink{classmonsterbattle_1_1monster_1_1Monster}{monster\+::\+Monster} \&}]{opponent }\end{DoxyParamCaption})}
+
+
+
+Uses the currently selected move to attack the opponent. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em opponent} & Monster to attack \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true When attack hits 
+
+false When attack misses
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & No monster is currently selected \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classmonsterbattle_1_1Trainer_aac07b46ed5e8ddb91462b875e59fb2c9}\label{classmonsterbattle_1_1Trainer_aac07b46ed5e8ddb91462b875e59fb2c9}} 
+\index{monsterbattle\+::\+Trainer@{monsterbattle\+::\+Trainer}!get\+Current\+Monster@{get\+Current\+Monster}}
+\index{get\+Current\+Monster@{get\+Current\+Monster}!monsterbattle\+::\+Trainer@{monsterbattle\+::\+Trainer}}
+\subsubsection{\texorpdfstring{get\+Current\+Monster()}{getCurrentMonster()}}
+{\footnotesize\ttfamily \hyperlink{classmonsterbattle_1_1monster_1_1Monster}{monster\+::\+Monster} \& monsterbattle\+::\+Trainer\+::get\+Current\+Monster (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the Current Monster object. 
+
+\begin{DoxyReturn}{Returns}
+\hyperlink{classmonsterbattle_1_1monster_1_1Monster}{monster\+::\+Monster}\&
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & No monster is currently selected \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classmonsterbattle_1_1Trainer_a6e369b2d164e3c1040add317848fed6b}\label{classmonsterbattle_1_1Trainer_a6e369b2d164e3c1040add317848fed6b}} 
+\index{monsterbattle\+::\+Trainer@{monsterbattle\+::\+Trainer}!get\+Random\+Monster@{get\+Random\+Monster}}
+\index{get\+Random\+Monster@{get\+Random\+Monster}!monsterbattle\+::\+Trainer@{monsterbattle\+::\+Trainer}}
+\subsubsection{\texorpdfstring{get\+Random\+Monster()}{getRandomMonster()}}
+{\footnotesize\ttfamily uint8\+\_\+t monsterbattle\+::\+Trainer\+::get\+Random\+Monster (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the index of a randomly selected monster that is not N\+U\+LL. 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em out\+\_\+of\+\_\+range} & No monsters present in the party \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classmonsterbattle_1_1Trainer_a02371052b251c3fb1eaa9fc2b1cc1e36}\label{classmonsterbattle_1_1Trainer_a02371052b251c3fb1eaa9fc2b1cc1e36}} 
+\index{monsterbattle\+::\+Trainer@{monsterbattle\+::\+Trainer}!get\+Random\+Move@{get\+Random\+Move}}
+\index{get\+Random\+Move@{get\+Random\+Move}!monsterbattle\+::\+Trainer@{monsterbattle\+::\+Trainer}}
+\subsubsection{\texorpdfstring{get\+Random\+Move()}{getRandomMove()}}
+{\footnotesize\ttfamily uint8\+\_\+t monsterbattle\+::\+Trainer\+::get\+Random\+Move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the index of a randomly selected move that is not N\+U\+LL. 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em out\+\_\+of\+\_\+range} & No moves present in monster\textquotesingle{}s move set \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classmonsterbattle_1_1Trainer_a6386eb812b206577976c32dc019ea264}\label{classmonsterbattle_1_1Trainer_a6386eb812b206577976c32dc019ea264}} 
+\index{monsterbattle\+::\+Trainer@{monsterbattle\+::\+Trainer}!load\+From\+File@{load\+From\+File}}
+\index{load\+From\+File@{load\+From\+File}!monsterbattle\+::\+Trainer@{monsterbattle\+::\+Trainer}}
+\subsubsection{\texorpdfstring{load\+From\+File()}{loadFromFile()}}
+{\footnotesize\ttfamily void monsterbattle\+::\+Trainer\+::load\+From\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename }\end{DoxyParamCaption})}
+
+
+
+Loads a trainer from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & Cannot open file \\
+\hline
+{\em out\+\_\+of\+\_\+range} & File content is not correct \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classmonsterbattle_1_1Trainer_af0631657f9cde8107028b9d631ca8d33}\label{classmonsterbattle_1_1Trainer_af0631657f9cde8107028b9d631ca8d33}} 
+\index{monsterbattle\+::\+Trainer@{monsterbattle\+::\+Trainer}!load\+Member\+From\+String@{load\+Member\+From\+String}}
+\index{load\+Member\+From\+String@{load\+Member\+From\+String}!monsterbattle\+::\+Trainer@{monsterbattle\+::\+Trainer}}
+\subsubsection{\texorpdfstring{load\+Member\+From\+String()}{loadMemberFromString()}}
+{\footnotesize\ttfamily bool monsterbattle\+::\+Trainer\+::load\+Member\+From\+String (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Loads a singular member to add to the party. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Monster should be formatted like this\+: \{M\+O\+N\+S\+T\+E\+R\+\_\+\+N\+A\+ME, N\+I\+C\+K\+\_\+\+N\+A\+ME\} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true When a monster can be added 
+
+false When a monster can not be added
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & More arguments were found when deserializing than needed \\
+\hline
+{\em out\+\_\+of\+\_\+range} & Str does not have the correct data format \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classmonsterbattle_1_1Trainer_addd687c73fd6128468483e285a601ab9}\label{classmonsterbattle_1_1Trainer_addd687c73fd6128468483e285a601ab9}} 
+\index{monsterbattle\+::\+Trainer@{monsterbattle\+::\+Trainer}!selected\+Monster@{selected\+Monster}}
+\index{selected\+Monster@{selected\+Monster}!monsterbattle\+::\+Trainer@{monsterbattle\+::\+Trainer}}
+\subsubsection{\texorpdfstring{selected\+Monster()}{selectedMonster()}}
+{\footnotesize\ttfamily bool monsterbattle\+::\+Trainer\+::selected\+Monster (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if a monster has been selected. 
+
+\begin{DoxyReturn}{Returns}
+true 
+
+false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmonsterbattle_1_1Trainer_ac2b909ae71d2ef663b8e4171dcaae0f1}\label{classmonsterbattle_1_1Trainer_ac2b909ae71d2ef663b8e4171dcaae0f1}} 
+\index{monsterbattle\+::\+Trainer@{monsterbattle\+::\+Trainer}!select\+Monster@{select\+Monster}}
+\index{select\+Monster@{select\+Monster}!monsterbattle\+::\+Trainer@{monsterbattle\+::\+Trainer}}
+\subsubsection{\texorpdfstring{select\+Monster()}{selectMonster()}}
+{\footnotesize\ttfamily void monsterbattle\+::\+Trainer\+::select\+Monster (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{monster\+Index }\end{DoxyParamCaption})}
+
+
+
+Changes the current monster to the monster in the new index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em monster\+Index} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em out\+\_\+of\+\_\+range} & Index $>$ Trainer\+::\+Partycount \\
+\hline
+{\em out\+\_\+of\+\_\+range} & No monster is present at new\+Index \\
+\hline
+{\em out\+\_\+of\+\_\+range} & The index given is greater than the maximum of moves present in a monster \\
+\hline
+{\em logic\+\_\+error} & The monster you\textquotesingle{}re trying to select has no hp \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classmonsterbattle_1_1Trainer_afecf5285dffbf9858492c337010f2e9b}\label{classmonsterbattle_1_1Trainer_afecf5285dffbf9858492c337010f2e9b}} 
+\index{monsterbattle\+::\+Trainer@{monsterbattle\+::\+Trainer}!select\+Move@{select\+Move}}
+\index{select\+Move@{select\+Move}!monsterbattle\+::\+Trainer@{monsterbattle\+::\+Trainer}}
+\subsubsection{\texorpdfstring{select\+Move()}{selectMove()}}
+{\footnotesize\ttfamily void monsterbattle\+::\+Trainer\+::select\+Move (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{move\+Index }\end{DoxyParamCaption})}
+
+
+
+Selects the move used during \hyperlink{classmonsterbattle_1_1Trainer_ac15af2a463e8241ac432f81b1b64e015}{Trainer\+::attack()} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em move\+Index} & Move index to use\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em out\+\_\+of\+\_\+range} & The index given is greater than the maximum of moves present in a monster \\
+\hline
+{\em out\+\_\+of\+\_\+range} & The index given is a nullptr in the monster\textquotesingle{}s move set \\
+\hline
+\end{DoxyExceptions}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{Trainer_8h}{Trainer.\+h}\item 
+src/\hyperlink{Trainer_8cpp}{Trainer.\+cpp}\end{DoxyCompactItemize}

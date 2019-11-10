@@ -1,0 +1,141 @@
+\hypertarget{classmonsterbattle_1_1monster_1_1Move}{}\section{monsterbattle\+:\+:monster\+:\+:Move Class Reference}
+\label{classmonsterbattle_1_1monster_1_1Move}\index{monsterbattle\+::monster\+::\+Move@{monsterbattle\+::monster\+::\+Move}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classmonsterbattle_1_1monster_1_1Move_a2d0993847943d7531711662db9edc7f7}{Move} (const std\+::string \&name, Type attack\+Type, uint8\+\_\+t damage, float precision)
+\begin{DoxyCompactList}\small\item\em Construct a new \hyperlink{classmonsterbattle_1_1monster_1_1Move}{Move} object. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Move_ab7fc7c3872257d13180e07d27d317487}\label{classmonsterbattle_1_1monster_1_1Move_ab7fc7c3872257d13180e07d27d317487}} 
+{\bfseries Move} (const \hyperlink{classmonsterbattle_1_1monster_1_1Move}{Move} \&other)
+\item 
+virtual bool \hyperlink{classmonsterbattle_1_1monster_1_1Move_ad79bfc6b6a00140b47efd01924b44df0}{use} (\hyperlink{classmonsterbattle_1_1monster_1_1Monster}{Monster} \&caller, \hyperlink{classmonsterbattle_1_1monster_1_1Monster}{Monster} \&opponent) const
+\begin{DoxyCompactList}\small\item\em Uses the move against the \textquotesingle{}oponent\textquotesingle{}. \end{DoxyCompactList}\item 
+void \hyperlink{classmonsterbattle_1_1monster_1_1Move_a60c469648f7e04e7bf3081d9e165003c}{load\+From\+String} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Loads a \hyperlink{classmonsterbattle_1_1monster_1_1Move}{Move} from simple string format;. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Move_ae6ab4429617bc2fee4a106c1de2442bf}\label{classmonsterbattle_1_1monster_1_1Move_ae6ab4429617bc2fee4a106c1de2442bf}} 
+Type {\bfseries get\+Type} () const
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Move_ac30ae1e2dfb70ae49374e3f8c08e61d6}\label{classmonsterbattle_1_1monster_1_1Move_ac30ae1e2dfb70ae49374e3f8c08e61d6}} 
+const std\+::string \& {\bfseries get\+Name} () const
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{classmonsterbattle_1_1monster_1_1Move_a216e49341b7150e02ad035de8933d6cb}{get\+Attack\+Multiplier} (const \hyperlink{classmonsterbattle_1_1monster_1_1Monster}{Monster} \&opponent) const
+\begin{DoxyCompactList}\small\item\em Get the Attack Multiplier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Move_a9b66e97ee1f1afb8fe4ff0bcd610c2b5}\label{classmonsterbattle_1_1monster_1_1Move_a9b66e97ee1f1afb8fe4ff0bcd610c2b5}} 
+Type {\bfseries attack\+Type}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Move_a54dda7e137f5684f44a4c351a330771e}\label{classmonsterbattle_1_1monster_1_1Move_a54dda7e137f5684f44a4c351a330771e}} 
+uint8\+\_\+t {\bfseries damage}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Move_a4d793df5a4bf80a9b233d7759acfe7d0}\label{classmonsterbattle_1_1monster_1_1Move_a4d793df5a4bf80a9b233d7759acfe7d0}} 
+float {\bfseries precision}
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Move_a9a1851b5001ac3722fac876e346bd6c2}\label{classmonsterbattle_1_1monster_1_1Move_a9a1851b5001ac3722fac876e346bd6c2}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&str, const \hyperlink{classmonsterbattle_1_1monster_1_1Move}{Move} \&move)
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Move_a04bf3c25ae001fbd4f8e2e650aaa5b85}\label{classmonsterbattle_1_1monster_1_1Move_a04bf3c25ae001fbd4f8e2e650aaa5b85}} 
+std\+::istream \& {\bfseries operator$>$$>$} (std\+::istream \&str, \hyperlink{classmonsterbattle_1_1monster_1_1Move}{Move} \&move)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Move_a2d0993847943d7531711662db9edc7f7}\label{classmonsterbattle_1_1monster_1_1Move_a2d0993847943d7531711662db9edc7f7}} 
+\index{monsterbattle\+::monster\+::\+Move@{monsterbattle\+::monster\+::\+Move}!Move@{Move}}
+\index{Move@{Move}!monsterbattle\+::monster\+::\+Move@{monsterbattle\+::monster\+::\+Move}}
+\subsubsection{\texorpdfstring{Move()}{Move()}}
+{\footnotesize\ttfamily monsterbattle\+::monster\+::\+Move\+::\+Move (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name,  }\item[{Type}]{attack\+Type,  }\item[{uint8\+\_\+t}]{damage,  }\item[{float}]{precision }\end{DoxyParamCaption})}
+
+
+
+Construct a new \hyperlink{classmonsterbattle_1_1monster_1_1Move}{Move} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the move \\
+\hline
+{\em attack\+Type} & \hyperlink{classmonsterbattle_1_1monster_1_1Move}{Move} type, determines whether an attack is super effective \\
+\hline
+{\em damage} & The Default damage it will deal, without any attack or defense stats \\
+\hline
+{\em precision} & A normalized value showing the probabillity of hitting the opponent \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Move_a216e49341b7150e02ad035de8933d6cb}\label{classmonsterbattle_1_1monster_1_1Move_a216e49341b7150e02ad035de8933d6cb}} 
+\index{monsterbattle\+::monster\+::\+Move@{monsterbattle\+::monster\+::\+Move}!get\+Attack\+Multiplier@{get\+Attack\+Multiplier}}
+\index{get\+Attack\+Multiplier@{get\+Attack\+Multiplier}!monsterbattle\+::monster\+::\+Move@{monsterbattle\+::monster\+::\+Move}}
+\subsubsection{\texorpdfstring{get\+Attack\+Multiplier()}{getAttackMultiplier()}}
+{\footnotesize\ttfamily float monsterbattle\+::monster\+::\+Move\+::get\+Attack\+Multiplier (\begin{DoxyParamCaption}\item[{const \hyperlink{classmonsterbattle_1_1monster_1_1Monster}{Monster} \&}]{opponent }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Get the Attack Multiplier. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em opponent} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+const float 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Move_a60c469648f7e04e7bf3081d9e165003c}\label{classmonsterbattle_1_1monster_1_1Move_a60c469648f7e04e7bf3081d9e165003c}} 
+\index{monsterbattle\+::monster\+::\+Move@{monsterbattle\+::monster\+::\+Move}!load\+From\+String@{load\+From\+String}}
+\index{load\+From\+String@{load\+From\+String}!monsterbattle\+::monster\+::\+Move@{monsterbattle\+::monster\+::\+Move}}
+\subsubsection{\texorpdfstring{load\+From\+String()}{loadFromString()}}
+{\footnotesize\ttfamily void monsterbattle\+::monster\+::\+Move\+::load\+From\+String (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Loads a \hyperlink{classmonsterbattle_1_1monster_1_1Move}{Move} from simple string format;. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & Format is as folows\+: ($<$\+N\+A\+M\+E$>$,$<$\+T\+Y\+P\+E\+\_\+\+A\+S\+\_\+\+I\+N\+T\+E\+G\+E\+R$>$,$<$\+D\+A\+M\+A\+G\+E$>$,$<$\+P\+R\+E\+C\+I\+S\+I\+O\+N$>$)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & Incorrect data, exact number of data fields do not match \\
+\hline
+{\em out\+\_\+of\+\_\+range} & Format is not in correct form \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Move_ad79bfc6b6a00140b47efd01924b44df0}\label{classmonsterbattle_1_1monster_1_1Move_ad79bfc6b6a00140b47efd01924b44df0}} 
+\index{monsterbattle\+::monster\+::\+Move@{monsterbattle\+::monster\+::\+Move}!use@{use}}
+\index{use@{use}!monsterbattle\+::monster\+::\+Move@{monsterbattle\+::monster\+::\+Move}}
+\subsubsection{\texorpdfstring{use()}{use()}}
+{\footnotesize\ttfamily bool monsterbattle\+::monster\+::\+Move\+::use (\begin{DoxyParamCaption}\item[{\hyperlink{classmonsterbattle_1_1monster_1_1Monster}{Monster} \&}]{caller,  }\item[{\hyperlink{classmonsterbattle_1_1monster_1_1Monster}{Monster} \&}]{opponent }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Uses the move against the \textquotesingle{}oponent\textquotesingle{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em caller} & The monster calling the move \\
+\hline
+{\em opponent} & The monstyer that is getting attacked \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true If the move hits the target 
+
+false If the move misses the target 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{Move_8h}{Move.\+h}\item 
+src/\hyperlink{Move_8cpp}{Move.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,214 @@
+\hypertarget{classmonsterbattle_1_1monster_1_1Monster}{}\section{monsterbattle\+:\+:monster\+:\+:Monster Class Reference}
+\label{classmonsterbattle_1_1monster_1_1Monster}\index{monsterbattle\+::monster\+::\+Monster@{monsterbattle\+::monster\+::\+Monster}}
+
+
+Inheritance diagram for monsterbattle\+:\+:monster\+:\+:Monster\+:
+% FIG 0
+
+
+Collaboration diagram for monsterbattle\+:\+:monster\+:\+:Monster\+:
+% FIG 1
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_aadc09fe5ed8d74c92c1c80bb206ea60e}\label{classmonsterbattle_1_1monster_1_1Monster_aadc09fe5ed8d74c92c1c80bb206ea60e}} 
+{\bfseries Monster} (const std\+::string \&name, const \hyperlink{structmonsterbattle_1_1monster_1_1Stats}{Stats} \&stats, const std\+::string \&model\+File, const \hyperlink{structmonsterbattle_1_1Color}{Color} \&color, Type primary\+Type)
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_adcb7525112fc4bb49a332925da56a3d1}\label{classmonsterbattle_1_1monster_1_1Monster_adcb7525112fc4bb49a332925da56a3d1}} 
+{\bfseries Monster} (const std\+::string \&name, const \hyperlink{structmonsterbattle_1_1monster_1_1Stats}{Stats} \&stats, const std\+::string \&model\+File, const \hyperlink{structmonsterbattle_1_1Color}{Color} \&color, Type primary\+Type, Type secondary\+Type)
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_af11a9d05fe2373924d13bd6165eb779d}\label{classmonsterbattle_1_1monster_1_1Monster_af11a9d05fe2373924d13bd6165eb779d}} 
+{\bfseries Monster} (const \hyperlink{classmonsterbattle_1_1monster_1_1Monster}{Monster} \&other)
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_a7ded69390568b36210fd58069ffacad9}\label{classmonsterbattle_1_1monster_1_1Monster_a7ded69390568b36210fd58069ffacad9}} 
+bool {\bfseries attack} (\hyperlink{classmonsterbattle_1_1monster_1_1Monster}{Monster} \&other)
+\item 
+void \hyperlink{classmonsterbattle_1_1monster_1_1Monster_a4e6f4b3dbba830e6833341d3398c6a52}{add\+Move} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Adds a singular move to its move list. \end{DoxyCompactList}\item 
+void \hyperlink{classmonsterbattle_1_1monster_1_1Monster_a6beddc490fcac80728ce522fc46b1873}{add\+Moves} (const std\+::vector$<$ std\+::string $>$ \&names)
+\begin{DoxyCompactList}\small\item\em Adds a set of moves to the monster. \end{DoxyCompactList}\item 
+void \hyperlink{classmonsterbattle_1_1monster_1_1Monster_af821d28493e308134ed5d7cad2e567a4}{display} (\hyperlink{structmonsterbattle_1_1IDisplay}{I\+Display} \&display) const override
+\begin{DoxyCompactList}\small\item\em Displays an item on a given display. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_a2b3e7cea0d0ef62268ef1887d99298a4}\label{classmonsterbattle_1_1monster_1_1Monster_a2b3e7cea0d0ef62268ef1887d99298a4}} 
+const std\+::array$<$ const \hyperlink{classmonsterbattle_1_1monster_1_1Move}{Move} $\ast$, Monster\+::\+Move\+Count $>$ \& {\bfseries get\+Moves} () const
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_aa908a5bb486ae531049d0576dd005218}\label{classmonsterbattle_1_1monster_1_1Monster_aa908a5bb486ae531049d0576dd005218}} 
+const std\+::string \& {\bfseries get\+Name} () const
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_abe7fc614ff6cbea9374b18b1af90ff96}\label{classmonsterbattle_1_1monster_1_1Monster_abe7fc614ff6cbea9374b18b1af90ff96}} 
+const std\+::string \& {\bfseries get\+Nick\+Name} () const
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_abfe43e50102dae503f3d1f81de1d045f}\label{classmonsterbattle_1_1monster_1_1Monster_abfe43e50102dae503f3d1f81de1d045f}} 
+const \hyperlink{structmonsterbattle_1_1monster_1_1Stats}{Stats} \& {\bfseries get\+Stats} () const
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_a56b3757f07e9a501b1e9046212065950}\label{classmonsterbattle_1_1monster_1_1Monster_a56b3757f07e9a501b1e9046212065950}} 
+\hyperlink{structmonsterbattle_1_1monster_1_1Stats}{Stats} \& {\bfseries get\+Stats} ()
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_a2bc791f481e28f622b76cb976ecb4000}\label{classmonsterbattle_1_1monster_1_1Monster_a2bc791f481e28f622b76cb976ecb4000}} 
+const std\+::array$<$ Type, Monster\+::\+Type\+Count $>$ \& {\bfseries get\+Types} () const
+\item 
+void \hyperlink{classmonsterbattle_1_1monster_1_1Monster_a6d5c8e27f45ca19e8a33a5aa093a4e50}{load\+From\+String} (const std\+::string \&str)
+\begin{DoxyCompactList}\small\item\em Loads a monster from a single formatted string. \end{DoxyCompactList}\item 
+void \hyperlink{classmonsterbattle_1_1monster_1_1Monster_a3ba3e637c132c737dd5c19de3932dc18}{move} (const \hyperlink{structmonsterbattle_1_1Vector}{Vector2i32} \&direction) override
+\begin{DoxyCompactList}\small\item\em Moves the object with a given delta. \end{DoxyCompactList}\item 
+void \hyperlink{classmonsterbattle_1_1monster_1_1Monster_ac256c749ccdbec0390da7949827b4851}{move\+To} (const \hyperlink{structmonsterbattle_1_1Vector}{Vector2i32} \&location) override
+\begin{DoxyCompactList}\small\item\em Moves the object to a given location. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_aae05d71a7617b87ba613a4dd516cb20b}\label{classmonsterbattle_1_1monster_1_1Monster_aae05d71a7617b87ba613a4dd516cb20b}} 
+void {\bfseries set\+Nick\+Name} (const std\+::string \&nick\+Name)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_a99a5800761852f2d96dbff809a1d8082}\label{classmonsterbattle_1_1monster_1_1Monster_a99a5800761852f2d96dbff809a1d8082}} 
+static constexpr char {\bfseries Attribute\+Split\+Char} = M\+O\+N\+S\+T\+E\+R\+\_\+\+A\+T\+T\+R\+I\+B\+U\+T\+E\+\_\+\+S\+P\+L\+I\+T\+\_\+\+C\+H\+AR
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_a6077c69a48c7c632b82c6f35d46d96a7}\label{classmonsterbattle_1_1monster_1_1Monster_a6077c69a48c7c632b82c6f35d46d96a7}} 
+static constexpr char {\bfseries Line\+Comment\+Char} = M\+O\+N\+S\+T\+E\+R\+\_\+\+L\+I\+N\+E\+\_\+\+C\+O\+M\+M\+E\+N\+T\+\_\+\+C\+H\+AR
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_aab317703a1ce07167865723e80a87b8a}\label{classmonsterbattle_1_1monster_1_1Monster_aab317703a1ce07167865723e80a87b8a}} 
+static constexpr uint8\+\_\+t {\bfseries Move\+Count} = M\+O\+N\+S\+T\+E\+R\+\_\+\+M\+O\+V\+E\+\_\+\+C\+O\+U\+NT
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_a7341ae89f73fcf9762fb19960d2a53e5}\label{classmonsterbattle_1_1monster_1_1Monster_a7341ae89f73fcf9762fb19960d2a53e5}} 
+static constexpr uint8\+\_\+t {\bfseries Type\+Count} = M\+O\+N\+S\+T\+E\+R\+\_\+\+T\+Y\+P\+E\+\_\+\+C\+O\+U\+NT
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_a8d266a52461356729fcfe1b83626cb35}\label{classmonsterbattle_1_1monster_1_1Monster_a8d266a52461356729fcfe1b83626cb35}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&str, const \hyperlink{classmonsterbattle_1_1monster_1_1Monster}{Monster} \&mon)
+\item 
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_a787223edf2a4383bc989fe4f7fdbe87a}\label{classmonsterbattle_1_1monster_1_1Monster_a787223edf2a4383bc989fe4f7fdbe87a}} 
+std\+::istream \& {\bfseries operator$>$$>$} (std\+::istream \&str, \hyperlink{classmonsterbattle_1_1monster_1_1Monster}{Monster} \&mon)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_a4e6f4b3dbba830e6833341d3398c6a52}\label{classmonsterbattle_1_1monster_1_1Monster_a4e6f4b3dbba830e6833341d3398c6a52}} 
+\index{monsterbattle\+::monster\+::\+Monster@{monsterbattle\+::monster\+::\+Monster}!add\+Move@{add\+Move}}
+\index{add\+Move@{add\+Move}!monsterbattle\+::monster\+::\+Monster@{monsterbattle\+::monster\+::\+Monster}}
+\subsubsection{\texorpdfstring{add\+Move()}{addMove()}}
+{\footnotesize\ttfamily void monsterbattle\+::monster\+::\+Monster\+::add\+Move (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Adds a singular move to its move list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & Name of the move you want to add\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & \hyperlink{classmonsterbattle_1_1monster_1_1Move}{Move} cannot be added \\
+\hline
+{\em runtime\+\_\+error} & Cannot find move \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_a6beddc490fcac80728ce522fc46b1873}\label{classmonsterbattle_1_1monster_1_1Monster_a6beddc490fcac80728ce522fc46b1873}} 
+\index{monsterbattle\+::monster\+::\+Monster@{monsterbattle\+::monster\+::\+Monster}!add\+Moves@{add\+Moves}}
+\index{add\+Moves@{add\+Moves}!monsterbattle\+::monster\+::\+Monster@{monsterbattle\+::monster\+::\+Monster}}
+\subsubsection{\texorpdfstring{add\+Moves()}{addMoves()}}
+{\footnotesize\ttfamily void monsterbattle\+::monster\+::\+Monster\+::add\+Moves (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::string $>$ \&}]{names }\end{DoxyParamCaption})}
+
+
+
+Adds a set of moves to the monster. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em names} & Names of the moves you\textquotesingle{}d want to add\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & \hyperlink{classmonsterbattle_1_1monster_1_1Move}{Move} cannot be added \\
+\hline
+{\em runtime\+\_\+error} & Cannot find move \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_af821d28493e308134ed5d7cad2e567a4}\label{classmonsterbattle_1_1monster_1_1Monster_af821d28493e308134ed5d7cad2e567a4}} 
+\index{monsterbattle\+::monster\+::\+Monster@{monsterbattle\+::monster\+::\+Monster}!display@{display}}
+\index{display@{display}!monsterbattle\+::monster\+::\+Monster@{monsterbattle\+::monster\+::\+Monster}}
+\subsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily void monsterbattle\+::monster\+::\+Monster\+::display (\begin{DoxyParamCaption}\item[{\hyperlink{structmonsterbattle_1_1IDisplay}{I\+Display} \&}]{display }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Displays an item on a given display. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em display} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{structmonsterbattle_1_1IDisplayable_a2e7b5b2259cd0f00d65a99752072e66e}{monsterbattle\+::\+I\+Displayable}.
+
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_a6d5c8e27f45ca19e8a33a5aa093a4e50}\label{classmonsterbattle_1_1monster_1_1Monster_a6d5c8e27f45ca19e8a33a5aa093a4e50}} 
+\index{monsterbattle\+::monster\+::\+Monster@{monsterbattle\+::monster\+::\+Monster}!load\+From\+String@{load\+From\+String}}
+\index{load\+From\+String@{load\+From\+String}!monsterbattle\+::monster\+::\+Monster@{monsterbattle\+::monster\+::\+Monster}}
+\subsubsection{\texorpdfstring{load\+From\+String()}{loadFromString()}}
+{\footnotesize\ttfamily void monsterbattle\+::monster\+::\+Monster\+::load\+From\+String (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{str }\end{DoxyParamCaption})}
+
+
+
+Loads a monster from a single formatted string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & String must be formatted as the follows\+: ($<$\+N\+I\+C\+K\+\_\+\+N\+A\+M\+E$>$; $<$\+N\+A\+M\+E$>$; $<$\+T\+Y\+P\+E\+S$>$; $<$\+S\+T\+A\+T\+S$>$; $<$\+M\+O\+V\+E\+S$>$; $<$\+M\+O\+D\+E\+L\+\_\+\+F\+I\+L\+E$>$;)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em runtime\+\_\+error} & Data file is corrupted, more args found thgan present \\
+\hline
+{\em out\+\_\+of\+\_\+range} & The input format is incorrect \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_a3ba3e637c132c737dd5c19de3932dc18}\label{classmonsterbattle_1_1monster_1_1Monster_a3ba3e637c132c737dd5c19de3932dc18}} 
+\index{monsterbattle\+::monster\+::\+Monster@{monsterbattle\+::monster\+::\+Monster}!move@{move}}
+\index{move@{move}!monsterbattle\+::monster\+::\+Monster@{monsterbattle\+::monster\+::\+Monster}}
+\subsubsection{\texorpdfstring{move()}{move()}}
+{\footnotesize\ttfamily void monsterbattle\+::monster\+::\+Monster\+::move (\begin{DoxyParamCaption}\item[{const \hyperlink{structmonsterbattle_1_1Vector}{Vector2i32} \&}]{direction }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Moves the object with a given delta. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em direction} & Direction to move from root \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{structmonsterbattle_1_1IMoveable_a487ec192d82b97e4c5b6d4706fc8db17}{monsterbattle\+::\+I\+Moveable}.
+
+\mbox{\Hypertarget{classmonsterbattle_1_1monster_1_1Monster_ac256c749ccdbec0390da7949827b4851}\label{classmonsterbattle_1_1monster_1_1Monster_ac256c749ccdbec0390da7949827b4851}} 
+\index{monsterbattle\+::monster\+::\+Monster@{monsterbattle\+::monster\+::\+Monster}!move\+To@{move\+To}}
+\index{move\+To@{move\+To}!monsterbattle\+::monster\+::\+Monster@{monsterbattle\+::monster\+::\+Monster}}
+\subsubsection{\texorpdfstring{move\+To()}{moveTo()}}
+{\footnotesize\ttfamily void monsterbattle\+::monster\+::\+Monster\+::move\+To (\begin{DoxyParamCaption}\item[{const \hyperlink{structmonsterbattle_1_1Vector}{Vector2i32} \&}]{location }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Moves the object to a given location. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em location} & \\
+\hline
+\end{DoxyParams}
+
+
+Implements \hyperlink{structmonsterbattle_1_1IMoveable_a61cc433b2a635cc3c52d807fc446a6a4}{monsterbattle\+::\+I\+Moveable}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+include/\hyperlink{Monster_8h}{Monster.\+h}\item 
+src/\hyperlink{Monster_8cpp}{Monster.\+cpp}\end{DoxyCompactItemize}
