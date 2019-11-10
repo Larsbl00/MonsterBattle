@@ -1,5 +1,8 @@
 # Monster Battle
 
+## Video
+[![](https://i.ytimg.com/vi/GHECLKibHS0/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAIj5puWsZPc4nUsfuyow22itUDDA)](https://youtu.be/GHECLKibHS0 "Video showcase")
+
 ## Launching
 When launching the program you can the `-h` or `--help` flags to see all launch parameters.
 When launching the game, make sure you add the `-t` flag to select a trainer file for the player,
