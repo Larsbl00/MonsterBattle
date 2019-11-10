@@ -206,8 +206,6 @@ namespace monsterbattle
         auto moveStartLocation = winSize * DisplayableTextManager::RelativeStartPositionMoveSelect;
         for (auto& element : this->getMoveText())
         {
-            std::cout << element.getIsHidden() << std::endl;
-            std::cout << moveStartLocation << std::endl;
             element.moveTo(moveStartLocation);
 
             moveStartLocation += winSize * DisplayableTextManager::RealtiveSpacingMoves;

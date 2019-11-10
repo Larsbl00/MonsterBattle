@@ -99,7 +99,7 @@
 (Mixtape; Mixttape; [1,7]; {100, 100, 40, 53, 0.6, 0.5, 120}; [Flamethrower,Shock,Crash]; ./assets/models/Devices/Mixtape.txt)
 
 # Litzard
-(Litzard; Litzard; [1,0]; {90, 90, 36, 65, 0.5, 0.65, 110}; [Flamethrower,Lighter,Crash]; ./assets/models/Reptiles/Litzard.txt)
+(Litzard; Litzard; [1,0]; {90, 90, 36, 65, 0.5, 0.30, 110}; [Flamethrower,Lighter,Crash]; ./assets/models/Reptiles/Litzard.txt)
 
 # Vulcan
 (Vulcan; Vulcan; [1,5]; {104, 104, 52, 98, 0.45, 0.5, 123}; [Lighter,Yeet,Wing Attack,Lighter]; ./assets/models/Birds/Vulcan.txt)

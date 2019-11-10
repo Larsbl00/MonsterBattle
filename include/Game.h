@@ -13,7 +13,9 @@
 
 #include <chrono>
 #include <thread>
+#include <functional>
 #include <sstream>
+#include <unordered_map>
 
 #include "GameStates.h"
 #include "InputReader.h"

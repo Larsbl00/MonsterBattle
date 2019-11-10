@@ -60,6 +60,9 @@ namespace monsterbattle
     {  
         displayManager().setDisplay(&this->display);
         DisplayableTextManager::getInstance().setup(); 
+
+        
+        srand(std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()));
     }
 
     MonsterBattle::~MonsterBattle() noexcept
@@ -121,7 +124,6 @@ namespace monsterbattle
         DisplayableTextManager::getInstance().setPartyText(this->player.getMonsters());
         DisplayableTextManager::getInstance().setMoveText(this->player.getCurrentMonster().getMoves());
         DisplayableTextManager::getInstance().selectMove(0, this->player.getCurrentMonster().getMoves());
-
     }
 
     void MonsterBattle::run()

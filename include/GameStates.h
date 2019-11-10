@@ -20,7 +20,8 @@ namespace monsterbattle
     {
         GAME_STATE_IN_BATTLE,
         GAME_STATE_SELECTING_MONSTER,
-        GAME_STATE_SELECTING_MOVE
+        GAME_STATE_SELECTING_MOVE,
+        GAME_STATE_END
     };
 }
 

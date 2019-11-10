@@ -27,8 +27,8 @@ namespace monsterbattle
         while (game.isUpdatingReader)
         {
             game.inputReader.update();
-        }
-        
+            game.onKeyPress(-1);    
+        }    
     }
 
     /**************************
@@ -37,7 +37,8 @@ namespace monsterbattle
      * 
      */
     Game::Game(const std::string& assetDir, InputReader& inputReader, Trainer& trainer, Trainer& enemy, bool enemyIsBot):
-        assetDirectory(assetDir), enemyIsBot(enemyIsBot), gameState(GameState::GAME_STATE_IN_BATTLE), isUpdatingReader(true), inputReader(inputReader),
+        assetDirectory(assetDir), enemyIsBot(enemyIsBot), gameState(GameState::GAME_STATE_IN_BATTLE),
+        isUpdatingReader(true), inputReader(inputReader),
         inputThread(updateGameInput, std::ref(*this)), player(trainer), opponent(enemy)
     {
 
@@ -121,7 +122,25 @@ namespace monsterbattle
             }
 
             // If a monster is down, stop battle, switch when needed
+            if (playerMonster.getStats().health <= 0) 
+            { 
+                this->gameState = GameState::GAME_STATE_SELECTING_MONSTER;  
+            }
+            // If cpu is down, select a new random
+            if (opponentMonster.getStats().health <= 0) 
+            {
+                try
+                {
+                    this->opponent.selectMonster(this->opponent.getRandomMonster());
+                    Vector<int32_t> winSize =  displayManager().getDisplay()->getSize();
+                    this->opponent.getCurrentMonster().moveTo(winSize * Game::RelativeMonsterLocationOpponent);
+                }   
+                catch (const std::logic_error& e)
+                {
+                    this->stateEnd();
+                }
 
+            }
         }
     }
 
@@ -155,35 +174,27 @@ namespace monsterbattle
             case GameState::GAME_STATE_SELECTING_MOVE:
                 this->stateSelectingMove(pressedChar);
                 break;
+
+            default:
+                break;
         }
     }
 
     void Game::stateEnd()
     {
+        textManager().setSubtitle("Game Over!");
+        std::this_thread::sleep_for(std::chrono::seconds(1));
         this->stop();
     }
 
     void Game::stateInBattle(char pressedChar)
     {
+        this->onEnterInBattle();
         switch (pressedChar)
         {
             case Game::SelectKey:
                 this->gameState = this->selectedState;
-                switch (this->gameState)
-                {
-                    case GameState::GAME_STATE_SELECTING_MONSTER:
-                        this->onEnterSelectingMonster();
-                        break;
-                    case GameState::GAME_STATE_SELECTING_MOVE:
-                        this->onEnterSelectingMove();
-                        break;
-
-                    default:
-                        break;
-                }
-
                 this->onExitInBattle();
-
                 break;
             
             case Game::BackKey:
@@ -204,17 +215,42 @@ namespace monsterbattle
             default:
                 break;
         }
+
+
     }
 
     void Game::stateSelectingMonster(char pressedChar)
     {
+        this->onEnterSelectingMonster();
+
+        uint8_t availableMonsters = 0;
+        for (auto& mon : this->player.getMonsters())
+        {
+            //If every monster is down exit the game
+            if (mon != nullptr)
+            {
+                availableMonsters++;
+            }
+        }
+
+        if (availableMonsters == 0)
+        {
+            this->stateEnd();
+        }
+
         switch (pressedChar)
         {
             
             case Game::BackKey:
-                this->gameState = GameState::GAME_STATE_IN_BATTLE;
-                this->onExitSelectingMonster();
-                this->onEnterInBattle();
+                if (this->player.getCurrentMonster().getStats().health <= 0)
+                {
+                    textManager().setSubtitle("Select a healthy monster first!");
+                }
+                else 
+                {
+                    this->gameState = GameState::GAME_STATE_IN_BATTLE;
+                    this->onExitSelectingMonster();
+                }
                 break;
 
             case Game::SelectKey:
@@ -232,9 +268,12 @@ namespace monsterbattle
                     this->moveIndex = 0;
                     this->gameState = GameState::GAME_STATE_IN_BATTLE;
                     this->onExitSelectingMonster();
-                    this->onEnterInBattle();
                 }
                 catch(const std::out_of_range& e)
+                {
+                    textManager().setSubtitle(e.what());
+                }
+                catch(const std::logic_error& e)
                 {
                     textManager().setSubtitle(e.what());
                 }
@@ -263,6 +302,7 @@ namespace monsterbattle
 
     void Game::stateSelectingMove(char pressedChar)
     {
+        this->onEnterSelectingMove();
         //Leave if there is no monster to select a move from
         if (!this->player.selectedMonster()) this->gameState = GameState::GAME_STATE_IN_BATTLE;
 
@@ -271,7 +311,6 @@ namespace monsterbattle
             case Game::BackKey:
                 this->gameState = GameState::GAME_STATE_IN_BATTLE;
                 this->onExitSelectingMove();
-                this->onEnterInBattle();
                 break;
 
             case Game::SelectKey:
@@ -281,7 +320,6 @@ namespace monsterbattle
                     this->gameState = GameState::GAME_STATE_IN_BATTLE;
                     this->handleBattleScenario();
                     this->onExitSelectingMove();
-                    this->onEnterInBattle();
                 }
                 catch (const std::out_of_range& e)
                 {
