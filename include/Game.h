@@ -21,8 +21,7 @@
 #include "Trainer.h"
 
 namespace monsterbattle
-{
-
+{   
     class Game: 
         public InputDelegate
     {
@@ -30,6 +29,7 @@ namespace monsterbattle
 
         public:
 
+        static constexpr auto BattleOptions = 2;
         static constexpr auto MonsterFileName = "monsters.txt";
         static constexpr auto MoveFileName = "moves.txt";
 
@@ -40,7 +40,7 @@ namespace monsterbattle
         static constexpr char RightKey = 'C';   //Lazy way to detect an arrow right press
         static constexpr char LeftKey = 'D';    //Lazy way to detect an arrow left press
 
-        Game(const std::string& assetDir, InputReader& inputReader,  Trainer& trainer, Trainer& enemy, bool enemyIsBot);
+        Game(const std::string& assetDir, InputReader& inputReader, Trainer& trainer, Trainer& enemy, bool enemyIsBot);
         Game(const Game& other) = delete;
         ~Game() noexcept;
 
@@ -75,6 +75,14 @@ namespace monsterbattle
         void stateInBattle(char pressedChar);
         void stateSelectingMonster(char pressedChar);
         void stateSelectingMove(char pressedChar);
+
+        void onEnterInBattle();
+        void onEnterSelectingMonster();
+        void onEnterSelectingMove();
+        
+        void onExitInBattle();
+        void onExitSelectingMonster();
+        void onExitSelectingMove();
     };
 }
 

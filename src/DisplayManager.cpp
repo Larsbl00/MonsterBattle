@@ -36,6 +36,11 @@ namespace monsterbattle
         this->display->display();
     }
 
+    const IDisplay* DisplayManager::getDisplay() const 
+    {
+        return this->display;
+    }
+
     bool DisplayManager::getDisplayIsSet() const 
     {
         return this->display != nullptr;
@@ -49,10 +54,19 @@ namespace monsterbattle
     void DisplayManager::render()
     {
         if (this->display == nullptr) throw std::runtime_error("Display was never set");
+        display->clear();
 
         for (const auto& item : this->items)
         {
-            item->display(*(this->display));
+            //If item is null remove it
+            if (item == nullptr)
+            {
+                this->removeFromRenderQueue(item);
+            }
+            else 
+            {
+                item->display(*(this->display));
+            }
         }
     }
 

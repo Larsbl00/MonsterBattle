@@ -26,11 +26,11 @@ namespace monsterbattle
     class DisplayManager:
         public Singleton<DisplayManager>
     {
-        public: 
-
         //Declare friend to access private constructor
         friend Singleton;
         
+        public: 
+
         ~DisplayManager() noexcept = default;
         DisplayManager(const DisplayManager&) = delete;
 
@@ -49,6 +49,8 @@ namespace monsterbattle
          * @throw runtime_error Display is not set
         */
         void displayAllItems();
+
+        const IDisplay* getDisplay() const;
 
         /**
          * @brief Gets whether the display is refering to NULL, does not check if the object is still alive

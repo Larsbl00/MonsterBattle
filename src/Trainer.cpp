@@ -130,6 +130,7 @@ namespace monsterbattle
     void Trainer::selectMove(uint8_t index)
     {
         if (index >= monster::Monster::MoveCount) throw std::out_of_range("Move index > allowed moves");
+        if (this->getCurrentMonster().getMoves()[index] == nullptr) throw std::out_of_range("Monster has no move at selected index");
         this->selectedMoveIndex = index;
     }
 

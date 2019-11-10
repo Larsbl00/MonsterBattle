@@ -13,12 +13,13 @@
 #include "Trainer.h"
 
 #include "DisplayManager.h"
+#include "DisplayableTextManager.h"
 
 namespace monsterbattle 
 {
     constexpr auto monsterManager = &monster::MonsterManager::getInstance;
     constexpr auto moveManager = &monster::MoveManager::getInstance;
-
+    constexpr auto textManager = &DisplayableTextManager::getInstance;
 
     inline void updateGameInput(Game& game) noexcept
     {
@@ -45,8 +46,8 @@ namespace monsterbattle
         //Set delegate
         this->inputReader.setDelegate(this);
 
-        this->player.selectMonster(0);
-        this->opponent.selectMonster(0);
+        //Call entry for default state
+        this->onEnterInBattle();
     }
 
     Game::~Game() noexcept
@@ -86,6 +87,10 @@ namespace monsterbattle
         //Load Monsters
         monsterManager().unload();
         monsterManager().load(this->assetDirectory + '/' + Game::MonsterFileName);
+
+        //Set text
+        textManager().setBattleOptions({"Select Monster", "Select Move"});
+        textManager().setSubtitle("Select an option");
     }
 
     void Game::onKeyPress(char pressedChar)
@@ -117,20 +122,36 @@ namespace monsterbattle
         {
             case Game::SelectKey:
                 this->gameState = this->selectedState;
+                switch (this->gameState)
+                {
+                    case GameState::GAME_STATE_SELECTING_MONSTER:
+                        this->onEnterSelectingMonster();
+                        break;
+                    case GameState::GAME_STATE_SELECTING_MOVE:
+                        this->onEnterSelectingMove();
+                        break;
+
+                    default:
+                        break;
+                }
+
+                this->onExitInBattle();
+
                 break;
             
             case Game::BackKey:
                 this->stateEnd();
+                this->onExitInBattle();
                 break;
         
             case Game::LeftKey:
                 this->selectedState = GameState::GAME_STATE_SELECTING_MONSTER;
-                std::cout << "Selected Monster" << std::endl;
+                textManager().selectBattleOption(0);
                 break;
 
             case Game::RightKey:
                 this->selectedState = GameState::GAME_STATE_SELECTING_MOVE;
-                std::cout << "Selected Move" << std::endl;
+                textManager().selectBattleOption(1);
                 break;
 
             default:
@@ -140,24 +161,30 @@ namespace monsterbattle
 
     void Game::stateSelectingMonster(char pressedChar)
     {
-
         switch (pressedChar)
         {
             
             case Game::BackKey:
                 this->gameState = GameState::GAME_STATE_IN_BATTLE;
+                this->onExitSelectingMonster();
+                this->onEnterInBattle();
                 break;
 
             case Game::SelectKey:
                 try
                 {
                     this->player.selectMonster(this->monsterIndex);
+                    textManager().setMoveText(this->player.getCurrentMonster().getMoves());
+                    textManager().selectMove(this->moveIndex, this->player.getCurrentMonster().getMoves());
                     this->gameState = GameState::GAME_STATE_IN_BATTLE;
                     this->moveIndex = 0;
+                    this->onExitSelectingMonster();
+                    this->onEnterInBattle();
                 }
                 catch(const std::out_of_range& e)
                 {
                     std::cerr << "No monster present at selected index" << std::endl;
+                    textManager().setSubtitle("No monster present at selected index");
                 }
             
                 break;
@@ -165,12 +192,14 @@ namespace monsterbattle
             case Game::UpKey:
                 this->monsterIndex--;
                 if (this->monsterIndex >= this->player.getPartySize()) this->monsterIndex = 0; //Use greater than, because of unsigned values
+                textManager().selectPartyMember(this->monsterIndex);
 
                 break;
 
             case Game::DownKey:
                 this->monsterIndex++;
                 if (this->monsterIndex >= this->player.getPartySize()) this->monsterIndex = this->player.getPartySize() - 1;
+                textManager().selectPartyMember(this->monsterIndex);
 
                 break;
 
@@ -189,6 +218,8 @@ namespace monsterbattle
         {
             case Game::BackKey:
                 this->gameState = GameState::GAME_STATE_IN_BATTLE;
+                this->onExitSelectingMove();
+                this->onEnterInBattle();
                 break;
 
             case Game::SelectKey:
@@ -196,27 +227,102 @@ namespace monsterbattle
                 {
                     this->player.selectMove(this->moveIndex);
                     this->gameState = GameState::GAME_STATE_IN_BATTLE;
+                    this->onExitSelectingMove();
+                    this->onEnterInBattle();
                 }
                 catch (const std::out_of_range& e)
                 {
-                    std::cerr << "No move found at given index" << std::endl;
+                    textManager().setSubtitle("No move found at given index");
                 }
                 break;
 
             case Game::UpKey:
                 this->moveIndex--;
                 if (this->moveIndex >= monster::Monster::MoveCount) this->moveIndex = 0; //Check for underflow, because of unsigned value
+                textManager().selectMove(this->moveIndex, this->player.getCurrentMonster().getMoves());
 
                 break;
             
             case Game::DownKey:
                 this->moveIndex++;
                 if (this->moveIndex >= monster::Monster::MoveCount) this->moveIndex = monster::Monster::MoveCount - 1;
+                textManager().selectMove(this->moveIndex, this->player.getCurrentMonster().getMoves());
 
                 break;
 
             default:
                 break;
         }
+    }
+
+    void Game::onEnterInBattle()
+    {
+        for (auto& battleOpt : textManager().getBattleOptionText())
+        {
+            battleOpt.show();
+        }
+
+        for (auto& move : textManager().getMoveText())
+        {
+            move.hide();
+        }
+        
+        for (auto& partyMember : textManager().getTrainerPartyText())
+        {
+            partyMember.hide();
+        }
+
+    }
+
+    void Game::onEnterSelectingMonster()
+    {
+        for (auto& battleOpt : textManager().getBattleOptionText())
+        {
+            battleOpt.hide();
+        }
+
+        for (auto& move : textManager().getMoveText())
+        {
+            move.hide();
+        }
+        
+        for (auto& partyMember : textManager().getTrainerPartyText())
+        {
+            partyMember.show();
+        }
+    }
+
+    void Game::onEnterSelectingMove()
+    {
+        for (auto& battleOpt : textManager().getBattleOptionText())
+        {
+            battleOpt.hide();
+        }
+
+        for (auto& move : textManager().getMoveText())
+        {
+            move.show();
+        }
+        
+        for (auto& partyMember : textManager().getTrainerPartyText())
+        {
+            partyMember.hide();
+        }
+    }
+
+
+    void Game::onExitInBattle()
+    {
+
+    }
+
+    void Game::onExitSelectingMonster()
+    {
+
+    }
+
+    void Game::onExitSelectingMove()
+    {
+
     }
 }

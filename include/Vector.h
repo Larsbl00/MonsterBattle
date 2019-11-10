@@ -21,12 +21,14 @@ namespace monsterbattle
     template<typename T>
     struct Vector
     {
+        static_assert(std::is_trivial<T>::value);
+
         Vector():
             x(0), y(0)
         {}
 
 
-        Vector(const T& x, const T& y):
+        Vector(T x, T y):
             x(x), y(y)
         {}
 
@@ -39,23 +41,38 @@ namespace monsterbattle
         T x;
         T y;  
 
-        Vector& operator*=(const Vector& other) { this->x *= other.x; this->y *= other.y;return *this; }
-        Vector&  operator+=(const Vector& other) { this->x += other.x; this->y += other.y; return *this;}
-        Vector&  operator-=(const Vector& other) { this->x -= other.x; this->y -= other.y; return *this;}
-        Vector&  operator/=(const Vector& other) { this->x /= other.x; this->y /= other.y; return *this;}
-        Vector&  operator=(const Vector& other) { this->x = other.x; this->y = other.y; return *this;}  
+        template <typename U>
+        Vector<U> castTo() const { return std::move(Vector<U>(U(this->x), U(this->y))); }
 
-        Vector operator*(const Vector& other) { return std::move(Vector(this->x * other.x, this->y * other.y)); }
-        Vector operator+(const Vector& other) { return std::move(Vector(this->x + other.x, this->y + other.y)); }
-        Vector operator-(const Vector& other) { return std::move(Vector(this->x - other.x, this->y - other.y)); }
-        Vector operator/(const Vector& other) { return std::move(Vector(this->x / other.x, this->y / other.y)); }
+        template<typename U>
+        Vector<T>& operator*=(const Vector<U>& other) { this->x *= other.x; this->y *= other.y;return *this; }
+        template<typename U>
+        Vector<T>&  operator+=(const Vector<U>& other) { this->x += other.x; this->y += other.y; return *this; }
+        template<typename U>
+        Vector<T>&  operator-=(const Vector<U>& other) { this->x -= other.x; this->y -= other.y; return *this; }
+        template<typename U>
+        Vector<T>&  operator/=(const Vector<U>& other) { this->x /= other.x; this->y /= other.y; return *this; }
+        template<typename U>
+        Vector<T>&  operator=(const Vector<U>& other) { this->x = other.x; this->y = other.y; return *this; }  
+
+        template<typename U>
+        Vector<T> operator*(const Vector<U>& other) { return std::move(Vector(this->x * other.x, this->y * other.y)); }
+        template<typename U>
+        Vector<T> operator+(const Vector<U>& other) { return std::move(Vector(this->x + other.x, this->y + other.y)); }
+        template<typename U>
+        Vector<T> operator-(const Vector<U>& other) { return std::move(Vector(this->x - other.x, this->y - other.y)); }
+        template<typename U>
+        Vector<T> operator/(const Vector<U>& other) { return std::move(Vector(this->x / other.x, this->y / other.y)); }
 
         template <typename U>
-        friend std::ostream& operator<<(std::ostream& stream, const Vector<U>& vec)
-        { 
-            return stream << '{' << vec.x << ',' << vec.y << '}'; 
-        }
+        friend std::ostream& operator<<(std::ostream& stream, const Vector<U>& vec);
     };
+
+    template <typename U>
+    std::ostream& operator<<(std::ostream& stream, const Vector<U>& vec)
+    { 
+        return stream << '{' << vec.x << ',' << vec.y << '}'; 
+    }
 
     using Vector2f = Vector<float>;
     using Vector2i = Vector<int>;

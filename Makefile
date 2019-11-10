@@ -1,5 +1,5 @@
 #File info
-VERSION=0.1
+VERSION=0.2
 NAME=MonsterBattle
 DEBUG_NAME=$(NAME)-debug
 RELEASE_NAME=$(NAME)-release
@@ -86,6 +86,7 @@ SRC=\
 	Trainer.cpp \
 	MonsterBattle.cpp \
 	DisplayableText.cpp \
+	DisplayableTextManager.cpp \
 
 HEADERS=\
 	$(INC_DIR)/$(wildcard *.h)

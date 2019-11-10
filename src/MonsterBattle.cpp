@@ -57,8 +57,9 @@ namespace monsterbattle
         display(display), millisSecondsPerUpdate(static_cast<uint64_t>((1/updatesPerSecond) * 1000)), previousUpdateTime(0),
         enemy(enemyIsBot ? MonsterBattle::CpuDefaultName : MonsterBattle::EnemyDefaultName), enemyFile(enemyFile), 
         player(MonsterBattle::PlayerDefaultName), playerFile(playerFile)
-    {
+    {  
         displayManager().setDisplay(&this->display);
+        DisplayableTextManager::getInstance().setup(); 
     }
 
     MonsterBattle::~MonsterBattle() noexcept
@@ -99,6 +100,8 @@ namespace monsterbattle
             this->isRunning= false;
             return;
         }
+
+        DisplayableTextManager::getInstance().setPartyText(this->player.getMonsters());
     }
 
     void MonsterBattle::run()
@@ -122,6 +125,8 @@ namespace monsterbattle
             this->previousUpdateTime = now;
         }
     }
+
+    const IDisplay& MonsterBattle::getDisplay() const { return this->display; }
 
     bool MonsterBattle::getIsRunning() const { return this->isRunning && this->game.getIsRunning(); }
 

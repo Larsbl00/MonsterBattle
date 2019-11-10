@@ -85,6 +85,8 @@ namespace monsterbattle
             this->precision = stof(data[3]);
         }
 
+        Type Move::getType() const { return this->attackType; }
+
         const std::string& Move::getName() const { return this->name; }
 
         std::ostream& operator<<(std::ostream& str, const Move& move)
