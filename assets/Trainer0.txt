@@ -1,0 +1,13 @@
+# This file contains the info of the trainer with the name of the file
+#
+# Each party-member should be placed on a new line, and should have the following format
+# {<MONSTER_NAME>, <NICK_NAME>}
+#
+# Use '#' to comment lines
+# Your trainer can carry a maximum of 6 monsters as of now
+
+{Mixtape, Is Lit}
+{PolarBear, PolarBear}
+{Thor, Thor}
+{Lake, Lakey}
+{SmallBird, SmallBird}
