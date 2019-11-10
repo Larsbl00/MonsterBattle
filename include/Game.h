@@ -75,6 +75,14 @@ namespace monsterbattle
         void stateInBattle(char pressedChar);
         void stateSelectingMonster(char pressedChar);
         void stateSelectingMove(char pressedChar);
+
+        void onEnterInBattle();
+        void onEnterSelectingMonster();
+        void onEnterSelectingMove();
+        
+        void onExitInBattle();
+        void onExitSelectingMonster();
+        void onExitSelectingMove();
     };
 }
 

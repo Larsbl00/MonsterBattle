@@ -45,6 +45,9 @@ namespace monsterbattle
 
         //Set delegate
         this->inputReader.setDelegate(this);
+
+        //Call entry for default state
+        this->onEnterInBattle();
     }
 
     Game::~Game() noexcept
@@ -119,10 +122,26 @@ namespace monsterbattle
         {
             case Game::SelectKey:
                 this->gameState = this->selectedState;
+                switch (this->gameState)
+                {
+                    case GameState::GAME_STATE_SELECTING_MONSTER:
+                        this->onEnterSelectingMonster();
+                        break;
+                    case GameState::GAME_STATE_SELECTING_MOVE:
+                        this->onEnterSelectingMove();
+                        break;
+
+                    default:
+                        break;
+                }
+
+                this->onExitInBattle();
+
                 break;
             
             case Game::BackKey:
                 this->stateEnd();
+                this->onExitInBattle();
                 break;
         
             case Game::LeftKey:
@@ -147,6 +166,8 @@ namespace monsterbattle
             
             case Game::BackKey:
                 this->gameState = GameState::GAME_STATE_IN_BATTLE;
+                this->onExitSelectingMonster();
+                this->onEnterInBattle();
                 break;
 
             case Game::SelectKey:
@@ -157,6 +178,8 @@ namespace monsterbattle
                     textManager().selectMove(this->moveIndex, this->player.getCurrentMonster().getMoves());
                     this->gameState = GameState::GAME_STATE_IN_BATTLE;
                     this->moveIndex = 0;
+                    this->onExitSelectingMonster();
+                    this->onEnterInBattle();
                 }
                 catch(const std::out_of_range& e)
                 {
@@ -195,6 +218,8 @@ namespace monsterbattle
         {
             case Game::BackKey:
                 this->gameState = GameState::GAME_STATE_IN_BATTLE;
+                this->onExitSelectingMove();
+                this->onEnterInBattle();
                 break;
 
             case Game::SelectKey:
@@ -202,10 +227,11 @@ namespace monsterbattle
                 {
                     this->player.selectMove(this->moveIndex);
                     this->gameState = GameState::GAME_STATE_IN_BATTLE;
+                    this->onExitSelectingMove();
+                    this->onEnterInBattle();
                 }
                 catch (const std::out_of_range& e)
                 {
-                    std::cerr << "No move found at given index" << std::endl;
                     textManager().setSubtitle("No move found at given index");
                 }
                 break;
@@ -227,5 +253,76 @@ namespace monsterbattle
             default:
                 break;
         }
+    }
+
+    void Game::onEnterInBattle()
+    {
+        for (auto& battleOpt : textManager().getBattleOptionText())
+        {
+            battleOpt.show();
+        }
+
+        for (auto& move : textManager().getMoveText())
+        {
+            move.hide();
+        }
+        
+        for (auto& partyMember : textManager().getTrainerPartyText())
+        {
+            partyMember.hide();
+        }
+
+    }
+
+    void Game::onEnterSelectingMonster()
+    {
+        for (auto& battleOpt : textManager().getBattleOptionText())
+        {
+            battleOpt.hide();
+        }
+
+        for (auto& move : textManager().getMoveText())
+        {
+            move.hide();
+        }
+        
+        for (auto& partyMember : textManager().getTrainerPartyText())
+        {
+            partyMember.show();
+        }
+    }
+
+    void Game::onEnterSelectingMove()
+    {
+        for (auto& battleOpt : textManager().getBattleOptionText())
+        {
+            battleOpt.hide();
+        }
+
+        for (auto& move : textManager().getMoveText())
+        {
+            move.show();
+        }
+        
+        for (auto& partyMember : textManager().getTrainerPartyText())
+        {
+            partyMember.hide();
+        }
+    }
+
+
+    void Game::onExitInBattle()
+    {
+
+    }
+
+    void Game::onExitSelectingMonster()
+    {
+
+    }
+
+    void Game::onExitSelectingMove()
+    {
+
     }
 }
