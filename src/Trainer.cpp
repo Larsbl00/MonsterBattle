@@ -137,8 +137,11 @@ namespace monsterbattle
 
     void Trainer::selectMonster(uint8_t index)
     {
+        
         if (index >= Trainer::PartyCount) throw std::out_of_range("Monster index greater than PartyCount of value: " + std::to_string(Trainer::PartyCount));
         else if (this->getMonsters()[index] == nullptr) throw std::out_of_range("Party has no monster at index = " + std::to_string(static_cast<int>(index)));
+
+        if (this->getMonsters()[index]->getStats().health <= 0) throw std::logic_error("Cannot select knocked-out monster");
 
         this->selectedMonsterIndex = index;
 

@@ -183,8 +183,7 @@ namespace monsterbattle
                 }
                 catch(const std::out_of_range& e)
                 {
-                    std::cerr << "No monster present at selected index" << std::endl;
-                    textManager().setSubtitle("No monster present at selected index");
+                    textManager().setSubtitle(e.what());
                 }
             
                 break;

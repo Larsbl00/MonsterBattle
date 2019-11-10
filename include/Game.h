@@ -19,6 +19,7 @@
 #include "MonsterManager.h"
 #include "MoveManager.h"
 #include "Trainer.h"
+#include "Vector.h"
 
 namespace monsterbattle
 {   
@@ -28,6 +29,9 @@ namespace monsterbattle
         friend inline void updateGameInput(Game& game) noexcept;
 
         public:
+
+        const static inline Vector2f RelativeMonsterLocationTrainer = Vector2f(0.05, 0.40);
+        const static inline Vector2f RelativeMonsterLocationOpponent = Vector2f(0.55, 0.2);
 
         static constexpr auto BattleOptions = 2;
         static constexpr auto MonsterFileName = "monsters.txt";

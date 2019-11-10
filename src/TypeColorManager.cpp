@@ -21,7 +21,7 @@ namespace monsterbattle
 
     TypeColorManager::TypeColorManager():
         typeColorMap{
-            {Type::NONE,        Color(255, 255, 255, 10)},
+            {Type::NONE,        Color(255, 255, 255, 75)},
             {Type::FIRE,        Color(226, 88, 34)},
             {Type::WATER,       Color(0, 119, 190)},
             {Type::GRASS,       Color(124, 252, 0)},

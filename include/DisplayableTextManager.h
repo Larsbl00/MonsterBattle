@@ -39,7 +39,7 @@ namespace monsterbattle
         public:
 
         const static inline Vector2i32 DefaultTextLocation = Vector2i32(0, 0);
-        const static inline Color HighlightColor = Color(0, 23, 185);
+        const static inline Color HighlightColor = Color(0, 155, 185);
         const static inline Color DefaultColor = Color(255, 255, 255);
         const static inline Vector2f RelativeStartPositionBattleMonsterOption = Vector2f(0.05, 0.85);
         const static inline Vector2f RelativeStartPositionBattleMoveOption = Vector2f(0.55, 0.85);
