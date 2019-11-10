@@ -128,13 +128,11 @@ namespace monsterbattle
             case Game::LeftKey:
                 this->selectedState = GameState::GAME_STATE_SELECTING_MONSTER;
                 textManager().selectBattleOption(0);
-                std::cout << "Selected Monster" << std::endl;
                 break;
 
             case Game::RightKey:
                 this->selectedState = GameState::GAME_STATE_SELECTING_MOVE;
                 textManager().selectBattleOption(1);
-                std::cout << "Selected Move" << std::endl;
                 break;
 
             default:

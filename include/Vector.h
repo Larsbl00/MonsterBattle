@@ -44,16 +44,25 @@ namespace monsterbattle
         template <typename U>
         Vector<U> castTo() const { return std::move(Vector<U>(U(this->x), U(this->y))); }
 
-        Vector& operator*=(const Vector& other) { this->x *= other.x; this->y *= other.y;return *this; }
-        Vector&  operator+=(const Vector& other) { this->x += other.x; this->y += other.y; return *this; }
-        Vector&  operator-=(const Vector& other) { this->x -= other.x; this->y -= other.y; return *this; }
-        Vector&  operator/=(const Vector& other) { this->x /= other.x; this->y /= other.y; return *this; }
-        Vector&  operator=(const Vector& other) { this->x = other.x; this->y = other.y; return *this; }  
+        template<typename U>
+        Vector<T>& operator*=(const Vector<U>& other) { this->x *= other.x; this->y *= other.y;return *this; }
+        template<typename U>
+        Vector<T>&  operator+=(const Vector<U>& other) { this->x += other.x; this->y += other.y; return *this; }
+        template<typename U>
+        Vector<T>&  operator-=(const Vector<U>& other) { this->x -= other.x; this->y -= other.y; return *this; }
+        template<typename U>
+        Vector<T>&  operator/=(const Vector<U>& other) { this->x /= other.x; this->y /= other.y; return *this; }
+        template<typename U>
+        Vector<T>&  operator=(const Vector<U>& other) { this->x = other.x; this->y = other.y; return *this; }  
 
-        Vector operator*(const Vector& other) { return std::move(Vector(this->x * other.x, this->y * other.y)); }
-        Vector operator+(const Vector& other) { return std::move(Vector(this->x + other.x, this->y + other.y)); }
-        Vector operator-(const Vector& other) { return std::move(Vector(this->x - other.x, this->y - other.y)); }
-        Vector operator/(const Vector& other) { return std::move(Vector(this->x / other.x, this->y / other.y)); }
+        template<typename U>
+        Vector<T> operator*(const Vector<U>& other) { return std::move(Vector(this->x * other.x, this->y * other.y)); }
+        template<typename U>
+        Vector<T> operator+(const Vector<U>& other) { return std::move(Vector(this->x + other.x, this->y + other.y)); }
+        template<typename U>
+        Vector<T> operator-(const Vector<U>& other) { return std::move(Vector(this->x - other.x, this->y - other.y)); }
+        template<typename U>
+        Vector<T> operator/(const Vector<U>& other) { return std::move(Vector(this->x / other.x, this->y / other.y)); }
 
         template <typename U>
         friend std::ostream& operator<<(std::ostream& stream, const Vector<U>& vec);

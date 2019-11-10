@@ -158,9 +158,14 @@ namespace monsterbattle
     {
         //Escape if 
         if (displayManager().getDisplay() == nullptr) throw std::runtime_error("Display not yet set in displaymanager");
+        Vector<int32_t> winSize = displayManager().getDisplay()->getSize();
+
         // Subtitle
-        const auto& size = displayManager().getDisplay()->getSize();
-        auto strSize = size.castTo<float>() * DisplayableTextManager::RelativeStartPositionSubtitle;
-        this->subtitleText.moveTo(strSize.castTo<int32_t>());
+        this->subtitleText.moveTo(winSize * DisplayableTextManager::RelativeStartPositionSubtitle);
+
+        // Battleoptions
+        this->battleOptionText[0].moveTo(winSize * DisplayableTextManager::RelativeStartPositionBattleOption);
+        this->battleOptionText[0].moveTo(winSize * DisplayableTextManager::RelativeStartPositionBattleOption);
+
     }
 };
