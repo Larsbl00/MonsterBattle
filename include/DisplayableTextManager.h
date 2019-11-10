@@ -46,6 +46,7 @@ namespace monsterbattle
         const static inline Vector2f RelativeStartPositionMoveSelect = Vector2f(0.05, 0.3);
         const static inline Vector2f RelativeStartPositionMonsterSelect = Vector2f(0.05, 0.3);
         const static inline Vector2f RelativeStartPositionSubtitle = Vector2f(0.05, 0.95);
+        const static inline Vector2f RealtiveSpacingMonsters = Vector2f(0, 0.1);
 
         ~DisplayableTextManager() noexcept;
 

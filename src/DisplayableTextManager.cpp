@@ -166,8 +166,18 @@ namespace monsterbattle
         // Battleoptions
         this->battleOptionText[0].moveTo(winSize * DisplayableTextManager::RelativeStartPositionBattleMonsterOption);
         this->battleOptionText[1].moveTo(winSize * DisplayableTextManager::RelativeStartPositionBattleMoveOption);
+        this->selectBattleOption(0);
 
         // Monsters
+        //Copy start location
+        auto monsterStartLocation = winSize * DisplayableTextManager::RelativeStartPositionMonsterSelect;
+        for (auto& element : this->getTrainerPartyText())
+        {
+            element.moveTo(monsterStartLocation);
 
+            //Move to next position
+            monsterStartLocation += winSize * DisplayableTextManager::RealtiveSpacingMonsters;
+        }
+        //TODO Select monster
     }
 };
