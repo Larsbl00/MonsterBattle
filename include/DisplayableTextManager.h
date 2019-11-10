@@ -74,8 +74,9 @@ namespace monsterbattle
          * @brief 
          * 
          * @param index Highlights the selected move
+         * @param moves The list of moves present in the monster, used for getting the color of the move
         */
-        void selectMove(uint8_t index);
+        void selectMove(uint8_t index, const std::array<const monster::Move*, monster::Monster::MoveCount>& moves);
 
         /**
          * @brief Sets the battle options

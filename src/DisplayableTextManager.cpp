@@ -109,7 +109,7 @@ namespace monsterbattle
         }
     }
 
-    void DisplayableTextManager::selectMove(uint8_t index)
+    void DisplayableTextManager::selectMove(uint8_t index, const std::array<const monster::Move*, monster::Monster::MoveCount>& moves)
     {
         for (uint8_t i = 0; i < monster::Monster::MoveCount; i++)
         {
@@ -119,7 +119,14 @@ namespace monsterbattle
             }
             else 
             {
-                this->moveText[i].setColor(DisplayableTextManager::DefaultColor);
+                if (moves[i] != nullptr)
+                {
+                    this->moveText[i].setColor(colorManager().getColorFromType(moves[i]->getType()));
+                }
+                else 
+                {
+                    this->moveText[i].setColor(DisplayableTextManager::DefaultColor);
+                }
             }
         }
         
@@ -206,6 +213,6 @@ namespace monsterbattle
 
             moveStartLocation += winSize * DisplayableTextManager::RealtiveSpacingMoves;
         }
-        this->selectMove(0);
+        this->selectMove(0, {nullptr, nullptr, nullptr, nullptr});
     }
 };

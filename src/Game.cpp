@@ -154,6 +154,7 @@ namespace monsterbattle
                 {
                     this->player.selectMonster(this->monsterIndex);
                     textManager().setMoveText(this->player.getCurrentMonster().getMoves());
+                    textManager().selectMove(this->moveIndex, this->player.getCurrentMonster().getMoves());
                     this->gameState = GameState::GAME_STATE_IN_BATTLE;
                     this->moveIndex = 0;
                 }
@@ -212,13 +213,14 @@ namespace monsterbattle
             case Game::UpKey:
                 this->moveIndex--;
                 if (this->moveIndex >= monster::Monster::MoveCount) this->moveIndex = 0; //Check for underflow, because of unsigned value
-
+                textManager().selectMove(this->moveIndex, this->player.getCurrentMonster().getMoves());
 
                 break;
             
             case Game::DownKey:
                 this->moveIndex++;
                 if (this->moveIndex >= monster::Monster::MoveCount) this->moveIndex = monster::Monster::MoveCount - 1;
+                textManager().selectMove(this->moveIndex, this->player.getCurrentMonster().getMoves());
 
                 break;
 
