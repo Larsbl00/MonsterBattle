@@ -164,8 +164,10 @@ namespace monsterbattle
         this->subtitleText.moveTo(winSize * DisplayableTextManager::RelativeStartPositionSubtitle);
 
         // Battleoptions
-        this->battleOptionText[0].moveTo(winSize * DisplayableTextManager::RelativeStartPositionBattleOption);
-        this->battleOptionText[0].moveTo(winSize * DisplayableTextManager::RelativeStartPositionBattleOption);
+        this->battleOptionText[0].moveTo(winSize * DisplayableTextManager::RelativeStartPositionBattleMonsterOption);
+        this->battleOptionText[1].moveTo(winSize * DisplayableTextManager::RelativeStartPositionBattleMoveOption);
+
+        // Monsters
 
     }
 };
