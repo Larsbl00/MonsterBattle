@@ -17,6 +17,7 @@
 
 namespace monsterbattle 
 {
+    constexpr auto displayManager = &DisplayManager::getInstance;
     constexpr auto monsterManager = &monster::MonsterManager::getInstance;
     constexpr auto moveManager = &monster::MoveManager::getInstance;
     constexpr auto textManager = &DisplayableTextManager::getInstance;
@@ -173,7 +174,13 @@ namespace monsterbattle
             case Game::SelectKey:
                 try
                 {
+                    //Select monster
                     this->player.selectMonster(this->monsterIndex);
+                    //Move to correct position
+                    Vector<int32_t> winSize =  displayManager().getDisplay()->getSize();
+                    this->player.getCurrentMonster().moveTo(winSize * Game::RelativeMonsterLocationTrainer);
+
+
                     textManager().setMoveText(this->player.getCurrentMonster().getMoves());
                     textManager().selectMove(this->moveIndex, this->player.getCurrentMonster().getMoves());
                     this->moveIndex = 0;
