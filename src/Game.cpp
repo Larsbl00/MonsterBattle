@@ -174,7 +174,6 @@ namespace monsterbattle
                 try
                 {
                     this->player.selectMonster(this->monsterIndex);
-                    this->swapMonster(this->player, monsterIndex);
                     textManager().setMoveText(this->player.getCurrentMonster().getMoves());
                     textManager().selectMove(this->moveIndex, this->player.getCurrentMonster().getMoves());
                     this->moveIndex = 0;

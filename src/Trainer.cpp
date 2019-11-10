@@ -155,7 +155,7 @@ namespace monsterbattle
         this->selectMove(0);
 
         //Add new one to queue
-        displayManager().addToRenderQueue(&this->getCurrentMonster())
+        displayManager().addToRenderQueue(&this->getCurrentMonster());
     }
 
     /*********************
