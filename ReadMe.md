@@ -1,7 +1,7 @@
 # Monster Battle
 
 ## Video
-[![](https://i.ytimg.com/vi/GHECLKibHS0/hqdefault.jpg?sqp=-oaymwEZCPYBEIoBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLAIj5puWsZPc4nUsfuyow22itUDDA)](https://youtu.be/GHECLKibHS0 "Video showcase")
+[![](https://i.ytimg.com/vi/t3XFfZhiMP8/hqdefault.jpg?sqp=-oaymwEZCNACELwBSFXyq4qpAwsIARUAAIhCGAFwAQ==&rs=AOn4CLB55niNEKgK76ubb74LXAMgn78LFw)](https://www.youtube.com/watch?v=t3XFfZhiMP8 "Video showcase")
 
 ## Launching
 When launching the program you can the `-h` or `--help` flags to see all launch parameters.
