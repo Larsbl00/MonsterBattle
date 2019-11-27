@@ -3,7 +3,7 @@
 ## Launching
 When launching the program you can the `-h` or `--help` flags to see all launch parameters.
 When launching the game, make sure you add the `-t` flag to select a trainer file for the player,
-and use either `-c` or `-o` to select an opponnent.
+and use `-o` to select an opponnent.
 
 The following table will explain all parameters:
 
@@ -12,7 +12,6 @@ The following table will explain all parameters:
 | -h    | --help | Shows all flags and waht they do |
 | -t    | --trainer | Selects a trainerfile that the main player uses |
 | -o    | --opponent | Selects a trainer file for the oppononent to use, said opponent should be controlled by another person | 
-| -c    | --cpu-trainer | Selects a trainer file for the opponent which is controlled by the game itself |
 
 ## Assets
 The `assets` directory contains all files for the game, in all of these files you can use `#` to create lines of comments.
