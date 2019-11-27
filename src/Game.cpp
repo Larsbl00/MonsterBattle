@@ -36,8 +36,8 @@ namespace monsterbattle
      * Constructor
      * 
      */
-    Game::Game(const std::string& assetDir, InputReader& inputReader, Trainer& trainer, Trainer& enemy, bool enemyIsBot):
-        assetDirectory(assetDir), enemyIsBot(enemyIsBot), gameState(GameState::GAME_STATE_IN_BATTLE),
+    Game::Game(const std::string& assetDir, InputReader& inputReader, Trainer& trainer, Trainer& enemy):
+        assetDirectory(assetDir), gameState(GameState::GAME_STATE_IN_BATTLE),
         isUpdatingReader(true), inputReader(inputReader),
         inputThread(updateGameInput, std::ref(*this)), player(trainer), opponent(enemy)
     {

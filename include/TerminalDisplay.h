@@ -58,7 +58,7 @@ namespace monsterbattle
 
         void clear() override;
         void display() override;
-        const Vector2i32& getSize() const;
+        const Vector2i32& getSize() const override;
         void setPixel(const Vector2i32& pixel, char value) override;
         void setPixel(const Vector2i32& pixel, const monsterbattle::Color& color) override;
         void setPixel(const Vector2i32& pixel, char value, const monsterbattle::Color& color) override;

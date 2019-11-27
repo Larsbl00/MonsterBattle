@@ -52,10 +52,10 @@ namespace monsterbattle
      * 
      */
 
-    MonsterBattle::MonsterBattle(IDisplay& display, const std::string& playerFile, const std::string& enemyFile, bool enemyIsBot, float updatesPerSecond):
-        isRunning(true), game(MonsterBattle::AssetDir, TerminalInputReader::getInstance(), this->player, this->enemy, enemyIsBot),
+    MonsterBattle::MonsterBattle(IDisplay& display, const std::string& playerFile, const std::string& enemyFile, float updatesPerSecond):
+        isRunning(true), game(MonsterBattle::AssetDir, TerminalInputReader::getInstance(), this->player, this->enemy),
         display(display), millisSecondsPerUpdate(static_cast<uint64_t>((1/updatesPerSecond) * 1000)), previousUpdateTime(0),
-        enemy(enemyIsBot ? MonsterBattle::CpuDefaultName : MonsterBattle::EnemyDefaultName), enemyFile(enemyFile), 
+        enemy(MonsterBattle::CpuDefaultName), enemyFile(enemyFile), 
         player(MonsterBattle::PlayerDefaultName), playerFile(playerFile)
     {  
         displayManager().setDisplay(&this->display);

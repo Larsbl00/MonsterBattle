@@ -120,7 +120,7 @@ vpath $(LIB_EXT) $(LIB_DIR)
 #######################################
 .PHONY: all dirs clean lib
 
-all: dirs $(NAME) $(DEBUG_NAME) $(RELEASE_NAME)
+all: dirs $(NAME)
 
 $(NAME): $(DEBUG_NAME) $(RELEASE_NAME)
 

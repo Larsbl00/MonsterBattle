@@ -37,7 +37,7 @@ namespace monsterbattle
         static constexpr auto EnemyDefaultName = "PLAYER 2";
         const static inline auto MinimumSize = Vector2i32(0, 16);
 
-        MonsterBattle(IDisplay& display, const std::string& playerFile, const std::string& enemyFile, bool enemyIsBot, float updatesPerSecond);
+        MonsterBattle(IDisplay& display, const std::string& playerFile, const std::string& enemyFile, float updatesPerSecond);
         ~MonsterBattle() noexcept;
 
         /**

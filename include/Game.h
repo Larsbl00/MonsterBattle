@@ -48,7 +48,7 @@ namespace monsterbattle
         static constexpr char RightKey = 'C';   //Lazy way to detect an arrow right press
         static constexpr char LeftKey = 'D';    //Lazy way to detect an arrow left press
 
-        Game(const std::string& assetDir, InputReader& inputReader, Trainer& trainer, Trainer& enemy, bool enemyIsBot);
+        Game(const std::string& assetDir, InputReader& inputReader, Trainer& trainer, Trainer& enemy);
         Game(const Game& other) = delete;
         ~Game() noexcept;
 
@@ -59,7 +59,6 @@ namespace monsterbattle
 
         private:
         std::string assetDirectory;
-        bool enemyIsBot;
         GameState gameState;
         GameState selectedState = GameState::GAME_STATE_SELECTING_MOVE;
         bool isUpdatingReader;
